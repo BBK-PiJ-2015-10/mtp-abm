@@ -1,0 +1,5 @@
+product,units
+A,1000
+B,500
+C,300
+D,800
