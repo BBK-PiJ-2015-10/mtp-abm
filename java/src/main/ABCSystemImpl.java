@@ -1,6 +1,8 @@
 package main;
 
 import java.util.Scanner;
+
+
 import java.io.File;
 
 public class ABCSystemImpl implements ABCSystem {
@@ -13,43 +15,57 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	private ConfigurationMaker configurationMaker;
 	
+	private Scanner sc = new Scanner(System.in);
+	
+	public void runMakeNewUserSpace(){
+		userSpaceMaker = new UserSpaceMakerImpl();
+		userSpaceMaker.createUserSpace(userSpace);
+	}
+	
+	public void runAccessExistingUserSpace() {
+		boolean validName=false;
+		System.out.println("Please enter the name of the userspace you wish to access");
+		String target = sc.nextLine();
+		validName = userSpace.capture(target);
+		while (!validName){
+			System.out.println("Username entered doesn't exist, please re-enter userspace");
+			target = sc.nextLine();
+			validName = userSpace.capture(target);
+		}	
+	}
+	
+	public void runMakeNewConfiguration(){
+		configurationMaker = new ConfigurationMakerImpl();
+		configurationMaker.makeConfiguration(userSpace);
+	}
+	
+	
+	
 	@Override
 	public void run() {
 		
-		Scanner sc = new Scanner(System.in);
 		System.out.println("If you are a new user, please enter yes, if not, please enter no");
 		String choice = sc.nextLine();
 		
-		if (choice.equals("yes")){
-			userSpaceMaker = new UserSpaceMakerImpl();
-			userSpaceMaker.createUserSpace(userSpace);
-			configurationMaker = new ConfigurationMakerImpl();
-			configurationMaker.makeConfiguration(userSpace);		
+		if (choice.equalsIgnoreCase("yes")){
+			runMakeNewUserSpace();		
 		}
-		if (choice.equals("no")){
-			System.out.println("Please enter the name of the userspace you with to access");
-			String target = sc.nextLine();
-			String address = "C:\\Users\\YasserAlejandro\\mtp\\mtp-abm\\";
-			File aFile = new File(address+target);
-			System.out.println(aFile.exists());
-			System.out.println(aFile.getName());
-			
+		else {
+			runAccessExistingUserSpace();
 		}
 		
-		System.out.println("Please go to the below location and drop your general ledger and operation data files");
+		System.out.println("If you wish to create a new ABC Configuration, please enter yes");
+		choice = sc.nextLine();
+		if (choice.equalsIgnoreCase("yes")){
+			runMakeNewConfiguration();
+
+		}
 		
 		
-		
-		//else {
-			//System.out.println("Please enter the name of the configuration you wish to access");
-			//String 
-			
-		//}
+		System.out.println("This is under development");	
 		
 		
-		System.out.println("This is under development");
-		
-		//configurationMaker.makeConfiguration();
+
 		
 	}
 	

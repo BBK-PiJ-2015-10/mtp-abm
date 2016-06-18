@@ -14,7 +14,7 @@ public class UserSpaceMakerImpl implements UserSpaceMaker {
 		
 		//System.out.println("Please enter the location on disk where you wish to create the new userspace");
 		//String address = sc.nextLine();
-		String address = "C:\\Users\\YasserAlejandro\\mtp\\mtp-abm\\";
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
 		
 		userSpace.FileSetUserSpaceFile(new File(address+dirname));
 		userSpace.getUserSpaceFile().mkdir();

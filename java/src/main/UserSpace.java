@@ -13,10 +13,6 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-
-
-
-
 public class UserSpace implements Serializable {
 	
 	private File file;
@@ -50,7 +46,7 @@ public class UserSpace implements Serializable {
 	}
 	
 	public void save(){
-		String address = "C:\\Users\\YasserAlejandro\\mtp\\mtp-abm\\";
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
 		String directory = file.getName();
 		
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(address+directory+"\\"+file.getName()+".dat"));)
@@ -62,6 +58,31 @@ public class UserSpace implements Serializable {
 			ex.printStackTrace();
 		}
 	}
+	
+	public boolean capture(String directory){
+		boolean isPresent;
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
+		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directory+"\\"+directory+".dat"));)
+		{
+			file = (File)incode.readObject();
+			configurations=(Map<String,File>)incode.readObject();
+			isPresent = true;
+			
+		} catch (ClassNotFoundException ex){
+			isPresent = false;
+		} catch (IOException ex2){
+			isPresent = false;;
+		}
+		return isPresent;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

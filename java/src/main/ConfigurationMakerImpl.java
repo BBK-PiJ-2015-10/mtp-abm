@@ -19,6 +19,11 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		userSpace.save();
 		System.out.println("Please go to the below location and drop your general ledger and operation data files");
 		System.out.println(address+dirname);
+		System.out.println("When done, please enter the word done");
+		String input = sc.nextLine();
+		//if (input.equalsIgnoreCase("done")){
+		
+	     //}
 
 		
 	}
