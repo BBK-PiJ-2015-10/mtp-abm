@@ -6,11 +6,9 @@ import java.io.Serializable;
 
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-
 import java.io.ObjectInputStream;
 import java.io.FileInputStream;
-
+import java.io.IOException;
 
 public class BigPerson implements Serializable{
 	

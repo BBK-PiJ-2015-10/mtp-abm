@@ -1,16 +1,16 @@
 package main;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import java.io.Serializable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
+
 import java.io.IOException;
 
 public class UserSpace implements Serializable {
@@ -59,10 +59,10 @@ public class UserSpace implements Serializable {
 		}
 	}
 	
-	public boolean capture(String directory){
+	public boolean capture(String directoryname){
 		boolean isPresent;
 		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
-		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directory+"\\"+directory+".dat"));)
+		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directoryname+"\\"+directoryname+".dat"));)
 		{
 			file = (File)incode.readObject();
 			configurations=(Map<String,File>)incode.readObject();
@@ -74,7 +74,6 @@ public class UserSpace implements Serializable {
 			isPresent = false;;
 		}
 		return isPresent;
-		
 	}
 	
 	
