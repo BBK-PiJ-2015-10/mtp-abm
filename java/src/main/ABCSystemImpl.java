@@ -17,6 +17,7 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	private Scanner sc = new Scanner(System.in);
 	
+	
 	public void runMakeNewUserSpace(){
 		userSpaceMaker = new UserSpaceMakerImpl();
 		userSpaceMaker.createUserSpace(userSpace);

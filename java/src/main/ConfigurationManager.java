@@ -21,7 +21,7 @@ public class ConfigurationManager implements Serializable {
 	
 	private File glFile;
 	
-	public ConfigurationManager() {};
+	//public ConfigurationManager() {};
 	
 	public ConfigurationManager(File file){
 		this.file=file;
@@ -85,6 +85,8 @@ public class ConfigurationManager implements Serializable {
 			isPresent = false;
 		} catch (IOException ex2){
 			isPresent = false;;
+		} catch (NullPointerException ex){
+			isPresent = false;
 		}
 		return isPresent;
 	}

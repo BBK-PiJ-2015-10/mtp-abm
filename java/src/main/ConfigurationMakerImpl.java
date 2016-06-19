@@ -22,12 +22,8 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		System.out.println("When done, please enter the word done");
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
-			ConfigurationManager configMgr = new ConfigurationManager(config);
-			configMgr.scanConfig();
-			System.out.println("Please enter the name and extension of the file that contains the general ledger data");
-			String glName = sc.nextLine();
-			configMgr.setGLFile(glName);
-			configMgr.save();
+			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
+			configMapper.mapFiles();
 	     }
 		System.out.println("For today, you are done with the configuration set up");
 

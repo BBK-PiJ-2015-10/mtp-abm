@@ -1,7 +1,11 @@
 package main;
 
+import java.io.BufferedReader;
 import java.io.File;
-
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.util.Arrays;
 
 public class TestScript {
@@ -15,51 +19,45 @@ public class TestScript {
 	
 	public void launch(){
 		
-		System.out.println("This is a test");
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user1\\config1";
 		
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3";
-		
-		File config = new File(address);
-		
-		//System.out.println(config.isDirectory());
-		//System.out.println(config.exists());
-		//String[] arrays = config.list();
-		//Arrays.asList(arrays).forEach(n->System.out.println(n));
-		
-		//File[] files = config.listFiles();
-		//Arrays.asList(files);
-		//System.out.println(files[0].getPath());
-		//System.out.println(files[0].getName());
-		
-		//System.out.println(config.list());
+		File config = new File(address);		
 		
 		ConfigurationManager test = new ConfigurationManager(config);
-		//System.out.println(test.getFile().getAbsolutePath());
-		//System.out.println(test.capture("config3"));
-		test.scanConfig();
-		//System.out.println(test.capture("config3"));
-		test.setGLFile("gl.csv");
-		test.save();
-		System.out.println(test.capture("config3"));
+		test.capture("config1");
+		System.out.println(test.getFileNames());
 		
-		ConfigurationManager test2 = new ConfigurationManager(config);
-		test2.capture("config3");
-		test2.getFileNames().forEach(System.out::println);
+		System.out.println(test.getFLFile().getName());
 		
-		System.out.println("it is over");
-		
-		
-		//test.
-		
-		//System.out.println(test.getFile().getName());
-		//System.out.println(test.getFileNames());
-		//test.scanConfig();
-		//System.out.println(test.getFileNames());
-		//test.setGLFile("gl.csv");
-		//System.out.println(test.getFileNames());
-		//System.out.println(test.getFileNames());
-		
+		//File file = new File(address);
+		BufferedReader in = null;
+		try {
+			in = new BufferedReader(new FileReader(test.getFLFile()));
+			String line;
+			while ((line=in.readLine()) != null){
+				System.out.println(line);
+			}
+			System.out.println("Is this working");
+			in.close();
+		} catch (FileNotFoundException ex){
+			System.out.println("File " +test.getFLFile() + " does not exist");
+		} catch (IOException ex){
+			ex.printStackTrace();
+		} finally {
+			closeReader(in);
+		}
 		
 	}
 
+	private void closeReader(Reader reader){
+		try {
+			if (reader != null){
+				reader.close();
+			}
+		} catch (IOException ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	
 }
