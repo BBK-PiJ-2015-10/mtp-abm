@@ -3,15 +3,19 @@ package main;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.HashSet;
 
 import java.io.Serializable;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
-
+import java.io.FileReader;
 import java.io.IOException;
+
+import java.io.BufferedReader;
 
 public class ConfigurationManager implements Serializable {
 
@@ -21,13 +25,20 @@ public class ConfigurationManager implements Serializable {
 	
 	private File glFile;
 	
-	//public ConfigurationManager() {};
+	private Map<String,Set<String>> bpaFilesAttributesMap = new HashMap<>();
+	
+	private Map<String,Set<String>> bpaFilesMainAttribustesMap = new HashMap<>();
+	
+	private Map<String,Set<String>> glFilesAttributesMap = new HashMap<>();
+	
+	private Map<String,Set<String>> glFilesMainAttribustesMap = new HashMap<>();
+	
+	private BufferedReader in = null;
 	
 	public ConfigurationManager(File file){
 		this.file=file;
 	}
 		
-	
 	public void setFile(File file){
 		this.file=file;
 	}
@@ -48,16 +59,19 @@ public class ConfigurationManager implements Serializable {
 		}			
 	}	
 		
-		
-	public Set<String> getFileNames(){
+	public Set<String> getBPAFileNames(){
 		return filesMap.keySet();
+	}
+	
+	public File getBPAFile(String name){
+		return filesMap.get(name);
 	}
 	
 	public void setGLFile(String filename){
 		glFile = filesMap.remove(filename);	
 	}
 	
-	public File getFLFile(){
+	public File getGLFile(){
 		return glFile;
 	}
 	
@@ -71,7 +85,7 @@ public class ConfigurationManager implements Serializable {
 		catch (IOException ex){
 			ex.printStackTrace();
 		}
-	};
+	}
 	
 	public boolean capture(String configurationname){
 		boolean isPresent;
@@ -90,6 +104,56 @@ public class ConfigurationManager implements Serializable {
 		}
 		return isPresent;
 	}
+	
+	public void grabFileAttributes(File file, Map map){
+		try {
+			in = new BufferedReader(new FileReader(file));
+			String line;
+			line = in.readLine();
+			String[] strArray = line.split(",");
+			Set<String> fieldsSet = new HashSet<>();
+			for (int i=0; i<strArray.length;i++){
+				fieldsSet.add(strArray[i]);
+			}
+			map.put(file.getName(), fieldsSet);
+		}
+		catch (FileNotFoundException ex){
+			throw new RuntimeException(ex);
+		}
+		catch(IOException ex){
+			throw new RuntimeException(ex);
+		}
+	
+	}	
+	
+	
+	public boolean grabFilesAttributes() {	
+		boolean isSuccesful=false;
+		try {
+			for (String input: getBPAFileNames()){
+				grabFileAttributes(filesMap.get(input),bpaFilesAttributesMap);
+			}
+			grabFileAttributes(glFile,glFilesAttributesMap);
+			isSuccesful=true;
+		} catch (RuntimeException ex) {
+			isSuccesful=false;
+		}
+		return isSuccesful;	
+	}
+	
+	public void filesMainAttributes(){
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
