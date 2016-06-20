@@ -2,6 +2,11 @@ package main;
 
 import java.util.Scanner;
 
+import configuration.ConfigurationMaker;
+import configuration.ConfigurationMakerImpl;
+import user.UserSpace;
+import user.UserSpaceMaker;
+import user.UserSpaceMakerImpl;
 
 import java.io.File;
 

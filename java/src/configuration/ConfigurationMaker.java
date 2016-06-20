@@ -1,4 +1,6 @@
-package main;
+package configuration;
+
+import user.UserSpace;
 
 public interface ConfigurationMaker {
 	

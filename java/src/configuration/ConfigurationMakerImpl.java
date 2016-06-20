@@ -1,6 +1,9 @@
-package main;
+package configuration;
 
 import java.util.Scanner;
+
+import user.UserSpace;
+
 import java.io.File;
 
 
