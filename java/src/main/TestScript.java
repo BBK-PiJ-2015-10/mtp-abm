@@ -13,9 +13,12 @@ import java.util.Map;
 import java.util.Set;
 
 import configuration.ConfigurationManager;
+import user.UserSpace;
 
 import java.util.HashSet;
 import java.util.List;
+
+
 
 
 public class TestScript {
@@ -29,6 +32,22 @@ public class TestScript {
 	
 	public void launch(){
 		
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user4";
+		File test2= new File(address);
+		UserSpace first = new UserSpace();
+		first.FileSetUserSpaceFile(test2);
+		System.out.println(first.getUserSpaceFile().getAbsolutePath());
+		first.save();
+		
+		
+		
+		//String address1 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\test";
+		//File test1 = new File(address1);
+		//System.out.println(test1.getAbsolutePath());
+		
+		
+		/*
+		
 		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user1\\config1";
 		
 		File config = new File(address);		
@@ -40,6 +59,8 @@ public class TestScript {
 		//System.out.println(test.getFLFile().getName());
 		
 		//File file = new File(address);
+		
+		
 		
 	
 		Map<String, Set<String>> fieldsMap = new HashMap<>();
@@ -105,5 +126,8 @@ public class TestScript {
 		}
 	}
 	
-	
+	*/
+		
+	}
+		
 }

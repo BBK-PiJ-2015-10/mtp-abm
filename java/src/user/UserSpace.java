@@ -22,13 +22,16 @@ public class UserSpace implements Serializable {
 	public UserSpace() {
 	}
 	
-	public File getUserSpaceFile(){
-		return this.file;
-		
+	public UserSpace(File file){
+		this.file=file;
 	}
 	
 	public void FileSetUserSpaceFile(File file){
 		this.file=file;
+	}	
+	
+	public File getUserSpaceFile(){
+		return this.file;
 	}
 	
 	
@@ -36,20 +39,16 @@ public class UserSpace implements Serializable {
 		configurations.put(configname, file);
 	}
 	
-	
+	public File getConfiguration(String configName){
+		return configurations.get(configName);
+	}
+		
 	public Set<String> getConfigurationsNames(){
 		return configurations.keySet();
 	}
 	
-	public File getConfiguration(String configName){
-		return configurations.get(configName);
-	}
-	
 	public void save(){
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
-		String directory = file.getName();
-		
-		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(address+directory+"\\"+file.getName()+".dat"));)
+		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
 		{
 			encode.writeObject(file);
 			encode.writeObject(configurations);
@@ -58,11 +57,12 @@ public class UserSpace implements Serializable {
 			ex.printStackTrace();
 		}
 	}
-	
+		
 	public boolean capture(String directoryname){
 		boolean isPresent;
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
-		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directoryname+"\\"+directoryname+".dat"));)
+		//String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
+		//try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directoryname+"\\"+directoryname+".dat"));)
+		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+directoryname+".dat"));)
 		{
 			file = (File)incode.readObject();
 			configurations=(Map<String,File>)incode.readObject();
@@ -75,15 +75,6 @@ public class UserSpace implements Serializable {
 		}
 		return isPresent;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 
 }
