@@ -1,20 +1,17 @@
 package systemTesting.userTesting;
 
 import static org.junit.Assert.assertEquals;
-
-import java.io.File;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Ignore;
 
+import java.io.File;
 import user.UserSpace;
 import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
 
 import java.util.Scanner;
-
-
 
 public class testCreateUserSpaceMakerImpl {
 	

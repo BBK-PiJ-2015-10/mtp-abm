@@ -32,12 +32,13 @@ public class TestScript {
 	
 	public void launch(){
 		
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user4";
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2\\config2.dat";
 		File test2= new File(address);
-		UserSpace first = new UserSpace();
-		first.FileSetUserSpaceFile(test2);
-		System.out.println(first.getUserSpaceFile().getAbsolutePath());
-		first.save();
+		System.out.println(test2.exists());
+		//UserSpace first = new UserSpace();
+		//first.FileSetUserSpaceFile(test2);
+		//System.out.println(first.getUserSpaceFile().getAbsolutePath());
+		//first.save();
 		
 		
 		

@@ -47,7 +47,7 @@ public class ConfigurationManager implements Serializable {
 		return this.file;
 	}
 		
-	public void scanConfig(){
+	public void loadFilesMap(){
 		if(file.exists() && file.isDirectory()){
 			File [] filenames = file.listFiles();
 			for (int i=0;i<filenames.length;i++){

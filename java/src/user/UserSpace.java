@@ -22,9 +22,9 @@ public class UserSpace implements Serializable {
 	public UserSpace() {
 	}
 	
-	public UserSpace(File file){
-		this.file=file;
-	}
+	//public UserSpace(File file){
+		//this.file=file;
+	//}
 	
 	public void FileSetUserSpaceFile(File file){
 		this.file=file;
@@ -60,9 +60,10 @@ public class UserSpace implements Serializable {
 		
 	public boolean capture(String directoryname){
 		boolean isPresent;
-		//String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
-		//try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directoryname+"\\"+directoryname+".dat"));)
-		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+directoryname+".dat"));)
+		//System.out.println(file.getAbsolutePath()+"\\"+directoryname+".dat");
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
+		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directoryname+"\\"+directoryname+".dat"));)
+		//try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+directoryname+".dat"));)
 		{
 			file = (File)incode.readObject();
 			configurations=(Map<String,File>)incode.readObject();
@@ -72,7 +73,8 @@ public class UserSpace implements Serializable {
 			isPresent = false;
 		} catch (IOException ex2){
 			isPresent = false;;
-		}
+		} 
+		
 		return isPresent;
 	}
 		
