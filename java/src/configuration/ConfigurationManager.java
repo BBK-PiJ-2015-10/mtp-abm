@@ -59,9 +59,6 @@ public class ConfigurationManager implements Serializable {
 		}			
 	}	
 		
-	public Set<String> getBPAFileNames(){
-		return filesMap.keySet();
-	}
 	
 	public File getBPAFile(String name){
 		return filesMap.get(name);
@@ -81,6 +78,7 @@ public class ConfigurationManager implements Serializable {
 			encode.writeObject(file);
 			encode.writeObject(filesMap);
 			encode.writeObject(glFile);
+			encode.writeObject(bpaFilesAttributesMap);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -94,6 +92,7 @@ public class ConfigurationManager implements Serializable {
 			file = (File)incode.readObject();
 			filesMap=(Map<String,File>)incode.readObject();
 			glFile= (File)incode.readObject();
+			bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 			isPresent = true;
 		} catch (ClassNotFoundException ex){
 			isPresent = false;
@@ -130,7 +129,7 @@ public class ConfigurationManager implements Serializable {
 	public boolean grabFilesAttributes() {	
 		boolean isSuccesful=false;
 		try {
-			for (String input: getBPAFileNames()){
+			for (String input: filesMap.keySet()){
 				grabFileAttributes(filesMap.get(input),bpaFilesAttributesMap);
 			}
 			grabFileAttributes(glFile,glFilesAttributesMap);
@@ -141,8 +140,25 @@ public class ConfigurationManager implements Serializable {
 		return isSuccesful;	
 	}
 	
-	public void filesMainAttributes(){
-		
+	public Map<String,Set<String>> getBpaFilesAttributesMap(){
+		return this.bpaFilesAttributesMap;
+	}
+	
+	public Map<String,Set<String>> getGlFilesAttributesMap(){
+		return this.glFilesAttributesMap;
+	}
+	
+	public Map<String,Set<String>> getBpaMainFilesAttributesMap(){
+		return this.bpaFilesMainAttribustesMap;
+	}
+	
+	public Map<String,Set<String>> getGlMainFilesAttributesMap(){
+		return this.glFilesMainAttribustesMap;
+	}
+	
+	
+	
+	public void loadBpafilesMainAttributes(){
 		
 		
 	}

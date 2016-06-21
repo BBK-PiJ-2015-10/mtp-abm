@@ -21,6 +21,7 @@ import java.util.List;
 
 
 
+
 public class TestScript {
 
 	public static void main(String[] args) {
@@ -32,9 +33,18 @@ public class TestScript {
 	
 	public void launch(){
 		
+
+		
+		/*
 		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2\\config2.dat";
-		File test2= new File(address);
-		System.out.println(test2.exists());
+		File testf= new File(address);
+		ConfigurationManager tester = new ConfigurationManager(testf);
+		System.out.println(tester.getBPAFileNames());
+		tester.capture("config2");
+		System.out.println(tester.getBPAFileNames());
+		/*
+		
+		//System.out.println(test2.exists());
 		//UserSpace first = new UserSpace();
 		//first.FileSetUserSpaceFile(test2);
 		//System.out.println(first.getUserSpaceFile().getAbsolutePath());
@@ -46,23 +56,31 @@ public class TestScript {
 		//File test1 = new File(address1);
 		//System.out.println(test1.getAbsolutePath());
 		
+		*/
 		
-		/*
 		
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user1\\config1";
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2";
 		
 		File config = new File(address);		
 		
 		ConfigurationManager test = new ConfigurationManager(config);
-		test.capture("config1");
+		test.capture("config2");
 		//System.out.println(test.getBPAFileNames());
+		Set<String> inputset = test.getBpaFilesAttributesMap().keySet();
+		//System.out.println(inputset);
+		//System.out.println(test.getBpaFilesAttributesMap().size());
+		for (String inputstring: inputset){
+			test.getBpaFilesAttributesMap().get(inputstring).forEach(System.out::println);	
+		}
+		System.out.println("Is this over");
+		
 		
 		//System.out.println(test.getFLFile().getName());
 		
 		//File file = new File(address);
 		
 		
-		
+		/*
 	
 		Map<String, Set<String>> fieldsMap = new HashMap<>();
 		
@@ -130,5 +148,7 @@ public class TestScript {
 	*/
 		
 	}
+	
+	
 		
 }
