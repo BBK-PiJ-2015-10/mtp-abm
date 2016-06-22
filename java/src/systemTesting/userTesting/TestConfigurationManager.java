@@ -386,7 +386,7 @@ public class TestConfigurationManager {
 	}
 	
 	/*
- 	* Testing if it returns an empty map.
+ 	* Testing that it returns a populated map
 	*/
 	@Test
 	public void test() {	
