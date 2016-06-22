@@ -59,22 +59,30 @@ public class TestScript {
 		*/
 		
 		
+	
+	
+		
 		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2";
 		
-		File config = new File(address);		
+		File config = new File(address);
+		//System.out.println(config.getName());
 		
 		ConfigurationManager test = new ConfigurationManager(config);
+		//System.out.println(test.getFile().getName());
+		
 		test.capture("config2");
+		//System.out.println(test.getFile().getName());
+		
 		//System.out.println(test.getBPAFileNames());
-		Set<String> inputset = test.getBpaFilesAttributesMap().keySet();
+		//Set<String> inputset = test.getBpaFilesAttributesMap().keySet();
 		//System.out.println(inputset);
 		//System.out.println(test.getBpaFilesAttributesMap().size());
-		for (String inputstring: inputset){
-			test.getBpaFilesAttributesMap().get(inputstring).forEach(System.out::println);	
-		}
-		System.out.println("Is this over");
+		//for (String inputstring: inputset){
+			//test.getBpaFilesAttributesMap().get(inputstring).forEach(System.out::println);	
+		//}
+		//System.out.println("Is this over");
 		
-		
+		test.loadGlFilesMainAttributes();
 		//System.out.println(test.getFLFile().getName());
 		
 		//File file = new File(address);
