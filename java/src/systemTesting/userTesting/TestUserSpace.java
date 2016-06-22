@@ -9,7 +9,7 @@ import org.junit.Test;
 import user.UserSpace;
 import java.io.File;
 
-public class testUserSpace {
+public class TestUserSpace {
 	
 	private UserSpace userSpace;
 	

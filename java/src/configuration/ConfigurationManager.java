@@ -33,11 +33,11 @@ public class ConfigurationManager implements Serializable {
 	
 	private Map<String,Set<String>> bpaFilesAttributesMap = new HashMap<>();
 	
-	private Map<String,List<String>> bpaFilesMainAttribustesMap = new HashMap<>();
+	private Map<String,List<String>> bpaFilesMainAttributesMap = new HashMap<>();
 	
 	private Map<String,Set<String>> glFilesAttributesMap = new HashMap<>();
 	
-	private Map<String,List<String>> glFilesMainAttribustesMap = new HashMap<>();
+	private Map<String,List<String>> glFilesMainAttributesMap = new HashMap<>();
 	
 	private BufferedReader in = null;
 	
@@ -132,11 +132,12 @@ public class ConfigurationManager implements Serializable {
 			}
 			valid1=false;	
 			while (!valid1){
-				valid1=readEntry(input," Enter the nale of the column with the driver consumption data ",temp);
+				valid1=readEntry(input," Enter the name of the column with the driver consumption data ",temp);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 			    }
 		    }
+			bpaFilesMainAttributesMap.put(input,temp);
 		}	
 	}
 	
@@ -170,11 +171,11 @@ public class ConfigurationManager implements Serializable {
 	}
 	
 	public Map<String,List<String>> getBpaMainFilesAttributesMap(){
-		return this.bpaFilesMainAttribustesMap;
+		return this.bpaFilesMainAttributesMap;
 	}
 	
 	public Map<String,List<String>> getGlMainFilesAttributesMap(){
-		return this.glFilesMainAttribustesMap;
+		return this.glFilesMainAttributesMap;
 	}	
 	
 	public void save(){
@@ -184,6 +185,9 @@ public class ConfigurationManager implements Serializable {
 			encode.writeObject(bpaFilesMap);
 			encode.writeObject(glFile);
 			encode.writeObject(bpaFilesAttributesMap);
+			encode.writeObject(glFilesAttributesMap);
+			encode.writeObject(bpaFilesMainAttributesMap);
+			encode.writeObject(glFilesMainAttributesMap);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -198,6 +202,9 @@ public class ConfigurationManager implements Serializable {
 			bpaFilesMap=(Map<String,File>)incode.readObject();
 			glFile= (File)incode.readObject();
 			bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
+			glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
+			bpaFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
+			glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
 			isPresent = true;
 		} catch (ClassNotFoundException ex){
 			isPresent = false;

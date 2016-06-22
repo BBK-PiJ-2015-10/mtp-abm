@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 
 
-public class testABCSystemImpl {
+public class TestABCSystemImpl {
 	
 	private ABCSystemImpl system1 = new ABCSystemImpl();
 	

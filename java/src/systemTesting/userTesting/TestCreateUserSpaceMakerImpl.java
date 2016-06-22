@@ -13,7 +13,7 @@ import user.UserSpaceMakerImpl;
 
 import java.util.Scanner;
 
-public class testCreateUserSpaceMakerImpl {
+public class TestCreateUserSpaceMakerImpl {
 	
 	
 	private UserSpace userSpace;
