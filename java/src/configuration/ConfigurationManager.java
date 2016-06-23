@@ -125,14 +125,14 @@ public class ConfigurationManager implements Serializable {
 			List<String> temp = new LinkedList<>();
 			System.out.print("For: " +input);
 			while (!valid1){
-				valid1=readEntry(input," Enter the activity driver from the below options ",temp,bpaFilesAttributesMap);
+				valid1=readEntry(input," Enter the activity driver from the below options ",temp,bpaFilesAttributesMap,1);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 				}	
 			}
 			valid1=false;	
 			while (!valid1){
-				valid1=readEntry(input," Enter the name of the column with the driver consumption data ",temp,bpaFilesAttributesMap);
+				valid1=readEntry(input," Enter the name of the column with the driver consumption data ",temp,bpaFilesAttributesMap,1);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 			    }
@@ -166,15 +166,25 @@ public class ConfigurationManager implements Serializable {
 	}
 	
 	
-	public boolean readEntry(String input, String message,List<String> accumulator, Map<String,Set<String>> inputMap){
+	public boolean readEntry(String input, String message,List<String> accumulator, Map<String,Set<String>> inputMap,int maxEntry){
+		int counter =0;
 		boolean result = false;
 		System.out.println(message);
 		System.out.println(inputMap.get(input));
 		String selection = sc.nextLine();
-		
-		result = inputMap.get(input).contains(selection) && !accumulator.contains(selection);
-		if (result){
-			accumulator.add(selection);
+		String[] selectionarray = selection.split(" ");
+		for (int i=0;i<selectionarray.length;i++){
+			if (counter >= maxEntry){
+				return false;
+			}
+			result = inputMap.get(input).contains(selectionarray[i]) && !accumulator.contains(selectionarray[i]);
+			if (!result){
+				return false;
+			}
+			else {
+				accumulator.add(selectionarray[i]);
+				counter ++;
+			}		
 		}
 		return result;
 	}

@@ -308,7 +308,7 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry("phones.csv","Select one of the below options", accum,validConfigMgr.getBpaFilesAttributesMap()));
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","Select one of the below options", accum,validConfigMgr.getBpaFilesAttributesMap(),1));
 	}
 	
 	/*
@@ -322,7 +322,7 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(false,validConfigMgr.readEntry("phones.csv","Type something else", accum,validConfigMgr.getBpaFilesAttributesMap()));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","Type something else", accum,validConfigMgr.getBpaFilesAttributesMap(),1));
 	
 	}
 	
@@ -337,7 +337,7 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry(null,"type something",accum,validConfigMgr.getBpaFilesAttributesMap()));
+		assertEquals(true,validConfigMgr.readEntry(null,"type something",accum,validConfigMgr.getBpaFilesAttributesMap(),1));
 	}
 	
 	/*
@@ -351,13 +351,13 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry("phones.csv","type one of the below",null,validConfigMgr.getBpaFilesAttributesMap()));
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","type one of the below",null,validConfigMgr.getBpaFilesAttributesMap(),1));
 	}
 	
 	/*
 	 * Testing readEntry with a null map
 	 */
-	//@Ignore
+	@Ignore
 	@Test(expected = NullPointerException.class)
 	public void testReadEntryNullMap() {
 		List<String> accum= new LinkedList<>();
@@ -365,8 +365,97 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(false,validConfigMgr.readEntry("phones.csv","this won't let you type", accum,null));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","ignore this sentence", accum,null,1));
 	}
+	
+	/*
+	 * Testing readEntry and asking user to enter 2 entries instead of one.
+	 */
+	@Ignore
+	@Test
+	public void testReadEntryCounter() {
+		List<String> accum= new LinkedList<>();
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select two valid entries", accum,validConfigMgr.getBpaFilesAttributesMap(),1));
+	}
+	
+	
+	/*
+	 * Testing readEntry and setting maxEntry to 0
+	 */
+	@Ignore
+	@Test
+	public void testReadEntryZeroCounter() {
+		List<String> accum= new LinkedList<>();
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select a valid entry", accum,validConfigMgr.getBpaFilesAttributesMap(),0));
+	}
+	
+	/*
+	 * Testing readEntry and setting maxEntry to 0
+	 */
+	@Ignore
+	@Test
+	public void testReadEntryValidMultipleArguments() {
+		List<String> accum= new LinkedList<>();
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","select two valid entries", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+	}
+	
+	
+	/*
+	 * Testing readEntry and requesting to enter one invalid and one valid entry.
+	 */
+	@Ignore
+	@Test
+	public void testReadEntryValidMultipleArgumentsOneValidOneInvalid() {
+		List<String> accum= new LinkedList<>();
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select one invalid and one valid", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+	}
+	
+	/*
+	 * Testing readEntry and requesting to enter one invalid and one valid entry.
+	 */
+	@Ignore
+	@Test
+	public void testReadEntryValidMultipleArgumentsOneInValidOneValid() {
+		List<String> accum= new LinkedList<>();
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select one invalid and one valid", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+	}
+	
+	/*
+	 * Testing readEntry and requesting to input two invalid entries.
+	 */
+	@Ignore
+	@Test
+	public void testReadEntryValidMultipleArgumentsTwoInValid() {
+		List<String> accum= new LinkedList<>();
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select two invalid", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+	}
+	
+	
+	
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -406,11 +495,11 @@ public class TestConfigurationManager {
 	@Ignore
 	@Test
 	public void testLoadBpafilesMainAttributesValidSize () {	
-		//validConfigMgr=new ConfigurationManager(validFile);
-		//validConfigMgr.loadFilesMap();
-		//validConfigMgr.setGLFile("gl.csv");
-		//validConfigMgr.grabFilesAttributes();
-		//validConfigMgr.loadBpaFilesMainAttributes();
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		validConfigMgr.loadBpaFilesMainAttributes();
 		assertEquals(2,validConfigMgr.getBpaMainFilesAttributesMap().size());
 	}
 	
