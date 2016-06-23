@@ -20,6 +20,7 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 		String glName = sc.nextLine();
 		configurationManager.setGLFile(glName);
 		configurationManager.grabFilesAttributes();
+		
 		configurationManager.save();
 	}
 	

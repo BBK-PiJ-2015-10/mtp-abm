@@ -308,11 +308,11 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry("phones.csv","Select one of the below options", accum));
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","Select one of the below options", accum,validConfigMgr.getBpaFilesAttributesMap()));
 	}
 	
 	/*
-	 * Testing that missing GL returns an empty file.
+	 * Testing readEntry and asking to make a wrong selection
 	 */
 	@Ignore
 	@Test
@@ -322,11 +322,12 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(false,validConfigMgr.readEntry("phones.csv","Type something else", accum));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","Type something else", accum,validConfigMgr.getBpaFilesAttributesMap()));
+	
 	}
 	
 	/*
-	 * Testing that missing GL returns an empty file.
+	 * Testing readEntry with a null input file.
 	 */
 	@Ignore
 	@Test (expected = NullPointerException.class)
@@ -336,11 +337,11 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry(null,"type something",accum));
+		assertEquals(true,validConfigMgr.readEntry(null,"type something",accum,validConfigMgr.getBpaFilesAttributesMap()));
 	}
 	
 	/*
-	 * Testing that missing GL returns an empty file.
+	 * Testing readEntry with a null accumulator List
 	 */
 	@Ignore
 	@Test (expected = NullPointerException.class)
@@ -350,21 +351,21 @@ public class TestConfigurationManager {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry("phones.csv","type one of the below",null));
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","type one of the below",null,validConfigMgr.getBpaFilesAttributesMap()));
 	}
 	
 	/*
-	 * Testing that missing GL returns an empty file.
+	 * Testing readEntry with a null map
 	 */
-	@Ignore
-	@Test
-	public void testReadEntryInValidSelectionwithGLFile() {
+	//@Ignore
+	@Test(expected = NullPointerException.class)
+	public void testReadEntryNullMap() {
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(false,validConfigMgr.readEntry("phones.csv","Type something else", accum));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","this won't let you type", accum,null));
 	}
 
 
@@ -388,18 +389,44 @@ public class TestConfigurationManager {
 	/*
  	* Testing that it returns a populated map
 	*/
+	@Ignore
 	@Test
-	public void test() {	
+	public void testLoadBpafilesMainAttributesValid() {	
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		validConfigMgr.loadBpafilesMainAttributes();
+		validConfigMgr.loadBpaFilesMainAttributes();
 		assertEquals(false,validConfigMgr.getBpaMainFilesAttributesMap().isEmpty());
 	}
 	
+	/*
+ 	* Testing that it returns a populated map and test its size.
+	*/
+	@Ignore
+	@Test
+	public void testLoadBpafilesMainAttributesValidSize () {	
+		//validConfigMgr=new ConfigurationManager(validFile);
+		//validConfigMgr.loadFilesMap();
+		//validConfigMgr.setGLFile("gl.csv");
+		//validConfigMgr.grabFilesAttributes();
+		//validConfigMgr.loadBpaFilesMainAttributes();
+		assertEquals(2,validConfigMgr.getBpaMainFilesAttributesMap().size());
+	}
 	
-	
+	/*
+ 	* Testing that it returns a populated map and test the size of one element.
+	*/
+	@Ignore
+	@Test
+	public void testLoadBpafilesMainAttributesValidElementSize () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		validConfigMgr.loadBpaFilesMainAttributes();
+		assertEquals(2,validConfigMgr.getBpaMainFilesAttributesMap().get("phones.csv").size());
+	}	
 	
 	
 	

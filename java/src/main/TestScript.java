@@ -60,17 +60,20 @@ public class TestScript {
 		
 		
 	
+		String sentence = "Yasser.Palacios";
+		System.out.println(sentence.split(" ").length);
+		
 	
 		
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2";
+		//String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2";
 		
-		File config = new File(address);
+		//File config = new File(address);
 		//System.out.println(config.getName());
 		
-		ConfigurationManager test = new ConfigurationManager(config);
+		//ConfigurationManager test = new ConfigurationManager(config);
 		//System.out.println(test.getFile().getName());
 		
-		test.capture("config2");
+		//test.capture("config2");
 		//System.out.println(test.getFile().getName());
 		
 		//System.out.println(test.getBPAFileNames());
@@ -82,7 +85,7 @@ public class TestScript {
 		//}
 		//System.out.println("Is this over");
 		
-		test.loadGlFilesMainAttributes();
+		//test.loadGlFilesMainAttributes();
 		//System.out.println(test.getFLFile().getName());
 		
 		//File file = new File(address);

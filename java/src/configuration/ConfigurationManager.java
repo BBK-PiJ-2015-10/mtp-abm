@@ -119,20 +119,20 @@ public class ConfigurationManager implements Serializable {
 		return isSuccesful;	
 	}
 	
-	public void loadBpafilesMainAttributes(){
+	public void loadBpaFilesMainAttributes(){
 		for (String input : bpaFilesAttributesMap.keySet()){			
 			boolean valid1=false;
 			List<String> temp = new LinkedList<>();
 			System.out.print("For: " +input);
 			while (!valid1){
-				valid1=readEntry(input," Enter the activity driver from the below options ",temp);
+				valid1=readEntry(input," Enter the activity driver from the below options ",temp,bpaFilesAttributesMap);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 				}	
 			}
 			valid1=false;	
 			while (!valid1){
-				valid1=readEntry(input," Enter the name of the column with the driver consumption data ",temp);
+				valid1=readEntry(input," Enter the name of the column with the driver consumption data ",temp,bpaFilesAttributesMap);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 			    }
@@ -142,6 +142,21 @@ public class ConfigurationManager implements Serializable {
 	}
 	
 	public void loadGlFilesMainAttributes(){
+		for (String input : glFilesAttributesMap.keySet()){
+			boolean valid1=false;
+			List<String> temp = new LinkedList<>();
+			System.out.print("For: " +input);
+			while (!valid1){
+				//valid1=readEntry(input," Enter the attribute(s) ",temp,glFilesAttributesMap);
+				//if (!valid1){
+					//System.out.println("Incorrect selection");
+				//}	
+			}
+			
+			
+		}
+		
+		
 		System.out.println("Enter the attribute(s) to be mapped to Activities from the below options");
 		System.out.println(glFilesAttributesMap.keySet());
 		//System.out.println(glFilesAttributesMap.get(glFile.getName()));
@@ -150,12 +165,14 @@ public class ConfigurationManager implements Serializable {
 		//}
 	}
 	
-	public boolean readEntry(String input, String message,List<String> accumulator){
+	
+	public boolean readEntry(String input, String message,List<String> accumulator, Map<String,Set<String>> inputMap){
 		boolean result = false;
 		System.out.println(message);
-		System.out.println(bpaFilesAttributesMap.get(input));
+		System.out.println(inputMap.get(input));
 		String selection = sc.nextLine();
-		result = bpaFilesAttributesMap.get(input).contains(selection) && !accumulator.contains(selection);
+		
+		result = inputMap.get(input).contains(selection) && !accumulator.contains(selection);
 		if (result){
 			accumulator.add(selection);
 		}
