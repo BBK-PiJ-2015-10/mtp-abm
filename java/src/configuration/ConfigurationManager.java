@@ -4,8 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
+import java.util.LinkedList;
+import java.util.stream.Collectors;
+
+
 
 import java.io.Serializable;
 import java.io.File;
@@ -20,8 +23,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 
 import java.util.Scanner;
-import java.util.List;
-import java.util.LinkedList;
+
 
 public class ConfigurationManager implements Serializable {
 
@@ -146,23 +148,23 @@ public class ConfigurationManager implements Serializable {
 			boolean valid1=false;
 			List<String> temp = new LinkedList<>();
 			System.out.print("For: " +input);
+			int maxEntry = glFilesAttributesMap.values().toString().split(" ").length;
 			while (!valid1){
-				//valid1=readEntry(input," Enter the attribute(s) ",temp,glFilesAttributesMap);
-				//if (!valid1){
-					//System.out.println("Incorrect selection");
-				//}	
+				temp.clear();
+				valid1=readEntry(input," enter the attribute(s) to be mapped to Activities from the below options:",temp,glFilesAttributesMap,maxEntry-1);
+				if (!valid1){
+					System.out.println("Incorrect selection");
+				}	
 			}
-			
-			
+			valid1=false;	
+			while (!valid1){
+				valid1=readEntry(input," enter the name of the column with the cost data data ",temp,glFilesAttributesMap,1);
+				if (!valid1){
+					System.out.println("Incorrect selection");
+			    }
+		    }			
+			glFilesMainAttributesMap.put(input,temp);			
 		}
-		
-		
-		System.out.println("Enter the attribute(s) to be mapped to Activities from the below options");
-		System.out.println(glFilesAttributesMap.keySet());
-		//System.out.println(glFilesAttributesMap.get(glFile.getName()));
-		//for (String input : glFilesAttributesMap.get(glFile.getName())){	
-			
-		//}
 	}
 	
 	
@@ -186,7 +188,7 @@ public class ConfigurationManager implements Serializable {
 				counter ++;
 			}		
 		}
-		return result;
+		return true;
 	}
 	
 	public Map<String,Set<String>> getBpaFilesAttributesMap(){
@@ -213,8 +215,8 @@ public class ConfigurationManager implements Serializable {
 			encode.writeObject(glFile);
 			encode.writeObject(bpaFilesAttributesMap);
 			encode.writeObject(glFilesAttributesMap);
-			encode.writeObject(bpaFilesMainAttributesMap);
 			encode.writeObject(glFilesMainAttributesMap);
+			encode.writeObject(bpaFilesMainAttributesMap);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -230,8 +232,8 @@ public class ConfigurationManager implements Serializable {
 			glFile= (File)incode.readObject();
 			bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 			glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
-			bpaFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
 			glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
+			bpaFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
 			isPresent = true;
 		} catch (ClassNotFoundException ex){
 			isPresent = false;

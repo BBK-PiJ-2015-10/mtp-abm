@@ -60,17 +60,19 @@ public class TestScript {
 		
 		
 	
-		String sentence = "Yasser.Palacios";
-		System.out.println(sentence.split(" ").length);
+		//String sentence = "Yasser.Palacios";
+		//System.out.println(sentence.split(" ").length);
 		
 	
 		
-		//String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2";
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2";
 		
-		//File config = new File(address);
+		File config = new File(address);
 		//System.out.println(config.getName());
 		
-		//ConfigurationManager test = new ConfigurationManager(config);
+		ConfigurationManager test = new ConfigurationManager(config);
+		//test.capture(configurationname)
+		
 		//System.out.println(test.getFile().getName());
 		
 		//test.capture("config2");

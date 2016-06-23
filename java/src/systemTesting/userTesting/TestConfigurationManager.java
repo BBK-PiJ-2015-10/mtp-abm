@@ -2,7 +2,15 @@ package systemTesting.userTesting;
 
 import java.io.File;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.stream.Stream;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -518,6 +526,38 @@ public class TestConfigurationManager {
 	}	
 	
 	
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	//Tests for loadGlfilesMainAttributes() and getGlMainFilesAttributesMap()
+	
+	
+	/*
+ 	* Testing that it returns a populated map and test the size.
+	*/
+	@Ignore
+	@Test
+	public void testLoadGlfilesMainAttributesValidElementSize () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();
+		System.out.println("Please select exactly 3 attributes in total ");
+		validConfigMgr.loadGlFilesMainAttributes();	
+		assertEquals(3,validConfigMgr.getGlMainFilesAttributesMap().get("gl.csv").size());
+	}
+	
+	/*
+ 	* Testing that if not loaded, it will return a null value.
+	*/
+	@Ignore
+	@Test
+	public void testGlMainFilesAttributesMapNullFile () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.grabFilesAttributes();	
+		assertEquals(null,validConfigMgr.getGlMainFilesAttributesMap().get("gl.csv"));
+	}	
 	
 	
 	
