@@ -65,17 +65,18 @@ public class TestScript {
 		
 	
 		
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2";
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3";
 		
 		File config = new File(address);
 		//System.out.println(config.getName());
 		
 		ConfigurationManager test = new ConfigurationManager(config);
-		test.capture("config2");
-		test.getGlMainFilesAttributesMap().values().forEach(System.out::println);
+		test.capture("config3");
+		System.out.println(test.getFile().getAbsolutePath());
+		//test.getGlMainFilesAttributesMap().values().forEach(System.out::println);
 		
-		String addresstwo = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2\\map";
-		File map = new File(addresstwo);
+		//String addresstwo = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2\\map";
+		//File map = new File(addresstwo);
 		
 		
 		
