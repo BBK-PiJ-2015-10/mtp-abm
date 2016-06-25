@@ -71,6 +71,16 @@ public class TestScript {
 		//System.out.println(config.getName());
 		
 		ConfigurationManager test = new ConfigurationManager(config);
+		test.capture("config2");
+		test.getGlMainFilesAttributesMap().values().forEach(System.out::println);
+		
+		String addresstwo = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user2\\config2\\map";
+		File map = new File(addresstwo);
+		
+		
+		
+		//System.out.println(test.getGlMainFilesAttributesMap());
+		
 		//test.capture(configurationname)
 		
 		//System.out.println(test.getFile().getName());

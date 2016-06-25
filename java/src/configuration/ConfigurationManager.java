@@ -6,9 +6,6 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.LinkedList;
-import java.util.stream.Collectors;
-
-
 
 import java.io.Serializable;
 import java.io.File;
@@ -223,27 +220,49 @@ public class ConfigurationManager implements Serializable {
 		}
 	}
 	
+	public void save(String newname){
+		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+newname+".dat"));)
+		{
+			encode.writeObject(file);
+			encode.writeObject(bpaFilesMap);
+			encode.writeObject(glFile);
+			encode.writeObject(bpaFilesAttributesMap);
+			encode.writeObject(glFilesAttributesMap);
+			encode.writeObject(glFilesMainAttributesMap);
+			encode.writeObject(bpaFilesMainAttributesMap);
+		}
+		catch (IOException ex){
+			ex.printStackTrace();
+		}
+	}
+	
 	public boolean capture(String configurationname){
 		boolean isPresent;
-		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+configurationname+".dat"));)
-		{
-			file = (File)incode.readObject();
-			bpaFilesMap=(Map<String,File>)incode.readObject();
-			glFile= (File)incode.readObject();
-			bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
-			glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
-			glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
-			bpaFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
-			isPresent = true;
-		} catch (ClassNotFoundException ex){
-			isPresent = false;
-		} catch (IOException ex2){
-			isPresent = false;;
-		} catch (NullPointerException ex){
-			isPresent = false;
+		if (this.file.exists()){
+			try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+configurationname+".dat"));)
+			{
+				file = (File)incode.readObject();
+				bpaFilesMap=(Map<String,File>)incode.readObject();
+				glFile= (File)incode.readObject();
+				bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
+				glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
+				glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
+				bpaFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
+				isPresent = true;
+			} 
+			  catch (ClassNotFoundException ex){
+				isPresent = false;
+			} catch (IOException ex2){
+				isPresent = false;
+			} catch (NullPointerException ex){
+				isPresent = false;
+			}			
+		}
+		else {
+			isPresent=false;
 		}
 		return isPresent;
-	}	
-		
+	}
+	
 		
 }

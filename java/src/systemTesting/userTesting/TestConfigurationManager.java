@@ -559,7 +559,243 @@ public class TestConfigurationManager {
 		assertEquals(null,validConfigMgr.getGlMainFilesAttributesMap().get("gl.csv"));
 	}	
 	
+
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////
+	
+      //Tests for capture(String configurationname)
+	
+	/*
+ 	* Testing that method return true if input is a file that exists.
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidInput () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		assertEquals(true,validConfigMgr.capture("config3"));
+	}
+	
+	/*
+ 	* Testing that method return false if name provided doesn't really exist in file.
+	*/
+	@Ignore
+	@Test
+	public void testcaptureInValidInputName () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		assertEquals(false,validConfigMgr.capture("config33"));
+	}
+	
+	/*
+ 	* Testing that method return false if the file doesn't really exist.
+	*/
+	@Ignore
+	@Test
+	public void testcaptureInValidInputNonExistentDocument () {	
+		invalidConfigMgr=new ConfigurationManager(invalidFile);
+		assertEquals(false,invalidConfigMgr.capture("bad stuff"));
+	}	
 	
 	
+	/*
+ 	* Testing that file returned element name is config3
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidFile() {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		assertEquals("config3",validConfigMgr.getFile().getName());
+	}
+	
+	/*
+ 	* Testing that glfile returned element name is gl.csv
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidGLFile () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		assertEquals("gl.csv",validConfigMgr.getGLFile().getName());
+	}
+
+	/*
+ 	* Testing that bpaFilesMap returned element is of size 2
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidbpaFilesMap () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		assertEquals(2,validConfigMgr.getBPAFilesMap().size());
+	}	
+	
+	
+	/*
+ 	* Testing that bpaFilesAttributesMap returned element is of size 4
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidbpaFilesAttributesMap () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		assertEquals(4,validConfigMgr.getBpaFilesAttributesMap().get("phones.csv").size());
+	}
+	
+	/*
+ 	* Testing that bpaFilesAttributesMap returned element is of size 4
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidbpaFilesMainAttributesMap () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		assertEquals(2,validConfigMgr.getBpaMainFilesAttributesMap().get("phones.csv").size());
+	}
+	
+	/*
+ 	* Testing that GlFilesAttributesMap returned element is of size 4
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidGlFilesAttributesMap () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		assertEquals(4,validConfigMgr.getGlFilesAttributesMap().get("gl.csv").size());
+	}
+	
+	/*
+ 	* Testing that GlFilesAttributesMap returned element is of size 4
+	*/
+	@Ignore
+	@Test
+	public void testcaptureValidGlMainFilesAttributesMap () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		assertEquals(3,validConfigMgr.getGlMainFilesAttributesMap().get("gl.csv").size());
+	}	
+	
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+    //Tests for save(String newname)
+	
+	/*
+	* Saving a file with a different name, then retrieving and testing its existence
+	*/
+	@Ignore
+	@Test
+	public void testsaveValidExistance () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		validConfigMgr.save("newone");
+		assertEquals(true,Arrays.asList(validConfigMgr.getFile().list()).contains("newone.dat"));
+		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
+		File temp = new File(tempaddress);
+		temp.delete();		
+	}	
+	
+	/*
+	* Saving a file with a different name, then retrieving and testing its contents
+	*/
+	@Ignore
+	@Test
+	public void testsaveValidContentsI () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		validConfigMgr.save("newone");
+		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
+		tempconfig.capture("newone");
+		assertEquals("gl.csv",tempconfig.getGLFile().getName());
+		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
+		File temp = new File(tempaddress);
+		temp.delete();		
+	}
+	
+	/*
+	* Saving a file with a different name, then retrieving and testing its contents
+	*/
+	@Ignore
+	@Test
+	public void testsaveValidContentsII () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		validConfigMgr.save("newone");
+		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
+		tempconfig.capture("newone");
+		assertEquals(2,validConfigMgr.getBPAFilesMap().size());
+		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
+		File temp = new File(tempaddress);
+		temp.delete();		
+	}
+	
+	/*
+	* Saving a file with a different name, then retrieving and testing its contents
+	*/
+	@Ignore
+	@Test
+	public void testsaveValidContentsIII () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		validConfigMgr.save("newone");
+		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
+		tempconfig.capture("newone");
+		assertEquals(4,validConfigMgr.getBpaFilesAttributesMap().get("phones.csv").size());
+		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
+		File temp = new File(tempaddress);
+		temp.delete();		
+	}
+	
+	/*
+	* Saving a file with a different name, then retrieving and testing its contents
+	*/
+	@Ignore
+	@Test
+	public void testsaveValidContentsIV () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		validConfigMgr.save("newone");
+		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
+		tempconfig.capture("newone");
+		assertEquals(2,validConfigMgr.getBpaMainFilesAttributesMap().get("phones.csv").size());
+		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
+		File temp = new File(tempaddress);
+		temp.delete();		
+	}
+	
+	/*
+	* Saving a file with a different name, then retrieving and testing its contents
+	*/
+	@Ignore
+	@Test
+	public void testsaveValidContentsV () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		validConfigMgr.save("newone");
+		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
+		tempconfig.capture("newone");
+		assertEquals(4,validConfigMgr.getGlFilesAttributesMap().get("gl.csv").size());
+		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
+		File temp = new File(tempaddress);
+		temp.delete();		
+	}
+	
+	/*
+	* Saving a file with a different name, then retrieving and testing its contents
+	*/
+	@Ignore
+	@Test
+	public void testsaveValidContentsVI () {	
+		validConfigMgr=new ConfigurationManager(validFile);
+		validConfigMgr.capture("config3");
+		validConfigMgr.save("newone");
+		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
+		tempconfig.capture("newone");
+		assertEquals(3,validConfigMgr.getGlMainFilesAttributesMap().get("gl.csv").size());
+		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
+		File temp = new File(tempaddress);
+		temp.delete();		
+	}
+	
+
 	
 }

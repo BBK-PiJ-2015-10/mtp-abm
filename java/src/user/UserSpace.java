@@ -21,11 +21,7 @@ public class UserSpace implements Serializable {
 	
 	public UserSpace() {
 	}
-	
-	//public UserSpace(File file){
-		//this.file=file;
-	//}
-	
+		
 	public void FileSetUserSpaceFile(File file){
 		this.file=file;
 	}	
