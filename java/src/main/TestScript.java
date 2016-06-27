@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import configuration.Tuple;
 
 
 
@@ -54,6 +55,7 @@ public class TestScript {
 				
 		File testFile = new File(test.getFile().getAbsolutePath()+"\\"+"glbpamap.csv");
 		
+	
 	    ///*
 		
 		try {
@@ -84,23 +86,23 @@ public class TestScript {
 					attripos.add(i);
 				}
 			}
+			Set<String> attriset = new HashSet<>();
 			while (sc.hasNextLine()){
 				sentence=sc.nextLine().split(",");
 				String word;
+				String longword=null;
 				for (Integer position : attripos){
-					word = sentence[position];
-					out.write(word+",");
+					longword =sentence[position]+longword;
+				}
+				if (!attriset.contains(longword)){
+					attriset.add(longword);
+					for (Integer position : attripos){
+						word = sentence[position];
+						out.write(word+",");	
+					}				
 				}
 				out.println();
 			}
-			//System.out.println(linesc.next());
-			//while (sc.hasNextLine()){
-				//line=sc.nextLine();
-				//System.out.println(line);
-			//}
-			
-			
-			
 			sc.close();
 			out.close();
 		} catch (FileNotFoundException ex){

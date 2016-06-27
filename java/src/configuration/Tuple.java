@@ -1,36 +1,52 @@
 package configuration;
 
+import java.util.Objects;
+
 public class Tuple<T,K> {
 
-	private T name;
+	private T val1;
 	
-	private K position;
+	private K val2;
 	
-	public Tuple(T name, K position){
-		this.name=name;
-		this.position=position;
+	public Tuple(T val1, K val2){
+		this.val1=val1;
+		this.val2=val2;
 	}
 	
 	public T getName() {
-		return name;
+		return val1;
 	}
 	
 	public K getPosition() {
-		return position;
+		return val2;
 	}
 	
-	public void setName(T name) {
-		this.name = name;
+	public void setName(T val1) {
+		this.val1 = val1;
 	}
 	
-	public void setPosition(K position) {
-		this.position = position;
+	public void setPosition(K val2) {
+		this.val2 = val2;
+	}
+	
+	
+	public void exp(){
+		Tuple<String,String> first = new Tuple("Ale","Tonto");
+		
 	}
 	
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if (!(obj instanceof Tuple<?, ?>)) {
+            return false;
+        }
+        Tuple<?, ?> p = (Tuple<?, ?>) obj;
+        return val1.equals(p.val1) && val2.equals(p.val2);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(val1,val2);
 	}
 	
 }
