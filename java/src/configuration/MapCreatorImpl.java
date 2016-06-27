@@ -16,14 +16,19 @@ public class MapCreatorImpl implements MapCreator {
 			
 		File glbpamapFile = new File(configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv");
 		
-		try (FileWriter fw = new FileWriter(glbpamapFile,false);
+		try {
+			glbpamapFile.createNewFile();
+		}
+		catch (IOException ex) {
+			System.out.println("Something went off");
+		}
+			
+		try (
+				FileWriter fw = new FileWriter(glbpamapFile,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);	
-				 Scanner scanner = new Scanner(new FileReader(configurationManager.getGLFile()));) 
-		{ 
-			
-			
-			
+				 Scanner scanner = new Scanner(new FileReader(configurationManager.getGLFile()));)
+		{
 			scanner.close();
 			out.close();
 		} catch (FileNotFoundException ex){

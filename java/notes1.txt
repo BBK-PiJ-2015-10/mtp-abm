@@ -1,0 +1,3 @@
+This is a test for copying from file A 
+to file B
+I truly hope it works
