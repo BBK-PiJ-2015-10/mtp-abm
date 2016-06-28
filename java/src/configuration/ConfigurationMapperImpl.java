@@ -6,6 +6,8 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	
 	private ConfigurationManager configurationManager;
 	
+	private MapCreator mapCreator;
+	
 	public ConfigurationMapperImpl(){
 	}
 	
@@ -28,11 +30,13 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	@Override 
 	public void mapFiles(){
 		execManager();
+		createmap();
 		
 	}
 	
-	public void createMap(){
-		
+	public void createmap(){
+		mapCreator = new MapCreatorImpl();
+		mapCreator.createMap(configurationManager);
 	}
 	
 
