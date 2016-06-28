@@ -107,7 +107,7 @@ public class TestScript {
 		try (FileWriter fw = new FileWriter(testFile,false);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter out = new PrintWriter(bw);
-			Scanner keyboard = new Scanner(new FileReader(testFile));
+			Scanner keyboard = new Scanner(System.in);
 			Scanner sc = new Scanner(new FileReader(test.getGLFile()));)
 		{
 			int size = test.getGlMainFilesAttributesMap().get(test.getGLFile().getName()).size();
@@ -129,8 +129,9 @@ public class TestScript {
 			Set<String> attriset = new HashSet<>();
 			while (sc.hasNextLine()){
 				sentence=sc.nextLine().split(",");
-				String word;
+				String bpaDriver;
 				String longword = null;
+				boolean validEntry = false;
 				for (Integer position : attripos){
 					try {
 						longword.isEmpty();
@@ -142,17 +143,22 @@ public class TestScript {
 				}
 				if (!attriset.contains(longword)){
 					attriset.add(longword);
+					do {
+					System.out.println("For: "+longword);
 					System.out.println("Type the full name of the file with the driver data for");
-					System.out.println(longword);
+					bpaDriver = keyboard.next();
+					validEntry = test.getBpaFilesAttributesMap().containsKey(bpaDriver);
+					if (!validEntry){
+						System.out.println("File named entry doesn't exist");
+					}
+					} while (!validEntry);
 					for (Integer position : attripos){
-						word = sentence[position];
-						out.write(word+",");	
-					}				
+						out.write(sentence[position]+",");
+					}
+					out.write(bpaDriver);
 				}
 				out.println();
 			}
-			//attriset.forEach(System.out::println);
-			
 			sc.close();
 			out.close();
 		} catch (FileNotFoundException ex){

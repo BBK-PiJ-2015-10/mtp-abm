@@ -14,8 +14,6 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.HashSet;
 
-
-
 public class MapCreatorImpl implements MapCreator {
 
 	@Override
@@ -34,7 +32,7 @@ public class MapCreatorImpl implements MapCreator {
 				FileWriter fw = new FileWriter(glbpamapFile,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);
-				 Scanner sc2 = new Scanner(new FileReader(glbpamapFile)); 
+				 Scanner keyboard = new Scanner(System.in); 
 				 Scanner sc = new Scanner(new FileReader(configurationManager.getGLFile()));)
 		{
 			int size = configurationManager.getGlMainFilesAttributesMap().
@@ -59,23 +57,36 @@ public class MapCreatorImpl implements MapCreator {
 			Set<String> attriset = new HashSet<>();
 			while (sc.hasNextLine()){
 				sentence=sc.nextLine().split(",");
-				String word;
+				String bpaDriver;
 				String longword=null;
+				boolean validEntry = false;
 				for (Integer position : attripos){
-					longword =sentence[position]+longword;
+					try {
+						longword.isEmpty();
+						longword =longword+" "+sentence[position];
+					}	
+					catch (NullPointerException ex){
+						longword = sentence[position];
+					}
 				}
 				if (!attriset.contains(longword)){
 					attriset.add(longword);
+					do {
+						System.out.println("For: "+longword);
+						System.out.println("Type the full name of the file with the driver data for");
+						bpaDriver = keyboard.next();
+						validEntry = configurationManager.getBpaFilesAttributesMap().containsKey(bpaDriver);
+						if (!validEntry){
+							System.out.println("File named entry doesn't exist");
+						}
+					} while (!validEntry);	
 					for (Integer position : attripos){
-						word = sentence[position];
-						out.write(word+",");	
-					}				
+						out.write(sentence[position]+",");
+					}
+					out.write(bpaDriver);
 				}
 				out.println();
 			}
-			
-			
-			
 			sc.close();
 			out.close();
 		} catch (FileNotFoundException ex){
