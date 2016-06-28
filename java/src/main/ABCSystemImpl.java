@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImpl;
+import period.PeriodMaker;
+import period.PeriodMakerImpl;
 import user.UserSpace;
 import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
@@ -19,6 +21,8 @@ public class ABCSystemImpl implements ABCSystem {
 	private UserSpaceMaker userSpaceMaker;	
 	
 	private ConfigurationMaker configurationMaker;
+	
+	private PeriodMaker periodMaker;
 	
 	private Scanner sc = new Scanner(System.in);
 	
@@ -45,6 +49,10 @@ public class ABCSystemImpl implements ABCSystem {
 		configurationMaker.makeConfiguration(userSpace);
 	}
 	
+	public void runMakeNewPeriod(){
+		periodMaker = new PeriodMakerImpl(userSpace);
+	}
+	
 	
 	
 	@Override
@@ -64,8 +72,13 @@ public class ABCSystemImpl implements ABCSystem {
 		choice = sc.nextLine();
 		if (choice.equalsIgnoreCase("yes")){
 			runMakeNewConfiguration();
-
 		}
+		System.out.println("If you wish to run new period, please enter yes");
+		choice = sc.nextLine();
+		if (choice.equalsIgnoreCase("yes")){
+			
+		}
+		
 		
 		
 		System.out.println("This is under development");	

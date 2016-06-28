@@ -48,7 +48,6 @@ public class MapCreatorImpl implements MapCreator {
 			String line;
 			String[] sentence;
 			sentence=sc.nextLine().split(",");
-			System.out.println(sentence.length);
 			for (int i=0;i<sentence.length;i++){
 				if(attri.contains(sentence[i])){
 					attripos.add(i);

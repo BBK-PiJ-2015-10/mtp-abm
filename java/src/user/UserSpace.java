@@ -43,6 +43,11 @@ public class UserSpace implements Serializable {
 		return configurations.keySet();
 	}
 	
+	//Need to add JUnit test for this method
+	public boolean validConfiguration(String configName){
+		return configurations.containsKey(configName);
+	}
+	
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
 		{
