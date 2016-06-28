@@ -55,6 +55,46 @@ public class TestScript {
 				
 		File testFile = new File(test.getFile().getAbsolutePath()+"\\"+"glbpamap.csv");
 		
+		/*
+		
+		String userword;
+		
+		try (FileWriter fw = new FileWriter(testFile,true);
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter out = new PrintWriter(bw);
+				Scanner sc2 = new Scanner(new FileReader(testFile));
+				Scanner keyboard = new Scanner(System.in);
+				Scanner sc = new Scanner(new FileReader(test.getGLFile()));)
+		{
+			//System.out.println("For each o")
+			Set<String> validSet= test.getBPAFilesMap().keySet();
+			sc2.nextLine();
+			System.out.println("Below are the files with the activity driver stored in your configuration: ");
+			validSet.forEach(System.out::println);
+			System.out.println("For each of the below single or multiple combinations specify the file "
+					+ "that contains the activity driver for that combination");
+			System.out.println(sc2.nextLine());
+			userword = keyboard.nextLine();
+			System.out.println("Hello Ale");
+			System.out.println("You just entered " +userword);
+			
+			
+			
+			//testFile.isDirectory()
+			//System.out.println(sc2.hasNext());
+			//System.out.println(sc2.next());
+			
+			//sc.close();
+			sc2.close();
+			out.close();
+			
+		} catch (FileNotFoundException ex){
+			ex.printStackTrace();
+		} catch (IOException ex){
+			ex.printStackTrace();
+		}
+		
+		//*/
 	
 	    ///*
 		
@@ -66,7 +106,8 @@ public class TestScript {
 
 		try (FileWriter fw = new FileWriter(testFile,false);
 			BufferedWriter bw = new BufferedWriter(fw);
-			PrintWriter out = new PrintWriter(bw);	
+			PrintWriter out = new PrintWriter(bw);
+			Scanner keyboard = new Scanner(new FileReader(testFile));
 			Scanner sc = new Scanner(new FileReader(test.getGLFile()));)
 		{
 			int size = test.getGlMainFilesAttributesMap().get(test.getGLFile().getName()).size();
@@ -80,7 +121,6 @@ public class TestScript {
 			String line;
 			String[] sentence;
 			sentence=sc.nextLine().split(",");
-			System.out.println(sentence.length);
 			for (int i=0;i<sentence.length;i++){
 				if(attri.contains(sentence[i])){
 					attripos.add(i);
@@ -90,12 +130,20 @@ public class TestScript {
 			while (sc.hasNextLine()){
 				sentence=sc.nextLine().split(",");
 				String word;
-				String longword=null;
+				String longword = null;
 				for (Integer position : attripos){
-					longword =sentence[position]+longword;
+					try {
+						longword.isEmpty();
+						longword =longword+" "+sentence[position];
+					}	
+					catch (NullPointerException ex){
+						longword = sentence[position];
+					}
 				}
 				if (!attriset.contains(longword)){
 					attriset.add(longword);
+					System.out.println("Type the full name of the file with the driver data for");
+					System.out.println(longword);
 					for (Integer position : attripos){
 						word = sentence[position];
 						out.write(word+",");	
@@ -103,6 +151,8 @@ public class TestScript {
 				}
 				out.println();
 			}
+			//attriset.forEach(System.out::println);
+			
 			sc.close();
 			out.close();
 		} catch (FileNotFoundException ex){

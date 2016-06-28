@@ -33,7 +33,8 @@ public class MapCreatorImpl implements MapCreator {
 		try (
 				FileWriter fw = new FileWriter(glbpamapFile,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
-				 PrintWriter out = new PrintWriter(bw);	
+				 PrintWriter out = new PrintWriter(bw);
+				 Scanner sc2 = new Scanner(new FileReader(glbpamapFile)); 
 				 Scanner sc = new Scanner(new FileReader(configurationManager.getGLFile()));)
 		{
 			int size = configurationManager.getGlMainFilesAttributesMap().
@@ -72,6 +73,9 @@ public class MapCreatorImpl implements MapCreator {
 				}
 				out.println();
 			}
+			
+			
+			
 			sc.close();
 			out.close();
 		} catch (FileNotFoundException ex){
