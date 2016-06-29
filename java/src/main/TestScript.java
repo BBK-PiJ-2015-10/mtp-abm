@@ -17,6 +17,9 @@ import java.util.Set;
 import configuration.ConfigurationManager;
 import user.UserSpace;
 
+import period.PeriodMaker;
+import period.PeriodMakerImpl;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.LinkedList;
@@ -44,15 +47,17 @@ public class TestScript {
 	public void launch(){
 		
 		UserSpace user = new UserSpace();
-		user.capture("user4");
-		
-		//System.out.println(user.validConfiguration("config4"));
-		
-		//System.out.println(user.getConfiguration("config4").getAbsolutePath());
-		
+		user.capture("user4");	
 		ConfigurationManager config = new ConfigurationManager(user.getConfiguration("config4"));
 		config.capture("config4");
-		config.getBpaMainFilesAttributesMap().keySet().forEach(System.out::println);
+		
+		PeriodMaker period = new PeriodMakerImpl(user);
+		period.makePeriod();
+		
+		//System.out.println("You did well");
+		
+		
+		//config.getBpaMainFilesAttributesMap().keySet().forEach(System.out::println);
 		
 		//config.getBpaFilesAttributesMap().keySet().forEach(System.out::println);
 		

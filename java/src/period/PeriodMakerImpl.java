@@ -1,6 +1,8 @@
 package period;
 
 import user.UserSpace;
+
+import java.io.File;
 import java.util.Scanner;
 
 import configuration.ConfigurationManager;
@@ -10,9 +12,7 @@ public class PeriodMakerImpl implements PeriodMaker {
 	private UserSpace userSpace;
 	
 	private ConfigurationManager configurationManager;
-	
-	private Scanner sc = new Scanner(System.in);
-	
+		
 	public PeriodMakerImpl(UserSpace userSpace){
 		this.userSpace = userSpace;
 	}
@@ -20,9 +20,9 @@ public class PeriodMakerImpl implements PeriodMaker {
 	public boolean validateConfiguration(String configName){
 		return userSpace.validConfiguration(configName);
 	}
-
-	@Override
-	public void makePeriod() {
+	
+	public void captureConfiguration(){
+		Scanner sc = new Scanner(System.in);
 		Boolean validEntry = false;
 		String keyboardEntry;
 		do {
@@ -34,14 +34,30 @@ public class PeriodMakerImpl implements PeriodMaker {
 			}
 		} while (!validEntry);
 		configurationManager = new ConfigurationManager(userSpace.getConfiguration(keyboardEntry));
-		configurationManager.capture(keyboardEntry);
-		
-	
-		
-		
-		// TODO Auto-generated method stub
-		
+		configurationManager.capture(keyboardEntry);		
 	}
+	
+	public void createPeriod(){
+		Scanner sc = new Scanner(System.in);
+		String dirname;
+		System.out.println("Please enter the name of the period you wish to create ");
+		dirname = sc.nextLine();
+		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
+		File period = new File(address+dirname);
+		period.mkdir();
+		userSpace.addPeriod(dirname,period);
+		userSpace.save();
+	}
+
+	@Override
+	public void makePeriod() {
+		captureConfiguration();
+		createPeriod();
+	}
+	
+	
+	
+	
 
 	
 	

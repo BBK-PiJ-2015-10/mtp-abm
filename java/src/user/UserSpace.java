@@ -19,6 +19,9 @@ public class UserSpace implements Serializable {
 	
 	private Map<String,File> configurations = new HashMap<>();
 	
+	//Need to create JUnit Testing for this field
+	private Map<String,File> periods = new HashMap<>();
+	
 	public UserSpace() {
 	}
 		
@@ -48,11 +51,32 @@ public class UserSpace implements Serializable {
 		return configurations.containsKey(configName);
 	}
 	
+	//Need to create JT
+	public void addPeriod(String periodName, File file){
+		periods.put(periodName, file);
+	}
+	
+	//Need to create JT
+	public File getPeriod(String periodName){
+		return periods.get(periodName);
+	}
+		
+	//Need to create JT
+	public Set<String> getPeriodNames(){
+		return periods.keySet();
+	}
+	
+	//Need to create JUnit test for this method
+	public boolean validPeriod(String periodName){
+		return periods.containsKey(periodName);
+	}	
+	
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
 		{
 			encode.writeObject(file);
 			encode.writeObject(configurations);
+			encode.writeObject(periods);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -68,6 +92,7 @@ public class UserSpace implements Serializable {
 		{
 			file = (File)incode.readObject();
 			configurations=(Map<String,File>)incode.readObject();
+			periods=(Map<String,File>)incode.readObject();
 			isPresent = true;
 			
 		} catch (ClassNotFoundException ex){
