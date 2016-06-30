@@ -16,6 +16,7 @@ public class UserSpaceMakerImpl implements UserSpaceMaker {
 			userSpace.FileSetUserSpaceFile(new File(address+dirname));
 			userSpace.getUserSpaceFile().mkdir();
 			userSpace.save();
+			//sc.close();
 			
 	}
 	

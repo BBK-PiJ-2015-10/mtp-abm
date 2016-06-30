@@ -1,7 +1,7 @@
-Department,Account,BPA
-Sales,100000,phones.csv
-Sales,101000,implementation.csv
-Marketing,100000,phones.csv
-Marketing,101000,phones.csv
-R&D,100000,phones.csv
+Account,BPA
+100000,phones.csv
+101000,phones.csv
+
+
+
 

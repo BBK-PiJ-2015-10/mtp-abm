@@ -87,6 +87,7 @@ public class MapCreatorImpl implements MapCreator {
 				out.println();
 			}
 			sc.close();
+			keyboard.close();
 			out.close();
 		} catch (FileNotFoundException ex){
 			ex.printStackTrace();

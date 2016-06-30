@@ -29,6 +29,7 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 			configMapper.mapFiles();
 	     }
 		System.out.println("For today, you are done with the configuration set up");
+		sc.close();
 
 		
 	}

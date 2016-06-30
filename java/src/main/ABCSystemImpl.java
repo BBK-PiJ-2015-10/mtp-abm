@@ -26,7 +26,6 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	private Scanner sc = new Scanner(System.in);
 	
-	
 	public void runMakeNewUserSpace(){
 		userSpaceMaker = new UserSpaceMakerImpl();
 		userSpaceMaker.createUserSpace(userSpace);
@@ -39,7 +38,7 @@ public class ABCSystemImpl implements ABCSystem {
 		validName = userSpace.capture(target);
 		while (!validName){
 			System.out.println("Username entered doesn't exist, please re-enter userspace");
-			target = sc.nextLine();
+			target = sc.next();
 			validName = userSpace.capture(target);
 		}	
 	}
@@ -51,13 +50,14 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	public void runMakeNewPeriod(){
 		periodMaker = new PeriodMakerImpl(userSpace);
+		periodMaker.makePeriod();
+		periodMaker.save();
 	}
 	
 	
 	
 	@Override
 	public void run() {
-		
 		System.out.println("If you are a new user, please enter yes, if not, please enter no");
 		String choice = sc.nextLine();
 		
@@ -73,15 +73,34 @@ public class ABCSystemImpl implements ABCSystem {
 		if (choice.equalsIgnoreCase("yes")){
 			runMakeNewConfiguration();
 		}
-		System.out.println("If you wish to run new period, please enter yes");
+		
+		
+		System.out.println("Do you want to create another configuration, please enter yes");
 		choice = sc.nextLine();
 		if (choice.equalsIgnoreCase("yes")){
-			
+			System.out.println("This is going better");
+			//runMakeNewConfiguration();
 		}
 		
 		
 		
-		System.out.println("This is under development");	
+		
+		
+		
+		
+		
+		//Scanner sc2 = new Scanner(System.in);
+		
+		//System.out.println("If you wish to run new period, please enter yes");
+		//choice = sc2.nextLine();
+		//if (choice.equalsIgnoreCase("yes")){
+			//runMakeNewPeriod();
+			//System.out.println("He said yes");
+		//}
+		
+
+		
+		//System.out.println("This is under development");	
 		
 		
 

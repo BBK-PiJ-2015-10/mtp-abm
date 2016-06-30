@@ -39,9 +39,7 @@ public class ConfigurationManager implements Serializable {
 	private Map<String,List<String>> glFilesMainAttributesMap = new HashMap<>();
 	
 	private BufferedReader in = null;
-	
-	private Scanner sc = new Scanner(System.in);
-	
+		
 	public ConfigurationManager(File file){
 		this.file=file;
 	}
@@ -166,6 +164,7 @@ public class ConfigurationManager implements Serializable {
 	
 	
 	public boolean readEntry(String input, String message,List<String> accumulator, Map<String,Set<String>> inputMap,int maxEntry){
+		Scanner sc = new Scanner(System.in);
 		int counter =0;
 		boolean result = false;
 		System.out.println(message);
@@ -185,6 +184,7 @@ public class ConfigurationManager implements Serializable {
 				counter ++;
 			}		
 		}
+		sc.close();
 		return true;
 	}
 	

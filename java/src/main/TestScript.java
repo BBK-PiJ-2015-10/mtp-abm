@@ -46,16 +46,35 @@ public class TestScript {
 	
 	public void launch(){
 		
+		///*
+		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user4\\period4";
+		
+		File periodF = new File(address);
+		
+		PeriodMakerImpl test  = new PeriodMakerImpl(periodF);
+		test.capture("period4");
+		System.out.println(test.getConfiguration().getBpaFilesAttributesMap().size());
+		
+		//periodF.
+		
+		System.out.println(periodF.exists());
+		
+		//*/
+		
+		/*
 		UserSpace user = new UserSpace();
 		user.capture("user4");	
 		ConfigurationManager config = new ConfigurationManager(user.getConfiguration("config4"));
 		config.capture("config4");
 		
-		PeriodMaker period = new PeriodMakerImpl(user);
+		PeriodMakerImpl period = new PeriodMakerImpl(user);
 		period.makePeriod();
+		period.save();
 		
-		//System.out.println("You did well");
 		
+		System.out.println("You did well");
+		
+		/*
 		
 		//config.getBpaMainFilesAttributesMap().keySet().forEach(System.out::println);
 		
