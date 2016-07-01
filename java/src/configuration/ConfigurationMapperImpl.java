@@ -25,7 +25,7 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 		configurationManager.loadGlFilesMainAttributes();
 		configurationManager.loadBpaFilesMainAttributes();
 		configurationManager.save();
-		sc.close();
+		//sc.close();
 	}
 	
 	@Override 

@@ -1,38 +1,38 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.Arrays;
+//import java.io.BufferedReader;
+//import java.io.BufferedWriter;
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.io.FileReader;
+//import java.io.FileWriter;
+//import java.io.IOException;
+//import java.io.Reader;
+//import java.util.Arrays;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+//import java.util.HashMap;
+//import java.util.Map;
+//import java.util.Set;
 
-import configuration.ConfigurationManager;
-import user.UserSpace;
+//import configuration.ConfigurationManager;
+//import user.UserSpace;
 
-import period.PeriodMaker;
-import period.PeriodMakerImpl;
+//import period.PeriodMaker;
+//import period.PeriodMakerImpl;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.LinkedList;
+//import java.util.HashSet;
+//import java.util.List;
+//import java.util.LinkedList;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
+//import java.io.BufferedReader;
+//import java.io.File;
+//import java.io.FileNotFoundException;
+//import java.io.FileReader;
+//import java.io.IOException;
+//import java.io.PrintWriter;
+//import java.util.Scanner;
 
 
 public class TestScript {
@@ -46,18 +46,25 @@ public class TestScript {
 	
 	public void launch(){
 		
+		
+		//System.out.println("I am reading from screen old fashioned");
+		//String key = System.console().readLine();
+		//System.out.println("You have entered : "+keyboard);
+		
+		
+		
 		///*
-		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user4\\period4";
+		//String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user4\\period4";
 		
-		File periodF = new File(address);
+		//File periodF = new File(address);
 		
-		PeriodMakerImpl test  = new PeriodMakerImpl(periodF);
-		test.capture("period4");
-		System.out.println(test.getConfiguration().getBpaFilesAttributesMap().size());
+		//PeriodMakerImpl test  = new PeriodMakerImpl(periodF);
+		//test.capture("period4");
+		//System.out.println(test.getConfiguration().getBpaFilesAttributesMap().size());
 		
 		//periodF.
 		
-		System.out.println(periodF.exists());
+		//System.out.println(periodF.exists());
 		
 		//*/
 		

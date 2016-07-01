@@ -9,6 +9,8 @@ import java.io.BufferedWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import java.io.BufferedReader;
+
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Set;
@@ -21,6 +23,8 @@ public class MapCreatorImpl implements MapCreator {
 			
 		File glbpamapFile = new File(configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv");
 		
+		Scanner keyboard = new Scanner(System.in);
+		
 		try {
 			glbpamapFile.createNewFile();
 		}
@@ -32,8 +36,7 @@ public class MapCreatorImpl implements MapCreator {
 				FileWriter fw = new FileWriter(glbpamapFile,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);
-				 Scanner keyboard = new Scanner(System.in); 
-				 Scanner sc = new Scanner(new FileReader(configurationManager.getGLFile()));)
+				 BufferedReader in = new BufferedReader(new FileReader(configurationManager.getGLFile()));)
 		{
 			int size = configurationManager.getGlMainFilesAttributesMap().
 					get(configurationManager.getGLFile().getName()).size();
@@ -47,15 +50,16 @@ public class MapCreatorImpl implements MapCreator {
 			out.println();
 			String line;
 			String[] sentence;
-			sentence=sc.nextLine().split(",");
+			line = in.readLine();
+			sentence=line.split(",");
 			for (int i=0;i<sentence.length;i++){
 				if(attri.contains(sentence[i])){
 					attripos.add(i);
 				}
 			}
 			Set<String> attriset = new HashSet<>();
-			while (sc.hasNextLine()){
-				sentence=sc.nextLine().split(",");
+			while ((line = in.readLine()) != null){
+				sentence=line.split(",");
 				String bpaDriver;
 				String longword=null;
 				boolean validEntry = false;
@@ -73,12 +77,14 @@ public class MapCreatorImpl implements MapCreator {
 					do {
 						System.out.println("For: "+longword);
 						System.out.println("Type the full name of the file with the driver data for");
-						bpaDriver = keyboard.next();
+						bpaDriver = keyboard.nextLine();
 						validEntry = configurationManager.getBpaFilesAttributesMap().containsKey(bpaDriver);
+						
 						if (!validEntry){
 							System.out.println("File named entry doesn't exist");
 						}
-					} while (!validEntry);	
+					} while (!validEntry);
+						
 					for (Integer position : attripos){
 						out.write(sentence[position]+",");
 					}
@@ -86,9 +92,6 @@ public class MapCreatorImpl implements MapCreator {
 				}
 				out.println();
 			}
-			sc.close();
-			keyboard.close();
-			out.close();
 		} catch (FileNotFoundException ex){
 			ex.printStackTrace();
 		} catch (IOException ex){

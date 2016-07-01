@@ -73,35 +73,19 @@ public class ABCSystemImpl implements ABCSystem {
 		if (choice.equalsIgnoreCase("yes")){
 			runMakeNewConfiguration();
 		}
+	
 		
-		
-		System.out.println("Do you want to create another configuration, please enter yes");
+		System.out.println("If you wish to run new period, please enter yes");
 		choice = sc.nextLine();
 		if (choice.equalsIgnoreCase("yes")){
 			System.out.println("This is going better");
-			//runMakeNewConfiguration();
+			runMakeNewPeriod();
+			System.out.println("He said yes");
 		}
 		
 		
 		
-		
-		
-		
-		
-		
-		//Scanner sc2 = new Scanner(System.in);
-		
-		//System.out.println("If you wish to run new period, please enter yes");
-		//choice = sc2.nextLine();
-		//if (choice.equalsIgnoreCase("yes")){
-			//runMakeNewPeriod();
-			//System.out.println("He said yes");
-		//}
-		
 
-		
-		//System.out.println("This is under development");	
-		
 		
 
 		

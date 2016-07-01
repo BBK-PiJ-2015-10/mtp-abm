@@ -184,7 +184,6 @@ public class ConfigurationManager implements Serializable {
 				counter ++;
 			}		
 		}
-		sc.close();
 		return true;
 	}
 	
