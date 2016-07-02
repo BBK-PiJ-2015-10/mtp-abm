@@ -10,7 +10,7 @@ public class UserSpaceMakerImpl implements UserSpaceMaker {
 				
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Please enter the name of the directory userspace you wish to create");
-			String dirname = sc.nextLine();
+			String dirname = sc.next();
 			String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
 		
 			userSpace.FileSetUserSpaceFile(new File(address+dirname));

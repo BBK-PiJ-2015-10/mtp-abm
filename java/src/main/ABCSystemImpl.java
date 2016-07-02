@@ -16,6 +16,10 @@ public class ABCSystemImpl implements ABCSystem {
 
 	//Will do dependency injection latter. This might go away.
 	
+	public ABCSystemImpl(Scanner sc){
+		this.sc=sc;
+	}
+	
 	private UserSpace userSpace = new UserSpace();
 	
 	private UserSpaceMaker userSpaceMaker;	
@@ -24,7 +28,9 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	private PeriodMaker periodMaker;
 	
-	private Scanner sc = new Scanner(System.in);
+	private Scanner sc;
+	
+	//private Scanner sc = new Scanner(System.in);
 	
 	public void runMakeNewUserSpace(){
 		userSpaceMaker = new UserSpaceMakerImpl();

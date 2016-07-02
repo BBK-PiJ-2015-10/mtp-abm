@@ -1,14 +1,16 @@
 package main;
 
-//import java.io.BufferedReader;
-//import java.io.BufferedWriter;
-//import java.io.File;
-//import java.io.FileNotFoundException;
-//import java.io.FileReader;
-//import java.io.FileWriter;
-//import java.io.IOException;
-//import java.io.Reader;
-//import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.util.Arrays;
 
 //import java.util.HashMap;
 //import java.util.Map;
@@ -24,15 +26,13 @@ package main;
 //import java.util.List;
 //import java.util.LinkedList;
 
-//import java.util.Scanner;
-
 //import java.io.BufferedReader;
 //import java.io.File;
 //import java.io.FileNotFoundException;
 //import java.io.FileReader;
 //import java.io.IOException;
 //import java.io.PrintWriter;
-//import java.util.Scanner;
+import java.util.Scanner;
 
 
 public class TestScript {
@@ -46,6 +46,22 @@ public class TestScript {
 	
 	public void launch(){
 		
+	    
+	    ByteArrayInputStream auto = new ByteArrayInputStream("Ale Cane".getBytes());
+	    System.setIn(auto);
+	    
+	    Scanner tester = new Scanner(System.in);
+	    
+	    String value;
+	    
+	    value=tester.nextLine();
+	    
+	    System.out.println("I have entered: " +value);
+	    
+		
+		//test.
+		
+		//System.setIn("ALE");
 		
 		//System.out.println("I am reading from screen old fashioned");
 		//String key = System.console().readLine();
