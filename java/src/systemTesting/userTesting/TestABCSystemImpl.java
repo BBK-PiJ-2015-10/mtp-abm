@@ -14,48 +14,36 @@ import java.io.IOException;
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
-
-
 public class TestABCSystemImpl {
-	
-	//private ABCSystemImpl system1 = new ABCSystemImpl();
 	
 	private ABCSystemImpl system1;
 	
-	ByteArrayInputStream auto;
-	
+	private ByteArrayInputStream auto;
 	
 	private Scanner sc;
 	
+	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
 	
-	String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
+	public void manualFeedSetUp(){
+		sc = new Scanner(System.in);
+		system1 = new ABCSystemImpl(sc);
+	}
 	
-	private void passMessage(String message){
-		
+	public void autoFeedSetUp(String message){
 		auto = new ByteArrayInputStream(message.getBytes());
 		System.setIn(auto);
 		sc = new Scanner(System.in);
 		system1 = new ABCSystemImpl(sc);
 	}
-		
-	@Before
-	public void initialize(){
-		
-		
-	}
 	
-	@After
-	public void shutoff(){
-	}
-	
-	
-	
+
 	/* 
 	* Testing creating a validUserSpace
-	*/
+	* */
 	@Ignore
 	@Test
 	public void testrunMakeNewUserSpace() {	
+		manualFeedSetUp();
 		system1.runMakeNewUserSpace();
 		System.out.println("Please enter the name again");
 		String name=sc.nextLine();
@@ -71,7 +59,7 @@ public class TestABCSystemImpl {
 	//@Ignore
 	@Test
 	public void testrunMakeNewUserSpaceAuto() {	
-		passMessage("user10 user10");
+		autoFeedSetUp("user10");
 		system1.runMakeNewUserSpace();
 		String name = "user10";
 		File temp = new File(address+name);

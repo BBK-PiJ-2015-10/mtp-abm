@@ -6,9 +6,8 @@ import java.io.File;
 public class UserSpaceMakerImpl implements UserSpaceMaker {
 	
 	@Override
-	public void createUserSpace(UserSpace userSpace) {
-				
-			Scanner sc = new Scanner(System.in);
+	public void createUserSpace(UserSpace userSpace, Scanner sc) {			
+		
 			System.out.println("Please enter the name of the directory userspace you wish to create");
 			String dirname = sc.next();
 			String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";

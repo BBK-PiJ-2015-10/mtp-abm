@@ -30,11 +30,9 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	private Scanner sc;
 	
-	//private Scanner sc = new Scanner(System.in);
-	
 	public void runMakeNewUserSpace(){
 		userSpaceMaker = new UserSpaceMakerImpl();
-		userSpaceMaker.createUserSpace(userSpace);
+		userSpaceMaker.createUserSpace(userSpace,sc);
 	}
 	
 	public void runAccessExistingUserSpace() {
@@ -51,7 +49,7 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	public void runMakeNewConfiguration(){
 		configurationMaker = new ConfigurationMakerImpl();
-		configurationMaker.makeConfiguration(userSpace);
+		configurationMaker.makeConfiguration(userSpace,sc);
 	}
 	
 	public void runMakeNewPeriod(){
@@ -65,7 +63,7 @@ public class ABCSystemImpl implements ABCSystem {
 	@Override
 	public void run() {
 		System.out.println("If you are a new user, please enter yes, if not, please enter no");
-		String choice = sc.nextLine();
+		String choice = sc.next();
 		
 		if (choice.equalsIgnoreCase("yes")){
 			runMakeNewUserSpace();		
@@ -75,14 +73,14 @@ public class ABCSystemImpl implements ABCSystem {
 		}
 		
 		System.out.println("If you wish to create a new ABC Configuration, please enter yes");
-		choice = sc.nextLine();
+		choice = sc.next();
 		if (choice.equalsIgnoreCase("yes")){
 			runMakeNewConfiguration();
 		}
 	
 		
 		System.out.println("If you wish to run new period, please enter yes");
-		choice = sc.nextLine();
+		choice = sc.next();
 		if (choice.equalsIgnoreCase("yes")){
 			System.out.println("This is going better");
 			runMakeNewPeriod();

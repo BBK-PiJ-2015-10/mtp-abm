@@ -170,6 +170,7 @@ public class ConfigurationManager implements Serializable {
 		System.out.println(message);
 		System.out.println(inputMap.get(input));
 		String selection = sc.nextLine();
+		//String selection = sc.next();
 		String[] selectionarray = selection.split(" ");
 		for (int i=0;i<selectionarray.length;i++){
 			if (counter >= maxEntry){

@@ -2,6 +2,9 @@ package systemTesting.userTesting;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
+import main.ABCSystemImpl;
+
 import org.junit.Before;
 import org.junit.After;
 import org.junit.Ignore;
@@ -12,6 +15,7 @@ import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
 
 import java.util.Scanner;
+import java.io.ByteArrayInputStream;
 
 public class TestCreateUserSpaceMakerImpl {
 	
@@ -22,7 +26,9 @@ public class TestCreateUserSpaceMakerImpl {
 	
 	private UserSpace invaliduserSpace;
 	
-	private Scanner sc = new Scanner(System.in);
+	private Scanner sc;
+	
+	private ByteArrayInputStream auto;
 	
 	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
 	
@@ -42,6 +48,13 @@ public class TestCreateUserSpaceMakerImpl {
 	
 	private UserSpaceMaker userSpaceMaker1;
 	
+	public void autoFeedSetUp(String message){
+		auto = new ByteArrayInputStream(message.getBytes());
+		System.setIn(auto);
+		sc = new Scanner(System.in);
+	}
+	
+	
 	
 	@Before
 	public void initializeUserSpace(){
@@ -58,9 +71,10 @@ public class TestCreateUserSpaceMakerImpl {
 	/* 
 	* Testing creating a validUserSpace
 	*/
+	@Ignore
 	@Test
 	public void testFileSetUserSpaceFileValidFile() {
-		userSpaceMaker1.createUserSpace(new UserSpace());
+		//userSpaceMaker1.createUserSpace(new UserSpace());
 		System.out.println("Enter the name again");
 		String value = sc.nextLine();
 		assertEquals(true,new File(validAddress+value).exists());
@@ -71,13 +85,34 @@ public class TestCreateUserSpaceMakerImpl {
 	/* 
 	* Testing passing an uninitizilized userSpace
 	*/
+	@Ignore
 	@Test(expected = NullPointerException.class)
 	public void testFileSetUserSpaceFileInValidFile() {
-		userSpaceMaker1.createUserSpace(userSpace);
+		//userSpaceMaker1.createUserSpace(userSpace);
 	}	
 	
 	
+	/* 
+	* Testing creating a validUserSpace
+	*/
+	@Test
+	public void testFileSetUserSpaceFileValidFileAuto() {
+		autoFeedSetUp("user10 user10");
+		userSpaceMaker1.createUserSpace(new UserSpace(),sc);
+		System.out.println("Enter the name again");
+		String value = sc.next();
+		assertEquals(true,new File(validAddress+value).exists());
+		new File(validAddress+value+"//"+value+".dat").delete();
+		new File(validAddress+value).delete();
+	}
 	
+	/* 
+	* Testing passing an uninitizilized userSpace
+	*/
+	@Test(expected = NullPointerException.class)
+	public void testFileSetUserSpaceFileInValidFileAuto() {
+		userSpaceMaker1.createUserSpace(userSpace,sc);
+	}
 
 	
 	

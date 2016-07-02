@@ -1,7 +1,9 @@
 package configuration;
 
+import java.util.Scanner;
+
 public interface ConfigurationMapper {
 		
-	void mapFiles();
+	void mapFiles(Scanner sc);
 
 }
