@@ -1,7 +1,9 @@
 package systemTesting.userTesting;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.LinkedList;
 import java.util.Arrays;
@@ -41,6 +43,16 @@ public class TestConfigurationManager {
 	
 	private ConfigurationManager invalidConfigMgr;
 	
+	private Scanner sc;
+	
+	private ByteArrayInputStream auto;
+	
+	public void autoFeedSetUp(String message){
+		auto = new ByteArrayInputStream(message.getBytes());
+		System.setIn(auto);
+		sc = new Scanner(System.in);
+	}
+	
 	@Ignore
 	@Before
 	public void initialize(){
@@ -54,7 +66,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing constructor with a valid file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testConstructorWithValidFile(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -65,7 +77,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing constructor with a null file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testConstructorWithNullFile(){
 		validConfigMgr=new ConfigurationManager(null);
@@ -79,7 +91,7 @@ public class TestConfigurationManager {
 	/*
 	 * At creation null, but then setting to a validFile
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsetFilePartI(){
 		validConfigMgr=new ConfigurationManager(null);
@@ -90,7 +102,7 @@ public class TestConfigurationManager {
 	/*
 	 * At creation a validFile, but then setting it to null.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsetFilePartII(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -106,7 +118,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing loading a set of valid file maps and testing not empty
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testloadFilesMapPartI(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -122,13 +134,15 @@ public class TestConfigurationManager {
 	public void testloadFilesMapPartII(){
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
+		validConfigMgr.setGLFile("gl.csv");
+		validConfigMgr.getBPAFilesMap().keySet().forEach(System.out::println);
 		assertEquals(3,validConfigMgr.getBPAFilesMap().size());
 	}
 	
 	/*
 	 * Testing getting an empty BPAFilesMap
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetPBAFilesMapEmpty(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -143,7 +157,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing getting an empty BPAFilesMap
 	 */
-	@Ignore
+	//@Ignore
 	@Test(expected = NullPointerException.class)
 	public void testgetGLFileEmpty(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -154,7 +168,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing getting a valid BPAFilesMap
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetGLFileValid(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -166,7 +180,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing getting an invalid file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testgetGLFileInValidName(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -179,7 +193,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing setting a null file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testsetGLFileNull(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -192,7 +206,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing setting a non existent file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testsetGLFileNonExistent(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -209,7 +223,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing a valid grabBPAFilesAttributes
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void grabFilesAttributesvalid() {
 		File temp = new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3\\phones.csv");
@@ -223,7 +237,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing a valid grabBPAFilesAttributes passing an empty file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void grabFilesAttributesvalidEmptyFile() {
 		File temp = null;
@@ -235,7 +249,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing a valid grabBPAFilesAttributes passing an empty file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void grabFilesAttributesvalidEmptyMap() {
 		validConfigMgr.grabFileAttributes(null, null);
@@ -244,7 +258,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that when not loaded you get an empty file back
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void getBpaFilesAttributesMapEmpty() {
 		File temp = new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3\\phones.csv");
@@ -261,7 +275,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that is grabs BPA file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgrabFilesAttributesValidBPA() {
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -274,7 +288,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that is grabs BPA file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgrabFilesAttributesValidGL() {
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -292,7 +306,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that missing GL returns an empty file.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetGlFilesAttributesMapEmpty() {
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -308,158 +322,168 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that missing GL returns an empty file.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidSelection() {
+		autoFeedSetUp("pclient");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(true,validConfigMgr.readEntry("phones.csv","Select one of the below options", accum,validConfigMgr.getBpaFilesAttributesMap(),1));
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","Select one of the below options", accum,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
 	}
 	
 	/*
 	 * Testing readEntry and asking to make a wrong selection
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryInValidSelection() {
+		autoFeedSetUp("invalid");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(false,validConfigMgr.readEntry("phones.csv","Type something else", accum,validConfigMgr.getBpaFilesAttributesMap(),1));
-	
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","Type something else", accum,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
 	}
 	
 	/*
 	 * Testing readEntry with a null input file.
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testReadEntryNullfile() {
+		autoFeedSetUp("something irrelevant");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(true,validConfigMgr.readEntry(null,"type something",accum,validConfigMgr.getBpaFilesAttributesMap(),1));
+		assertEquals(true,validConfigMgr.readEntry(null,"type something",accum,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
 	}
 	
 	/*
 	 * Testing readEntry with a null accumulator List
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testReadEntryNullAccumulator() {
+		autoFeedSetUp("pclient");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(true,validConfigMgr.readEntry("phones.csv","type one of the below",null,validConfigMgr.getBpaFilesAttributesMap(),1));
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","type one of the below",null,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
 	}
 	
 	/*
 	 * Testing readEntry with a null map
 	 */
-	@Ignore
+	//@Ignore
 	@Test(expected = NullPointerException.class)
 	public void testReadEntryNullMap() {
+		autoFeedSetUp("pclient");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(false,validConfigMgr.readEntry("phones.csv","ignore this sentence", accum,null,1));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","ignore this sentence", accum,null,1,sc));
 	}
 	
 	/*
 	 * Testing readEntry and asking user to enter 2 entries instead of one.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryCounter() {
+		autoFeedSetUp("pclient pcalls");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(false,validConfigMgr.readEntry("phones.csv","select two valid entries", accum,validConfigMgr.getBpaFilesAttributesMap(),1));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select two valid entries", accum,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
 	}
 	
 	
 	/*
 	 * Testing readEntry and setting maxEntry to 0
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryZeroCounter() {
+		autoFeedSetUp("pcalls");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(false,validConfigMgr.readEntry("phones.csv","select a valid entry", accum,validConfigMgr.getBpaFilesAttributesMap(),0));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select a valid entry", accum,validConfigMgr.getBpaFilesAttributesMap(),0,sc));
 	}
 	
 	/*
 	 * Testing readEntry and setting maxEntry to 0
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArguments() {
+		autoFeedSetUp("pclient pcalls");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(true,validConfigMgr.readEntry("phones.csv","select two valid entries", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+		assertEquals(true,validConfigMgr.readEntry("phones.csv","select two valid entries", accum,validConfigMgr.getBpaFilesAttributesMap(),2,sc));
 	}
 	
 	
 	/*
 	 * Testing readEntry and requesting to enter one invalid and one valid entry.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArgumentsOneValidOneInvalid() {
+		autoFeedSetUp("biruta pclient");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(false,validConfigMgr.readEntry("phones.csv","select one invalid and one valid", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select one invalid and one valid", accum,validConfigMgr.getBpaFilesAttributesMap(),2,sc));
 	}
 	
 	/*
 	 * Testing readEntry and requesting to enter one invalid and one valid entry.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArgumentsOneInValidOneValid() {
+		autoFeedSetUp("pclient biruta");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(false,validConfigMgr.readEntry("phones.csv","select one invalid and one valid", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select one valid and one invalid", accum,validConfigMgr.getBpaFilesAttributesMap(),2,sc));
 	}
 	
 	/*
 	 * Testing readEntry and requesting to input two invalid entries.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArgumentsTwoInValid() {
+		autoFeedSetUp("ale biruta");
 		List<String> accum= new LinkedList<>();
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//assertEquals(false,validConfigMgr.readEntry("phones.csv","select two invalid", accum,validConfigMgr.getBpaFilesAttributesMap(),2));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","select two invalid", accum,validConfigMgr.getBpaFilesAttributesMap(),2,sc));
 	}
 	
 	
@@ -473,7 +497,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing if it returns an empty map.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetBpaMainFilesAttributesMapEmpty() {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -489,11 +513,12 @@ public class TestConfigurationManager {
 	@Ignore
 	@Test
 	public void testLoadBpafilesMainAttributesValid() {	
+		autoFeedSetUp("");
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		//validConfigMgr.loadBpaFilesMainAttributes();
+		validConfigMgr.loadBpaFilesMainAttributes(sc);
 		assertEquals(false,validConfigMgr.getBpaMainFilesAttributesMap().isEmpty());
 	}
 	

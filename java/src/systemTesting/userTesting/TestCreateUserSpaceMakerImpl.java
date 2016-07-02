@@ -55,7 +55,6 @@ public class TestCreateUserSpaceMakerImpl {
 	}
 	
 	
-	
 	@Before
 	public void initializeUserSpace(){
 		userSpaceMaker1 = new UserSpaceMakerImpl();
