@@ -188,6 +188,7 @@ public class ConfigurationManager implements Serializable {
 		return true;
 	}
 	
+	
 	public Map<String,Set<String>> getBpaFilesAttributesMap(){
 		return this.bpaFilesAttributesMap;
 	}

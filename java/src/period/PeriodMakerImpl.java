@@ -65,7 +65,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		Scanner sc = new Scanner(System.in);
 		String dirname;
 		System.out.println("Please enter the name of the period you wish to create ");
-		dirname = sc.nextLine();
+		//dirname = sc.nextLine();
+		dirname = sc.next();
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		period = new File(address+dirname);
 		period.mkdir();

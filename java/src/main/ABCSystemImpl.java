@@ -38,7 +38,7 @@ public class ABCSystemImpl implements ABCSystem {
 	public void runAccessExistingUserSpace() {
 		boolean validName=false;
 		System.out.println("Please enter the name of the userspace you wish to access");
-		String target = sc.nextLine();
+		String target = sc.next();
 		validName = userSpace.capture(target);
 		while (!validName){
 			System.out.println("Username entered doesn't exist, please re-enter userspace");

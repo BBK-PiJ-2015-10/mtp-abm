@@ -12,9 +12,7 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 	@Override
 	public void makeConfiguration(UserSpace userSpace,Scanner sc) {
 		
-		//Scanner sc = new Scanner(System.in);
 		System.out.println("Please enter the name of the configuration you wish to create ");
-		//String dirname = sc.nextLine();
 		String dirname = sc.next();
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		File config = new File(address+dirname);
@@ -24,7 +22,6 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		System.out.println("Please go to the below location and drop your general ledger and operation data files");
 		System.out.println(address+dirname);
 		System.out.println("When done, please enter the word done");
-		//String input = sc.nextLine();
 		String input = sc.next();
 		if (input.equalsIgnoreCase("done")){
 			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
