@@ -116,20 +116,20 @@ public class ConfigurationManager implements Serializable {
 		return isSuccesful;	
 	}
 	
-	public void loadBpaFilesMainAttributes(){
+	public void loadBpaFilesMainAttributes(Scanner sc){
 		for (String input : bpaFilesAttributesMap.keySet()){			
 			boolean valid1=false;
 			List<String> temp = new LinkedList<>();
 			System.out.print("For: " +input);
 			while (!valid1){
-				valid1=readEntry(input," Enter the activity driver from the below options ",temp,bpaFilesAttributesMap,1);
+				valid1=readEntry(input," Enter the activity driver from the below options ",temp,bpaFilesAttributesMap,1,sc);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 				}	
 			}
 			valid1=false;	
 			while (!valid1){
-				valid1=readEntry(input," Enter the name of the column with the driver consumption data ",temp,bpaFilesAttributesMap,1);
+				valid1=readEntry(input," Enter the name of the column with the driver consumption data ",temp,bpaFilesAttributesMap,1,sc);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 			    }
@@ -138,7 +138,7 @@ public class ConfigurationManager implements Serializable {
 		}	
 	}
 	
-	public void loadGlFilesMainAttributes(){
+	public void loadGlFilesMainAttributes(Scanner sc){
 		for (String input : glFilesAttributesMap.keySet()){
 			boolean valid1=false;
 			List<String> temp = new LinkedList<>();
@@ -146,14 +146,14 @@ public class ConfigurationManager implements Serializable {
 			int maxEntry = glFilesAttributesMap.values().toString().split(" ").length;
 			while (!valid1){
 				temp.clear();
-				valid1=readEntry(input," enter the attribute(s) to be mapped to Activities from the below options:",temp,glFilesAttributesMap,maxEntry-1);
+				valid1=readEntry(input," enter the attribute(s) to be mapped to Activities from the below options:",temp,glFilesAttributesMap,maxEntry-1,sc);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 				}	
 			}
 			valid1=false;	
 			while (!valid1){
-				valid1=readEntry(input," enter the name of the column with the cost data data ",temp,glFilesAttributesMap,1);
+				valid1=readEntry(input," enter the name of the column with the cost data data ",temp,glFilesAttributesMap,1,sc);
 				if (!valid1){
 					System.out.println("Incorrect selection");
 			    }
@@ -163,14 +163,16 @@ public class ConfigurationManager implements Serializable {
 	}
 	
 	
-	public boolean readEntry(String input, String message,List<String> accumulator, Map<String,Set<String>> inputMap,int maxEntry){
-		Scanner sc = new Scanner(System.in);
+	public boolean readEntry(String input, String message,List<String> accumulator, Map<String,Set<String>> inputMap,int maxEntry,Scanner sc){
 		int counter =0;
 		boolean result = false;
 		System.out.println(message);
 		System.out.println(inputMap.get(input));
 		String selection = sc.nextLine();
-		//String selection = sc.next();
+		if (selection.isEmpty()){
+			selection=sc.nextLine();
+		}
+		System.out.println("What are you" +selection +"stuff");
 		String[] selectionarray = selection.split(" ");
 		for (int i=0;i<selectionarray.length;i++){
 			if (counter >= maxEntry){
@@ -187,6 +189,7 @@ public class ConfigurationManager implements Serializable {
 		}
 		return true;
 	}
+	
 	
 	
 	public Map<String,Set<String>> getBpaFilesAttributesMap(){

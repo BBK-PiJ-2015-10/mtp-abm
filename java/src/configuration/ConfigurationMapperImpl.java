@@ -21,8 +21,8 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 		String glName = sc.next();
 		configurationManager.setGLFile(glName);
 		configurationManager.grabFilesAttributes();
-		configurationManager.loadGlFilesMainAttributes();
-		configurationManager.loadBpaFilesMainAttributes();
+		configurationManager.loadGlFilesMainAttributes(sc);
+		configurationManager.loadBpaFilesMainAttributes(sc);
 		configurationManager.save();
 	}
 	
