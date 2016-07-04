@@ -13,7 +13,7 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 	public void makeConfiguration(UserSpace userSpace,Scanner sc) {
 		
 		System.out.println("Please enter the name of the configuration you wish to create ");
-		String dirname = sc.next();
+		String dirname = sc.nextLine();
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		File config = new File(address+dirname);
 		config.mkdir();
@@ -22,7 +22,7 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		System.out.println("Please go to the below location and drop your general ledger and operation data files");
 		System.out.println(address+dirname);
 		System.out.println("When done, please enter the word done");
-		String input = sc.next();
+		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
 			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
 			configMapper.mapFiles(sc);

@@ -18,7 +18,7 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	public void execManager(Scanner sc) {
 		configurationManager.loadFilesMap();
 		System.out.println("Please enter the name and extension of the file that contains the general ledger data");
-		String glName = sc.next();
+		String glName = sc.nextLine();
 		configurationManager.setGLFile(glName);
 		configurationManager.grabFilesAttributes();
 		configurationManager.loadGlFilesMainAttributes(sc);

@@ -51,7 +51,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		String keyboardEntry;
 		do {
 			System.out.println("Please enter the name of the configuration that you wish to leverage");
-			keyboardEntry = sc.next();
+			keyboardEntry = sc.nextLine();
 			validEntry = validateConfiguration(keyboardEntry);
 			if (!validEntry){
 				System.out.println("Configuration name not found");
@@ -66,7 +66,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		String dirname;
 		System.out.println("Please enter the name of the period you wish to create ");
 		//dirname = sc.nextLine();
-		dirname = sc.next();
+		dirname = sc.nextLine();
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		period = new File(address+dirname);
 		period.mkdir();

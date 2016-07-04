@@ -63,7 +63,7 @@ public class ABCSystemImpl implements ABCSystem {
 	@Override
 	public void run() {
 		System.out.println("If you are a new user, please enter yes, if not, please enter no");
-		String choice = sc.next();
+		String choice = sc.nextLine();
 		
 		if (choice.equalsIgnoreCase("yes")){
 			runMakeNewUserSpace();		
@@ -73,7 +73,7 @@ public class ABCSystemImpl implements ABCSystem {
 		}
 		
 		System.out.println("If you wish to create a new ABC Configuration, please enter yes");
-		choice = sc.next();
+		choice = sc.nextLine();
 		if (choice.equalsIgnoreCase("yes")){
 			runMakeNewConfiguration();
 		}
