@@ -45,8 +45,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		return userSpace.validConfiguration(configName);
 	}
 	
-	public void captureConfiguration(){
-		Scanner sc = new Scanner(System.in);
+	public void captureConfiguration(Scanner sc){
 		Boolean validEntry = false;
 		String keyboardEntry;
 		do {
@@ -61,11 +60,9 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		configurationManager.capture(keyboardEntry);		
 	}
 	
-	public void createPeriod(){
-		Scanner sc = new Scanner(System.in);
+	public void createPeriod(Scanner sc){
 		String dirname;
 		System.out.println("Please enter the name of the period you wish to create ");
-		//dirname = sc.nextLine();
 		dirname = sc.nextLine();
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		period = new File(address+dirname);
@@ -75,9 +72,9 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	}
 
 	@Override
-	public void makePeriod() {
-		captureConfiguration();
-		createPeriod();
+	public void makePeriod(Scanner sc) {
+		captureConfiguration(sc);
+		createPeriod(sc);
 	}
 	
 	

@@ -19,11 +19,11 @@ import java.util.HashSet;
 public class MapCreatorImpl implements MapCreator {
 
 	@Override
-	public void createMap(ConfigurationManager configurationManager) {
+	public void createMap(ConfigurationManager configurationManager, Scanner keyboard) {
 			
 		File glbpamapFile = new File(configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv");
 		
-		Scanner keyboard = new Scanner(System.in);
+		//Scanner keyboard = new Scanner(System.in);
 		
 		try {
 			glbpamapFile.createNewFile();

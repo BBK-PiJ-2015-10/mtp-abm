@@ -22,6 +22,14 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		System.out.println("Please go to the below location and drop your general ledger and operation data files");
 		System.out.println(address+dirname);
 		System.out.println("When done, please enter the word done");
+		
+		try {
+			Thread.sleep(30000);
+		} catch (InterruptedException ex)
+		{
+			System.out.println("Time is up");
+		}
+		
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
 			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));

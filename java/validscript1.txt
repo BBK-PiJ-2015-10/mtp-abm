@@ -1,0 +1,20 @@
+yes
+user10
+yes
+config10
+done
+gl.csv
+Account Department
+Amount
+iclient
+ihours
+pclient
+pcalls
+implementation.csv
+phones.csv
+phones.csv
+implementation.csv
+implementation.csv
+yes
+config10
+period10

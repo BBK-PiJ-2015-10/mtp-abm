@@ -54,7 +54,7 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	public void runMakeNewPeriod(){
 		periodMaker = new PeriodMakerImpl(userSpace);
-		periodMaker.makePeriod();
+		periodMaker.makePeriod(sc);
 		periodMaker.save();
 	}
 	
@@ -80,7 +80,7 @@ public class ABCSystemImpl implements ABCSystem {
 	
 		
 		System.out.println("If you wish to run new period, please enter yes");
-		choice = sc.next();
+		choice = sc.nextLine();
 		if (choice.equalsIgnoreCase("yes")){
 			System.out.println("This is going better");
 			runMakeNewPeriod();

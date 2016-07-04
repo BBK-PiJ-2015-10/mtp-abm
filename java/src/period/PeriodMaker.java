@@ -1,8 +1,10 @@
 package period;
 
+import java.util.Scanner;
+
 public interface PeriodMaker {
 
-	void makePeriod();
+	void makePeriod(Scanner sc);
 	
 	//for the sake of testing
 	void save();

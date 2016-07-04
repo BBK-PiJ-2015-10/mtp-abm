@@ -1,10 +1,12 @@
 package systemTesting.userTesting;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -32,7 +34,7 @@ import user.UserSpaceMakerImpl;
 
 public class TestConfigurationManager {
 	
-	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user8\\config8";
+	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3";
 	
 	private File validFile = new File(validAddress);
 	
@@ -49,6 +51,11 @@ public class TestConfigurationManager {
 	private Scanner sc;
 	
 	private ByteArrayInputStream auto;
+	
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	
 	
 	public void autoFeedSetUp(String message){
 		auto = new ByteArrayInputStream(message.getBytes());
@@ -70,13 +77,22 @@ public class TestConfigurationManager {
 		sc = new Scanner(System.in);
 	}
 	
-	
-	@Ignore
+
 	@Before
-	public void initialize(){
-		//autoFeedSetUpFile("practice.txt");
-		//validConfigMgr = null;
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	    System.setErr(new PrintStream(errContent));
 	}
+
+	@After
+	public void cleanUpStreams() {
+	    System.setOut(null);
+	    System.setErr(null);
+	}	
+	
+	
+	
+
 	
 //////////////////////////////////////////////////////////////////////////////////////
 	
@@ -85,7 +101,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing constructor with a valid file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testConstructorWithValidFile(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -96,7 +112,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing constructor with a null file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testConstructorWithNullFile(){
 		validConfigMgr=new ConfigurationManager(null);
@@ -110,7 +126,7 @@ public class TestConfigurationManager {
 	/*
 	 * At creation null, but then setting to a validFile
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsetFilePartI(){
 		validConfigMgr=new ConfigurationManager(null);
@@ -121,7 +137,7 @@ public class TestConfigurationManager {
 	/*
 	 * At creation a validFile, but then setting it to null.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsetFilePartII(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -137,7 +153,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing loading a set of valid file maps and testing not empty
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testloadFilesMapPartI(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -148,20 +164,19 @@ public class TestConfigurationManager {
 	/*
 	 * Testing loading a set of valid file maps and for size
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testloadFilesMapPartII(){
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
-		validConfigMgr.getBPAFilesMap().keySet().forEach(System.out::println);
-		assertEquals(3,validConfigMgr.getBPAFilesMap().size());
+		assertEquals(2,validConfigMgr.getBPAFilesMap().size());
 	}
 	
 	/*
 	 * Testing getting an empty BPAFilesMap
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetPBAFilesMapEmpty(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -176,7 +191,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing getting an empty BPAFilesMap
 	 */
-	@Ignore
+	//@Ignore
 	@Test(expected = NullPointerException.class)
 	public void testgetGLFileEmpty(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -187,7 +202,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing getting a valid BPAFilesMap
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetGLFileValid(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -199,7 +214,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing getting an invalid file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testgetGLFileInValidName(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -212,7 +227,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing setting a null file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testsetGLFileNull(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -225,7 +240,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing setting a non existent file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testsetGLFileNonExistent(){
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -242,7 +257,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing a valid grabBPAFilesAttributes
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void grabFilesAttributesvalid() {
 		File temp = new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3\\phones.csv");
@@ -256,7 +271,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing a valid grabBPAFilesAttributes passing an empty file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void grabFilesAttributesvalidEmptyFile() {
 		File temp = null;
@@ -268,7 +283,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing a valid grabBPAFilesAttributes passing an empty file
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void grabFilesAttributesvalidEmptyMap() {
 		validConfigMgr.grabFileAttributes(null, null);
@@ -277,7 +292,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that when not loaded you get an empty file back
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void getBpaFilesAttributesMapEmpty() {
 		File temp = new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3\\phones.csv");
@@ -294,7 +309,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that is grabs BPA file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgrabFilesAttributesValidBPA() {
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -307,7 +322,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that is grabs BPA file
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgrabFilesAttributesValidGL() {
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -325,7 +340,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that missing GL returns an empty file.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetGlFilesAttributesMapEmpty() {
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -341,7 +356,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing that missing GL returns an empty file.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidSelection() {
 		autoFeedSetUp("pclient");
@@ -356,7 +371,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry and asking to make a wrong selection
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryInValidSelection() {
 		autoFeedSetUp("invalid");
@@ -371,7 +386,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry with a null input file.
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testReadEntryNullfile() {
 		autoFeedSetUp("something irrelevant");
@@ -386,7 +401,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry with a null accumulator List
 	 */
-	@Ignore
+	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testReadEntryNullAccumulator() {
 		autoFeedSetUp("pclient");
@@ -401,7 +416,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry with a null map
 	 */
-	@Ignore
+	//@Ignore
 	@Test(expected = NullPointerException.class)
 	public void testReadEntryNullMap() {
 		autoFeedSetUp("pclient");
@@ -416,7 +431,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry and asking user to enter 2 entries instead of one.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryCounter() {
 		autoFeedSetUp("pclient pcalls");
@@ -432,7 +447,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry and setting maxEntry to 0
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryZeroCounter() {
 		autoFeedSetUp("pcalls");
@@ -447,7 +462,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry and setting maxEntry to 0
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArguments() {
 		autoFeedSetUp("pclient pcalls");
@@ -463,7 +478,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry and requesting to enter one invalid and one valid entry.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArgumentsOneValidOneInvalid() {
 		autoFeedSetUp("biruta pclient");
@@ -478,7 +493,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry and requesting to enter one invalid and one valid entry.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArgumentsOneInValidOneValid() {
 		autoFeedSetUp("pclient biruta");
@@ -493,7 +508,7 @@ public class TestConfigurationManager {
 	/*
 	 * Testing readEntry and requesting to input two invalid entries.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testReadEntryValidMultipleArgumentsTwoInValid() {
 		autoFeedSetUp("ale biruta");
@@ -516,7 +531,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing if it returns an empty map.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetBpaMainFilesAttributesMapEmpty() {	
 		autoFeedSetUp("");
@@ -530,10 +545,10 @@ public class TestConfigurationManager {
 	/*
  	* Testing that it returns a populated map
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testLoadBpafilesMainAttributesValid() {	
-		autoFeedSetUp("");
+		autoFeedSetUpFile("testconfigmgr1.txt");
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
@@ -546,7 +561,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that it returns a populated map and test its size.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testLoadBpafilesMainAttributesValidSize () {		
 		autoFeedSetUpFile("testconfigmgr1.txt");
@@ -561,7 +576,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that it returns a populated map and test the size of one element.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testLoadBpafilesMainAttributesValidElementSize () {	
 		autoFeedSetUpFile("testconfigmgr1.txt");
@@ -582,7 +597,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that it returns a populated map and test the size.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testLoadGlfilesMainAttributesValidElementSize () {	
 		autoFeedSetUpFile("testconfigmgr2.txt");
@@ -598,7 +613,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that if not loaded, it will return a null value.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testGlMainFilesAttributesMapNullFile () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -617,7 +632,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that method return true if input is a file that exists.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidInput () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -627,7 +642,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that method return false if name provided doesn't really exist in file.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureInValidInputName () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -637,7 +652,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that method return false if the file doesn't really exist.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureInValidInputNonExistentDocument () {	
 		invalidConfigMgr=new ConfigurationManager(invalidFile);
@@ -648,7 +663,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that file returned element name is config3
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidFile() {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -658,7 +673,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that glfile returned element name is gl.csv
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidGLFile () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -669,7 +684,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that bpaFilesMap returned element is of size 2
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidbpaFilesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -681,7 +696,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that bpaFilesAttributesMap returned element is of size 4
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidbpaFilesAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -692,7 +707,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that bpaFilesAttributesMap returned element is of size 4
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidbpaFilesMainAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -703,7 +718,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that GlFilesAttributesMap returned element is of size 4
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidGlFilesAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -714,7 +729,7 @@ public class TestConfigurationManager {
 	/*
  	* Testing that GlFilesAttributesMap returned element is of size 4
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testcaptureValidGlMainFilesAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -731,7 +746,7 @@ public class TestConfigurationManager {
 	/*
 	* Saving a file with a different name, then retrieving and testing its existence
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsaveValidExistance () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -746,7 +761,7 @@ public class TestConfigurationManager {
 	/*
 	* Saving a file with a different name, then retrieving and testing its contents
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsaveValidContentsI () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -763,7 +778,7 @@ public class TestConfigurationManager {
 	/*
 	* Saving a file with a different name, then retrieving and testing its contents
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsaveValidContentsII () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -780,7 +795,7 @@ public class TestConfigurationManager {
 	/*
 	* Saving a file with a different name, then retrieving and testing its contents
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsaveValidContentsIII () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -797,7 +812,7 @@ public class TestConfigurationManager {
 	/*
 	* Saving a file with a different name, then retrieving and testing its contents
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsaveValidContentsIV () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -814,7 +829,7 @@ public class TestConfigurationManager {
 	/*
 	* Saving a file with a different name, then retrieving and testing its contents
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsaveValidContentsV () {	
 		validConfigMgr=new ConfigurationManager(validFile);
@@ -831,7 +846,7 @@ public class TestConfigurationManager {
 	/*
 	* Saving a file with a different name, then retrieving and testing its contents
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testsaveValidContentsVI () {	
 		validConfigMgr=new ConfigurationManager(validFile);

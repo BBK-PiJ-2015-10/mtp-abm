@@ -29,13 +29,13 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	@Override 
 	public void mapFiles(Scanner sc){
 		execManager(sc);
-		createmap();
+		createmap(sc);
 		
 	}
 	
-	public void createmap(){
+	public void createmap(Scanner sc){
 		mapCreator = new MapCreatorImpl();
-		mapCreator.createMap(configurationManager);
+		mapCreator.createMap(configurationManager,sc);
 	}
 	
 

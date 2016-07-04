@@ -14,6 +14,10 @@ import java.io.IOException;
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+
 public class TestABCSystemImpl {
 	
 	private ABCSystemImpl system1;
@@ -23,6 +27,23 @@ public class TestABCSystemImpl {
 	private Scanner sc;
 	
 	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
+	
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	
+	@Before
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	    System.setErr(new PrintStream(errContent));
+	}
+
+	@After
+	public void cleanUpStreams() {
+	    System.setOut(null);
+	    System.setErr(null);
+	}	
+	
 	
 	public void manualFeedSetUp(){
 		sc = new Scanner(System.in);
@@ -36,22 +57,6 @@ public class TestABCSystemImpl {
 		system1 = new ABCSystemImpl(sc);
 	}
 	
-
-	/* 
-	* Testing creating a validUserSpace
-	* */
-	@Ignore
-	@Test
-	public void testrunMakeNewUserSpace() {	
-		manualFeedSetUp();
-		system1.runMakeNewUserSpace();
-		System.out.println("Please enter the name again");
-		String name=sc.nextLine();
-		File temp = new File(address+name);
-		assertEquals(true,temp.isDirectory());
-		new File(address+name+"\\"+name+".dat").delete();
-		temp.delete();
-	}
 	
 	/* 
 	* Testing creating a validUserSpace
