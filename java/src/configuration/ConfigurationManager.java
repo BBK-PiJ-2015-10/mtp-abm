@@ -56,7 +56,7 @@ public class ConfigurationManager implements Serializable {
 		if(file.exists() && file.isDirectory()){
 			File [] filenames = file.listFiles();
 			for (int i=0;i<filenames.length;i++){
-				if (!(filenames[i].getName()+".dat").equals(file.getName()))
+				if (!(filenames[i].getName()).contains(".dat") && !(filenames[i].getName()).equals("glbpamap.csv"))
 				{
 					bpaFilesMap.put(filenames[i].getName(), filenames[i]);
 				}
@@ -172,7 +172,6 @@ public class ConfigurationManager implements Serializable {
 		if (selection.isEmpty()){
 			selection=sc.nextLine();
 		}
-		System.out.println("What are you" +selection +"stuff");
 		String[] selectionarray = selection.split(" ");
 		for (int i=0;i<selectionarray.length;i++){
 			if (counter >= maxEntry){

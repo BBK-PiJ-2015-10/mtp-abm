@@ -1,0 +1,2 @@
+Account Legal_Entity Department
+Amount
