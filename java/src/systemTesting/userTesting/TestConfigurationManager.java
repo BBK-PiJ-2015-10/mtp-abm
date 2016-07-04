@@ -34,7 +34,7 @@ import user.UserSpaceMakerImpl;
 
 public class TestConfigurationManager {
 	
-	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3";
+	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10\\config10";
 	
 	private File validFile = new File(validAddress);
 	
@@ -260,7 +260,7 @@ public class TestConfigurationManager {
 	//@Ignore
 	@Test
 	public void grabFilesAttributesvalid() {
-		File temp = new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user3\\config3\\phones.csv");
+		File temp = new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10\\config10\\phones.csv");
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.grabFileAttributes(temp, validConfigMgr.getBpaFilesAttributesMap());
@@ -636,7 +636,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidInput () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		assertEquals(true,validConfigMgr.capture("config3"));
+		assertEquals(true,validConfigMgr.capture("config10"));
 	}
 	
 	/*
@@ -667,7 +667,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidFile() {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		assertEquals("config3",validConfigMgr.getFile().getName());
+		assertEquals("config10",validConfigMgr.getFile().getName());
 	}
 	
 	/*
@@ -677,7 +677,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidGLFile () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		assertEquals("gl.csv",validConfigMgr.getGLFile().getName());
 	}
 
@@ -688,7 +688,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidbpaFilesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		assertEquals(2,validConfigMgr.getBPAFilesMap().size());
 	}	
 	
@@ -700,7 +700,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidbpaFilesAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		assertEquals(4,validConfigMgr.getBpaFilesAttributesMap().get("phones.csv").size());
 	}
 	
@@ -711,7 +711,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidbpaFilesMainAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		assertEquals(2,validConfigMgr.getBpaMainFilesAttributesMap().get("phones.csv").size());
 	}
 	
@@ -722,7 +722,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidGlFilesAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		assertEquals(4,validConfigMgr.getGlFilesAttributesMap().get("gl.csv").size());
 	}
 	
@@ -733,7 +733,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testcaptureValidGlMainFilesAttributesMap () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		assertEquals(3,validConfigMgr.getGlMainFilesAttributesMap().get("gl.csv").size());
 	}	
 	
@@ -750,7 +750,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testsaveValidExistance () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		validConfigMgr.save("newone");
 		assertEquals(true,Arrays.asList(validConfigMgr.getFile().list()).contains("newone.dat"));
 		String tempaddress = validConfigMgr.getFile().getAbsolutePath()+"\\"+"newone.dat";
@@ -765,7 +765,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testsaveValidContentsI () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		validConfigMgr.save("newone");
 		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
 		tempconfig.capture("newone");
@@ -782,7 +782,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testsaveValidContentsII () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		validConfigMgr.save("newone");
 		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
 		tempconfig.capture("newone");
@@ -799,7 +799,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testsaveValidContentsIII () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		validConfigMgr.save("newone");
 		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
 		tempconfig.capture("newone");
@@ -816,7 +816,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testsaveValidContentsIV () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		validConfigMgr.save("newone");
 		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
 		tempconfig.capture("newone");
@@ -833,7 +833,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testsaveValidContentsV () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		validConfigMgr.save("newone");
 		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
 		tempconfig.capture("newone");
@@ -850,7 +850,7 @@ public class TestConfigurationManager {
 	@Test
 	public void testsaveValidContentsVI () {	
 		validConfigMgr=new ConfigurationManager(validFile);
-		validConfigMgr.capture("config3");
+		validConfigMgr.capture("config10");
 		validConfigMgr.save("newone");
 		ConfigurationManager tempconfig=new ConfigurationManager(validFile);
 		tempconfig.capture("newone");

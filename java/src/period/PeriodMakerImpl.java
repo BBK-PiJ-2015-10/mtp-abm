@@ -25,6 +25,10 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	private ConfigurationManager configurationManager;
 	
+	public File getPeriod(){
+		return this.period;
+	}
+	
 	public UserSpace getUserSpace(){
 		return this.userSpace;
 	}
@@ -45,7 +49,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		return userSpace.validConfiguration(configName);
 	}
 	
-	public void captureConfiguration(Scanner sc){
+	public boolean captureConfiguration(Scanner sc){
 		Boolean validEntry = false;
 		String keyboardEntry;
 		do {
@@ -57,7 +61,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			}
 		} while (!validEntry);
 		configurationManager = new ConfigurationManager(userSpace.getConfiguration(keyboardEntry));
-		configurationManager.capture(keyboardEntry);		
+		configurationManager.capture(keyboardEntry);
+		return validEntry;
 	}
 	
 	public void createPeriod(Scanner sc){
