@@ -30,6 +30,8 @@ public class TestPeriodMakerImpl {
 	
 	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11";
 	
+	private String validAddressPeriod = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\period11";
+	
 	private File validFile = new File(validAddress);
 	
 	private PeriodMakerImpl periodMakerImpl; 
@@ -69,7 +71,7 @@ public class TestPeriodMakerImpl {
 		}	
 	}
 	
-	
+	//@Ignore
 	@Before
 	public void initializeUserSpace(){
 		setUpStreams();
@@ -134,7 +136,7 @@ public class TestPeriodMakerImpl {
 	/*
 	 * Testing captureConfiguration(Scanner sc) valid entry
 	 */
-	////@Ignore
+	//@Ignore
 	@Test
 	public void testCaptureConfigurationValid(){
 		autoFeedSetUp("config11");
@@ -197,6 +199,106 @@ public class TestPeriodMakerImpl {
 		periodMakerImpl.getPeriod().delete();
 	}	
 	
+	
+//////////////////////////////////////////////////////////////////////////////////////
+
+//These are the test capture(String periodName)
+	
+	/*
+	 * Testing that capture valid returns true if a validName is entered
+	 */
+	//@Ignore
+	@Test
+	public void testcaptureValid(){
+		PeriodMakerImpl validPeriod = new PeriodMakerImpl(new File(validAddressPeriod));
+		assertEquals(true,validPeriod.capture("period11"));
+	}	
+	
+
+	/*
+	 * Testing that capture valid returns false if an invalidName is entered
+	 */
+	//@Ignore
+	@Test
+	public void testcaptureInValidName(){
+		PeriodMakerImpl validPeriod = new PeriodMakerImpl(new File(validAddressPeriod));
+		assertEquals(false,validPeriod.capture("period12"));
+	}	
+	
+	/*
+	 * Testing the returns of a valid capture by invoking a BPAFilesMap
+	 */
+	//@Ignore
+	@Test
+	public void testcaptureValidNameBPAFilesMap(){
+		PeriodMakerImpl validPeriod = new PeriodMakerImpl(new File(validAddressPeriod));
+		validPeriod.capture("period11");
+		assertEquals(2,validPeriod.getConfiguration().getBPAFilesMap().keySet().size());
+	}	
+	
+
+	/*
+	 * Testing that an exception is thrown when invoking a BPAFilesMap with a non existent
+	 * period file.
+	 */
+	//@Ignore
+	@Test (expected = NullPointerException.class)
+	public void testcaptureInValidNameBPAFilesMap(){
+		PeriodMakerImpl validPeriod = new PeriodMakerImpl(new File(validAddressPeriod));
+		validPeriod.capture("period111");
+		assertEquals(2,validPeriod.getConfiguration().getBPAFilesMap().keySet().size());
+	}	
+	
+//////////////////////////////////////////////////////////////////////////////////////
+
+	//These are the tests for save()
+
+	/*
+	* Testing that saving stores a file on disk
+	*/
+	//@Ignore
+	@Test
+	public void testSaveValid(){
+		PeriodMakerImpl validPeriod = new PeriodMakerImpl(userSpace);
+		autoFeedSetUp("config11");
+		validPeriod.captureConfiguration(sc);
+		autoFeedSetUp("period25");
+		validPeriod.createPeriod(sc);
+		validPeriod.save();
+		String targetaddress1 =  validPeriod.getPeriod().getAbsolutePath()+"\\"+validPeriod.getPeriod().getName()+".dat";
+		String targetaddress2 =  validPeriod.getPeriod().getAbsolutePath();
+		File targetF = new File(targetaddress1);
+		File targetD = new File(targetaddress2);
+		assertEquals(true,targetF.exists());
+		targetF.delete();
+		targetD.delete();
+	}
+	
+	
+	/*
+	* Testing that saving stores a file on disk and testing for its contents
+	*/
+	//@Ignore
+	@Test
+	public void testSaveValidTestingContent(){
+		PeriodMakerImpl validPeriod = new PeriodMakerImpl(userSpace);
+		autoFeedSetUp("config11");
+		validPeriod.captureConfiguration(sc);
+		autoFeedSetUp("period26");
+		validPeriod.createPeriod(sc);
+		validPeriod.save();
+		PeriodMakerImpl validPeriodtemp = new PeriodMakerImpl(new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\period26"));
+		validPeriodtemp.capture("period26");
+		assertEquals("config11",validPeriodtemp.getConfiguration().getFile().getName());
+		assertEquals(2,validPeriodtemp.getConfiguration().getBPAFilesMap().keySet().size());
+		assertEquals(userSpace.getUserSpaceFile(),validPeriodtemp.getUserSpace().getUserSpaceFile());
+		String targetaddress1 =  validPeriod.getPeriod().getAbsolutePath()+"\\"+validPeriod.getPeriod().getName()+".dat";
+		String targetaddress2 =  validPeriod.getPeriod().getAbsolutePath();
+		File targetF = new File(targetaddress1);
+		File targetD = new File(targetaddress2);
+		targetF.delete();
+		targetD.delete();
+	}
 	
 	
 	
