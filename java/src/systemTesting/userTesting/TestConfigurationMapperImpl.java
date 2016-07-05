@@ -12,24 +12,22 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import configuration.ConfigurationManager;
+import configuration.ConfigurationMapperImpl;
 import configuration.MapCreator;
 import configuration.MapCreatorImpl;
 
-public class TestMapCreatorImpl {
-	
-	private MapCreator mapCreator;
-	
+public class TestConfigurationMapperImpl {
+		
 	private ConfigurationManager configurationManager;
+	
+	private ConfigurationMapperImpl configurationMapperImpl;
 	
 	private Scanner sc;
 	
 	private ByteArrayInputStream auto;
-	
-	private String mapName = "testmap.csv";
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
@@ -67,7 +65,7 @@ public class TestMapCreatorImpl {
 		configurationManager = new ConfigurationManager
 				(new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\config11"));
 		configurationManager.capture("config11");
-		setUpStreams();	
+		//setUpStreams();	
 	}
 	
 	
@@ -85,62 +83,11 @@ public class TestMapCreatorImpl {
 	//@Ignore
 	@Test
 	public void testcreateMapValidInputs() {
-		 autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl();
-		 assertEquals(true,mapCreator.createMap(configurationManager, sc,mapName));
-		 String tempString = configurationManager.getFile().getAbsolutePath()+"\\"+mapName;
-		 File tempFile = new File(tempString);
-		 assertEquals(true,tempFile.exists());
-		 tempFile.delete();
-	}
-	
-	/*
-	* Testing createMap with invalid inputs Null configuration manager
-	*/
-	//@Ignore
-	@Test
-	public void testcreateMapInValidInputNullConfiguration() {
-		 autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl();
-		 assertEquals(false,mapCreator.createMap(null, sc,mapName));
-	}
-	
-	/*
-	* Testing createMap with invalid inputs Null name
-	*/
-	//@Ignore
-	@Test
-	public void testcreateMapInValidInputNullName() {
-		 String tempname = null;
-		 autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl();
-		 assertEquals(false,mapCreator.createMap(configurationManager,sc,tempname));
-	}
-	
-	
-	
-	/*
-	* Testing createMap with invalid inputs Null scanner
-	*/
-	//@Ignore
-	@Test
-	public void testcreateMapInValidInputNullScanner() {
-		autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl();
-		 assertEquals(false,mapCreator.createMap(configurationManager, null,mapName));	 
-	}
-	
-	/*
-	* Testing createMap with valid inputs
-	*/
-	//@Ignore
-	@Test
-	public void testcreateMapInValidInputsAnswers() {
-		 autoFeedSetUpFile("testmapcreatorimpl2.txt");
-		 mapCreator = new MapCreatorImpl();
-		 assertEquals(false,mapCreator.createMap(configurationManager, sc,mapName));
+		 manualFeedSetUp();
+		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl.execManager(sc);
 		 
-	}
-	
-	
+		 assertEquals(2,2);
+	}	
+
 }

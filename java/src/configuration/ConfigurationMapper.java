@@ -4,6 +4,6 @@ import java.util.Scanner;
 
 public interface ConfigurationMapper {
 		
-	void mapFiles(Scanner sc);
+	boolean mapFiles(Scanner sc);
 
 }
