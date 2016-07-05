@@ -4,6 +4,6 @@ import java.util.Scanner;
 
 public interface MapCreator {
 	
-	void createMap(ConfigurationManager configurationManager, Scanner sc, String mapName);
+	boolean createMap(ConfigurationManager configurationManager, Scanner sc, String mapName);
 
 }
