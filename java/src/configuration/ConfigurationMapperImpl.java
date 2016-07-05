@@ -35,7 +35,7 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	
 	public void createmap(Scanner sc){
 		mapCreator = new MapCreatorImpl();
-		mapCreator.createMap(configurationManager,sc);
+		mapCreator.createMap(configurationManager,sc,"glbpamap.csv");
 	}
 	
 

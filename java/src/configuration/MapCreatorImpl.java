@@ -19,11 +19,9 @@ import java.util.HashSet;
 public class MapCreatorImpl implements MapCreator {
 
 	@Override
-	public void createMap(ConfigurationManager configurationManager, Scanner keyboard) {
-			
-		File glbpamapFile = new File(configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv");
-		
-		//Scanner keyboard = new Scanner(System.in);
+	public void createMap(ConfigurationManager configurationManager, Scanner keyboard, String mapName) {
+				
+		File glbpamapFile = new File(configurationManager.getFile().getAbsolutePath()+"\\"+mapName);
 		
 		try {
 			glbpamapFile.createNewFile();
@@ -31,6 +29,15 @@ public class MapCreatorImpl implements MapCreator {
 		catch (IOException ex) {
 			System.out.println("Couldn't create the file");
 		}
+		
+		if (!keyboard.hasNextLine()){
+			glbpamapFile.delete();
+		}
+		
+		if (mapName==null){
+			glbpamapFile.delete();
+		}
+		
 			
 		try (
 				FileWriter fw = new FileWriter(glbpamapFile,false);

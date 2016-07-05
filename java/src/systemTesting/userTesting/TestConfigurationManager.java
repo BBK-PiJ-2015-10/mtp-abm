@@ -259,7 +259,7 @@ public class TestConfigurationManager {
 	 */
 	//@Ignore
 	@Test
-	public void grabFilesAttributesvalid() {
+	public void testgrabFilesAttributesvalid() {
 		File temp = new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10\\config10\\phones.csv");
 		validConfigMgr=new ConfigurationManager(validFile);
 		validConfigMgr.loadFilesMap();
