@@ -67,7 +67,7 @@ public class TestMapCreatorImpl {
 		configurationManager = new ConfigurationManager
 				(new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\config11"));
 		configurationManager.capture("config11");
-		setUpStreams();	
+		//setUpStreams();	
 	}
 	
 	

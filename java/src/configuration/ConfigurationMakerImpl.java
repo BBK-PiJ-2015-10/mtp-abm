@@ -8,10 +8,7 @@ import java.io.File;
 
 
 public class ConfigurationMakerImpl implements ConfigurationMaker {
-	
-	
-	
-	
+		
 	@Override
 	public void makeConfiguration(UserSpace userSpace,Scanner sc) {
 		
@@ -40,6 +37,7 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 	     }
 		System.out.println("For today, you are done with the configuration set up");		
 	}
+	
 	
 	
 

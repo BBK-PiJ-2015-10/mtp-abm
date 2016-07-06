@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ TestABCSystemImpl.class, TestUserSpace.class, TestCreateUserSpaceMakerImpl.class,
-TestConfigurationManager.class, TestPeriodMakerImpl.class,TestMapCreatorImpl.class})
+TestConfigurationManager.class, TestPeriodMakerImpl.class,TestMapCreatorImpl.class,TestConfigurationMapperImpl.class})
 public class AllABCTests {
 	
 
