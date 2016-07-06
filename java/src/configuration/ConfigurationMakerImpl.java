@@ -9,6 +9,9 @@ import java.io.File;
 
 public class ConfigurationMakerImpl implements ConfigurationMaker {
 	
+	
+	
+	
 	@Override
 	public void makeConfiguration(UserSpace userSpace,Scanner sc) {
 		
