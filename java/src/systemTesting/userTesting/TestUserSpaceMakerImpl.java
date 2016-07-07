@@ -23,7 +23,7 @@ import java.util.Scanner;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-public class TestCreateUserSpaceMakerImpl {
+public class TestUserSpaceMakerImpl {
 	
 	
 	private UserSpace userSpace;

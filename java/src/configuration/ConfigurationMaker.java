@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public interface ConfigurationMaker {
 	
-	void makeConfiguration(UserSpace userSpace,Scanner sc);
+	boolean makeConfiguration(UserSpace userSpace,Scanner sc);
+	
+	
 
 }

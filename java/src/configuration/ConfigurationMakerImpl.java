@@ -9,11 +9,25 @@ import java.io.File;
 
 public class ConfigurationMakerImpl implements ConfigurationMaker {
 		
+	public ConfigurationMakerImpl(){	
+	}
+	
+	
+	public String captureInput(String message, Scanner sc){
+		System.out.println(message);
+		return sc.nextLine();
+	}
+	
+	
 	@Override
-	public void makeConfiguration(UserSpace userSpace,Scanner sc) {
-		
-		System.out.println("Please enter the name of the configuration you wish to create ");
-		String dirname = sc.nextLine();
+	public boolean makeConfiguration(UserSpace userSpace, Scanner sc) {
+		if (sc == null || userSpace == null){
+			return false;
+		}
+		String dirname = captureInput("Please enter the name of the configuration you wish to create ",sc);
+		if (dirname.isEmpty()){
+			return false;
+		}		
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		File config = new File(address+dirname);
 		config.mkdir();
@@ -22,9 +36,9 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		System.out.println("Please go to the below location and drop your general ledger and operation data files");
 		System.out.println(address+dirname);
 		System.out.println("When done, please enter the word done");
-		
+			
 		try {
-			Thread.sleep(30000);
+			Thread.sleep(1000);
 		} catch (InterruptedException ex)
 		{
 			System.out.println("Time is up");
@@ -35,7 +49,8 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
 			configMapper.mapFiles(sc);
 	     }
-		System.out.println("For today, you are done with the configuration set up");		
+		System.out.println("For today, you are done with the configuration set up");
+		return true;
 	}
 	
 	
