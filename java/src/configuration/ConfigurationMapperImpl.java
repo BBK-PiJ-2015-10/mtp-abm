@@ -30,6 +30,8 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 			configurationManager.save();
 		} catch (NoSuchElementException ex){
 			return false;
+		} catch (NullPointerException ex){
+			return false;
 		}
 		return true;
 	}
@@ -41,8 +43,7 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	
 	public boolean createMap(Scanner sc){
 		mapCreator = new MapCreatorImpl();
-		mapCreator.createMap(configurationManager,sc,"glbpamap.csv");
-		return true;
+		return mapCreator.createMap(configurationManager,sc,"glbpamap.csv");
 	}
 	
 

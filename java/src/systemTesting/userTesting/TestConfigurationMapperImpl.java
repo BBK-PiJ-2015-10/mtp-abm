@@ -139,6 +139,19 @@ public class TestConfigurationMapperImpl {
 		 assertEquals(false,configurationMapperImpl.execManager(sc));
 	}
 	
+	/*
+	* Testing execManager() with invalid gl file input
+	*/
+	//@Ignore
+	@Test
+	public void testexecManagerInValidInputNullConfigurationMNager() {
+		 autoFeedSetUpFile("testconfigurationmapperimpl1.txt");
+		 configurationMapperImpl = new ConfigurationMapperImpl(null);
+		 assertEquals(false,configurationMapperImpl.execManager(sc));
+	}
+	
+	
+	
 	
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
@@ -155,12 +168,191 @@ public class TestConfigurationMapperImpl {
 		 configurationMapperImpl.execManager(sc);
 		 assertEquals(true,configurationMapperImpl.createMap(sc));
 		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
-		 new File(tempA).delete();
+		 File tempF = new File(tempA);
+		 assertEquals(true, tempF.exists());
+		 tempF.delete();
+		 String value = configurationManager.getFile().getAbsolutePath()+"\\"+"config12.dat";
+		 File tempCF = new File(value);
+		 tempCF.delete();
+	}
+	
+	/*
+	* Testing createMap with null scanner
+	*/
+	//@Ignore
+	@Test
+	public void testcreateMapNullScanner() {
+		 autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
+		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl.execManager(sc);
+		 assertEquals(false,configurationMapperImpl.createMap(null));
+		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		 File tempF = new File(tempA);
+		 assertEquals(false, tempF.exists());
+		 String value = configurationManager.getFile().getAbsolutePath()+"\\"+"config12.dat";
+		 File tempCF = new File(value);
+		 tempCF.delete();
+	}
+	
+	/*
+	* Testing createMap with no data scanner
+	*/
+	//@Ignore
+	@Test
+	public void testcreateMapNoDataScanner() {
+		 autoFeedSetUpFile("testconfigurationmapperimpl1.txt");
+		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl.execManager(sc);
+		 assertEquals(false,configurationMapperImpl.createMap(sc));
+		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		 File tempF = new File(tempA);
+		 assertEquals(false, tempF.exists());
+	}
+	
+	/*
+	* Testing createMap with incomplete data scanner
+	*/
+	//@Ignore
+	@Test
+	public void testcreateMapIncompleDataScanner() {
+		 autoFeedSetUpFile("testconfigurationmapperimpl7.txt");
+		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl.execManager(sc);
+		 assertEquals(false,configurationMapperImpl.createMap(sc));
+		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		 File tempF = new File(tempA);
+		 assertEquals(false, tempF.exists());
+	}
+	
+	/*
+	* Testing createMap with incomplete data scanner line skipped
+	*/
+	//@Ignore
+	@Test
+	public void testcreateMapIncompleDataScannerLineSkipped() {
+		 autoFeedSetUpFile("testconfigurationmapperimpl8.txt");
+		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl.execManager(sc);
+		 assertEquals(false,configurationMapperImpl.createMap(sc));
+		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		 File tempF = new File(tempA);
+		 assertEquals(false, tempF.exists());
+	}
+	
+	/*
+	* Testing createMap with null ConfigurationManager
+	*/
+	//@Ignore
+	@Test
+	public void testcreateMapWithNullConfiguratoinManager() {
+		 autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
+		 configurationMapperImpl = new ConfigurationMapperImpl(null);
+		 configurationMapperImpl.execManager(sc);
+		 assertEquals(false,configurationMapperImpl.createMap(sc));
+		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		 File tempF = new File(tempA);
+		 assertEquals(false, tempF.exists());
+	}
+	
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	
+//Below are the tests for mapFiles(Scanner sc)
+
+	/*
+	* Testing mapFiles with valid input
+	*/
+	//@Ignore
+	@Test
+	public void testMapFilesValid() {
+		autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
+		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		assertEquals(true,configurationMapperImpl.mapFiles(sc));
+		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		File tempMF = new File(tempA);
+		assertEquals(true, tempMF.exists());
+		String value = configurationManager.getFile().getAbsolutePath()+"\\"+"config12.dat";
+		File tempCF = new File(value);
+		assertEquals(true, tempCF.exists());
+		tempCF.delete();
+		tempMF.delete();
+	}
+	
+	/*
+	* Testing mapFiles with invalid input, null scanner
+	*/
+	//@Ignore
+	@Test
+	public void testMapFilesNullScanner() {
+		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		assertEquals(false,configurationMapperImpl.mapFiles(null));
+		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		File tempF = new File(tempA);
+		assertEquals(false, tempF.exists());
 	}
 	
 	
+	/*
+	* Testing mapFiles with invalid input, incomplete scanner part I
+	*/
+	//@Ignore
+	@Test
+	public void testMapFilesIncompleteScannerpartI() {
+		autoFeedSetUpFile("testconfigurationmapperimpl2.txt");
+		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		assertEquals(false,configurationMapperImpl.mapFiles(sc));
+		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		File tempF = new File(tempA);
+		assertEquals(false, tempF.exists());
+	}
 	
 	
+	/*
+	* Testing mapFiles with invalid input, incomplete scanner part II
+	*/
+	//@Ignore
+	@Test
+	public void testMapFilesIncompleteScannerpartII() {
+		autoFeedSetUpFile("testconfigurationmapperimpl3.txt");
+		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		assertEquals(false,configurationMapperImpl.mapFiles(sc));
+		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		File tempF = new File(tempA);
+		assertEquals(false, tempF.exists());
+	}
+	
+	
+	/*
+	* Testing mapFiles with invalid input, incomplete scanner part II
+	*/
+	//@Ignore
+	@Test
+	public void testMapFilesIncompleteScannerpartIII() {
+		autoFeedSetUpFile("testconfigurationmapperimpl6.txt");
+		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		assertEquals(false,configurationMapperImpl.mapFiles(sc));
+		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		File tempF = new File(tempA);
+		assertEquals(false, tempF.exists());
+		String value = configurationManager.getFile().getAbsolutePath()+"\\"+"config12.dat";
+		File tempCF = new File(value);
+		assertEquals(true, tempCF.exists());
+		tempCF.delete();
+	}
+	
+	/*
+	* Testing mapFiles with invalid input, null ConfigurationManager
+	*/
+	//@Ignore
+	@Test
+	public void testMapFilesInValidNullConfiguration() {
+		autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
+		configurationMapperImpl = new ConfigurationMapperImpl(null);
+		assertEquals(false,configurationMapperImpl.mapFiles(sc));
+		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
+		File tempF = new File(tempA);
+		assertEquals(false, tempF.exists());
+	}
 	
 
 }
