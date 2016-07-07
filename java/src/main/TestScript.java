@@ -34,6 +34,13 @@ import java.util.Arrays;
 //import java.io.PrintWriter;
 import java.util.Scanner;
 
+import period.PeriodMaker;
+import period.PeriodMakerImpl;
+
+import bpa.BpaCostsMaker;
+import bpa.BpaCostsMakerImpl;
+
+
 
 public class TestScript {
 
@@ -46,17 +53,37 @@ public class TestScript {
 	
 	public void launch(){
 		
+		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\period14";
+		File testFile = new File(testaddress);
+	    PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
+	    System.out.println(testPeriod.capture("period14"));
 	    
-	    ByteArrayInputStream auto = new ByteArrayInputStream("Ale Cane".getBytes());
-	    System.setIn(auto);
+		BpaCostsMaker test = new BpaCostsMakerImpl(testPeriod);
+		
+		//The below will give me access to the GLFile
+		test.getPeriodMaker().getConfiguration().getGLFile();
+		/*
+		 * Copy all rows from the Gl file, but only the relevant columns
+		 * Do a vlookup of all the columns being copied vs the mapping file to get the BPA driver
+		 * Don't forget the amounts
+		 * Need to figure out how to detect not mapped yet combinations either on the fly or before.
+		 * Try first not to validate, then run validation.
+		 */
+		//test.getPeriodMaker().getConfiguration().getBpaFilesAttributesMap().keySet().forEach(System.out::println);
+		
+		
+		System.out.println("Back on programming mode");
+		
+	    //ByteArrayInputStream auto = new ByteArrayInputStream("Ale Cane".getBytes());
+	    //System.setIn(auto);
 	    
-	    Scanner tester = new Scanner(System.in);
+	    //Scanner tester = new Scanner(System.in);
 	    
-	    String value;
+	    //String value;
 	    
-	    value=tester.nextLine();
+	    //value=tester.nextLine();
 	    
-	    System.out.println("I have entered: " +value);
+	    //System.out.println("I have entered: " +value);
 	    
 		
 		//test.
