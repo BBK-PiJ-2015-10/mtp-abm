@@ -37,6 +37,10 @@ public class UserSpace implements Serializable {
 		configurations.put(configname, file);
 	}
 	
+	public void removeConfiguration(String configname){
+		configurations.remove(configname);
+	}
+	
 	public File getConfiguration(String configName){
 		return configurations.get(configName);
 	}

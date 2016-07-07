@@ -3,18 +3,22 @@ package systemTesting.userTesting;
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImpl;
 import configuration.ConfigurationMapperImpl;
+import period.PeriodMakerImpl;
 import user.UserSpace;
 
 public class TestConfigurationMakerImpl {
@@ -31,6 +35,18 @@ public class TestConfigurationMakerImpl {
 	
 	private ConfigurationMaker configurationMaker = new ConfigurationMakerImpl();
 	
+	private ConfigurationMakerImpl tempCMI = new ConfigurationMakerImpl();
+	
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	    System.setErr(new PrintStream(errContent));
+	}
+	
+
 	public void manualFeedSetUp(){
 		sc = new Scanner(System.in);
 	}
@@ -52,10 +68,61 @@ public class TestConfigurationMakerImpl {
 		}	
 	}
 	
+	
+	@Before
+	public void initializeUserSpace(){
+		setUpStreams();	
+	}
+	
+
+//////////////////////////////////////////////////////////////////////////////////////////
+	
+	/*
+	 * Testing captureInput(String input, Scanner sc)
+	 */
+	
+	//@Ignore
+	@Test
+	public void testcaptureValidInput() {
+		String feeder ="Ale Cane";
+		autoFeedSetUp(feeder);
+		userSpace = new UserSpace();
+		userSpace.FileSetUserSpaceFile(validFile);
+		ConfigurationMakerImpl tempCMI = new ConfigurationMakerImpl();
+		assertEquals(feeder,tempCMI.captureInput("Enter Something", sc));
+	}
+	
+	
+	//@Ignore
+	@Test (expected = NullPointerException.class)
+	public void testcaptureEmptyScanner() {
+		String feeder ="Ale Cane";
+		autoFeedSetUp(feeder);
+		userSpace = new UserSpace();
+		userSpace.FileSetUserSpaceFile(validFile);
+		ConfigurationMakerImpl tempCMI = new ConfigurationMakerImpl();
+		assertEquals(feeder,tempCMI.captureInput("Enter Something", null));
+	}
+	
+
+	//@Ignore
+	@Test
+	public void testcaptureEmptyString() {
+		String feeder ="Ale Cane";
+		autoFeedSetUp(feeder);
+		userSpace = new UserSpace();
+		userSpace.FileSetUserSpaceFile(validFile);
+		ConfigurationMakerImpl tempCMI = new ConfigurationMakerImpl();
+		assertEquals(feeder,tempCMI.captureInput(null,sc));
+	}
+	
+	
+/////////////////////////////////////////////////////////////////////////////////////////	
+	
 	/*
 	* Testing makeConfiguration without a config name
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testmakeConfigurationIncompleteScanning() {
 		autoFeedSetUpFile("testconfigurationmakerimpl1.txt");
@@ -67,7 +134,7 @@ public class TestConfigurationMakerImpl {
 	/*
 	* Testing makeConfiguration without a null scanner.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testmakeConfigurationNullScanner() {
 		autoFeedSetUpFile("testconfigurationmakerimpl2.txt");
@@ -79,7 +146,7 @@ public class TestConfigurationMakerImpl {
 	/*
 	* Testing makeConfiguration with a null UserSpace
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testmakeConfigurationNullUserSpace() {
 		autoFeedSetUpFile("testconfigurationmakerimpl2.txt");
@@ -88,10 +155,17 @@ public class TestConfigurationMakerImpl {
 		assertEquals(false,configurationMaker.makeConfiguration(null, sc));
 	}
 	
-	
-	
-	
-	
+	/*
+	* Testing makeConfiguration without input files
+	*/
+	//@Ignore
+	@Test
+	public void testmakeConfigurationMissingInputs() {
+		autoFeedSetUpFile("testconfigurationmakerimpl2.txt");
+		userSpace = new UserSpace();
+		userSpace.FileSetUserSpaceFile(validFile);
+		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc));
+	}
 	
 
 }

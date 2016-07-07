@@ -38,12 +38,13 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		System.out.println("When done, please enter the word done");
 			
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException ex)
 		{
 			System.out.println("Time is up");
 		}
 		
+		try {
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
 			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
@@ -51,6 +52,17 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 	     }
 		System.out.println("For today, you are done with the configuration set up");
 		return true;
+		} catch (NullPointerException ex){
+			userSpace.removeConfiguration(dirname);
+			userSpace.save();
+			String tempD = config.getAbsolutePath()+"//"+config.getName()+".dat";
+			new File(tempD).delete();
+			String tempM = config.getAbsolutePath()+"//"+"glbpamap.csv";
+			File tempMF = new File(tempM);
+			tempMF.delete();
+			config.delete();
+			return false;
+		}
 	}
 	
 	
