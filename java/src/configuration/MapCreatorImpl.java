@@ -100,7 +100,9 @@ public class MapCreatorImpl implements MapCreator {
 			} catch ( IOException | NoSuchElementException ex){
 				glbpamapFile.delete();
 				return false;
-			} 	
+			}
+			configurationManager.setglbpamapFile(glbpamapFile);
+			configurationManager.save();
 			return true;
 		}
 		

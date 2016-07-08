@@ -108,9 +108,13 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			isPresent = true;
 			
 		} catch (ClassNotFoundException ex){
+			System.out.println("error1");
 			isPresent = false;
+			
 		} catch (IOException ex2){
-			isPresent = false;;
+			System.out.println("error2");
+			isPresent = false;
+			
 		} 
 		return isPresent;		
 	}

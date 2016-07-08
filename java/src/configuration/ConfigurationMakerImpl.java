@@ -38,7 +38,7 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		System.out.println("When done, please enter the word done");
 			
 		try {
-			Thread.sleep(200);
+			Thread.sleep(20000);
 		} catch (InterruptedException ex)
 		{
 			System.out.println("Time is up");

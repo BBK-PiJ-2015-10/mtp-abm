@@ -27,6 +27,8 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	
 	private Map<String,File> periodFiles = new HashMap<>();
 	
+	private Map<String,String> driversmap = new HashMap<>();
+	
 	public BpaCostsMakerImpl(PeriodMaker periodMaker){
 		this.periodMaker=periodMaker;
 	}
@@ -53,12 +55,36 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		}	
 	}
 	
-	public void extractGLBPAMap(){
-		//periodMaker.getConfiguration()
-		//try (BufferedReader mr = new BufferedReader(new FileReader("ALE"));)
-		//{
-		//} catch ( IOException | NoSuchElementException ex){
-		//}	
+	public boolean extractGLBPAMap(){
+		try (BufferedReader mr = new BufferedReader(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
+		{
+			String line;
+			mr.readLine();
+			while ((line = mr.readLine()) != null){
+				if (!line.isEmpty()) {
+					String[] sentence=line.split(",");
+					String key=null;
+					String value=null;
+					for (int i=0;i<sentence.length;i++){
+						if (i<sentence.length-1){
+							if (key==null){
+								key=sentence[i];
+							}
+							else {
+								key=key+sentence[i];
+							}
+						}
+						else {
+							value=sentence[i];
+						}
+					}
+				driversmap.put(key, value);
+			}
+		}		
+		} catch ( IOException | NoSuchElementException ex){
+			return false;
+		}
+		return true;
 	}
 	
 	
@@ -77,7 +103,6 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				return false;
 			}
 			else {
-				
 				periodFiles.put(value,tempF);
 			}
 		}
@@ -102,7 +127,6 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);
 				 BufferedReader in = new BufferedReader(new FileReader(periodFiles.get(periodMaker.getConfiguration().getGLFile().getName())));)
-		         //BufferedReader in = new BufferedReader(new FileReader(periodMaker.getConfiguration().getGLFile()));)
 		{
 			List<Integer> validPOS = new LinkedList<>();
 			String line;
@@ -110,28 +134,35 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 			line = in.readLine();
 			sentence=line.split(",");
 			
-			///*
 			for (int i=0;i<sentence.length;i++){
 				if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").contains(sentence[i])){
 			        validPOS.add(i);
 					out.write(sentence[i]+",");
 				}
 			}
+			out.write("BPA");
 			out.println();
 			
-			//*/
 			while ((line = in.readLine()) != null){
 				
 				System.out.println(line);
 				sentence=line.split(",");
+				validPOS.get(validPOS.size()-1);
+				String key = null;
 				for (int pos: validPOS){
+					if (pos!=validPOS.get(validPOS.size()-1)){
+						if (key==null){
+							key=sentence[pos];
+						}
+						else {
+							key=key+sentence[pos];
+						}
+					}
 					out.write(sentence[pos]+",");
 				}
+				out.write(driversmap.get(key));
 				out.println();
 			}
-			//periodFiles.keySet().forEach(System.out::println);
-			//System.out.println(periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").contains("Department"));
-		
 			
 		}catch ( IOException | NoSuchElementException ex){
 			
@@ -149,11 +180,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		validateInput();
 		extractGLBPAMap();
 		createBpaCosts();
-		extractGL();
-		System.out.println("You will do something soon");
-
-		//periodMaker.getConfiguration().g
-		
+		extractGL();		
 	}
 	
 	
