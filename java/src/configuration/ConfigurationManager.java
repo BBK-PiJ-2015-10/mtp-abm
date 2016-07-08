@@ -31,6 +31,8 @@ public class ConfigurationManager implements Serializable {
 	
 	private File glFile;
 	
+	private File glbpamapFile;
+	
 	private Map<String,Set<String>> bpaFilesAttributesMap = new HashMap<>();
 	
 	private Map<String,List<String>> bpaFilesMainAttributesMap = new HashMap<>();
@@ -52,6 +54,18 @@ public class ConfigurationManager implements Serializable {
 	public File getFile(){
 		return this.file;
 	}
+	
+	//Need to create JUnit for this
+	public void setglbpamapFile(File glbpamapFile){
+		this.glbpamapFile=file;
+	}
+	
+	//Need to create JUnit for this
+	public File getglbpamapFile(){
+		return this.glbpamapFile;
+	}
+	
+	
 		
 	public void loadFilesMap(){
 		if(file.exists() && file.isDirectory()){
@@ -218,6 +232,7 @@ public class ConfigurationManager implements Serializable {
 			encode.writeObject(glFilesAttributesMap);
 			encode.writeObject(glFilesMainAttributesMap);
 			encode.writeObject(bpaFilesMainAttributesMap);
+			//encode.writeObject(glbpamapFile);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -234,6 +249,7 @@ public class ConfigurationManager implements Serializable {
 			encode.writeObject(glFilesAttributesMap);
 			encode.writeObject(glFilesMainAttributesMap);
 			encode.writeObject(bpaFilesMainAttributesMap);
+			//encode.writeObject(glbpamapFile);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -252,6 +268,7 @@ public class ConfigurationManager implements Serializable {
 				glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 				glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
 				bpaFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
+				//glbpamapFile=(File)incode.readObject();
 				isPresent = true;
 			} 
 			  catch (ClassNotFoundException ex){
