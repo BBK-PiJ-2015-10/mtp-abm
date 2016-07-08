@@ -120,8 +120,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	}
 	
 	
-	public void extractGL(){
-		
+	public boolean extractGL(){
 		try (
 				FileWriter fw = new FileWriter(bpaCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
@@ -164,11 +163,10 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				out.println();
 			}
 			
-		}catch ( IOException | NoSuchElementException ex){
-			
+		}	catch ( IOException | NoSuchElementException ex){
+				return false;
 		}
-		
-		
+		return true;
 	}
 	
 	
