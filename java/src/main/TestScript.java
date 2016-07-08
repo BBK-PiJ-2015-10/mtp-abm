@@ -56,12 +56,14 @@ public class TestScript {
 		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\period14";
 		File testFile = new File(testaddress);
 	    PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
-	    System.out.println(testPeriod.capture("period14"));
+	    testPeriod.capture("period14");
 	    
 		BpaCostsMaker test = new BpaCostsMakerImpl(testPeriod);
+		test.createbpaCosts();
 		
+		//Ask user to place list of files on period folder.
 		//The below will give me access to the GLFile
-		test.getPeriodMaker().getConfiguration().getGLFile();
+		//test.getPeriodMaker().getConfiguration().getGLFile();
 		/*
 		 * Copy all rows from the Gl file, but only the relevant columns
 		 * Do a vlookup of all the columns being copied vs the mapping file to get the BPA driver
@@ -72,7 +74,7 @@ public class TestScript {
 		//test.getPeriodMaker().getConfiguration().getBpaFilesAttributesMap().keySet().forEach(System.out::println);
 		
 		
-		System.out.println("Back on programming mode");
+		//System.out.println("Back on programming mode");
 		
 	    //ByteArrayInputStream auto = new ByteArrayInputStream("Ale Cane".getBytes());
 	    //System.setIn(auto);
