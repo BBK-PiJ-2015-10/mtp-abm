@@ -119,7 +119,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName();
 		tempF = new File(tempName);
 			if (!tempF.exists()){
-				System.out.println("The file named: " +tempName +" is missing");
+				System.out.println("The file named: " +tempF.getName() +" is missing");
 				return false;
 			}
 			else {

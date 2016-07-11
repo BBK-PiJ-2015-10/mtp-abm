@@ -3,11 +3,14 @@ package systemTesting.userTesting;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.PrintStream;
 
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
@@ -24,9 +27,29 @@ public class TestbpaCostsMakerImpl {
 	
 	private BpaCostsMakerImpl bpaCostsMakerImpl;
 	
+	
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	
+	public void setUpStreams() {
+	    System.setOut(new PrintStream(outContent));
+	    System.setErr(new PrintStream(errContent));
+	}
+	
+	
+	
 	@Before
 	public void setUp() {
 		period.capture("period14");
+		setUpStreams();
+	}
+	
+	
+	@After
+	public void cleanUpStreams() {
+	    System.setOut(null);
+	    System.setErr(null);
 	}
 	
 	
@@ -136,7 +159,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if no drivers files are present the method returns false.
 	*/
-	//@Ignore
+	@Ignore
 	@Test
 	public void testValidateInputPartialNoDriversFiles(){
 		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiod";
@@ -151,7 +174,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if no GL file is present the method returns false.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testValidateInputPartialNoGLFile(){
 		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiodnogl";
@@ -161,6 +184,7 @@ public class TestbpaCostsMakerImpl {
 		parperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    assertEquals("The file named: gl.csv is missing", outContent.toString());
 	}
 	
 	
