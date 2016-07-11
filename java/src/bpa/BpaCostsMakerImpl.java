@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.NoSuchElementException;
 
 
@@ -105,27 +106,34 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	}
 	
 	public boolean validateInput(){
+		int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size()+1;
+		int currFiles=0;
+		//Set<String> temp = periodMaker.getConfiguration().getBPAFilesMap().keySet();
+		//temp.add(periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName());
+		
 		File tempF;
 		for (String value :periodMaker.getConfiguration().getBPAFilesMap().keySet() ){
 			tempF = new File(periodMaker.getPeriod().getAbsolutePath()+"\\"+value);
 			if (!tempF.exists()){
 				System.out.println("The file named: " +value +" is missing");
-				return false;
+				//return false;
 			}
 			else {
 				periodFiles.put(value,tempF);
+				currFiles++;
 			}
 		}
 		String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName();
 		tempF = new File(tempName);
 			if (!tempF.exists()){
 				System.out.println("The file named: " +tempF.getName() +" is missing");
-				return false;
+				//return false;
 			}
 			else {
 				periodFiles.put(periodMaker.getConfiguration().getGLFile().getName(),tempF);
+				currFiles++;
 			}
-		return true;
+		return (currFiles==maxFiles);
 	}
 	
 	

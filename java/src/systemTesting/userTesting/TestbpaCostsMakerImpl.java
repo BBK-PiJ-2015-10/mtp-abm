@@ -154,6 +154,15 @@ public class TestbpaCostsMakerImpl {
 		eperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(eperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    String str1 = "The file named: implementation.csv is missing";
+	    String str2 = "The file named: phones.csv is missing";
+	    String str3 = "The file named: gl.csv is missing";
+	    int beg,end=0;
+	    assertEquals(str1,outContent.toString().trim().substring(0,str1.length()));
+	    beg=str1.length()+2;
+	    end=str1.length()+2+str2.length();
+	    assertEquals(str2,outContent.toString().trim().substring(beg,end));
+	    assertEquals(str3,outContent.toString().trim().substring(end+2));	    
 	}
 		
 	/*
@@ -169,12 +178,17 @@ public class TestbpaCostsMakerImpl {
 		parperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    String str1 = "The file named: implementation.csv is missing";
+	    String str2 = "The file named: phones.csv is missing";
+	    int total = str1.length()+str2.length();
+	    assertEquals(str1,outContent.toString().trim().substring(0,str1.length()));
+	    assertEquals(str2,outContent.toString().trim().substring(str1.length()+2));
 	}
 	
 	/*
 	* Test that if no GL file is present the method returns false.
 	*/
-	//@Ignore
+	@Ignore
 	@Test
 	public void testValidateInputPartialNoGLFile(){
 		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiodnogl";
@@ -184,8 +198,14 @@ public class TestbpaCostsMakerImpl {
 		parperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput());
-	    assertEquals("The file named: gl.csv is missing", outContent.toString());
+	    String result = "The file named: gl.csv is missing";
+	    assertEquals(result,outContent.toString().substring(0,result.length()));
 	}
+	
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
 	
 	
 	
