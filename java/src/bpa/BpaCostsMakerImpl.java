@@ -37,22 +37,32 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		return this.periodMaker;
 	}
 	
-	public void displayInputFilesNames(){
-		System.out.println("Please place on the below directory");
-		System.out.println(periodMaker.getPeriod().getAbsolutePath());
-		System.out.println("The following files: ");
-		periodMaker.getConfiguration().getBPAFilesMap().keySet().forEach(System.out::println);
-		System.out.println(periodMaker.getConfiguration().getGLFile().getName());
-		System.out.println("You have 30 seconds to do so");	
+	public boolean displayInputFilesNames(){
+		try {
+			System.out.println("Please place on the below directory");
+			System.out.println(periodMaker.getPeriod().getAbsolutePath());
+			System.out.println("The following files: ");
+			periodMaker.getConfiguration().getBPAFilesMap().keySet().forEach(System.out::println);
+			System.out.println(periodMaker.getConfiguration().getGLFile().getName());
+			System.out.println("You have 30 seconds to do so");	
+		} catch (NullPointerException ex){
+			return false;
+		}
+		return true;
 	}
 	
-	public void putToSleep(int microsecondstime){
+	public boolean putToSleep(int microsecondstime){
 		try {
 			Thread.sleep(microsecondstime);
 		} catch (InterruptedException ex)
 		{
-			System.out.println("Time is up");
-		}	
+			return Thread.currentThread().interrupted();
+		} 
+		catch (IllegalArgumentException ex){
+			return false;
+		}
+		return true;
+		
 	}
 	
 	public boolean extractGLBPAMap(){
