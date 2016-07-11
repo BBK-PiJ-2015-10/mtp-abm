@@ -36,7 +36,7 @@ import java.util.Scanner;
 
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
-
+import user.UserSpace;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
 
@@ -53,13 +53,33 @@ public class TestScript {
 	
 	public void launch(){
 		
-		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\period14";
+		Scanner sc = new Scanner(System.in);
+		
+		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14";
 		File testFile = new File(testaddress);
-	    PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
-	    testPeriod.capture("period14");
+		UserSpace testUser = new UserSpace();
+		testUser.FileSetUserSpaceFile(testFile);
+		testUser.capture("user14");
+		testUser.getConfigurationsNames().forEach(System.out::println);
+		PeriodMaker testPeriod = new PeriodMakerImpl(testUser);
+		testPeriod.makePeriod(sc);
+		testPeriod.save();
+		
+		
+		
+		
+		System.out.println("This is the end");
+		//test.capture(directoryname)
+		
+		
+		//String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\emptyperiod";
+		//File testFile = new File(testaddress);
+	    //PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
+	    //PeriodMaker testPeriod = new PeriodMakerImpl
+	    //testPeriod.capture("period14");
 	    
-		BpaCostsMaker test = new BpaCostsMakerImpl(testPeriod);
-		test.createbpaCosts();
+		//BpaCostsMaker test = new BpaCostsMakerImpl(testPeriod);
+		//test.createbpaCosts();
 		
 		//Ask user to place list of files on period folder.
 		//The below will give me access to the GLFile

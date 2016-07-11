@@ -90,8 +90,8 @@ public class TestbpaCostsMakerImpl {
 	@Ignore
 	@Test
 	public void testPutToSleepValid(){
-	bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-	assertEquals(true,bpaCostsMakerImpl.putToSleep(30));
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		assertEquals(true,bpaCostsMakerImpl.putToSleep(30));
 	}	
 	
 	/*
@@ -100,34 +100,69 @@ public class TestbpaCostsMakerImpl {
 	@Ignore
 	@Test
 	public void testPutToSleepInValid(){
-	bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-	assertEquals(false,bpaCostsMakerImpl.putToSleep(-30));
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		assertEquals(false,bpaCostsMakerImpl.putToSleep(-30));
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////////////
 	
 	//Below are the tests for validateInput
 
-		/*
-		* Test that if all files are present the method returns true.
-		*/
-		//@Ignore
-		@Test
-		public void testValidateInputValid(){
+	/*
+	* Test that if all files are present the method returns true.
+	*/
+	@Ignore
+	@Test
+	public void testValidateInputValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
 		assertEquals(true,bpaCostsMakerImpl.validateInput());
-		}	
+	}	
+	
+	/*
+	* Test that if no files are present the method returns false.
+	*/
+	@Ignore
+	@Test
+	public void testValidateInputEmpty(){
+		String eaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\emptyperiod";
+		File efile = new File(eaddress);
+		PeriodMaker eperiod = new PeriodMakerImpl(efile);
+		eperiod.capture("emptyperiod");
+		eperiod.save();
+	    bpaCostsMakerImpl = new BpaCostsMakerImpl(eperiod);
+	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	}
 		
-		/*
-		* Test that if all files are present the method returns true.
-		*/
-		//@Ignore
-		@Test
-		public void testValidateInputEmpty(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-		assertEquals(true,bpaCostsMakerImpl.validateInput());
-		}
-		
+	/*
+	* Test that if no drivers files are present the method returns false.
+	*/
+	//@Ignore
+	@Test
+	public void testValidateInputPartialNoDriversFiles(){
+		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiod";
+		File parfile = new File(paraddress);
+		PeriodMaker parperiod = new PeriodMakerImpl(parfile);
+		parperiod.capture("partialperiod");
+		parperiod.save();
+	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
+	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	}
+	
+	/*
+	* Test that if no GL file is present the method returns false.
+	*/
+	@Ignore
+	@Test
+	public void testValidateInputPartialNoGLFile(){
+		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiodnogl";
+		File parfile = new File(paraddress);
+		PeriodMaker parperiod = new PeriodMakerImpl(parfile);
+		parperiod.capture("partialperiodnogl");
+		parperiod.save();
+	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
+	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	}
+	
 	
 	
 	

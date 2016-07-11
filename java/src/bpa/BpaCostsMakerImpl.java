@@ -125,7 +125,6 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 			else {
 				periodFiles.put(periodMaker.getConfiguration().getGLFile().getName(),tempF);
 			}
-			System.out.println("My map has " +periodFiles.size() +"elements");
 		return true;
 	}
 	
