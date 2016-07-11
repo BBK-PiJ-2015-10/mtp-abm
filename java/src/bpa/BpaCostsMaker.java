@@ -4,7 +4,7 @@ import period.PeriodMaker;
 
 public interface BpaCostsMaker {
 	
-	void createbpaCosts();
+	boolean createbpaCosts();
 	
 	PeriodMaker getPeriodMaker();
 

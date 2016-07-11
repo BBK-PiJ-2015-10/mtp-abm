@@ -38,6 +38,14 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		return this.periodMaker;
 	}
 	
+	public Map<String,String> getDriversMap(){
+		return this.driversmap;
+	}
+	
+	public File getBPACosts(){
+		return this.bpaCosts;
+	}
+	
 	public boolean displayInputFilesNames(){
 		try {
 			System.out.println("Please place on the below directory");
@@ -66,6 +74,34 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		
 	}
 	
+	
+	public boolean validateInput(){
+		int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size()+1;
+		int currFiles=0;
+		File tempF;
+		for (String value :periodMaker.getConfiguration().getBPAFilesMap().keySet() ){
+			tempF = new File(periodMaker.getPeriod().getAbsolutePath()+"\\"+value);
+			if (!tempF.exists()){
+				System.out.println("The file named: " +value +" is missing");
+			}
+			else {
+				periodFiles.put(value,tempF);
+				currFiles++;
+			}
+		}
+		String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName();
+		tempF = new File(tempName);
+			if (!tempF.exists()){
+				System.out.println("The file named: " +tempF.getName() +" is missing");
+			}
+			else {
+				periodFiles.put(periodMaker.getConfiguration().getGLFile().getName(),tempF);
+				currFiles++;
+			}
+		return (currFiles==maxFiles);
+	}
+	
+	
 	public boolean extractGLBPAMap(){
 		try (BufferedReader mr = new BufferedReader(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
 		{
@@ -92,54 +128,26 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				driversmap.put(key, value);
 			}
 		}		
-		} catch ( IOException | NoSuchElementException ex){
+		} catch ( IOException | NoSuchElementException | NullPointerException ex){
 			return false;
 		}
 		return true;
 	}
 	
 	
-	
-	
-	public void createBpaCosts(){
+	public boolean createBpaCostsFile(){
+		try {
 		bpaCosts = new File(periodMaker.getPeriod().getAbsolutePath()+"\\"+"bpaCosts.csv");
-	}
-	
-	public boolean validateInput(){
-		int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size()+1;
-		int currFiles=0;
-		//Set<String> temp = periodMaker.getConfiguration().getBPAFilesMap().keySet();
-		//temp.add(periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName());
-		
-		File tempF;
-		for (String value :periodMaker.getConfiguration().getBPAFilesMap().keySet() ){
-			tempF = new File(periodMaker.getPeriod().getAbsolutePath()+"\\"+value);
-			if (!tempF.exists()){
-				System.out.println("The file named: " +value +" is missing");
-				//return false;
-			}
-			else {
-				periodFiles.put(value,tempF);
-				currFiles++;
-			}
+		} catch (NullPointerException ex){
+			return false;
 		}
-		String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName();
-		tempF = new File(tempName);
-			if (!tempF.exists()){
-				System.out.println("The file named: " +tempF.getName() +" is missing");
-				//return false;
-			}
-			else {
-				periodFiles.put(periodMaker.getConfiguration().getGLFile().getName(),tempF);
-				currFiles++;
-			}
-		return (currFiles==maxFiles);
+		return true;
 	}
 	
-	
+
 	public boolean extractGL(){
 		try (
-				FileWriter fw = new FileWriter(bpaCosts,false);
+				 FileWriter fw = new FileWriter(bpaCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);
 				 BufferedReader in = new BufferedReader(new FileReader(periodFiles.get(periodMaker.getConfiguration().getGLFile().getName())));)
@@ -180,7 +188,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				out.println();
 			}
 			
-		}	catch ( IOException | NoSuchElementException ex){
+		}	catch ( IOException | NoSuchElementException | NullPointerException ex){
 				return false;
 		}
 		return true;
@@ -189,13 +197,14 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	
 	
 	@Override
-	public void createbpaCosts() {
+	public boolean createbpaCosts() {
 		displayInputFilesNames();
 		putToSleep(1000);
 		validateInput();
 		extractGLBPAMap();
-		createBpaCosts();
-		extractGL();		
+		createBpaCostsFile();
+		extractGL();
+		return true;
 	}
 	
 	

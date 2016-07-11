@@ -12,7 +12,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
 
-import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
@@ -60,7 +59,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	 * The below test compares the period entered vs the value provided by getPeriod.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testConstructorValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
@@ -70,7 +69,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	 * The below test compares the period entered vs the value provided by getPeriod.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void testConstructornull(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
@@ -85,7 +84,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	 * Test that if a null or invalid period is encapsulated the method returns false.
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void DisplayInputFilesInValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
@@ -95,7 +94,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	 * Test that if a valid period is encapsulated the method returns true. 
 	 */
-	@Ignore
+	//@Ignore
 	@Test
 	public void DisplayInputFilesValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
@@ -110,7 +109,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if a valid time is entered the method returns true.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testPutToSleepValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
@@ -120,7 +119,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if a valid time is entered the method returns true.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testPutToSleepInValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
@@ -134,7 +133,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if all files are present the method returns true.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testValidateInputValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
@@ -144,7 +143,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if no files are present the method returns false.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testValidateInputEmpty(){
 		String eaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\emptyperiod";
@@ -168,7 +167,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if no drivers files are present the method returns false.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testValidateInputPartialNoDriversFiles(){
 		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiod";
@@ -188,7 +187,7 @@ public class TestbpaCostsMakerImpl {
 	/*
 	* Test that if no GL file is present the method returns false.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testValidateInputPartialNoGLFile(){
 		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiodnogl";
@@ -205,7 +204,93 @@ public class TestbpaCostsMakerImpl {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	//Below are the tests for extractGLBPAMap() and getDriversMap()
+
+	/*
+	* Test extract GLBPAMap with valid input.
+	*/
+	//@Ignore
+	@Test
+	public void testExtractGLPBPAMapValid(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		assertEquals(true,bpaCostsMakerImpl.extractGLBPAMap());
+		assertEquals(5,bpaCostsMakerImpl.getDriversMap().keySet().size());
+		assertEquals(5,bpaCostsMakerImpl.getDriversMap().values().size());
+	}	
 	
+	
+	/*
+	* Test extract GLBPAMap with valid a null period.
+	*/
+	//@Ignore
+	@Test
+	public void testExtractGLPBPAMapValidNull(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		assertEquals(false,bpaCostsMakerImpl.extractGLBPAMap());
+		assertEquals(0,bpaCostsMakerImpl.getDriversMap().keySet().size());
+		assertEquals(0,bpaCostsMakerImpl.getDriversMap().values().size());
+	}
+	
+	
+///////////////////////////////////////////////////////////////////////////////////////
+	
+	//Below are the tests for createBpaCosts() and getBPACosts()
+
+	/*
+	* Test createBpaCosts with valid inputs.
+	*/
+	//@Ignore
+	@Test
+	public void testcreateBpaCostsValid(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		assertEquals(true,bpaCostsMakerImpl.createBpaCostsFile());
+		assertEquals("bpaCosts.csv",bpaCostsMakerImpl.getBPACosts().getName());
+	}
+	
+	/*
+	* Test createBpaCosts with valid inputs.
+	*/
+	//@Ignore
+	@Test (expected = NullPointerException.class)
+	public void testcreateBpaCostsNull(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		bpaCostsMakerImpl.createBpaCostsFile();
+		assertEquals("bpaCosts.csv",bpaCostsMakerImpl.getBPACosts().getName());
+	}
+	
+///////////////////////////////////////////////////////////////////////////////////////
+		
+	//Below are the tests for extractGl 
+	
+	/*
+	* Test extractGL with valid inputs.
+	*/
+	//@Ignore
+	@Test
+	public void testExtractGLValid(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl.validateInput();
+		bpaCostsMakerImpl.extractGLBPAMap();
+		bpaCostsMakerImpl.createBpaCostsFile();
+		assertEquals(true,bpaCostsMakerImpl.extractGL());
+		assertEquals(true,bpaCostsMakerImpl.getBPACosts().exists());
+	}	
+	
+	/*
+	* Test extractGL with missing populated data structures
+	*/
+	//@Ignore
+	@Test
+	public void testExtractGLNull(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		assertEquals(false,bpaCostsMakerImpl.extractGL());
+	}
+	
+	
+////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	//Below are the tests for createbpaCosts();
 	
 	
 	
