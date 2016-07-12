@@ -2,6 +2,8 @@ package main;
 
 import java.util.Scanner;
 
+import bpa.BpaCostsMaker;
+import bpa.BpaCostsMakerImpl;
 import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImpl;
 import period.PeriodMaker;
@@ -27,6 +29,8 @@ public class ABCSystemImpl implements ABCSystem {
 	private ConfigurationMaker configurationMaker;
 	
 	private PeriodMaker periodMaker;
+	
+	private BpaCostsMaker bpaCostsMaker;
 	
 	private Scanner sc;
 	
@@ -58,6 +62,11 @@ public class ABCSystemImpl implements ABCSystem {
 		periodMaker.save();
 	}
 	
+	public boolean runBpaCostMaker(){
+		bpaCostsMaker = new BpaCostsMakerImpl(periodMaker);
+		return bpaCostsMaker.createbpaCosts();
+	}
+	
 	
 	
 	@Override
@@ -84,8 +93,10 @@ public class ABCSystemImpl implements ABCSystem {
 		if (choice.equalsIgnoreCase("yes")){
 			System.out.println("This is going better");
 			runMakeNewPeriod();
-			System.out.println("He said yes");
+			runBpaCostMaker();
+			System.out.println("You are done for the moment");
 		}
+		
 		
 		
 		

@@ -48,7 +48,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	
 	public boolean displayInputFilesNames(){
 		try {
-			System.out.println("Please place on the below directory");
+			System.out.println("Please place on the below directory: ");
 			System.out.println(periodMaker.getPeriod().getAbsolutePath());
 			System.out.println("The following files: ");
 			periodMaker.getConfiguration().getBPAFilesMap().keySet().forEach(System.out::println);
@@ -169,7 +169,6 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 			
 			while ((line = in.readLine()) != null){
 				
-				System.out.println(line);
 				sentence=line.split(",");
 				validPOS.get(validPOS.size()-1);
 				String key = null;
@@ -200,7 +199,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	public boolean createbpaCosts() {
 		try {
 		displayInputFilesNames();
-		putToSleep(1000);
+		putToSleep(30000);
 		validateInput();
 		extractGLBPAMap();
 		createBpaCostsFile();
