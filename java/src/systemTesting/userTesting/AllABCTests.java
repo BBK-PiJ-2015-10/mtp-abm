@@ -11,7 +11,8 @@ import org.junit.runners.Suite.SuiteClasses;
 TestUserSpace.class, TestUserSpaceMakerImpl.class,
 TestConfigurationMakerImpl.class,
 TestConfigurationManager.class,TestConfigurationMapperImpl.class,TestMapCreatorImpl.class,
-TestPeriodMakerImpl.class
+TestPeriodMakerImpl.class,
+TestBpaCostsMakerImpl.class
 })
 public class AllABCTests {
 

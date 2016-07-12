@@ -272,14 +272,18 @@ public class ConfigurationManager implements Serializable {
 				isPresent = true;
 			} 
 			  catch (ClassNotFoundException ex){
+				System.out.println("error1");
 				isPresent = false;
 			} catch (IOException ex2){
+				System.out.println("error2");
 				isPresent = false;
 			} catch (NullPointerException ex){
+				System.out.println("error3");
 				isPresent = false;
 			}			
 		}
 		else {
+			System.out.println("File doesn't exists");
 			isPresent=false;
 		}
 		return isPresent;

@@ -16,7 +16,7 @@ import bpa.BpaCostsMakerImpl;
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
 
-public class TestbpaCostsMakerImpl {
+public class TestBpaCostsMakerImpl {
 	
 	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\period14";
 	
@@ -274,6 +274,7 @@ public class TestbpaCostsMakerImpl {
 		bpaCostsMakerImpl.createBpaCostsFile();
 		assertEquals(true,bpaCostsMakerImpl.extractGL());
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().exists());
+		assertEquals(true,bpaCostsMakerImpl.getBPACosts().delete());
 	}	
 	
 	/*
@@ -291,6 +292,29 @@ public class TestbpaCostsMakerImpl {
 	
 	
 	//Below are the tests for createbpaCosts();
+	
+	/*
+	* Test createBpaCosts with valid inputs
+	*/
+	//@Ignore
+	@Test
+	public void testCreateBpaCostsValid(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		assertEquals(true,bpaCostsMakerImpl.createbpaCosts());
+		assertEquals(true,bpaCostsMakerImpl.getBPACosts().exists());
+		assertEquals(true,bpaCostsMakerImpl.getBPACosts().delete());
+	}	
+	
+	/*
+	* Test createBpaCosts with a null period
+	*/
+	//@Ignore
+	@Test
+	public void testCreateBpaCosts(){
+		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		assertEquals(false,bpaCostsMakerImpl.createbpaCosts());
+	}
+	
 	
 	
 	

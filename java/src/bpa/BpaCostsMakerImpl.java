@@ -198,12 +198,16 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	
 	@Override
 	public boolean createbpaCosts() {
+		try {
 		displayInputFilesNames();
 		putToSleep(1000);
 		validateInput();
 		extractGLBPAMap();
 		createBpaCostsFile();
 		extractGL();
+		} catch (NullPointerException ex) {
+			return false;
+		}
 		return true;
 	}
 	

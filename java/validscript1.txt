@@ -1,7 +1,7 @@
 yes
-user14
+user10
 yes
-config14
+config10
 done
 gl.csv
 Account Department
@@ -16,5 +16,5 @@ phones.csv
 implementation.csv
 implementation.csv
 yes
-config14
-period14
+config10
+period10
