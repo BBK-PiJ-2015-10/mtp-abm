@@ -64,15 +64,41 @@ public class TestScript {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14";
+		
+		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user15\\period15";
 		File testFile = new File(testaddress);
-		UserSpace testUser = new UserSpace();
-		testUser.FileSetUserSpaceFile(testFile);
-		testUser.capture("user14");
+		PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
+		testPeriod.capture("period15");
+		
+		BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
+		testCostMaker.createBpaCostsFile();
+		
+		ClientCostsImpl clientcost = new ClientCostsImpl(testCostMaker);
+		System.out.println(clientcost.getActivityCost("phones.csv"));
+		
+		//System.out.println(testCostMaker.getBPACosts().exists());
+		
+		//System.out.println(testFile.exists());
+		//UserSpace testUser = new UserSpace();
+		//testUser.FileSetUserSpaceFile(testFile);
+		//testUser.capture("user15");
 		//testUser.getConfigurationsNames().forEach(System.out::println);
-		PeriodMaker testPeriod = new PeriodMakerImpl(testUser);
-		testPeriod.makePeriod(sc);
-		testPeriod.save();
+		
+		//System.out.println(testPeriod.getPeriod().getAbsolutePath());
+		
+		
+		
+		//testPeriod.getPeriodFiles().keySet().forEach(System.out::println);
+		//System.out.println("Now the next");
+		//testPeriod.getDriversMap().keySet().forEach(System.out::println);
+	
+		//testPeriod.getConfiguration().getBpaMainFilesAttributesMap().keySet().forEach(n->System.out.println(n));
+		//testPeriod.getConfiguration().getBpaMainFilesAttributesMap().get("phones.csv").forEach(System.out::println);
+		
+		
+		//testPeriod.getConfiguration().getBpaFilesAttributesMap().keySet().forEach(System.out::println);
+		//testPeriod.makePeriod(sc);
+		//testPeriod.save();
 		
 		
 		

@@ -93,7 +93,7 @@ public class ABCSystemImpl implements ABCSystem {
 		if (choice.equalsIgnoreCase("yes")){
 			System.out.println("This is going better");
 			runMakeNewPeriod();
-			//runBpaCostMaker();
+			runBpaCostMaker();
 			System.out.println("You are done for the moment");
 		}
 		
