@@ -3,6 +3,7 @@ package period;
 import user.UserSpace;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -25,6 +26,12 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	private ConfigurationManager configurationManager;
 	
+	//This is a test
+	private Map<String,File> periodFiles = new HashMap<>();
+	
+	//This is a test
+	private Map<String,String> driversMap = new HashMap<>();
+	
 	public File getPeriod(){
 		return this.period;
 	}
@@ -43,6 +50,16 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	public PeriodMakerImpl(File period){
 		this.period=period;
+	}
+	
+	//This is a test
+	public Map<String,File> getPeriodFiles(){
+		return this.periodFiles;
+	}
+	
+	//This is a test
+	public Map<String,String> getDriversMap(){
+		return this.driversMap;
 	}
 	
 	public boolean validateConfiguration(String configName){
@@ -90,6 +107,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			encode.writeObject(period);
 			encode.writeObject(userSpace);
 			encode.writeObject(configurationManager);
+			encode.writeObject(periodFiles);
+			encode.writeObject(driversMap);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -105,6 +124,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			period = (File)incode.readObject();
 			userSpace=(UserSpace)incode.readObject();
 			configurationManager=(ConfigurationManager)incode.readObject();
+			periodFiles=(Map<String,File> )incode.readObject();
+			driversMap=(Map<String,String>)incode.readObject();
 			isPresent = true;
 			
 		} catch (ClassNotFoundException ex){

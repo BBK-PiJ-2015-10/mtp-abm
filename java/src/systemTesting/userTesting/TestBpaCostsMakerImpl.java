@@ -137,7 +137,8 @@ public class TestBpaCostsMakerImpl {
 	@Test
 	public void testValidateInputValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-		assertEquals(true,bpaCostsMakerImpl.validateInput());
+		assertEquals(true,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
+		//assertEquals(true,bpaCostsMakerImpl.validateInput());
 	}	
 	
 	/*
@@ -152,7 +153,8 @@ public class TestBpaCostsMakerImpl {
 		eperiod.capture("emptyperiod");
 		eperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(eperiod);
-	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
+	   // assertEquals(false,bpaCostsMakerImpl.validateInput());
 	    String str1 = "The file named: implementation.csv is missing";
 	    String str2 = "The file named: phones.csv is missing";
 	    String str3 = "The file named: gl.csv is missing";
@@ -176,7 +178,8 @@ public class TestBpaCostsMakerImpl {
 		parperiod.capture("partialperiod");
 		parperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
-	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    //assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
 	    String str1 = "The file named: implementation.csv is missing";
 	    String str2 = "The file named: phones.csv is missing";
 	    int total = str1.length()+str2.length();
@@ -196,7 +199,8 @@ public class TestBpaCostsMakerImpl {
 		parperiod.capture("partialperiodnogl");
 		parperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
-	    assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
+	    //assertEquals(false,bpaCostsMakerImpl.validateInput());
 	    String result = "The file named: gl.csv is missing";
 	    assertEquals(result,outContent.toString().substring(0,result.length()));
 	}
@@ -213,9 +217,9 @@ public class TestBpaCostsMakerImpl {
 	@Test
 	public void testExtractGLPBPAMapValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-		assertEquals(true,bpaCostsMakerImpl.extractGLBPAMap());
-		assertEquals(5,bpaCostsMakerImpl.getDriversMap().keySet().size());
-		assertEquals(5,bpaCostsMakerImpl.getDriversMap().values().size());
+		//assertEquals(true,bpaCostsMakerImpl.extractGLBPAMap());
+		//assertEquals(5,bpaCostsMakerImpl.getDriversMap().keySet().size());
+		//assertEquals(5,bpaCostsMakerImpl.getDriversMap().values().size());
 	}	
 	
 	
@@ -226,9 +230,9 @@ public class TestBpaCostsMakerImpl {
 	@Test
 	public void testExtractGLPBPAMapValidNull(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
-		assertEquals(false,bpaCostsMakerImpl.extractGLBPAMap());
-		assertEquals(0,bpaCostsMakerImpl.getDriversMap().keySet().size());
-		assertEquals(0,bpaCostsMakerImpl.getDriversMap().values().size());
+		//assertEquals(false,bpaCostsMakerImpl.extractGLBPAMap());
+		//assertEquals(0,bpaCostsMakerImpl.getDriversMap().keySet().size());
+		//assertEquals(0,bpaCostsMakerImpl.getDriversMap().values().size());
 	}
 	
 	
@@ -269,10 +273,10 @@ public class TestBpaCostsMakerImpl {
 	@Test
 	public void testExtractGLValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-		bpaCostsMakerImpl.validateInput();
-		bpaCostsMakerImpl.extractGLBPAMap();
+		bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles());
+		bpaCostsMakerImpl.extractGLBPAMap(bpaCostsMakerImpl.getPeriodMaker().getDriversMap());
 		bpaCostsMakerImpl.createBpaCostsFile();
-		assertEquals(true,bpaCostsMakerImpl.extractGL());
+		assertEquals(true,bpaCostsMakerImpl.extractGL(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles(),bpaCostsMakerImpl.getPeriodMaker().getDriversMap()));
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().exists());
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().delete());
 	}	
@@ -284,7 +288,7 @@ public class TestBpaCostsMakerImpl {
 	@Test
 	public void testExtractGLNull(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-		assertEquals(false,bpaCostsMakerImpl.extractGL());
+		//assertEquals(false,bpaCostsMakerImpl.extractGL());
 	}
 	
 	

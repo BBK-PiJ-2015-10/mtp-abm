@@ -40,6 +40,9 @@ import user.UserSpace;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
 
+import client.ClientCosts;
+import client.ClientCostsImpl;
+
 
 
 public class TestScript {
@@ -53,6 +56,12 @@ public class TestScript {
 	
 	public void launch(){
 		
+		
+		//ClientCosts test = new ClientCostsImpl();
+		
+		
+		
+		
 		Scanner sc = new Scanner(System.in);
 		
 		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14";
@@ -60,7 +69,7 @@ public class TestScript {
 		UserSpace testUser = new UserSpace();
 		testUser.FileSetUserSpaceFile(testFile);
 		testUser.capture("user14");
-		testUser.getConfigurationsNames().forEach(System.out::println);
+		//testUser.getConfigurationsNames().forEach(System.out::println);
 		PeriodMaker testPeriod = new PeriodMakerImpl(testUser);
 		testPeriod.makePeriod(sc);
 		testPeriod.save();
@@ -68,14 +77,16 @@ public class TestScript {
 		
 		
 		
-		System.out.println("This is the end");
+		//System.out.println("This is the end");
 		//test.capture(directoryname)
+		
+		//*/
 		
 		
 		//String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\emptyperiod";
 		//File testFile = new File(testaddress);
 	    //PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
-	    //PeriodMaker testPeriod = new PeriodMakerImpl
+	    //testPeriod.makePeriod(sc);
 	    //testPeriod.capture("period14");
 	    
 		//BpaCostsMaker test = new BpaCostsMakerImpl(testPeriod);

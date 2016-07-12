@@ -26,9 +26,9 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	
 	private File bpaCosts;
 	
-	private Map<String,File> periodFiles = new HashMap<>();
+	//private Map<String,File> periodFiles = new HashMap<>();
 	
-	private Map<String,String> driversmap = new HashMap<>();
+	//private Map<String,String> driversmap = new HashMap<>();
 	
 	public BpaCostsMakerImpl(PeriodMaker periodMaker){
 		this.periodMaker=periodMaker;
@@ -38,13 +38,20 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		return this.periodMaker;
 	}
 	
-	public Map<String,String> getDriversMap(){
-		return this.driversmap;
-	}
 	
 	public File getBPACosts(){
 		return this.bpaCosts;
 	}
+	
+	//Need to create JUNit for this
+	//public Map<String,File> getPeriodFiles(){
+		//return this.periodFiles;
+	//}
+	
+	//public Map<String,String> getDriversMap(){
+		//return this.driversmap;
+	//}
+	
 	
 	public boolean displayInputFilesNames(){
 		try {
@@ -75,7 +82,8 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	}
 	
 	
-	public boolean validateInput(){
+	public boolean validateInput(Map<String,File> periodFiles){
+		boolean result;
 		int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size()+1;
 		int currFiles=0;
 		File tempF;
@@ -98,11 +106,16 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				periodFiles.put(periodMaker.getConfiguration().getGLFile().getName(),tempF);
 				currFiles++;
 			}
-		return (currFiles==maxFiles);
+		result = (currFiles==maxFiles);
+		if (!result) {
+			periodFiles=null;
+		}
+		periodMaker.save();
+		return result;
 	}
 	
 	
-	public boolean extractGLBPAMap(){
+	public boolean extractGLBPAMap(Map<String,String> driversMap){
 		try (BufferedReader mr = new BufferedReader(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
 		{
 			String line;
@@ -125,12 +138,15 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 							value=sentence[i];
 						}
 					}
-				driversmap.put(key, value);
+				driversMap.put(key, value);
 			}
 		}		
 		} catch ( IOException | NoSuchElementException | NullPointerException ex){
+			driversMap=null;
+			periodMaker.save();
 			return false;
 		}
+		periodMaker.save();
 		return true;
 	}
 	
@@ -145,7 +161,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	}
 	
 
-	public boolean extractGL(){
+	public boolean extractGL(Map<String,File> periodFiles,Map<String,String> driversMap ){
 		try (
 				 FileWriter fw = new FileWriter(bpaCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
@@ -183,12 +199,12 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 					}
 					out.write(sentence[pos]+",");
 				}
-				out.write(driversmap.get(key));
+				out.write(driversMap.get(key));
 				out.println();
 			}
 			
-		}	catch ( IOException | NoSuchElementException | NullPointerException ex){
-				return false;
+		}	catch ( IOException | NoSuchElementException | NullPointerException ex){	
+			return false;
 		}
 		return true;
 	}
@@ -200,10 +216,12 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		try {
 		displayInputFilesNames();
 		putToSleep(30000);
-		validateInput();
-		extractGLBPAMap();
+		validateInput(this.periodMaker.getPeriodFiles());
+		//validateInput();
+		extractGLBPAMap(this.periodMaker.getDriversMap());
 		createBpaCostsFile();
-		extractGL();
+		//extractGL();
+		extractGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
 		} catch (NullPointerException ex) {
 			return false;
 		}
