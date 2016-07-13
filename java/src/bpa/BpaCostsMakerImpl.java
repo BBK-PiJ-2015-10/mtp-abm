@@ -25,11 +25,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	private PeriodMaker periodMaker;
 	
 	private File bpaCosts;
-	
-	//private Map<String,File> periodFiles = new HashMap<>();
-	
-	//private Map<String,String> driversmap = new HashMap<>();
-	
+		
 	public BpaCostsMakerImpl(PeriodMaker periodMaker){
 		this.periodMaker=periodMaker;
 	}
@@ -42,17 +38,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	public File getBPACosts(){
 		return this.bpaCosts;
 	}
-	
-	//Need to create JUNit for this
-	//public Map<String,File> getPeriodFiles(){
-		//return this.periodFiles;
-	//}
-	
-	//public Map<String,String> getDriversMap(){
-		//return this.driversmap;
-	//}
-	
-	
+		
 	public boolean displayInputFilesNames(){
 		try {
 			System.out.println("Please place on the below directory: ");
@@ -227,6 +213,8 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		}
 		return true;
 	}
+	
+
 	
 	
 

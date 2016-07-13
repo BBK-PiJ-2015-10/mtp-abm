@@ -8,38 +8,16 @@ import java.util.NoSuchElementException;
 
 import bpa.BpaCostsMaker;
 import period.PeriodMaker;
+import bpa.BpaCostCalculator;
 
 public class ClientCostsImpl implements ClientCosts {
 	
-	private BpaCostsMaker bpaCostsMaker;
+	private BpaCostCalculator bpaCostCalculator;
 	
-	public ClientCostsImpl(BpaCostsMaker bpaCostsMaker){
-		this.bpaCostsMaker=bpaCostsMaker;
+	public ClientCostsImpl(BpaCostCalculator bpaCostCalculator){
+		this.bpaCostCalculator=bpaCostCalculator;
 	}
 	
-	public Integer getActivityCost(String activityName){
-		Integer result = 0;
-		try (BufferedReader in = new BufferedReader(new FileReader(bpaCostsMaker.getBPACosts()));)
-		{
-			String line;
-			in.readLine();
-			while ((line = in.readLine()) != null){
-				if (!line.isEmpty()) {
-					String[] sentence=line.split(",");
-					String key=sentence[sentence.length-1];
-					String value=sentence[sentence.length-2];
-					if (key.equals(activityName)){
-						result=result+Integer.parseInt(value);
-					}
-				}
-			}
-			//System.out.println(result); 	
-		} catch ( IOException | NoSuchElementException | NullPointerException ex){
-			return null;
-		}
-		return result;
-	}
-
 	@Override
 	public boolean calculateCosts() {
 		// TODO Auto-generated method stub

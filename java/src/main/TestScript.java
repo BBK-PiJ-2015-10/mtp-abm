@@ -37,11 +37,15 @@ import java.util.Scanner;
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
 import user.UserSpace;
+import bpa.BpaCostCalculator;
+import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
+import bpa.BpaClientWeightsCalculatorImpl;
 
 import client.ClientCosts;
 import client.ClientCostsImpl;
+
 
 
 
@@ -57,11 +61,7 @@ public class TestScript {
 	public void launch(){
 		
 		
-		//ClientCosts test = new ClientCostsImpl();
-		
-		
-		
-		
+	
 		Scanner sc = new Scanner(System.in);
 		
 		
@@ -73,8 +73,21 @@ public class TestScript {
 		BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
 		testCostMaker.createBpaCostsFile();
 		
-		ClientCostsImpl clientcost = new ClientCostsImpl(testCostMaker);
-		System.out.println(clientcost.getActivityCost("phones.csv"));
+		BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testCostMaker);
+		
+		BpaClientWeightsCalculatorImpl  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
+		bpaClientCalculator.popmap();
+		bpaClientCalculator.displayMap();
+		//bpaClientCalculator.test();
+		
+		
+		
+		//((BpaCostCalculator)testCostMaker).getActivityCost("ale");
+		
+		//testCostMaker
+		
+		//ClientCostsImpl clientcost = new ClientCostsImpl(testCostMaker);
+		//System.out.println(clientcost.getActivityCost("phones.csv"));
 		
 		//System.out.println(testCostMaker.getBPACosts().exists());
 		
