@@ -2,6 +2,6 @@ package client;
 
 public interface ClientCosts {
 	
-	boolean calculateCosts();
-
+	boolean calculateClientCosts();
+	
 }

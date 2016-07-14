@@ -36,11 +36,13 @@ import java.util.Scanner;
 
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
+import systemTesting.userTesting.TestBpaCostsMakerImpl;
 import user.UserSpace;
 import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
+import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 
 import client.ClientCosts;
@@ -72,12 +74,17 @@ public class TestScript {
 		
 		BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
 		testCostMaker.createBpaCostsFile();
+	
 		
 		BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testCostMaker);
 		
-		BpaClientWeightsCalculatorImpl  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
-		bpaClientCalculator.popmap();
-		bpaClientCalculator.displayMap();
+		BpaClientWeightsCalculator  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
+		bpaClientCalculator.getClientsWeights();
+		
+		ClientCosts clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientCalculator);
+		clientCosts.calculateClientCosts();
+		
+		//bpaClientCalculator.displayMap();
 		//bpaClientCalculator.test();
 		
 		

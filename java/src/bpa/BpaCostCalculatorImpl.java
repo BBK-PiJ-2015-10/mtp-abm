@@ -19,11 +19,15 @@ public class BpaCostCalculatorImpl implements BpaCostCalculator {
 		this.bpaCostsMaker=bpaCostsMaker;
 	}
 	
+	@Override
+	public String getAddress(){
+		return bpaCostsMaker.getPeriodMaker().getPeriod().getAbsolutePath();
+	}
+	
 
 	@Override
 	public Integer getActivityCost(String activityName) {
 		if (bpaCosts.containsKey(activityName)){
-			System.out.println("This is coming from the map");
 			return bpaCosts.get(activityName);
 		}
 		Integer result = 0;

@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-public class BpaClientWeightsCalculatorImpl {
+public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculator {
 	
 	private BpaCostsMaker bpaCostsMaker;
 	
@@ -19,7 +19,14 @@ public class BpaClientWeightsCalculatorImpl {
 		this.bpaCostsMaker=bpaCostsMaker;
 	}
 	
-	//public 
+	public Map<String,Map<String,Double>> getClientsWeights(){
+		if (clientsWeights.isEmpty()){
+			if(!popmap()){
+				return null;
+			}
+		}
+		return this.clientsWeights;
+	}
 	
 	public boolean popmap(){
 		
@@ -54,24 +61,16 @@ public class BpaClientWeightsCalculatorImpl {
 					return false;
 				}
 				
-				//System.out.println("Just populated the map for: " +input);
 				Double total=tempMap.values().stream().reduce((a,b)->a+b).get();
 				for (String val: tempMap.keySet()){
 					outputMap.put(val,tempMap.get(val)/total);
-					//System.out.println("With Client: " +val);
-					//System.out.println("With value: "+tempMap.get(val)/total);
-					
-					
 				}
 				clientsWeights.put(input, outputMap);	
 		}
 		return true;
 	}
 	
-	public void test(){
-		bpaCostsMaker.getPeriodMaker().getConfiguration().getBpaMainFilesAttributesMap().get("phones.csv").forEach(System.out::println);
-	}
-	
+	/*
 	public void displayMap(){
 		System.out.println("This is displaying the mastermap");
 		for (String val: clientsWeights.keySet()){
@@ -79,15 +78,10 @@ public class BpaClientWeightsCalculatorImpl {
 			for (String val2: clientsWeights.get(val).keySet()){
 				System.out.println("With client: " +val2);
 				System.out.println("With a weight of: "+clientsWeights.get(val).get(val2));
-			}
-			
-			//for (String val2: )
-			
-			
+			}	
 		}
-		
-		///clientsWeights.keySet().forEach(System.out::println);
 	}
+	*/
 	
 
 }

@@ -203,10 +203,8 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		displayInputFilesNames();
 		putToSleep(30000);
 		validateInput(this.periodMaker.getPeriodFiles());
-		//validateInput();
 		extractGLBPAMap(this.periodMaker.getDriversMap());
 		createBpaCostsFile();
-		//extractGL();
 		extractGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
 		} catch (NullPointerException ex) {
 			return false;
