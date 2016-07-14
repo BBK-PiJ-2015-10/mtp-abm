@@ -71,18 +71,35 @@ public class TestScript {
 		File testFile = new File(testaddress);
 		PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
 		testPeriod.capture("period15");
+		//System.out.println(testPeriod.getBpaCosts().getAbsolutePath());
 		
-		BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
-		testCostMaker.createBpaCostsFile();
+		BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testPeriod.getBpaCosts());
+		System.out.println(bpaCostCalculator.getActivityCost("phones.csv"));
+		System.out.println(bpaCostCalculator.getActivityCost("implementation.csv"));
+		//String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13";
+		//File testFile = new File(testaddress);
+		//UserSpace testUser = new UserSpace();
+		//testUser.FileSetUserSpaceFile(testFile);
+		//testUser.capture("user13");
+		//PeriodMaker testPeriod = new PeriodMakerImpl(testUser);
+		//testPeriod.makePeriod(sc);
+		//testPeriod.save();
+		
+		
+		//PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
+		//testPeriod.capture("period15");
+		
+		//BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
+		//testCostMaker.createBpaCostsFile();
 	
 		
-		BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testCostMaker);
+		//BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testCostMaker);
 		
-		BpaClientWeightsCalculator  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
-		bpaClientCalculator.getClientsWeights();
+		//BpaClientWeightsCalculator  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
+		//bpaClientCalculator.getClientsWeights();
 		
-		ClientCosts clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientCalculator);
-		clientCosts.calculateClientCosts();
+		//ClientCosts clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientCalculator);
+		//clientCosts.calculateClientCosts();
 		
 		//bpaClientCalculator.displayMap();
 		//bpaClientCalculator.test();
@@ -101,7 +118,12 @@ public class TestScript {
 		//System.out.println(testFile.exists());
 		//UserSpace testUser = new UserSpace();
 		//testUser.FileSetUserSpaceFile(testFile);
-		//testUser.capture("user15");
+		//testUser.capture("user17");
+		//PeriodMaker testPeriod = new PeriodMakerImpl(testUser);
+		//testPeriod.makePeriod(sc);
+		
+		
+		
 		//testUser.getConfigurationsNames().forEach(System.out::println);
 		
 		//System.out.println(testPeriod.getPeriod().getAbsolutePath());
@@ -129,11 +151,11 @@ public class TestScript {
 		//*/
 		
 		
-		//String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\emptyperiod";
+		//String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user17";
 		//File testFile = new File(testaddress);
 	    //PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
 	    //testPeriod.makePeriod(sc);
-	    //testPeriod.capture("period14");
+	    //testPeriod.capture("period17");
 	    
 		//BpaCostsMaker test = new BpaCostsMakerImpl(testPeriod);
 		//test.createbpaCosts();

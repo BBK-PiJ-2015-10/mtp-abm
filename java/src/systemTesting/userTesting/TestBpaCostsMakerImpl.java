@@ -18,7 +18,7 @@ import period.PeriodMakerImpl;
 
 public class TestBpaCostsMakerImpl {
 	
-	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\period14";
+	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13\\period13";
 	
 	private File file = new File(address);
     
@@ -40,7 +40,7 @@ public class TestBpaCostsMakerImpl {
 	
 	@Before
 	public void setUp() {
-		period.capture("period14");
+		period.capture("period13");
 		setUpStreams();
 	}
 	
@@ -147,7 +147,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testValidateInputEmpty(){
-		String eaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\emptyperiod";
+		String eaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13\\emptyperiod";
 		File efile = new File(eaddress);
 		PeriodMaker eperiod = new PeriodMakerImpl(efile);
 		eperiod.capture("emptyperiod");
@@ -172,7 +172,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testValidateInputPartialNoDriversFiles(){
-		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiod";
+		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13\\partialperiod";
 		File parfile = new File(paraddress);
 		PeriodMaker parperiod = new PeriodMakerImpl(parfile);
 		parperiod.capture("partialperiod");
@@ -193,7 +193,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testValidateInputPartialNoGLFile(){
-		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user14\\partialperiodnogl";
+		String paraddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13\\partialperiodnogl";
 		File parfile = new File(paraddress);
 		PeriodMaker parperiod = new PeriodMakerImpl(parfile);
 		parperiod.capture("partialperiodnogl");
@@ -213,7 +213,7 @@ public class TestBpaCostsMakerImpl {
 	/*
 	* Test extract GLBPAMap with valid input.
 	*/
-	//@Ignore
+	@Ignore
 	@Test
 	public void testExtractGLPBPAMapValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
@@ -226,7 +226,7 @@ public class TestBpaCostsMakerImpl {
 	/*
 	* Test extract GLBPAMap with valid a null period.
 	*/
-	//@Ignore
+	@Ignore
 	@Test
 	public void testExtractGLPBPAMapValidNull(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
@@ -284,7 +284,7 @@ public class TestBpaCostsMakerImpl {
 	/*
 	* Test extractGL with missing populated data structures
 	*/
-	//@Ignore
+	@Ignore
 	@Test
 	public void testExtractGLNull(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);

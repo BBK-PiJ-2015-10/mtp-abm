@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
 
 public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculator {
 	
-	private BpaCostsMaker bpaCostsMaker;
+    private BpaCostsMaker bpaCostsMaker;
 	
 	private Map<String,Map<String,Double>> clientsWeights = new HashMap<>();
 	
@@ -26,6 +26,10 @@ public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculato
 			}
 		}
 		return this.clientsWeights;
+	}
+	
+	public BpaCostsMaker getBpaCostsMaker(){
+		return this.bpaCostsMaker;
 	}
 	
 	public boolean popmap(){

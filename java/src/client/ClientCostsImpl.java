@@ -28,7 +28,8 @@ public class ClientCostsImpl implements ClientCosts {
 	
 	public boolean createClientCostsFile(){
 		try {
-			clientCosts = new File(bpaCostCalculator.getAddress()+"\\"+"clientCosts.csv");
+			//clientCosts = new File(bpaCostCalculator.getAddress()+"\\"+"clientCosts.csv");
+			clientCosts = new File(bpaClientWeightsCalculator.getBpaCostsMaker().getPeriodMaker().getPeriod().getAbsolutePath()+"\\"+"clientCosts.csv");
 			} catch (NullPointerException ex){
 				return false;
 			}

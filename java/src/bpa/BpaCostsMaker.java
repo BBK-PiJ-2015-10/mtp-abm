@@ -10,7 +10,9 @@ public interface BpaCostsMaker {
 	
 	PeriodMaker getPeriodMaker();
 	
-	File getBPACosts();
+	//File getBPACosts();
+	
+	//boolean createBpaCostsFile(File bpaCosts);
 	
 	boolean createBpaCostsFile();
 

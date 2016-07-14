@@ -6,5 +6,6 @@ public interface BpaClientWeightsCalculator {
 	
 	Map<String,Map<String,Double>> getClientsWeights();
 	
+	BpaCostsMaker getBpaCostsMaker();
 
 }

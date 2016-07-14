@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.NoSuchElementException;
+import java.io.File;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,27 +12,26 @@ import java.util.Map;
 
 public class BpaCostCalculatorImpl implements BpaCostCalculator {
 	
-	private BpaCostsMaker bpaCostsMaker;
+	private File bpaCosts;
 	
-	private Map<String,Integer> bpaCosts = new HashMap<>();
+	private Map<String,Integer> bpaCostsMap = new HashMap<>();
 	
-	public BpaCostCalculatorImpl(BpaCostsMaker bpaCostsMaker){
-		this.bpaCostsMaker=bpaCostsMaker;
+	public BpaCostCalculatorImpl(File bpaCosts){
+		this.bpaCosts=bpaCosts;
 	}
 	
-	@Override
-	public String getAddress(){
-		return bpaCostsMaker.getPeriodMaker().getPeriod().getAbsolutePath();
+	public Map<String,Integer> getBpaCostsMap(){
+		return this.bpaCostsMap;
 	}
 	
 
 	@Override
 	public Integer getActivityCost(String activityName) {
-		if (bpaCosts.containsKey(activityName)){
-			return bpaCosts.get(activityName);
+		if (bpaCostsMap.containsKey(activityName)){
+			return bpaCostsMap.get(activityName);
 		}
 		Integer result = 0;
-		try (BufferedReader in = new BufferedReader(new FileReader(bpaCostsMaker.getBPACosts()));)
+		try (BufferedReader in = new BufferedReader(new FileReader(bpaCosts));)
 		{
 			String line;
 			in.readLine();
@@ -48,7 +48,7 @@ public class BpaCostCalculatorImpl implements BpaCostCalculator {
 		} catch ( IOException | NoSuchElementException | NullPointerException ex){
 			return null;
 		}
-		bpaCosts.put(activityName, result);
+		bpaCostsMap.put(activityName, result);
 		return result;		
 	}
 

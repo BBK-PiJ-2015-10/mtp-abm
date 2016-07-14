@@ -22,6 +22,10 @@ public interface PeriodMaker {
 	//Need to write JUnit tests
 	File getPeriod();
 	
+	File getBpaCosts();
+	
+	void setBpaCosts(File bpaCosts);
+	
 	
 	//This is a test
 	Map<String,File> getPeriodFiles();

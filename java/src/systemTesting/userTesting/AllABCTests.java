@@ -1,7 +1,5 @@
 package systemTesting.userTesting;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -12,7 +10,7 @@ TestUserSpace.class, TestUserSpaceMakerImpl.class,
 TestConfigurationMakerImpl.class,
 TestConfigurationManager.class,TestConfigurationMapperImpl.class,TestMapCreatorImpl.class,
 TestPeriodMakerImpl.class,
-TestBpaCostsMakerImpl.class
+TestBpaCostsMakerImpl.class,TestBpaCostCalculatorImpl.class
 })
 public class AllABCTests {
 

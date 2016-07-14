@@ -138,8 +138,10 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	
 	@Override
 	public boolean createBpaCostsFile(){
-		try {
+		try {	
 		bpaCosts = new File(periodMaker.getPeriod().getAbsolutePath()+"\\"+"bpaCosts.csv");
+		periodMaker.setBpaCosts(bpaCosts);
+		periodMaker.save();
 		} catch (NullPointerException ex){
 			return false;
 		}

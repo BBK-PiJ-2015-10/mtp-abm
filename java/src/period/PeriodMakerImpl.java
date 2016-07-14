@@ -26,6 +26,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	private ConfigurationManager configurationManager;
 	
+	private File bpaCosts;
+	
 	//This is a test
 	private Map<String,File> periodFiles = new HashMap<>();
 	
@@ -43,6 +45,18 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	public ConfigurationManager getConfiguration(){
 		return this.configurationManager;
 	}
+	
+	@Override
+	public File getBpaCosts(){
+		return this.bpaCosts;
+	}
+	
+	public void setBpaCosts(File bpaCosts){
+		this.bpaCosts=bpaCosts;
+	}
+	
+	
+	
 	
 	public PeriodMakerImpl(UserSpace userSpace){
 		this.userSpace = userSpace;
@@ -100,6 +114,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	}
 	
 	
+	
+	
 	@Override
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(period.getAbsolutePath()+"\\"+period.getName()+".dat"));)
@@ -109,6 +125,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			encode.writeObject(configurationManager);
 			encode.writeObject(periodFiles);
 			encode.writeObject(driversMap);
+			encode.writeObject(bpaCosts);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -126,6 +143,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			configurationManager=(ConfigurationManager)incode.readObject();
 			periodFiles=(Map<String,File> )incode.readObject();
 			driversMap=(Map<String,String>)incode.readObject();
+			bpaCosts = (File)incode.readObject();
 			isPresent = true;
 			
 		} catch (ClassNotFoundException ex){
