@@ -138,7 +138,6 @@ public class TestBpaCostsMakerImpl {
 	public void testValidateInputValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
 		assertEquals(true,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
-		//assertEquals(true,bpaCostsMakerImpl.validateInput());
 	}	
 	
 	/*
@@ -153,8 +152,7 @@ public class TestBpaCostsMakerImpl {
 		eperiod.capture("emptyperiod");
 		eperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(eperiod);
-	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
-	   // assertEquals(false,bpaCostsMakerImpl.validateInput());
+	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));;
 	    String str1 = "The file named: implementation.csv is missing";
 	    String str2 = "The file named: phones.csv is missing";
 	    String str3 = "The file named: gl.csv is missing";
@@ -178,7 +176,6 @@ public class TestBpaCostsMakerImpl {
 		parperiod.capture("partialperiod");
 		parperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
-	    //assertEquals(false,bpaCostsMakerImpl.validateInput());
 	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
 	    String str1 = "The file named: implementation.csv is missing";
 	    String str2 = "The file named: phones.csv is missing";
@@ -200,7 +197,6 @@ public class TestBpaCostsMakerImpl {
 		parperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
-	    //assertEquals(false,bpaCostsMakerImpl.validateInput());
 	    String result = "The file named: gl.csv is missing";
 	    assertEquals(result,outContent.toString().substring(0,result.length()));
 	}
@@ -213,26 +209,22 @@ public class TestBpaCostsMakerImpl {
 	/*
 	* Test extract GLBPAMap with valid input.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testExtractGLPBPAMapValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-		//assertEquals(true,bpaCostsMakerImpl.extractGLBPAMap());
-		//assertEquals(5,bpaCostsMakerImpl.getDriversMap().keySet().size());
-		//assertEquals(5,bpaCostsMakerImpl.getDriversMap().values().size());
+		assertEquals(true,bpaCostsMakerImpl.extractGLBPAMap(bpaCostsMakerImpl.getPeriodMaker().getDriversMap()));
 	}	
 	
 	
 	/*
 	* Test extract GLBPAMap with valid a null period.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testExtractGLPBPAMapValidNull(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
-		//assertEquals(false,bpaCostsMakerImpl.extractGLBPAMap());
-		//assertEquals(0,bpaCostsMakerImpl.getDriversMap().keySet().size());
-		//assertEquals(0,bpaCostsMakerImpl.getDriversMap().values().size());
+		assertEquals(false,bpaCostsMakerImpl.extractGLBPAMap(null));
 	}
 	
 	
@@ -284,11 +276,11 @@ public class TestBpaCostsMakerImpl {
 	/*
 	* Test extractGL with missing populated data structures
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testExtractGLNull(){
 		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
-		//assertEquals(false,bpaCostsMakerImpl.extractGL());
+		assertEquals(false,bpaCostsMakerImpl.extractGL(null,null));
 	}
 	
 	

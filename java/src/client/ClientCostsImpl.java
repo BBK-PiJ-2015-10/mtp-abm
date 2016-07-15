@@ -26,9 +26,12 @@ public class ClientCostsImpl implements ClientCosts {
 		this.bpaClientWeightsCalculator=bpaClientWeightsCalculator;
 	}
 	
+	public File getClientCostsFile(){
+		return this.clientCosts;
+	}
+	
 	public boolean createClientCostsFile(){
 		try {
-			//clientCosts = new File(bpaCostCalculator.getAddress()+"\\"+"clientCosts.csv");
 			clientCosts = new File(bpaClientWeightsCalculator.getBpaCostsMaker().getPeriodMaker().getPeriod().getAbsolutePath()+"\\"+"clientCosts.csv");
 			} catch (NullPointerException ex){
 				return false;
@@ -38,7 +41,12 @@ public class ClientCostsImpl implements ClientCosts {
 	
 	@Override
 	public boolean calculateClientCosts() {
-		createClientCostsFile();
+		if ((bpaCostCalculator!=null) && (bpaClientWeightsCalculator!=null)){
+			createClientCostsFile();
+		}
+		else {
+			return false;
+		}
 		try (
 				 FileWriter fw = new FileWriter(clientCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);

@@ -73,10 +73,19 @@ public class TestScript {
 		testPeriod.capture("period15");
 		
 		BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
-		BpaClientWeightsCalculator  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
+		testCostMaker.createbpaCosts();
+		//BpaClientWeightsCalculator  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
+		
+		//BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testPeriod.getBpaCosts());
+		
+		//ClientCosts clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientCalculator);
+		//clientCosts.calculateClientCosts();
 		
 		
-		bpaClientCalculator.getClientsWeights().keySet().forEach(System.out::println);
+		
+		
+		
+		//bpaClientCalculator.getClientsWeights().keySet().forEach(System.out::println);
 		
 		
 		

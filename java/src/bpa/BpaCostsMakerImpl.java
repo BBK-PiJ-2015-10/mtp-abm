@@ -126,13 +126,12 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 					}
 				driversMap.put(key, value);
 			}
+		    periodMaker.save();
 		}		
 		} catch ( IOException | NoSuchElementException | NullPointerException ex){
 			driversMap=null;
-			periodMaker.save();
 			return false;
 		}
-		periodMaker.save();
 		return true;
 	}
 	
