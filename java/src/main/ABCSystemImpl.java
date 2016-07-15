@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
+import bpa.BpaClientWeightsCalculator;
+import bpa.BpaClientWeightsCalculatorImpl;
+import bpa.BpaCostCalculator;
+import bpa.BpaCostCalculatorImpl;
+import client.ClientCosts;
+import client.ClientCostsImpl;
 import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImpl;
 import period.PeriodMaker;
@@ -31,6 +37,12 @@ public class ABCSystemImpl implements ABCSystem {
 	private PeriodMaker periodMaker;
 	
 	private BpaCostsMaker bpaCostsMaker;
+	
+	private BpaCostCalculator bpaCostCalculator;
+	
+	private BpaClientWeightsCalculator bpaClientWeightsCalculator;
+	
+	private ClientCosts clientCosts;
 	
 	private Scanner sc;
 	
@@ -94,6 +106,10 @@ public class ABCSystemImpl implements ABCSystem {
 			System.out.println("This is going better");
 			runMakeNewPeriod();
 			runBpaCostMaker();
+			bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
+			bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
+			clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
+			clientCosts.calculateClientCosts();
 			System.out.println("You are done for the moment");
 		}
 		
