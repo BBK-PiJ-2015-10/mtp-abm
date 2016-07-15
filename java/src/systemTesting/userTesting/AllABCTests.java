@@ -10,7 +10,7 @@ TestUserSpace.class, TestUserSpaceMakerImpl.class,
 TestConfigurationMakerImpl.class,
 TestConfigurationManager.class,TestConfigurationMapperImpl.class,TestMapCreatorImpl.class,
 TestPeriodMakerImpl.class,
-TestBpaCostsMakerImpl.class,TestBpaCostCalculatorImpl.class
+TestBpaCostsMakerImpl.class,TestBpaCostCalculatorImpl.class,TestBpaClientWeightsCalculatorImpl.class
 })
 public class AllABCTests {
 

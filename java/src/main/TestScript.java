@@ -71,11 +71,24 @@ public class TestScript {
 		File testFile = new File(testaddress);
 		PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
 		testPeriod.capture("period15");
-		//System.out.println(testPeriod.getBpaCosts().getAbsolutePath());
 		
-		BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testPeriod.getBpaCosts());
-		System.out.println(bpaCostCalculator.getActivityCost("phones.csv"));
-		System.out.println(bpaCostCalculator.getActivityCost("implementation.csv"));
+		BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
+		BpaClientWeightsCalculator  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
+		
+		
+		bpaClientCalculator.getClientsWeights().keySet().forEach(System.out::println);
+		
+		
+		
+		
+		
+		//testCostMaker.createBpaCostsFile();
+		
+		
+		
+		//BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testPeriod.getBpaCosts());
+		//System.out.println(bpaCostCalculator.getActivityCost("phones.csv"));
+		//System.out.println(bpaCostCalculator.getActivityCost("implementation.csv"));
 		//String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13";
 		//File testFile = new File(testaddress);
 		//UserSpace testUser = new UserSpace();
