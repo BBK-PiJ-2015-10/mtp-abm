@@ -8,9 +8,7 @@ public interface Report {
 		boolean result=true;
 		switch (reportchoice){
 		   case 1:  {
-			   ((ClientSummary) this).generateReport(srcFile);
-			   
-			   //System.out.println("Summary Client");
+			   ((ClientSummaryReport) this).generateReport(srcFile);
 			   break;}
 		   case 2:  {
 			   System.out.println("Detailed Client");

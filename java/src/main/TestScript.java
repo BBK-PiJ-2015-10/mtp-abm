@@ -46,7 +46,7 @@ import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 
 import report.Report;
-import report.ClientSummary;
+import report.ClientSummaryReport;
 
 import client.ClientCosts;
 import client.ClientCostsImpl;
@@ -67,9 +67,8 @@ public class TestScript {
 		
 		String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
 		File testClientFile = new File(clientFileAddress);
-		System.out.println(testClientFile.exists());
 		
-		Report test = new ClientSummary();
+		Report test = new ClientSummaryReport();
 		System.out.println(test.generateReport(testClientFile,1));
 		
 		

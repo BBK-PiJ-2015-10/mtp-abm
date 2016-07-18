@@ -1,0 +1,7 @@
+client,BPA,cost
+American,implementation.csv,fake
+AirFrance,implementation.csv,bad
+BA,implementation.csv,bad
+American,phones.csv,bad
+AirFrance,phones.csv,bad
+BA,phones.csv,bad
