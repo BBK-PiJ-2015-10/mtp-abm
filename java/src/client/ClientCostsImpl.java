@@ -52,6 +52,10 @@ public class ClientCostsImpl implements ClientCosts {
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);)
 		{
+			out.write("client"+",");
+			out.write("BPA"+",");
+			out.write("cost");
+			out.println();
 			for (String driver: bpaClientWeightsCalculator.getClientsWeights().keySet()){
 				for (String client: bpaClientWeightsCalculator.getClientsWeights().get(driver).keySet()){
 					List<String> sentence = new LinkedList<>();

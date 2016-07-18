@@ -45,6 +45,9 @@ import bpa.BpaCostsMakerImpl;
 import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 
+import report.Report;
+import report.ClientSummary;
+
 import client.ClientCosts;
 import client.ClientCostsImpl;
 
@@ -62,18 +65,26 @@ public class TestScript {
 	
 	public void launch(){
 		
+		String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
+		File testClientFile = new File(clientFileAddress);
+		System.out.println(testClientFile.exists());
+		
+		Report test = new ClientSummary();
+		System.out.println(test.generateReport(testClientFile,1));
+		
+		
 		
 	
-		Scanner sc = new Scanner(System.in);
+		//Scanner sc = new Scanner(System.in);
 		
 		
-		String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user15\\period15";
-		File testFile = new File(testaddress);
-		PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
-		testPeriod.capture("period15");
+		//String testaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user15\\period15";
+		//File testFile = new File(testaddress);
+		//PeriodMaker testPeriod = new PeriodMakerImpl(testFile);
+		//testPeriod.capture("period15");
 		
-		BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
-		testCostMaker.createbpaCosts();
+		//BpaCostsMaker testCostMaker = new BpaCostsMakerImpl(testPeriod);
+		//testCostMaker.createbpaCosts();
 		//BpaClientWeightsCalculator  bpaClientCalculator = new BpaClientWeightsCalculatorImpl(testCostMaker);
 		
 		//BpaCostCalculator bpaCostCalculator = new BpaCostCalculatorImpl(testPeriod.getBpaCosts());
