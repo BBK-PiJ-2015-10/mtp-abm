@@ -12,7 +12,7 @@ TestConfigurationManager.class,TestConfigurationMapperImpl.class,TestMapCreatorI
 TestPeriodMakerImpl.class,
 TestBpaCostsMakerImpl.class,TestBpaCostCalculatorImpl.class,TestBpaClientWeightsCalculatorImpl.class,
 TestClientCostsImpl.class,
-TestClientReportSummary.class
+TestReportSummaryImpl.class
 })
 public class AllABCTests {
 
