@@ -89,9 +89,12 @@ public class ClientSummaryReport implements Report {
 			return false;
 		}
 		if(!popMap(srcFile)){
+			clientSummaryReport=null;
 			return false;
 		};
 		if (!popFile()){
+			clientSummaryReport=null;
+			clientCosts.clear();
 			return false;
 		}
 		return true;

@@ -149,8 +149,53 @@ public class TestClientReportSummary {
 	
 //These are the tests for generateReport() method	
 	
+	/*
+	* Testing generateReport with valid inputs
+	*/
+	//@Ignore
+	@Test
+	public void testGenerateReportValid(){
+		assertEquals(true,clientSummaryReport.generateReport(clientCostsFile));
+		assertEquals(true,clientSummaryReport.getClientSummaryReportFile().exists());
+		clientSummaryReport.getClientSummaryReportFile().delete();
+	}
+		
+	/*
+	* Testing generateReport with invalid inputs
+	*/
+	//@Ignore
+	@Test
+	public void testGenerateReportInValidNullFile(){
+		assertEquals(false,clientSummaryReport.generateReport(null));
+		assertEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+	}
 	
+	/*
+	* Testing generateReport with invalid inputs incompleteFile
+	*/
+	//@Ignore
+	@Test
+	public void testGenerateReportInValidincompleteFile(){
+		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsIncomplete.csv";
+		badClientCostsFile = new File(badclientCostsAddress2);
+		assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile));
+		assertEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+	}
 	
+	/*
+	* Testing generateReport with invalid inputs emptyFile
+	*/
+	//@Ignore
+	@Test
+	public void testGenerateReportInValidEmptyFile(){
+		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsEmpty.csv";
+		badClientCostsFile = new File(badclientCostsAddress2);
+		assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile));
+		assertEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+	}
 	
 
 }
