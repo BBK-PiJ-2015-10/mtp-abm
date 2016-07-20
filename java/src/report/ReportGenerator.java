@@ -4,18 +4,19 @@ import java.io.File;
 
 import report.ReportSummaryImplOld;
 
-public interface Report {
+public interface ReportGenerator {
 	
-	default boolean generateReport(File srcFile,int reportchoice){
+	
+	static boolean generateReport(File srcFile,int reportchoice,ReportAbstract report){
 		boolean result=true;
 		switch (reportchoice){
 		   case 1:  {
-			   ReportAbstract type1 = new ReportSummaryImpl();
-			   type1.generateReport(srcFile,"reportSummaryClient","client","cost");
+			   report = new ReportSummaryImpl();
+			   report.generateReport(srcFile,"reportSummaryClient","client","cost");
 			   break;}
 		   case 2:  {
-			   ReportAbstract type2 = new ReportSummaryImpl();
-			   type2.generateReport(srcFile,"reportSummaryBPA","BPA","cost");
+			   report = new ReportSummaryImpl();
+			   report.generateReport(srcFile,"reportSummaryBPA","BPA","cost");
 			   break;}	   
 		   case 3:  {
 			   System.out.println("Summary Activity");

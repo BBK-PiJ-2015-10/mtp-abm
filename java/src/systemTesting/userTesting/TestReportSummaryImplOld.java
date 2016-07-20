@@ -12,9 +12,9 @@ import org.junit.Test;
 import org.junit.Ignore;
 
 import configuration.ConfigurationManager;
-import report.ClientSummaryReport;
+import report.ReportSummaryImplOld;
 
-public class TestClientReportSummary {
+public class TestReportSummaryImplOld {
 	
 	private String clientCostsAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
 	
@@ -24,7 +24,7 @@ public class TestClientReportSummary {
 	
 	private File badClientCostsFile;
 	
-	private ClientSummaryReport clientSummaryReport = new ClientSummaryReport();
+	private ReportSummaryImplOld clientSummaryReport = new ReportSummaryImplOld();
 	
 	private static final double DELTA = 1e-11;
 	
@@ -39,8 +39,8 @@ public class TestClientReportSummary {
 	//@Ignore
 	@Test
 	public void testCreateFileValidInputs(){
-		assertEquals(true,clientSummaryReport.createFile(clientCostsFile));
-		assertNotEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(true,clientSummaryReport.createFile(clientCostsFile,"clientSummary"));
+		assertNotEquals(null,clientSummaryReport.getSummaryReportFile());
 	}
 	
 	/*
@@ -49,8 +49,8 @@ public class TestClientReportSummary {
 	//@Ignore
 	@Test
 	public void testCreateFileWithNullFile(){
-		assertEquals(false,clientSummaryReport.createFile(null));
-		assertEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(false,clientSummaryReport.createFile(null,"clientSummary"));
+		assertEquals(null,clientSummaryReport.getSummaryReportFile());
 	}
 	
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,17 +58,33 @@ public class TestClientReportSummary {
 //These are the tests for popMap(File srcFile) and getClientCosts methods
 
 	/*
-	* Testing popMap with valid inputs
+	* Testing popMap with valid inputs a Client type file
 	*/
 	//@Ignore
 	@Test
-	public void testPopMapValidInputs(){
-		assertEquals(true,clientSummaryReport.popMap(clientCostsFile));
+	public void testPopMapValidInputsClientType(){
+		assertEquals(true,clientSummaryReport.popMap(clientCostsFile,"client","cost"));
 		assertEquals(3,clientSummaryReport.getClientsCosts().size());
 		assertEquals(25877.97619047619,clientSummaryReport.getClientsCosts().get("American"),DELTA);
 		assertEquals(131361.60714285716,clientSummaryReport.getClientsCosts().get("AirFrance"),DELTA);
 		assertEquals(11510.416666666666,clientSummaryReport.getClientsCosts().get("BA"),DELTA);
 	}
+	
+	
+	/*
+	* Testing popMap with valid inputs BPA type File
+	*/
+	//@Ignore
+	@Test
+	public void testPopMapValidInputsBPATypeFile(){
+		assertEquals(true,clientSummaryReport.popMap(clientCostsFile,"BPA","cost"));
+		assertEquals(2,clientSummaryReport.getClientsCosts().size());
+		assertEquals(78750.0,clientSummaryReport.getClientsCosts().get("implementation"),DELTA);
+		assertEquals(90000.0,clientSummaryReport.getClientsCosts().get("phones"),DELTA);
+	}
+	
+	
+	
 	
 	/*
 	* Testing popMap with an invalid input null file Reference
@@ -76,7 +92,7 @@ public class TestClientReportSummary {
 	//@Ignore
 	@Test
 	public void testPopMapInValidInputsNullFileSource(){
-		assertEquals(false,clientSummaryReport.popMap(null));
+		assertEquals(false,clientSummaryReport.popMap(null,"client","cost"));
 		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
 		badClientCostsFile = new File(badclientCostsAddress1);
 	}
@@ -88,7 +104,7 @@ public class TestClientReportSummary {
 	@Test
 	public void testPopMapInValidInputsInvalidFormat(){
 		badClientCostsFile = new File(badclientCostsAddress1);
-		assertEquals(false,clientSummaryReport.popMap(badClientCostsFile));
+		assertEquals(false,clientSummaryReport.popMap(badClientCostsFile,"client","cost"));
 		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
 	}
 	
@@ -100,7 +116,7 @@ public class TestClientReportSummary {
 	public void testPopMapInValidInputsMissingPartialData(){
 		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsIncomplete.csv";
 		badClientCostsFile = new File(badclientCostsAddress2);
-		assertEquals(false,clientSummaryReport.popMap(badClientCostsFile));
+		assertEquals(false,clientSummaryReport.popMap(badClientCostsFile,"client","cost"));
 		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
 	}
 	
@@ -112,7 +128,7 @@ public class TestClientReportSummary {
 	public void testPopMapInValidInputsMissingData(){
 		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsEmpty.csv";
 		badClientCostsFile = new File(badclientCostsAddress2);
-		assertEquals(false,clientSummaryReport.popMap(badClientCostsFile));
+		assertEquals(false,clientSummaryReport.popMap(badClientCostsFile,"client","cost"));
 		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
 	}
 	
@@ -127,10 +143,10 @@ public class TestClientReportSummary {
 	//@Ignore
 	@Test
 	public void testPopFileValidInput(){
-		clientSummaryReport.createFile(clientCostsFile);
-		clientSummaryReport.popMap(clientCostsFile);
-		assertEquals(true,clientSummaryReport.popFile());
-		clientSummaryReport.getClientSummaryReportFile().delete();
+		clientSummaryReport.createFile(clientCostsFile,"clientSummary");
+		clientSummaryReport.popMap(clientCostsFile,"client","cost");
+		assertEquals(true,clientSummaryReport.popFile("client","cost"));
+		clientSummaryReport.getSummaryReportFile().delete();
 	}
 	
 	/*
@@ -139,9 +155,9 @@ public class TestClientReportSummary {
 	//@Ignore
 	@Test
 	public void testPopFile(){
-		clientSummaryReport.createFile(clientCostsFile);
-		clientSummaryReport.popMap(null);
-		assertEquals(false,clientSummaryReport.popFile());
+		clientSummaryReport.createFile(clientCostsFile,"clientSummary");
+		clientSummaryReport.popMap(null,"client","cost");
+		assertEquals(false,clientSummaryReport.popFile("client","cost"));
 	}
 	
 	
@@ -155,9 +171,9 @@ public class TestClientReportSummary {
 	//@Ignore
 	@Test
 	public void testGenerateReportValid(){
-		assertEquals(true,clientSummaryReport.generateReport(clientCostsFile));
-		assertEquals(true,clientSummaryReport.getClientSummaryReportFile().exists());
-		clientSummaryReport.getClientSummaryReportFile().delete();
+		assertEquals(true,clientSummaryReport.generateReport(clientCostsFile,"clientSummary","client","cost"));
+		assertEquals(true,clientSummaryReport.getSummaryReportFile().exists());
+		clientSummaryReport.getSummaryReportFile().delete();
 	}
 		
 	/*
@@ -166,8 +182,8 @@ public class TestClientReportSummary {
 	//@Ignore
 	@Test
 	public void testGenerateReportInValidNullFile(){
-		assertEquals(false,clientSummaryReport.generateReport(null));
-		assertEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(false,clientSummaryReport.generateReport(null,"clientSummary","client","cost"));
+		assertEquals(null,clientSummaryReport.getSummaryReportFile());
 		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
 	}
 	
@@ -179,8 +195,8 @@ public class TestClientReportSummary {
 	public void testGenerateReportInValidincompleteFile(){
 		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsIncomplete.csv";
 		badClientCostsFile = new File(badclientCostsAddress2);
-		assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile));
-		assertEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile,"clientSummary","client","cost"));
+		assertEquals(null,clientSummaryReport.getSummaryReportFile());
 		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
 	}
 	
@@ -192,8 +208,8 @@ public class TestClientReportSummary {
 	public void testGenerateReportInValidEmptyFile(){
 		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsEmpty.csv";
 		badClientCostsFile = new File(badclientCostsAddress2);
-		assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile));
-		assertEquals(null,clientSummaryReport.getClientSummaryReportFile());
+		assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile,"clientSummary","client","cost"));
+		assertEquals(null,clientSummaryReport.getSummaryReportFile());
 		assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
 	}
 	

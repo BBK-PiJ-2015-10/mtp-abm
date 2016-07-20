@@ -46,11 +46,13 @@ import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 
 import report.Report;
-import report.ClientSummaryReport;
 import report.ReportSummaryImpl;
+import report.ReportGenerator;
 
 import client.ClientCosts;
 import client.ClientCostsImpl;
+
+import report.ReportAbstract;
 
 import java.util.regex.Pattern;
 
@@ -72,11 +74,23 @@ public class TestScript {
 		String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
 		File testClientFile = new File(clientFileAddress);
 		
-		//Report test = new ClientSummaryReport();
+		ReportAbstract abstractReport=null;
+		
+		ReportGenerator.generateReport(testClientFile,1,abstractReport);
+		ReportGenerator.generateReport(testClientFile,2,abstractReport);
+		
+		
+		//Report test = new ReportSummaryImpl();
 		//System.out.println(test.generateReport(testClientFile,1));
 		
-		ReportSummaryImpl test2 = new ReportSummaryImpl();
-		System.out.println(test2.generateReport(testClientFile,"testorbpa","BPA","cost"));
+		//System.out.println(test.generateReport(testClientFile,2));
+		
+		//ReportSummaryImpl test2 = new ReportSummaryImpl();
+		//System.out.println(test2.generateReport(testClientFile,"testorclient","BPA","cost"));
+		
+		//System.out.println(test2.generateReport(testClientFile,"testorbpa","client","cost"));
+		
+		
 	
 		//Scanner sc = new Scanner(System.in);
 		

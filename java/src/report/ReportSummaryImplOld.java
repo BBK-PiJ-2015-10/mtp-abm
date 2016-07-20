@@ -10,26 +10,27 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.HashMap;
 
 
-public class BpaSummaryReport implements Report {
+public class ReportSummaryImplOld implements Report {
 	
-	private File bpaSummaryReport;
+	private File summaryReport;
 	
-	private Map<String,Double> bpaCosts = new HashMap<>();
+	private Map<String,Double> costs = new HashMap<>();
 	
-	public File getBpaSummaryReportFile(){
-		return this.bpaSummaryReport;
+	public File getSummaryReportFile(){
+		return this.summaryReport;
 	}
 	
 	public Map<String,Double> getClientsCosts(){
-		return this.bpaCosts;
+		return this.costs;
 	}
 	
-	public boolean createFile(File srcFile){
+	public boolean createFile(File srcFile, String fileName){
 		try{
-			bpaSummaryReport = new File(srcFile.getParent()+"//"+"bpaSummary.csv");
+			summaryReport = new File(srcFile.getParent()+"//"+fileName+".csv");
 		} catch (NullPointerException ex){
 			return false;
 		}
@@ -56,34 +57,41 @@ public class BpaSummaryReport implements Report {
 				Double totalCost;
 				sentence=line.split(",");
 				totalCost=Double.parseDouble(sentence[POS2]);
-				if (bpaCosts.containsKey(sentence[POS1])){
-					totalCost =bpaCosts.get(sentence[POS1])+totalCost;
+				String key;
+				if (sentence[POS1].contains(".")){
+					key=sentence[POS1].split(Pattern.quote("."))[0];
 				}
-				bpaCosts.put(sentence[POS1],totalCost);
+				else {
+					key=sentence[POS1];
+				}
+				if (costs.containsKey(key)){
+					totalCost =costs.get(key)+totalCost;
+				}
+				costs.put(key,totalCost);
 			}
 			
 		} catch ( IOException | NullPointerException | NumberFormatException | IndexOutOfBoundsException ex){
-			bpaCosts.clear();
+			costs.clear();
 			return false;
 		}
 		return true;
 	}
 	
 	public boolean popFile(String attributefactor, String attributecost){
-		if (bpaCosts == null | bpaCosts.isEmpty()){
+		if (costs == null | costs.isEmpty()){
 			return false;
 		}
 		try (
-				 FileWriter fw = new FileWriter(bpaSummaryReport,false);
+				 FileWriter fw = new FileWriter(summaryReport,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);)
 		{
 			out.write(attributefactor+",");
-			out.write("attributecost");
+			out.write(attributecost);
 			out.println();
-			for (String input: bpaCosts.keySet()){
+			for (String input: costs.keySet()){
 				out.write(input+",");
-				out.write(bpaCosts.get(input).toString());	
+				out.write(costs.get(input).toString());	
 				out.println();
 			}
 		}	catch ( IOException | NullPointerException ex){	
@@ -93,17 +101,17 @@ public class BpaSummaryReport implements Report {
 	}
 	
 	
-	public boolean generateReport(File srcFile,String attributefactor, String attributecost){
-		if (!createFile(srcFile)){
+	public boolean generateReport(File srcFile,String fileName,String attributefactor, String attributecost){
+		if (!createFile(srcFile,fileName)){
 			return false;
 		}
 		if(!popMap(srcFile,attributefactor,attributecost)){
-			bpaSummaryReport=null;
+			summaryReport=null;
 			return false;
 		};
 		if (!popFile(attributefactor,attributecost)){
-			bpaSummaryReport=null;
-			bpaCosts.clear();
+			summaryReport=null;
+			costs.clear();
 			return false;
 		}
 		return true;

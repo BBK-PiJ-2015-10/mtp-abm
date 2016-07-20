@@ -14,30 +14,16 @@ import java.util.regex.Pattern;
 import java.util.HashMap;
 
 
-public class ReportSummaryImpl implements Report {
+public class ReportSummaryImpl extends ReportAbstract {
 	
-	private File summaryReport;
-	
-	private Map<String,Double> costs = new HashMap<>();
-	
-	public File getSummaryReportFile(){
-		return this.summaryReport;
-	}
+	private Map<String,Double> costsMap = new HashMap<>();
 	
 	public Map<String,Double> getClientsCosts(){
-		return this.costs;
-	}
-	
-	public boolean createFile(File srcFile, String fileName){
-		try{
-			summaryReport = new File(srcFile.getParent()+"//"+fileName+".csv");
-		} catch (NullPointerException ex){
-			return false;
-		}
-		return true;
+		return this.costsMap;
 	}
 	
 	public boolean popMap(File srcFile, String attributefactor, String attributecost){
+		
 		
 		try (BufferedReader in = new BufferedReader(new FileReader(srcFile));)
 		{
@@ -64,34 +50,34 @@ public class ReportSummaryImpl implements Report {
 				else {
 					key=sentence[POS1];
 				}
-				if (costs.containsKey(key)){
-					totalCost =costs.get(key)+totalCost;
+				if (costsMap.containsKey(key)){
+					totalCost =costsMap.get(key)+totalCost;
 				}
-				costs.put(key,totalCost);
+				costsMap.put(key,totalCost);
 			}
 			
 		} catch ( IOException | NullPointerException | NumberFormatException | IndexOutOfBoundsException ex){
-			costs.clear();
+			costsMap.clear();
 			return false;
 		}
 		return true;
 	}
 	
 	public boolean popFile(String attributefactor, String attributecost){
-		if (costs == null | costs.isEmpty()){
+		if (costsMap == null | costsMap.isEmpty()){
 			return false;
 		}
 		try (
-				 FileWriter fw = new FileWriter(summaryReport,false);
+				 FileWriter fw = new FileWriter(reportFile,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);)
 		{
 			out.write(attributefactor+",");
 			out.write(attributecost);
 			out.println();
-			for (String input: costs.keySet()){
+			for (String input: costsMap.keySet()){
 				out.write(input+",");
-				out.write(costs.get(input).toString());	
+				out.write(costsMap.get(input).toString());	
 				out.println();
 			}
 		}	catch ( IOException | NullPointerException ex){	
@@ -101,20 +87,5 @@ public class ReportSummaryImpl implements Report {
 	}
 	
 	
-	public boolean generateReport(File srcFile,String fileName,String attributefactor, String attributecost){
-		if (!createFile(srcFile,fileName)){
-			return false;
-		}
-		if(!popMap(srcFile,attributefactor,attributecost)){
-			summaryReport=null;
-			return false;
-		};
-		if (!popFile(attributefactor,attributecost)){
-			summaryReport=null;
-			costs.clear();
-			return false;
-		}
-		return true;
-	}
 
 }
