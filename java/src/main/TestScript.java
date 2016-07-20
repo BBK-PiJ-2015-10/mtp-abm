@@ -48,6 +48,7 @@ import bpa.BpaClientWeightsCalculatorImpl;
 import report.Report;
 import report.ReportSummaryImpl;
 import report.ReportGenerator;
+import report.ReportDetailedImpl;
 
 import client.ClientCosts;
 import client.ClientCostsImpl;
@@ -56,7 +57,8 @@ import report.ReportAbstract;
 
 import java.util.regex.Pattern;
 
-
+import java.util.List;
+import java.util.LinkedList;
 
 
 public class TestScript {
@@ -70,15 +72,47 @@ public class TestScript {
 	
 	public void launch(){
 		
+	
+		String bpaFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts.csv";
+		File testBpaFile = new File(bpaFileAddress);
 		
 		String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
 		File testClientFile = new File(clientFileAddress);
-		
+				
 		ReportAbstract abstractReport=null;
+		//System.out.println(ReportGenerator.generateReport(testClientFile,1,abstractReport));		
+		//System.out.println(ReportGenerator.generateReport(testClientFile,2,abstractReport));
+		System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));	
+			
+	    //ReportDetailedImpl reportDetailedImpl = new ReportDetailedImpl();
+	    //reportDetailedImpl.createFile(testBpaFile, "testerDetailedClient");
+	    //System.out.println(reportDetailedImpl.popMap(testBpaFile,"BPA","Amount"));
+	
+		//System.out.println(reportDetailedImpl.createFile(testBpaFile, "testerDetailedClient"));
+		//System.out.println(reportDetailedImpl.popMap(testBpaFile,"BPA","Amount"));
 		
-		ReportGenerator.generateReport(testClientFile,1,abstractReport);
-		ReportGenerator.generateReport(testClientFile,2,abstractReport);
+		//reportDetailedImpl.getAttributesLabels().forEach(System.out::println);
+		//reportDetailedImpl.getClientsCosts().keySet().forEach(System.out::println);
+		//reportDetailedImpl.getClientsCosts().get("implementation").forEach(System.out::println);
 		
+		//ReportAbstract abstractReport=null;
+		//System.out.println(ReportGenerator.generateReport(testBpaFile,1,abstractReport));
+		//System.out.println(ReportGenerator.generateReport(testBpaFile,2,abstractReport));
+	    //System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));
+		
+		
+		
+		//String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
+		//File testClientFile = new File(clientFileAddress);
+		
+		
+		//ReportAbstract abstractReport=null;
+		
+		
+		
+		//ReportGenerator.generateReport(testClientFile,1,abstractReport);
+		//ReportGenerator.generateReport(testClientFile,2,abstractReport);
+		//ReportGenerator.generateReport(testClientFile,3,abstractReport);
 		
 		//Report test = new ReportSummaryImpl();
 		//System.out.println(test.generateReport(testClientFile,1));

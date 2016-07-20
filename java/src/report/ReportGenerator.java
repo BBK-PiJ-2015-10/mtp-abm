@@ -2,7 +2,6 @@ package report;
 
 import java.io.File;
 
-import report.ReportSummaryImplOld;
 
 public interface ReportGenerator {
 	
@@ -19,7 +18,8 @@ public interface ReportGenerator {
 			   report.generateReport(srcFile,"reportSummaryBPA","BPA","cost");
 			   break;}	   
 		   case 3:  {
-			   System.out.println("Summary Activity");
+			   report = new ReportDetailedImpl();
+			   report.generateReport(srcFile,"reportDetailedBPA","BPA","Amount");
 			   break;}   
 		   case 4:  {
 			   System.out.println("Detailed Activity");
