@@ -76,13 +76,42 @@ public class TestScript {
 		String bpaFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts.csv";
 		File testBpaFile = new File(bpaFileAddress);
 		
+		String bpaFileAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts2.csv";
+		File testBpaFile2 = new File(bpaFileAddress2);
+		
+		
 		String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
 		File testClientFile = new File(clientFileAddress);
+		
+		String clientFileAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts2.csv";
+		File testClientFile2 = new File(clientFileAddress2);
+		
+		
+		String clientFileAddress3 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts3.csv";
+		File testClientFile3 = new File(clientFileAddress3);
+		
+		
+		
+		
 				
 		ReportAbstract abstractReport=null;
+		
+		System.out.println(ReportGenerator.generateReport(testClientFile2,2,abstractReport));
+		System.out.println(ReportGenerator.generateReport(testClientFile3,5,abstractReport));
+		
+		
+		
+		//System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));
+		//System.out.println(ReportGenerator.generateReport(testBpaFile,4,abstractReport));
+		//System.out.println(ReportGenerator.generateReport(testBpaFile2,5,abstractReport));
+		
+		
 		//System.out.println(ReportGenerator.generateReport(testClientFile,1,abstractReport));		
 		//System.out.println(ReportGenerator.generateReport(testClientFile,2,abstractReport));
-		System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));	
+		//System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));
+		//System.out.println(ReportGenerator.generateReport(testBpaFile,6,abstractReport));
+		//System.out.println(ReportGenerator.generateReport(testClientFile,4,abstractReport));
+		//System.out.println(ReportGenerator.generateReport(testClientFile,5,abstractReport));
 			
 	    //ReportDetailedImpl reportDetailedImpl = new ReportDetailedImpl();
 	    //reportDetailedImpl.createFile(testBpaFile, "testerDetailedClient");

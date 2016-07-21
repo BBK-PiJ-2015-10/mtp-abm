@@ -78,7 +78,12 @@ public class ReportDetailedImpl extends ReportAbstract {
 				}
 				for (int i=0;i<sentence.length;i++){
 					if ((i!=POS1) && (i!=POS2)){
-						attributes.add(sentence[i]);
+						if (sentence[i].contains(".")){
+							attributes.add(sentence[i].split(Pattern.quote("."))[0]);
+					    }
+					    else {
+					    	attributes.add(sentence[i]);
+					    }					
 					}			
 				}
 				attributes.add(sentence[POS2]);
@@ -151,7 +156,6 @@ public class ReportDetailedImpl extends ReportAbstract {
 					}
 					out.println();
 				}	
-				//out.println();
 			}
 		}	catch ( IOException | NullPointerException ex){	
 			return false;
