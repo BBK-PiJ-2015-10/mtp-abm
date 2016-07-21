@@ -22,7 +22,7 @@ public class ReportDetailedImpl extends ReportAbstract {
 	
 	private Map<String,List<List<String>>> costsMap = new HashMap<>();
 	
-	public Map<String,List<List<String>>> getClientsCosts(){
+	public Map<String,List<List<String>>> getCosts(){
 		return this.costsMap;
 	}
 	

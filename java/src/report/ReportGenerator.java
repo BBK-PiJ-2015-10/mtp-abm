@@ -19,7 +19,7 @@ public interface ReportGenerator {
 			   break;}		    
 		   case 3:  {
 			   report = new ReportSummaryImpl();
-			   report.generateReport(srcFile,"reportSummaryBPA","BPA","cost");
+			   report.generateReport(srcFile,"reportSummaryBPA","BPA","Amount");
 			   break;}	   
 		   case 4:  {
 			   report = new ReportDetailedImpl();

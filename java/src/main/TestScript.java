@@ -96,8 +96,8 @@ public class TestScript {
 				
 		ReportAbstract abstractReport=null;
 		
-		System.out.println(ReportGenerator.generateReport(testClientFile2,2,abstractReport));
-		System.out.println(ReportGenerator.generateReport(testClientFile3,5,abstractReport));
+		System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));
+		//System.out.println(ReportGenerator.generateReport(testClientFile,,abstractReport));
 		
 		
 		

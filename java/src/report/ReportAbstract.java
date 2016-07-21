@@ -24,7 +24,7 @@ public abstract class ReportAbstract  {
 		return this.reportFile;
 	}
 	
-	public Map<?,?> getClientsCosts(){
+	public Map<?,?> getCosts(){
 		return this.costsMap;
 	}
 	
