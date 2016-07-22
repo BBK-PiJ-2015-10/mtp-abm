@@ -17,6 +17,8 @@ import period.PeriodMakerImpl;
 import user.UserSpace;
 import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
+import report.ReportGenerator;
+import report.ReportGeneratorImpl;
 
 import java.io.File;
 
@@ -43,6 +45,8 @@ public class ABCSystemImpl implements ABCSystem {
 	private BpaClientWeightsCalculator bpaClientWeightsCalculator;
 	
 	private ClientCosts clientCosts;
+	
+	private ReportGenerator reportGenerator;
 	
 	private Scanner sc;
 	
@@ -77,6 +81,13 @@ public class ABCSystemImpl implements ABCSystem {
 	public boolean runBpaCostMaker(){
 		bpaCostsMaker = new BpaCostsMakerImpl(periodMaker);
 		return bpaCostsMaker.createbpaCosts();
+	}
+	
+	public boolean runGenerateReport(){
+		reportGenerator= new ReportGeneratorImpl();
+		reportGenerator.captureChoice(sc);
+		//return reportGenerator.generateReport(srcFile, report)
+		return true;
 	}
 	
 	
@@ -114,8 +125,11 @@ public class ABCSystemImpl implements ABCSystem {
 		}
 		
 		
-		
-		
+		System.out.println("Do you wish to generate a report");
+		choice = sc.nextLine();
+		if (choice.equalsIgnoreCase("yes")){
+			
+		}
 
 		
 

@@ -28,6 +28,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	private File bpaCosts;
 	
+	//private File clientCosts;
+	
 	//This is a test
 	private Map<String,File> periodFiles = new HashMap<>();
 	

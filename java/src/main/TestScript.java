@@ -45,7 +45,8 @@ import bpa.BpaCostsMakerImpl;
 import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 
-import report.Report;
+import report.ReportGenerator;
+import report.ReportGeneratorImpl;
 import report.ReportSummaryImpl;
 import report.ReportGenerator;
 import report.ReportDetailedImpl;
@@ -72,6 +73,7 @@ public class TestScript {
 	
 	public void launch(){
 		
+		Scanner sc = new Scanner(System.in);
 	
 		String bpaFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts.csv";
 		File testBpaFile = new File(bpaFileAddress);
@@ -91,12 +93,16 @@ public class TestScript {
 		File testClientFile3 = new File(clientFileAddress3);
 		
 		
-		
+		ReportGenerator reportGenerator = new ReportGeneratorImpl();
+		//reportGenerator.presentChoices();
+		reportGenerator.captureChoice(sc);
 		
 				
 		ReportAbstract abstractReport=null;
 		
-		System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));
+		
+		
+		//System.out.println(ReportGenerator.generateReport(testBpaFile,3,abstractReport));
 		//System.out.println(ReportGenerator.generateReport(testClientFile,,abstractReport));
 		
 		

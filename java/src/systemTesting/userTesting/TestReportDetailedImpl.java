@@ -20,17 +20,20 @@ public class TestReportDetailedImpl {
 	
 	private String clientCostsAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts3.csv";
 	
-	//private String badclientCostsAddress1 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsNoNumbers.csv";
+	private String badclientCostsAddress1 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsNoNumbers.csv";
 	
 	private File bpaCostsFile = new File(bpaCostsAddress);
 	
 	private File clientCostsFile = new File(clientCostsAddress);
 	
-	//private File badClientCostsFile;
+	private File badCostsFile;
 	
 	private ReportDetailedImpl bpaDetailedReport = new ReportDetailedImpl();
 	
 	private ReportDetailedImpl clientDetailedReport = new ReportDetailedImpl();
+	
+	private ReportDetailedImpl badDetailedReport = new ReportDetailedImpl();
+	
 	
 	private static final double DELTA = 1e-11;
 	
@@ -117,39 +120,29 @@ public class TestReportDetailedImpl {
 		assertEquals(true,bpaDetailedReport.getCosts().isEmpty());
 	}
 	
-	/*
-	* Testing popMap with a file that has an invalid format
-	*/
-	@Ignore
-	@Test
-	public void testPopMapInValidInputsInvalidFormat(){
-		//badClientCostsFile = new File(badclientCostsAddress1);
-		////assertEquals(false,clientSummaryReport.popMap(badClientCostsFile,"client","cost"));
-		//assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
-	}
-	
+
 	/*
 	* Testing popMap with a file that has missing partial data 
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testPopMapInValidInputsMissingPartialData(){
-		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsIncomplete.csv";
-		//badClientCostsFile = new File(badclientCostsAddress2);
-		//assertEquals(false,clientSummaryReport.popMap(badClientCostsFile,"client","cost"));
-		//assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCostsIncomplete.csv";
+		badCostsFile = new File(badclientCostsAddress2);
+		assertEquals(false,bpaDetailedReport.popMap(badCostsFile,"BPA","Amount"));
+		assertEquals(true,bpaDetailedReport.getCosts().isEmpty());
 	}
 	
 	/*
 	* Testing popMap with a file that has missing data 
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testPopMapInValidInputsMissingData(){
 		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsEmpty.csv";
-		//badClientCostsFile = new File(badclientCostsAddress2);
-		//assertEquals(false,clientSummaryReport.popMap(badClientCostsFile,"client","cost"));
-		//assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+		badCostsFile = new File(badclientCostsAddress2);
+		assertEquals(false,bpaDetailedReport.popMap(badCostsFile,"BPA","Account"));
+		assertEquals(true,bpaDetailedReport.getCosts().isEmpty());
 	}
 	
 	
@@ -160,24 +153,24 @@ public class TestReportDetailedImpl {
 	/*
 	* Testing popFile with valid inputs
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testPopFileValidInput(){
-		//clientSummaryReport.createFile(clientCostsFile,"clientSummary");
-		//clientSummaryReport.popMap(clientCostsFile,"client","cost");
-		//assertEquals(true,clientSummaryReport.popFile("client","cost"));
-		//clientSummaryReport.getReportFile().delete();
+		bpaDetailedReport.createFile(bpaCostsFile,"bpaDetailedReport");
+		bpaDetailedReport.popMap(bpaCostsFile,"BPA","Amount");
+		assertEquals(true,bpaDetailedReport.popFile("BPA","Amount"));
+		bpaDetailedReport.getReportFile().delete();
 	}
 	
 	/*
 	* Testing popFile with invalid inputs empty map
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testPopFile(){
-		//clientSummaryReport.createFile(clientCostsFile,"clientSummary");
-		//clientSummaryReport.popMap(null,"client","cost");
-		//assertEquals(false,clientSummaryReport.popFile("client","cost"));
+		bpaDetailedReport.createFile(bpaCostsFile,"bpaDetailedReport");
+		bpaDetailedReport.popMap(null,"BPA","Amount");
+		assertEquals(false,bpaDetailedReport.popFile("BPA","Amount"));
 	}
 	
 	
@@ -188,49 +181,49 @@ public class TestReportDetailedImpl {
 	/*
 	* Testing generateReport with valid inputs
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testGenerateReportValid(){
-		//assertEquals(true,clientSummaryReport.generateReport(clientCostsFile,"clientSummary","client","cost"));
-		//assertEquals(true,clientSummaryReport.getReportFile().exists());
-		//clientSummaryReport.getReportFile().delete();
+		assertEquals(true,bpaDetailedReport.generateReport(bpaCostsFile,"bpaDetailedReport","BPA","Amount"));
+		assertEquals(true,bpaDetailedReport.getReportFile().exists());
+		bpaDetailedReport.getReportFile().delete();
 	}
 		
 	/*
 	* Testing generateReport with invalid inputs
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testGenerateReportInValidNullFile(){
-		//assertEquals(false,clientSummaryReport.generateReport(null,"clientSummary","client","cost"));
-		//assertEquals(null,clientSummaryReport.getReportFile());
-		//assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+		assertEquals(false,bpaDetailedReport.generateReport(null,"bpaDetailedReport","BPA","Amount"));
+		assertEquals(null,bpaDetailedReport.getReportFile());
+		assertEquals(true,bpaDetailedReport.getCosts().isEmpty());
 	}
 	
 	/*
 	* Testing generateReport with invalid inputs incompleteFile
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testGenerateReportInValidincompleteFile(){
-		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsIncomplete.csv";
-		//badClientCostsFile = new File(badclientCostsAddress2);
-		//assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile,"clientSummary","client","cost"));
-		//assertEquals(null,clientSummaryReport.getReportFile());
-		//assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCostsIncomplete.csv";
+		badCostsFile = new File(badclientCostsAddress2);
+		assertEquals(false,bpaDetailedReport.generateReport(badCostsFile,"bpaDetailedReport","BPA","Amount"));
+		assertEquals(null,bpaDetailedReport.getReportFile());
+		assertEquals(true,bpaDetailedReport.getCosts().isEmpty());
 	}
 	
 	/*
 	* Testing generateReport with invalid inputs emptyFile
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testGenerateReportInValidEmptyFile(){
-		String badclientCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCostsEmpty.csv";
-		//badClientCostsFile = new File(badclientCostsAddress2);
-		//assertEquals(false,clientSummaryReport.generateReport(badClientCostsFile,"clientSummary","client","cost"));
-		//assertEquals(null,clientSummaryReport.getReportFile());
-		//assertEquals(true,clientSummaryReport.getClientsCosts().isEmpty());
+		String badBpaCostsAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCostsEmpty.csv";
+		badCostsFile = new File(badBpaCostsAddress2);
+		assertEquals(false,bpaDetailedReport.generateReport(badCostsFile,"bpaDetailedReport","BPA","Amount"));
+		assertEquals(null,bpaDetailedReport.getReportFile());
+		assertEquals(true,bpaDetailedReport.getCosts().isEmpty());
 	}
 	
 
