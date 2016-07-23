@@ -28,7 +28,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	private File bpaCosts;
 	
-	//private File clientCosts;
+	private File clientCosts;
 	
 	//This is a test
 	private Map<String,File> periodFiles = new HashMap<>();
@@ -53,12 +53,20 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		return this.bpaCosts;
 	}
 	
+	@Override
 	public void setBpaCosts(File bpaCosts){
 		this.bpaCosts=bpaCosts;
 	}
 	
+	@Override
+	public void setClientCosts(File clientCosts){
+		this.clientCosts=clientCosts;
+	}
 	
-	
+	@Override
+	public File getClientCosts(){
+		return this.clientCosts;
+	}
 	
 	public PeriodMakerImpl(UserSpace userSpace){
 		this.userSpace = userSpace;
@@ -128,6 +136,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			encode.writeObject(periodFiles);
 			encode.writeObject(driversMap);
 			encode.writeObject(bpaCosts);
+			encode.writeObject(clientCosts);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -146,6 +155,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			periodFiles=(Map<String,File> )incode.readObject();
 			driversMap=(Map<String,String>)incode.readObject();
 			bpaCosts = (File)incode.readObject();
+			clientCosts = (File)incode.readObject();
 			isPresent = true;
 			
 		} catch (ClassNotFoundException ex){

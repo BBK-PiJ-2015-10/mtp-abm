@@ -75,7 +75,7 @@ public class TestBpaCostCalculatorImpl {
 	/*
 	* The below tests that a map is populated after a valid Activity is costed.
 	*/
-	@Ignore
+	//@Ignore
 	@Test
 	public void testgetActivityCostsValidInputsTestingMap(){
 		bpaCostCalculator = new BpaCostCalculatorImpl(period.getBpaCosts());

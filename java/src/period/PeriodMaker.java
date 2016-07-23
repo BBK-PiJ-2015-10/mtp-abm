@@ -26,6 +26,11 @@ public interface PeriodMaker {
 	
 	void setBpaCosts(File bpaCosts);
 	
+	//Need to write JTest
+	void setClientCosts(File clientCosts);
+	
+	//Need to write JTest
+	File getClientCosts();
 	
 	//This is a test
 	Map<String,File> getPeriodFiles();

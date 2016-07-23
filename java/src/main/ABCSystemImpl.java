@@ -117,19 +117,19 @@ public class ABCSystemImpl implements ABCSystem {
 			System.out.println("This is going better");
 			runMakeNewPeriod();
 			runBpaCostMaker();
-			bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
-			bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
-			clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
-			clientCosts.calculateClientCosts();
+			//bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
+			//bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
+			//clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
+			//clientCosts.calculateClientCosts();
 			System.out.println("You are done for the moment");
 		}
 		
 		
-		System.out.println("Do you wish to generate a report");
-		choice = sc.nextLine();
-		if (choice.equalsIgnoreCase("yes")){
+		//System.out.println("Do you wish to generate a report");
+		//choice = sc.nextLine();
+		//if (choice.equalsIgnoreCase("yes")){
 			
-		}
+		//}
 
 		
 
