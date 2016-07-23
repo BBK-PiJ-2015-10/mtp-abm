@@ -74,31 +74,59 @@ public class TestScript {
 	public void launch(){
 		
 		Scanner sc = new Scanner(System.in);
-	
-		String bpaFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts.csv";
-		File testBpaFile = new File(bpaFileAddress);
 		
-		String bpaFileAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts2.csv";
-		File testBpaFile2 = new File(bpaFileAddress2);
+		String periodFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16";
+		File periodFile = new File(periodFileAddress);
+		PeriodMaker testPeriod = new PeriodMakerImpl(periodFile);
+		testPeriod.capture("period16");
 		
-		
-		String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
-		File testClientFile = new File(clientFileAddress);
-		
-		String clientFileAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts2.csv";
-		File testClientFile2 = new File(clientFileAddress2);
+		//ReportDetailedImpl reportDetailedImpl = new ReportDetailedImpl();
+	    //System.out.println(reportDetailedImpl.generateReport(testPeriod.getBpaCosts(), "DetailedBPA","BPA","Amount"));
 		
 		
-		String clientFileAddress3 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts3.csv";
-		File testClientFile3 = new File(clientFileAddress3);
-		
-		
-		ReportGenerator reportGenerator = new ReportGeneratorImpl();
-		//reportGenerator.presentChoices();
+	    ReportAbstract abstractReport=null;
+	    
+		ReportGenerator reportGenerator = new ReportGeneratorImpl(testPeriod);
 		reportGenerator.captureChoice(sc);
+		reportGenerator.generateReport(abstractReport);
+		
+		
+		
+		
+		//System.out.println(testPeriod.getBpaCosts().getAbsolutePath());
+	
+
+		//String bpaFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts.csv";
+		//String bpaFileAddress;
+		//bpaFileAddress = testPeriod.getBpaCosts().getAbsolutePath();
+		//File testBpaFile = new File(bpaFileAddress);
+		
+		//ReportDetailedImpl reportDetailedImpl = new ReportDetailedImpl();
+	    //System.out.println(reportDetailedImpl.generateReport(testPeriod.getBpaCosts(), "DetailedBPA","BPA","Amount"));
+	    
+	    
+		
+		//String bpaFileAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\bpaCosts2.csv";
+		//File testBpaFile2 = new File(bpaFileAddress2);
+		
+		
+		//String clientFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts.csv";
+		//File testClientFile = new File(clientFileAddress);
+		
+		//String clientFileAddress2 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts2.csv";
+		//File testClientFile2 = new File(clientFileAddress2);
+		
+		
+		//String clientFileAddress3 = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16\\clientCosts3.csv";
+		//File testClientFile3 = new File(clientFileAddress3);
+		
+		
+		//ReportGenerator reportGenerator = new ReportGeneratorImpl();
+		//reportGenerator.presentChoices();
+		//reportGenerator.captureChoice(sc);
 		
 				
-		ReportAbstract abstractReport=null;
+		//ReportAbstract abstractReport=null;
 		
 		
 		

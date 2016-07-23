@@ -10,20 +10,24 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 
+import period.PeriodMaker;
+
 import java.lang.IllegalArgumentException;
 
 
 
 public class ReportGeneratorImpl implements ReportGenerator {
 	
-		
 	private List<String> optionsList;
 	
 	private Map<Integer,String> optionsMap;
 	
 	private Integer choice =null;
 	
-	public ReportGeneratorImpl(){
+	private PeriodMaker periodMaker;
+	
+	public ReportGeneratorImpl(PeriodMaker periodMaker){
+		this.periodMaker=periodMaker;
 		initialize();
 	}
 	
@@ -72,24 +76,24 @@ public class ReportGeneratorImpl implements ReportGenerator {
 	
 	
 	@Override
-	public boolean generateReport(File srcFile,ReportAbstract report){
+	public boolean generateReport(ReportAbstract report){
 		boolean result=true;
 		switch (choice){
 		   case 1:  {
 			   report = new ReportSummaryImpl();
-			   report.generateReport(srcFile,"reportSummaryClient","client","cost");
+			   report.generateReport(periodMaker.getClientCosts(),"reportSummaryClient","client","cost");
 			   break;}
 		   case 2:  {
 			   report = new ReportDetailedImpl();
-			   report.generateReport(srcFile,"reportDetailedClient","client","cost");
+			   report.generateReport(periodMaker.getClientCosts(),"reportDetailedClient","client","cost");
 			   break;}		    
 		   case 3:  {
 			   report = new ReportSummaryImpl();
-			   report.generateReport(srcFile,"reportSummaryBPA","BPA","Amount");
+			   report.generateReport(periodMaker.getBpaCosts(),"reportSummaryBPA","BPA","Amount");
 			   break;}	   
 		   case 4:  {
 			   report = new ReportDetailedImpl();
-			   report.generateReport(srcFile,"reportDetailedBPA","BPA","Amount");
+			   report.generateReport(periodMaker.getBpaCosts(),"reportDetailedBPA","BPA","Amount");
 			   break;}
 		   default: {
 			   System.out.println("Invalid option");

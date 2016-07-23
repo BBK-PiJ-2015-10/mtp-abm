@@ -17,6 +17,7 @@ import period.PeriodMakerImpl;
 import user.UserSpace;
 import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
+import report.ReportAbstract;
 import report.ReportGenerator;
 import report.ReportGeneratorImpl;
 
@@ -47,6 +48,8 @@ public class ABCSystemImpl implements ABCSystem {
 	private ClientCosts clientCosts;
 	
 	private ReportGenerator reportGenerator;
+	
+	private ReportAbstract report;
 	
 	private Scanner sc;
 	
@@ -84,10 +87,9 @@ public class ABCSystemImpl implements ABCSystem {
 	}
 	
 	public boolean runGenerateReport(){
-		reportGenerator= new ReportGeneratorImpl();
+		reportGenerator= new ReportGeneratorImpl(periodMaker);
 		reportGenerator.captureChoice(sc);
-		//return reportGenerator.generateReport(srcFile, report)
-		return true;
+		return reportGenerator.generateReport(report);
 	}
 	
 	
@@ -117,19 +119,19 @@ public class ABCSystemImpl implements ABCSystem {
 			System.out.println("This is going better");
 			runMakeNewPeriod();
 			runBpaCostMaker();
-			//bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
-			//bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
-			//clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
-			//clientCosts.calculateClientCosts();
+			bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
+			bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
+			clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
+			clientCosts.calculateClientCosts();
 			System.out.println("You are done for the moment");
 		}
 		
 		
-		//System.out.println("Do you wish to generate a report");
-		//choice = sc.nextLine();
-		//if (choice.equalsIgnoreCase("yes")){
-			
-		//}
+		System.out.println("Do you wish to generate a report");
+		choice = sc.nextLine();
+		if (choice.equalsIgnoreCase("yes")){
+			runGenerateReport();
+		}
 
 		
 
