@@ -140,7 +140,6 @@ public class TestPeriodMakerImpl {
 	@Test
 	public void testCaptureConfigurationValid(){
 		autoFeedSetUp("config11");
-		//manualFeedSetUp();
 		System.out.println(periodMakerImpl.captureConfiguration(sc));
 		assertEquals(2,2);
 	}
@@ -157,7 +156,7 @@ public class TestPeriodMakerImpl {
 	
 //////////////////////////////////////////////////////////////////////////////////////
 
-//These are the test CaptureConfiguration(Scanner sc)
+//These are the test creatPeriod(Scanner sc)
 
 	/*
 	 * Testing createPeriod(Scanner sc) valid

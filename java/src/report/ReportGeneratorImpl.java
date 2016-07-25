@@ -31,7 +31,24 @@ public class ReportGeneratorImpl implements ReportGenerator {
 		initialize();
 	}
 	
+	public List<String> getOptionsList(){
+		return this.optionsList;
+	}
+	
+	
+	public Map<Integer,String> getOptionsMap(){
+		return this.optionsMap;
+	}
+	
+	public int getChoice(){
+		return this.choice;
+	}
+	
+	
 	public boolean initialize(){
+		if (periodMaker==null){
+			return false;
+		}
 		optionsList = new LinkedList();
 		optionsList = Arrays.asList("SummaryClientReport","DetailedClientReport","SummaryBPAReport","DetailedBPAReport");
 		optionsMap = new HashMap();
@@ -43,8 +60,12 @@ public class ReportGeneratorImpl implements ReportGenerator {
 	
 	
 	public boolean presentChoices(){
-		for (int i=1;i<=optionsMap.size();i++){
-			System.out.println("For: " +optionsMap.get(i) +"," +" type: " +i);
+		try {
+			for (int i=1;i<=optionsMap.size();i++){
+				System.out.println("For: " +optionsMap.get(i) +"," +" type: " +i);
+			}
+		} catch(NullPointerException ex){
+			return false;
 		}
 		return true;
 	}
@@ -69,37 +90,41 @@ public class ReportGeneratorImpl implements ReportGenerator {
 				System.out.println("Invalid entry, please enter a valid selection");
 			}
 		}
-		System.out.println("You have entered" +choice);
 		return validEntry;
 	}
 	
 	
 	
 	@Override
-	public boolean generateReport(ReportAbstract report){
+	public boolean generateReport(){
 		boolean result=true;
-		switch (choice){
-		   case 1:  {
-			   report = new ReportSummaryImpl();
-			   report.generateReport(periodMaker.getClientCosts(),"reportSummaryClient","client","cost");
-			   break;}
-		   case 2:  {
-			   report = new ReportDetailedImpl();
-			   report.generateReport(periodMaker.getClientCosts(),"reportDetailedClient","client","cost");
-			   break;}		    
-		   case 3:  {
-			   report = new ReportSummaryImpl();
-			   report.generateReport(periodMaker.getBpaCosts(),"reportSummaryBPA","BPA","Amount");
-			   break;}	   
-		   case 4:  {
-			   report = new ReportDetailedImpl();
-			   report.generateReport(periodMaker.getBpaCosts(),"reportDetailedBPA","BPA","Amount");
-			   break;}
-		   default: {
-			   System.out.println("Invalid option");
-			   result=false;
-			   break;}
-		}     
+		ReportAbstract report;
+		try {
+			switch (choice){
+			   case 1:  {
+				   report = new ReportSummaryImpl();
+				   report.generateReport(periodMaker.getClientCosts(),"reportSummaryClient","client","cost");
+				   break;}
+			   case 2:  {
+				   report = new ReportDetailedImpl();
+				   report.generateReport(periodMaker.getClientCosts(),"reportDetailedClient","client","cost");
+				   break;}		    
+			   case 3:  {
+				   report = new ReportSummaryImpl();
+				   report.generateReport(periodMaker.getBpaCosts(),"reportSummaryBPA","BPA","Amount");
+				   break;}	   
+			   case 4:  {
+				   report = new ReportDetailedImpl();
+				   report.generateReport(periodMaker.getBpaCosts(),"reportDetailedBPA","BPA","Amount");
+				   break;}
+			   default: {
+				   System.out.println("Invalid option");
+				   result=false;
+				   break;}
+			}
+		} catch (NullPointerException ex){
+			result=false;
+		}
 		return result;   		  
 	}	
 

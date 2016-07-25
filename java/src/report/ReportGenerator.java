@@ -9,7 +9,7 @@ public interface ReportGenerator {
 		
 	boolean captureChoice(Scanner sc);
 		
-	boolean generateReport(ReportAbstract report); 		  
+	boolean generateReport(); 		  
 	
 
 	
