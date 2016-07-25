@@ -88,7 +88,7 @@ public class TestScript {
 	    
 		ReportGenerator reportGenerator = new ReportGeneratorImpl(testPeriod);
 		reportGenerator.captureChoice(sc);
-		reportGenerator.generateReport(abstractReport);
+		reportGenerator.generateReport();
 		
 		
 		

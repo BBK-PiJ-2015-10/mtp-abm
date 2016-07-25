@@ -49,8 +49,6 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	private ReportGenerator reportGenerator;
 	
-	private ReportAbstract report;
-	
 	private Scanner sc;
 	
 	public void runMakeNewUserSpace(){
@@ -89,7 +87,7 @@ public class ABCSystemImpl implements ABCSystem {
 	public boolean runGenerateReport(){
 		reportGenerator= new ReportGeneratorImpl(periodMaker);
 		reportGenerator.captureChoice(sc);
-		return reportGenerator.generateReport(report);
+		return reportGenerator.generateReport();
 	}
 	
 	
