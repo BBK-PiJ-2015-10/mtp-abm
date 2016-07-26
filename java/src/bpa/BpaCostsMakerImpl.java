@@ -164,7 +164,14 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 			for (int i=0;i<sentence.length;i++){
 				if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").contains(sentence[i])){
 			        validPOS.add(i);
-					out.write(sentence[i]+",");
+			        int listSize=periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").size();
+			        if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").get(listSize-1).equals(sentence[i])){
+			        	out.write("cost"+",");
+			        }
+			        else {
+			        	out.write(sentence[i]+",");
+			        }
+			        
 				}
 			}
 			out.write("BPA");

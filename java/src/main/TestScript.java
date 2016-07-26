@@ -34,6 +34,9 @@ import java.util.Arrays;
 //import java.io.PrintWriter;
 import java.util.Scanner;
 
+import configuration.ConfigurationManager;
+import configuration.MapCreatorImplManual;
+
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
 import systemTesting.userTesting.TestBpaCostsMakerImpl;
@@ -75,20 +78,29 @@ public class TestScript {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		String periodFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16";
-		File periodFile = new File(periodFileAddress);
-		PeriodMaker testPeriod = new PeriodMakerImpl(periodFile);
-		testPeriod.capture("period16");
+		String cmAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user19\\config19";
+		File cmFile = new File(cmAddress);
+		ConfigurationManager testCM = new ConfigurationManager(cmFile);
+		System.out.println(testCM.capture("config19"));
+		
+		MapCreatorImplManual testMC = new MapCreatorImplManual();
+		System.out.println(testMC.createMap(testCM,sc,"testMap"));
+		System.out.println("What happened");
+		
+		//String periodFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16";
+		//File periodFile = new File(periodFileAddress);
+		//PeriodMaker testPeriod = new PeriodMakerImpl(periodFile);
+		//testPeriod.capture("period16");
 		
 		//ReportDetailedImpl reportDetailedImpl = new ReportDetailedImpl();
 	    //System.out.println(reportDetailedImpl.generateReport(testPeriod.getBpaCosts(), "DetailedBPA","BPA","Amount"));
 		
 		
-	    ReportAbstract abstractReport=null;
+	    //ReportAbstract abstractReport=null;
 	    
-		ReportGenerator reportGenerator = new ReportGeneratorImpl(testPeriod);
-		reportGenerator.captureChoice(sc);
-		reportGenerator.generateReport();
+		//ReportGenerator reportGenerator = new ReportGeneratorImpl(testPeriod);
+		//reportGenerator.captureChoice(sc);
+		//reportGenerator.generateReport();
 		
 		
 		

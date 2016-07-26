@@ -142,7 +142,7 @@ public class ABCSystemImpl implements ABCSystem {
 		}
 	
 		
-		validEntry=false;
+		//validEntry=false;
 		do {
 			System.out.println("Enter yes if you wish to create a new period, enter no if you wish "
 					+ "to access an existing period");

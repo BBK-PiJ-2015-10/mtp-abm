@@ -72,7 +72,7 @@ public class TestReportDetailedImpl {
 	//@Ignore
 	@Test
 	public void testPopMapValidInputsClientType(){
-		assertEquals(true,bpaDetailedReport.popMap(bpaCostsFile,"BPA","Amount"));
+		assertEquals(true,bpaDetailedReport.popMap(bpaCostsFile,"BPA","cost"));
 		assertEquals(2,bpaDetailedReport.getCosts().size());
 		assertEquals(3,bpaDetailedReport.getCosts().get("implementation").size());
 		assertEquals(2,bpaDetailedReport.getCosts().get("phones").size());
@@ -157,8 +157,8 @@ public class TestReportDetailedImpl {
 	@Test
 	public void testPopFileValidInput(){
 		bpaDetailedReport.createFile(bpaCostsFile,"bpaDetailedReport");
-		bpaDetailedReport.popMap(bpaCostsFile,"BPA","Amount");
-		assertEquals(true,bpaDetailedReport.popFile("BPA","Amount"));
+		bpaDetailedReport.popMap(bpaCostsFile,"BPA","cost");
+		assertEquals(true,bpaDetailedReport.popFile("BPA","cost"));
 		bpaDetailedReport.getReportFile().delete();
 	}
 	
@@ -184,7 +184,7 @@ public class TestReportDetailedImpl {
 	//@Ignore
 	@Test
 	public void testGenerateReportValid(){
-		assertEquals(true,bpaDetailedReport.generateReport(bpaCostsFile,"bpaDetailedReport","BPA","Amount"));
+		assertEquals(true,bpaDetailedReport.generateReport(bpaCostsFile,"bpaDetailedReport","BPA","cost"));
 		assertEquals(true,bpaDetailedReport.getReportFile().exists());
 		bpaDetailedReport.getReportFile().delete();
 	}

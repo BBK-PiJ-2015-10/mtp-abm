@@ -1,0 +1,13 @@
+region,client,BPA,cost
+EUR,American,implementation.csv,19687.5
+EUR,AirFrance,implementation.csv,49218.75
+EUR,BA,implementation.csv,9843.75
+EUR,American,phones.csv,6190.47619
+EUR,AirFrance,phones.csv,82142.85714
+EUR,BA,phones.csv,1666.666667
+EUR,American,implementation.csv,9843.75
+NA,AirFrance,implementation.csv,24609.375
+EUR,BA,implementation.csv,4921.875
+NA,American,phones.csv,3095.238095
+EUR,AirFrance,phones.csv,41071.42857
+EUR,BA,phones.csv,833.3333335

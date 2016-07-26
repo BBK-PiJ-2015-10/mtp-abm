@@ -111,11 +111,11 @@ public class ReportGeneratorImpl implements ReportGenerator {
 				   break;}		    
 			   case 3:  {
 				   report = new ReportSummaryImpl();
-				   report.generateReport(periodMaker.getBpaCosts(),"reportSummaryBPA","BPA","Amount");
+				   report.generateReport(periodMaker.getBpaCosts(),"reportSummaryBPA","BPA","cost");
 				   break;}	   
 			   case 4:  {
 				   report = new ReportDetailedImpl();
-				   report.generateReport(periodMaker.getBpaCosts(),"reportDetailedBPA","BPA","Amount");
+				   report.generateReport(periodMaker.getBpaCosts(),"reportDetailedBPA","BPA","cost");
 				   break;}
 			   default: {
 				   System.out.println("Invalid option");
