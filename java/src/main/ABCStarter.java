@@ -38,8 +38,8 @@ public class ABCStarter {
 	
 	public void launch(){
 		
-		//manualFeedSetUp();
-		autoFeedSetUpFile("validscript1.txt");
+		manualFeedSetUp();
+		//autoFeedSetUpFile("validscript1.txt");
 		ABCSystem application = new ABCSystemImpl(sc);
 		application.run();
 		
