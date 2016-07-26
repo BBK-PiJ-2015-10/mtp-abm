@@ -174,8 +174,24 @@ public class ABCSystemImpl implements ABCSystem {
 			validEntry = validSelection(choice);
 			if (choice.equalsIgnoreCase("yes")){
 				runGenerateReport();
-			} 	
+				do {
+					System.out.println("Enter yes if you wish to run another report, enter no if not");
+					choice = sc.nextLine();
+					validEntry = validSelection(choice);
+					if (validEntry){
+						if (choice.equalsIgnoreCase("yes")){
+							runGenerateReport();
+							validEntry=false;
+						}
+						else {
+							validEntry=true;
+						}
+					}
+				} while (!validEntry);	
+			}
 		} while (!validEntry);
+		
+		
 		
 		
 		
