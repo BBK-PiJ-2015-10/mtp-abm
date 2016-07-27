@@ -35,7 +35,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import configuration.ConfigurationManager;
-import configuration.MapCreatorImplManual;
+import configuration.MapCreatorImpl;
 
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
@@ -83,9 +83,9 @@ public class TestScript {
 		ConfigurationManager testCM = new ConfigurationManager(cmFile);
 		System.out.println(testCM.capture("config19"));
 		
-		MapCreatorImplManual testMC = new MapCreatorImplManual();
-		System.out.println(testMC.createMap(testCM,sc,"testMap"));
-		System.out.println("What happened");
+		//MapCreatorImplManual testMC = new MapCreatorImplManual();
+		//System.out.println(testMC.createMap(testCM,sc,"testMap"));
+		//System.out.println("What happened");
 		
 		//String periodFileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\period16";
 		//File periodFile = new File(periodFileAddress);
