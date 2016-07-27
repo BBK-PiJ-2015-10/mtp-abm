@@ -18,7 +18,7 @@ import org.junit.Test;
 import configuration.ConfigurationManager;
 import configuration.ConfigurationMapperImpl;
 import configuration.MapCreator;
-import configuration.MapCreatorImpl;
+import configuration.MapCreatorImplSystem;
 
 import java.util.NoSuchElementException;
 
@@ -209,20 +209,6 @@ public class TestConfigurationMapperImpl {
 		 assertEquals(false, tempF.exists());
 	}
 	
-	/*
-	* Testing createMap with incomplete data scanner
-	*/
-	//@Ignore
-	@Test
-	public void testcreateMapIncompleDataScanner() {
-		 autoFeedSetUpFile("testconfigurationmapperimpl7.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
-		 configurationMapperImpl.execManager(sc);
-		 assertEquals(false,configurationMapperImpl.createMap(sc));
-		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
-		 File tempF = new File(tempA);
-		 assertEquals(false, tempF.exists());
-	}
 	
 	/*
 	* Testing createMap with incomplete data scanner line skipped
@@ -266,6 +252,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testMapFilesValid() {
 		autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
+		//manualFeedSetUp();
 		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
 		assertEquals(true,configurationMapperImpl.mapFiles(sc));
 		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";

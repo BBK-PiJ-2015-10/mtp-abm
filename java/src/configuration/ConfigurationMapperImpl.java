@@ -9,6 +9,8 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	
 	private ConfigurationManager configurationManager;
 	
+	private MapCreatorFactory mapCreatorFactory = new MapCreatorFactory();
+	
 	private MapCreator mapCreator;
 	
 	public ConfigurationMapperImpl(ConfigurationManager configurationManager){
@@ -42,9 +44,26 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	}
 	
 	public boolean createMap(Scanner sc){
-		mapCreator = new MapCreatorImpl();
-		//mapCreator = new MapCreatorImplManual();
-		return mapCreator.createMap(configurationManager,sc,"glbpamap.csv");
+		if (sc==null){
+			return false;
+		}
+		
+		boolean validEntry;
+		mapCreatorFactory.presentChoices();
+		Integer choice = null;
+		do {
+			try {
+				choice = Integer.parseInt(sc.nextLine());
+				validEntry=mapCreatorFactory.getMapCreatorOptions().containsKey((choice));
+			} catch (NumberFormatException ex){
+				validEntry=false;
+			}
+			if (!validEntry){
+				System.out.println("Invalid entry, please type a valid option");
+				mapCreatorFactory.presentChoices();
+			}
+		} while (!validEntry);
+		return mapCreatorFactory.getMapCreator(choice).createMap(configurationManager,sc,"glbpamap.csv");
 	}
 	
 
