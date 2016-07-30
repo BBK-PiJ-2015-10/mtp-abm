@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Ignore;
 
-import bpa.BpaClientWeightsCalculatorImplOld;
+import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
@@ -28,7 +28,7 @@ public class TestClientCostsImpl {
 	
 	private BpaCostsMaker bpaCostsMaker;
 	
-	private BpaClientWeightsCalculatorImplOld bpaClientWeightsCalculator;
+	private BpaClientWeightsCalculatorImpl bpaClientWeightsCalculator;
 	
 	private BpaCostCalculator bpaCostCalculator;
 	
@@ -38,7 +38,7 @@ public class TestClientCostsImpl {
 	public void setUp() {
 		period.capture("period15");
 		bpaCostsMaker = new BpaCostsMakerImpl(period);
-		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImplOld(bpaCostsMaker);
+		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		bpaCostCalculator = new BpaCostCalculatorImpl(period.getBpaCosts());
 	}
 	
