@@ -14,23 +14,29 @@ public class BpaCostCalculatorImpl implements BpaCostCalculator {
 	
 	private File bpaCosts;
 	
-	private Map<String,Integer> bpaCostsMap = new HashMap<>();
+	//private Map<String,Integer> bpaCostsMap = new HashMap<>();
+	
+	private Map<String,Double> bpaCostsMap = new HashMap<>();
+	
 	
 	public BpaCostCalculatorImpl(File bpaCosts){
 		this.bpaCosts=bpaCosts;
 	}
 	
-	public Map<String,Integer> getBpaCostsMap(){
+	//public Map<String,Integer> getBpaCostsMap(){
+	public Map<String,Double> getBpaCostsMap(){
 		return this.bpaCostsMap;
 	}
 	
 
 	@Override
-	public Integer getActivityCost(String activityName) {
+	public Double getActivityCost(String activityName) {
+	//public Integer getActivityCost(String activityName) {	
 		if (bpaCostsMap.containsKey(activityName)){
 			return bpaCostsMap.get(activityName);
 		}
-		Integer result = 0;
+		//Integer result = 0;
+		Double result=0.0;
 		try (BufferedReader in = new BufferedReader(new FileReader(bpaCosts));)
 		{
 			String line;
@@ -41,7 +47,8 @@ public class BpaCostCalculatorImpl implements BpaCostCalculator {
 					String key=sentence[sentence.length-1];
 					String value=sentence[sentence.length-2];
 					if (key.equals(activityName)){
-						result=result+Integer.parseInt(value);
+						//result=result+Integer.parseInt(value);
+						result=result+Double.parseDouble(value);
 					}
 				}
 			}

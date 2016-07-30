@@ -9,13 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculator {
+public class BpaClientWeightsCalculatorImplOld implements BpaClientWeightsCalculator {
 	
     private BpaCostsMaker bpaCostsMaker;
 	
 	private Map<String,Map<String,Double>> clientsWeights = new HashMap<>();
 	
-	public BpaClientWeightsCalculatorImpl(BpaCostsMaker bpaCostsMaker){
+	public BpaClientWeightsCalculatorImplOld(BpaCostsMaker bpaCostsMaker){
 		this.bpaCostsMaker=bpaCostsMaker;
 	}
 	
@@ -63,12 +63,7 @@ public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculato
 						while ((line = in.readLine()) != null){
 							if (!line.isEmpty()) {
 								sentence=line.split(",");
-								if (tempMap.containsKey(sentence[pos1])){
-									tempMap.put(sentence[pos1],tempMap.get(sentence[pos1])+Double.parseDouble(sentence[pos2]));
-								}
-								else {
-									tempMap.put(sentence[pos1],Double.parseDouble(sentence[pos2]));	
-								}
+								tempMap.put(sentence[pos1],Double.parseDouble(sentence[pos2]));
 							}
 						}
 					} catch ( IOException | NoSuchElementException | NullPointerException ex){

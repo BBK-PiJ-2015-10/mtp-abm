@@ -25,6 +25,8 @@ public class TestBpaCostCalculatorImpl {
 	
 	private BpaCostCalculatorImpl bpaCostCalculator;
 	
+	private static final double DELTA = 1e-11;
+	
 	
 	@Before
 	public void setUp() {
@@ -44,10 +46,10 @@ public class TestBpaCostCalculatorImpl {
 	@Test
 	public void testgetActivityCostsValidInputs(){
 		bpaCostCalculator = new BpaCostCalculatorImpl(period.getBpaCosts());
-		int num=bpaCostCalculator.getActivityCost("implementation.csv");
-		assertEquals(78750,num);
+	    double num=bpaCostCalculator.getActivityCost("implementation.csv");
+		assertEquals(78750,num,DELTA);
 		num=bpaCostCalculator.getActivityCost("phones.csv");
-		assertEquals(90000,num);
+		assertEquals(90000,num,DELTA);
 	}
 	
 	/*
@@ -57,8 +59,8 @@ public class TestBpaCostCalculatorImpl {
 	@Test
 	public void testgetActivityCostsNonExistentActivity(){
 		bpaCostCalculator = new BpaCostCalculatorImpl(period.getBpaCosts());
-		int num=bpaCostCalculator.getActivityCost("anything.csv");
-		assertEquals(0,num);
+		double num=bpaCostCalculator.getActivityCost("anything.csv");
+		assertEquals(0,num,DELTA);
 	}
 	
 	/*
@@ -68,8 +70,8 @@ public class TestBpaCostCalculatorImpl {
 	@Test (expected = NullPointerException.class)
 	public void testgetActivityCostsNullFile(){
 		bpaCostCalculator = new BpaCostCalculatorImpl(null);
-		int num=bpaCostCalculator.getActivityCost("anything.csv");
-		assertEquals(0,num);
+		double num=bpaCostCalculator.getActivityCost("anything.csv");
+		assertEquals(0,num,DELTA);
 	}
 	
 	/*
@@ -91,12 +93,12 @@ public class TestBpaCostCalculatorImpl {
 	@Test
 	public void testgetActivityCostsValidInputsTestingMapContent(){
 		bpaCostCalculator = new BpaCostCalculatorImpl(period.getBpaCosts());
-		int num1=bpaCostCalculator.getActivityCost("implementation.csv");
-		int num1m=bpaCostCalculator.getBpaCostsMap().get("implementation.csv");
-		assertEquals(num1,num1m);
-		int num2=bpaCostCalculator.getActivityCost("phones.csv");
-		int num2m=bpaCostCalculator.getBpaCostsMap().get("phones.csv");
-		assertEquals(num2,num2m);
+		double num1=bpaCostCalculator.getActivityCost("implementation.csv");
+		double num1m=bpaCostCalculator.getBpaCostsMap().get("implementation.csv");
+		assertEquals(num1,num1m,DELTA);
+		double num2=bpaCostCalculator.getActivityCost("phones.csv");
+		double num2m=bpaCostCalculator.getBpaCostsMap().get("phones.csv");
+		assertEquals(num2,num2m,DELTA);
 	}
 	
 	

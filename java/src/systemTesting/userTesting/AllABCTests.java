@@ -15,5 +15,5 @@ TestClientCostsImpl.class,
 TestReportSummaryImpl.class,TestReportDetailedImpl.class,TestReportGeneratorImpl.class
 })
 public class AllABCTests {
-
+	
 }

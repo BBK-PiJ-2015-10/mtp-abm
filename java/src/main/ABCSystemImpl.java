@@ -5,6 +5,7 @@ import java.util.Scanner;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
 import bpa.BpaClientWeightsCalculator;
+import bpa.BpaClientWeightsCalculatorImplOld;
 import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
@@ -153,6 +154,7 @@ public class ABCSystemImpl implements ABCSystem {
 					runMakeNewPeriod();
 					runBpaCostMaker();
 					bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
+					//bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 					bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 					clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
 					clientCosts.calculateClientCosts();

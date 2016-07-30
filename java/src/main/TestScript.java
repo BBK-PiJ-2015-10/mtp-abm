@@ -46,7 +46,7 @@ import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImpl;
 import bpa.BpaClientWeightsCalculator;
-import bpa.BpaClientWeightsCalculatorImpl;
+import bpa.BpaClientWeightsCalculatorImplOld;
 
 import report.ReportGenerator;
 import report.ReportGeneratorImpl;
