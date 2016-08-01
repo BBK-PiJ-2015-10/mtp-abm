@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 //import java.util.HashMap;
@@ -76,12 +77,23 @@ public class TestScript {
 	
 	public void launch(){
 		
-		Scanner sc = new Scanner(System.in);
+		double value = 2.123456789;
 		
-		String cmAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user19\\config19";
-		File cmFile = new File(cmAddress);
-		ConfigurationManager testCM = new ConfigurationManager(cmFile);
-		System.out.println(testCM.capture("config19"));
+		System.out.println(value);
+		
+		System.out.printf("Value: %.2f",value);
+		
+		DecimalFormat df = new DecimalFormat("####0.00");
+		System.out.println("Value: " +df.format(value));
+		
+		
+		
+		//Scanner sc = new Scanner(System.in);
+		
+		//String cmAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user19\\config19";
+		//File cmFile = new File(cmAddress);
+		//ConfigurationManager testCM = new ConfigurationManager(cmFile);
+		//System.out.println(testCM.capture("config19"));
 		
 		//MapCreatorImplManual testMC = new MapCreatorImplManual();
 		//System.out.println(testMC.createMap(testCM,sc,"testMap"));

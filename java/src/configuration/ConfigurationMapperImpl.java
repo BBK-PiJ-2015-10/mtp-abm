@@ -3,6 +3,8 @@ package configuration;
 import java.io.File;
 import java.util.Scanner;
 
+import java.util.Arrays;
+
 import java.util.NoSuchElementException;
 
 public class ConfigurationMapperImpl implements ConfigurationMapper {
@@ -20,22 +22,31 @@ public class ConfigurationMapperImpl implements ConfigurationMapper {
 	public boolean execManager(Scanner sc) {
 		try {
 			configurationManager.loadFilesMap();
-			System.out.println("Please enter the name and extension of the file that contains the general ledger data");
-			String glName = sc.nextLine();
-			if (glName == null){
-				return false;
-			}
+			boolean validEntry=false;
+			String glName;
+			do {
+				System.out.println("Please enter the name and extension of the file that contains the general ledger data");
+				glName = sc.nextLine();
+				if (glName == null){
+					return false;
+				}
+				if (Arrays.asList(configurationManager.getFile().list()).contains(glName)){
+					validEntry=true;
+				} else{
+					System.out.println("invalid name");
+				}
+			} while (!validEntry);
 			configurationManager.setGLFile(glName);
 			configurationManager.grabFilesAttributes();
 			configurationManager.loadGlFilesMainAttributes(sc);
 			configurationManager.loadBpaFilesMainAttributes(sc);
 			configurationManager.save();
+		    return true;
 		} catch (NoSuchElementException ex){
 			return false;
 		} catch (NullPointerException ex){
 			return false;
 		}
-		return true;
 	}
 	
 	@Override 

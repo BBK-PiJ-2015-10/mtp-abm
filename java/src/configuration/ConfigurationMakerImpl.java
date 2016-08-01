@@ -48,7 +48,9 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
 			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
-			configMapper.mapFiles(sc);
+			if (!configMapper.mapFiles(sc)){
+				return false;
+			}
 	     }
 		System.out.println("For today, you are done with the configuration set up");
 		return true;

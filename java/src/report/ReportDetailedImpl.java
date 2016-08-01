@@ -15,6 +15,8 @@ import java.util.LinkedList;
 import java.util.regex.Pattern;
 import java.util.HashMap;
 
+import java.text.DecimalFormat;
+
 
 public class ReportDetailedImpl extends ReportAbstract {
 	
@@ -150,6 +152,8 @@ public class ReportDetailedImpl extends ReportAbstract {
 							out.write(temp.get(z)+",");
 						}
 						else {
+							//DecimalFormat df = new DecimalFormat("####0.00");
+							//out.write(df.format(Double.parseDouble(temp.get(z))));
 							out.write(temp.get(z));
 						}
 						

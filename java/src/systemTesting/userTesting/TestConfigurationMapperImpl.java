@@ -18,7 +18,7 @@ import org.junit.Test;
 import configuration.ConfigurationManager;
 import configuration.ConfigurationMapperImpl;
 import configuration.MapCreator;
-import configuration.MapCreatorImplSystem;
+import configuration.MapCreatorImpl;
 
 import java.util.NoSuchElementException;
 
