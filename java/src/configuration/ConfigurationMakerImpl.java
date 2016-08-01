@@ -52,7 +52,6 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 				return false;
 			}
 	     }
-		System.out.println("For today, you are done with the configuration set up");
 		return true;
 		} catch (NullPointerException ex){
 			userSpace.removeConfiguration(dirname);

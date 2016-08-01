@@ -16,10 +16,15 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.HashSet;
 
+import validator.FileValidator;
+import validator.FileValidatorImpl;
+
 public class MapCreatorImpl implements MapCreator {
 	
 	private boolean manualFlag;
 	
+	private FileValidator fileValidator = new FileValidatorImpl();
+		
 	public MapCreatorImpl(boolean manualFlag){
 		this.manualFlag=manualFlag;
 	}
@@ -117,14 +122,18 @@ public class MapCreatorImpl implements MapCreator {
 				System.out.println("and filled out the BPA column with the name of the files that contain "
 						+ "the drivers for each tupple");
 				System.out.println("Please type the word done, when finished");
-				String choice = keyboard.nextLine();
-				if (choice.equalsIgnoreCase("done")){
-					System.out.println("You just entered: " +choice);
-				}
-			}
+				boolean validEntry=false;
+				do  {
+					String choice = keyboard.nextLine();
+					if (choice.equalsIgnoreCase("done")){
+						validEntry = fileValidator.validateInput(glbpamapFile,"BPA",configurationManager);
+						if (!validEntry){
+							System.out.println("Please enter done when input file is complete");
+						}
+					}		
+				} while (!validEntry);
+			}	
 			return true;
 		}
-		
-	}	
-
+	}
 }
