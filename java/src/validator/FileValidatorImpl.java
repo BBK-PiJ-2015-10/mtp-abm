@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.util.NoSuchElementException;
 import configuration.ConfigurationManager;
 
-
-
 public class FileValidatorImpl implements FileValidator {
 
 	@Override
