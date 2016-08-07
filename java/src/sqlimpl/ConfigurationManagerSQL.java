@@ -1,4 +1,4 @@
-package configuration;
+package sqlimpl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +25,8 @@ import java.util.Scanner;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 
 
@@ -132,12 +134,16 @@ public class ConfigurationManagerSQL implements Serializable {
 		return bpaFilesMap.get(name);
 	}
 	
-	public void setGLFile(String filename){
-		glFile = bpaFilesMap.remove(filename);	
-	}
+	//public void setGLFile(String filename){
+		//glFile = bpaFilesMap.remove(filename);	
+	//}
 	
-	public File getGLFile(){
-		return glFile;
+	//public File getGLFile(){
+		//return glFile;
+	//}
+	
+	public String getGLTableName(){
+		return glConnectionSettings.get(glConnectionSettings.size()-1);
 	}
 	
 	public void grabFileAttributes(File file, Map map){
@@ -161,7 +167,20 @@ public class ConfigurationManagerSQL implements Serializable {
 	
 	}	
 	
-	
+	public boolean grabSQLTableAttributes(String SQLTableName, Map map){
+		try {
+			Statement st = glConnection.createStatement();
+			ResultSet rs = st.executeQuery("SELECT * FROM `"+SQLTableName+"`");
+			Set<String> fieldsSet = new HashSet<>();
+			for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
+				fieldsSet.add(rs.getMetaData().getColumnName(i));
+			}
+			map.put(SQLTableName, fieldsSet);
+		} catch (Exception ex){
+			return false;
+		}
+		return true;
+	}
 	
 	public boolean grabFilesAttributes() {	
 		boolean isSuccesful=false;
@@ -169,7 +188,8 @@ public class ConfigurationManagerSQL implements Serializable {
 			for (String input: bpaFilesMap.keySet()){
 				grabFileAttributes(bpaFilesMap.get(input),bpaFilesAttributesMap);
 			}
-			grabFileAttributes(glFile,glFilesAttributesMap);
+			//grabFileAttributes(glFile,glFilesAttributesMap);
+			grabSQLTableAttributes(glConnectionSettings.get(glConnectionSettings.size()-1),glFilesAttributesMap);
 			isSuccesful=true;
 		} catch (RuntimeException ex) {
 			isSuccesful=false;
@@ -273,7 +293,9 @@ public class ConfigurationManagerSQL implements Serializable {
 		{
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
-			encode.writeObject(glFile);
+			//encode.writeObject(glFile);
+			encode.writeObject(glConnection);
+			encode.writeObject(glConnectionSettings);
 			encode.writeObject(bpaFilesAttributesMap);
 			encode.writeObject(glFilesAttributesMap);
 			encode.writeObject(glFilesMainAttributesMap);
@@ -290,7 +312,9 @@ public class ConfigurationManagerSQL implements Serializable {
 		{
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
-			encode.writeObject(glFile);
+			//encode.writeObject(glFile);
+			encode.writeObject(glConnection);
+			encode.writeObject(glConnectionSettings);
 			encode.writeObject(bpaFilesAttributesMap);
 			encode.writeObject(glFilesAttributesMap);
 			encode.writeObject(glFilesMainAttributesMap);
@@ -309,7 +333,9 @@ public class ConfigurationManagerSQL implements Serializable {
 			{
 				file = (File)incode.readObject();
 				bpaFilesMap=(Map<String,File>)incode.readObject();
-				glFile= (File)incode.readObject();
+				//glFile= (File)incode.readObject();
+				glConnection=(Connection)incode.readObject();
+				glConnectionSettings=(List<String>)incode.readObject();
 				bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 				glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 				glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();

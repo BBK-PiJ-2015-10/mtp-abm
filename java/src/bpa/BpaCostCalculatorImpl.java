@@ -13,9 +13,7 @@ import java.util.Map;
 public class BpaCostCalculatorImpl implements BpaCostCalculator {
 	
 	private File bpaCosts;
-	
-	//private Map<String,Integer> bpaCostsMap = new HashMap<>();
-	
+		
 	private Map<String,Double> bpaCostsMap = new HashMap<>();
 	
 	
@@ -23,7 +21,6 @@ public class BpaCostCalculatorImpl implements BpaCostCalculator {
 		this.bpaCosts=bpaCosts;
 	}
 	
-	//public Map<String,Integer> getBpaCostsMap(){
 	public Map<String,Double> getBpaCostsMap(){
 		return this.bpaCostsMap;
 	}

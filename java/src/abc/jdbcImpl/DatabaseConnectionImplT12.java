@@ -31,7 +31,8 @@ public class DatabaseConnectionImplT12 {
 		ResultSet rs = null;
 		try {
 			st = connection.createStatement();
-			rs = st.executeQuery("SELECT * FROM `salespeople`");
+			String SQLM ="salespeople";
+			rs = st.executeQuery("SELECT * FROM `"+SQLM+"`");
 			results = new LinkedList<>();
 			for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
 				//rs.getMetaData().getColumnTypeName(column)
