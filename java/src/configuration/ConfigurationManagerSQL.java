@@ -22,14 +22,25 @@ import java.io.BufferedReader;
 
 import java.util.Scanner;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-public class ConfigurationManager implements Serializable {
+
+
+public class ConfigurationManagerSQL implements Serializable {
 
 	private File file;
 	
 	private Map<String,File> bpaFilesMap = new HashMap<>();
 	
-	private File glFile;
+	//private File glFile;
+	
+	//This is new
+	private Connection glConnection;
+	
+	//This is new
+	private List<String> glConnectionSettings = new LinkedList<>();
 	
 	private File glbpamapFile;
 	
@@ -43,7 +54,7 @@ public class ConfigurationManager implements Serializable {
 	
 	private BufferedReader in = null;
 		
-	public ConfigurationManager(File file){
+	public ConfigurationManagerSQL(File file){
 		this.file=file;
 	}
 		
@@ -65,8 +76,42 @@ public class ConfigurationManager implements Serializable {
 		return this.glbpamapFile;
 	}
 	
+	//This is a new one
+	public boolean captureGLConnectionSettings(Scanner sc){
+		String selection=null;
+		try {
+			System.out.println("Please enter the url that you wish to connect to");
+			selection=sc.nextLine();
+			glConnectionSettings.add(selection);
+			System.out.println("Please enter the Username");
+			selection=sc.nextLine();
+			glConnectionSettings.add(selection);
+			System.out.println("Please enter the Password");
+			selection=sc.nextLine();
+			glConnectionSettings.add(selection);
+			System.out.println("Please enter the Database name");
+			selection=sc.nextLine();
+			glConnectionSettings.add(selection);
+		} catch (NoSuchElementException | IllegalStateException ex) {
+			glConnectionSettings.clear();
+			return false;
+		}
+		return true;
+	}
 	
-		
+	
+	//This is a new one
+	public boolean setUpGLConnection(){
+		try {
+			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
+			
+		} catch (SQLException ex) {
+			return false;
+		}
+		return true;
+	}
+	
+	
 	public void loadFilesMap(){
 		if(file.exists() && file.isDirectory()){
 			File [] filenames = file.listFiles();
