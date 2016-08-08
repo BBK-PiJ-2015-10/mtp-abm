@@ -22,6 +22,8 @@ public class SQLDataLoader {
 	
 	private Statement statement;
 	
+	private PreparedStatement preparedStatement;
+	
 	private ResultSet resultSet;
 	
 	private List<String> labels = new LinkedList<>();
@@ -52,6 +54,26 @@ public class SQLDataLoader {
 		return labels;
 	}
 	
+	public void inserData(String TableName){
+		try {
+			//String sql ="INSERT INTO "+TableName+"(?,?,?,?) VALUES('NA','IS','Ale',5.36)";
+			//String sql ="INSERT INTO tester(?,?,?,?) VALUES('NA','IS','Ale',5.36)";
+			String sql = "INSERT INTO tester(Legal_Entity,Department,Account,Amount) VALUES('NA','IS','200FL',1.26)";
+			preparedStatement = connection.prepareStatement(sql);
+			//preparedStatement.setString(1,"Legal_Entity");
+			//preparedStatement.setString(2,"Department");
+			//preparedStatement.setString(3,"Account");
+			//preparedStatement.setString(4,"Amount");
+			preparedStatement.executeUpdate();
+			//preparedStatement.executeQuery();
+			//statement = connection.createStatement();
+			//statement.executeUpdate("INSERT INTO tester(Legal_Entity,Department,Account,Amount) VALUES('NA','IS','200FL',1.26)");
+			System.out.println("Row Inserted succesfully");
+		} catch (Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
 
 	
 	
@@ -60,6 +82,7 @@ public class SQLDataLoader {
 		
 		SQLDataLoader sqlDataLoader = new SQLDataLoader("abc");
 		sqlDataLoader.getLabels("tester").forEach(System.out::println);
+		sqlDataLoader.inserData("tester");
 		//labels.forEach(a->System.out.println(a));
 		
 		// TODO Auto-generated method stub
