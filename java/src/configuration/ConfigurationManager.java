@@ -95,6 +95,10 @@ public class ConfigurationManager implements Serializable {
 		return glFile;
 	}
 	
+	public String getGLFileName(){
+		return glFile.getName();
+	}
+	
 	public void grabFileAttributes(File file, Map map){
 		try {
 			in = new BufferedReader(new FileReader(file));

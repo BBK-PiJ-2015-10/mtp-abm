@@ -1,12 +1,12 @@
-Department,Account,Amount,BPA
+Department,Account,cost,BPA
 Sales,100000,20000,implementation.csv
 Sales,101000,30000,phones.csv
-Marketing,100000,,phones.csv
-Marketing,101000,,implementation.csv
+Marketing,100000,10000,phones.csv
+Marketing,101000,5000,implementation.csv
 R&D,100000,7000,implementation.csv
 R&D,100000,3000,implementation.csv
 Sales,100000,10000,implementation.csv
-Sales,101000,,phones.csv
+Sales,101000,15000,phones.csv
 Marketing,100000,5000,phones.csv
 Marketing,101000,2500,implementation.csv
 R&D,100000,3500,implementation.csv
