@@ -56,10 +56,8 @@ public class MapCreatorImpl implements MapCreator {
 			{
 				int size = configurationManager.getGlMainFilesAttributesMap().
 						get(configurationManager.getGLFileName()).size();
-						//get(configurationManager.getGLFile().getName()).size();
 				List<String> attri = configurationManager.getGlMainFilesAttributesMap().
 						get(configurationManager.getGLFileName()).subList(0, size-1);
-						//get(configurationManager.getGLFile().getName()).subList(0, size-1);
 				List<Integer> attripos = new LinkedList<>();
 				for (int i=0;i<attri.size();i++){
 					out.write(attri.get(i)+",");

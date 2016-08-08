@@ -1,14 +1,13 @@
 package sqlimpl;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
-import java.io.BufferedReader;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -23,6 +22,14 @@ import java.util.HashSet;
 import validator.FileValidator;
 import validator.FileValidatorImpl;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
+
+
+
 public class MapCreatorImplSQL implements MapCreator {
 	
 	private boolean manualFlag;
@@ -32,6 +39,7 @@ public class MapCreatorImplSQL implements MapCreator {
 	public MapCreatorImplSQL(boolean manualFlag){
 		this.manualFlag=manualFlag;
 	}
+
 
 	@Override
 	public boolean createMap(ConfigurationManager configurationManager, Scanner keyboard, String mapName) {
@@ -55,15 +63,13 @@ public class MapCreatorImplSQL implements MapCreator {
 			try (
 					 FileWriter fw = new FileWriter(glbpamapFile,false);
 					 BufferedWriter bw = new BufferedWriter(fw);
-					 PrintWriter out = new PrintWriter(bw);
-					 BufferedReader in = new BufferedReader(new FileReader(configurationManager.getGLFile()));)
+					 PrintWriter out = new PrintWriter(bw);)
 			{
+				
 				int size = configurationManager.getGlMainFilesAttributesMap().
-						get(configurationManager.getGLFile().getName()).size();
-						//get(configurationManager.getGLFileName()).size();
+						get(configurationManager.getGLFileName()).size();
 				List<String> attri = configurationManager.getGlMainFilesAttributesMap().
-						get(configurationManager.getGLFile().getName()).subList(0, size-1);
-						//get(configurationManager.getGLFileName()).subList(0, size-1);
+						get(configurationManager.getGLFileName()).subList(0, size-1);
 				List<Integer> attripos = new LinkedList<>();
 				for (int i=0;i<attri.size();i++){
 					out.write(attri.get(i)+",");
@@ -71,27 +77,31 @@ public class MapCreatorImplSQL implements MapCreator {
 				out.write("BPA");
 				out.println();
 				String line;
-				String[] sentence;
-				line = in.readLine();
-				sentence=line.split(",");
-				for (int i=0;i<sentence.length;i++){
-					if(attri.contains(sentence[i])){
-						attripos.add(i);
-					}
+				Statement st = null;
+				ResultSet rs = null;
+				try {
+					st = ((ConfigurationManagerSQL)configurationManager).getGLConnection().createStatement();
+					rs = st.executeQuery("SELECT * FROM `"+((ConfigurationManagerSQL)configurationManager).getGLConnectionSettings().get(((ConfigurationManagerSQL)configurationManager).getGLConnectionSettings().size()-1)+"`");
+					for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
+						if(attri.contains(rs.getMetaData().getColumnName(i))){
+							attripos.add(i);
+						}
+					}	
+				} catch (NoSuchElementException | IllegalStateException | SQLException ex){
+					return false;
 				}
 				Set<String> attriset = new HashSet<>();
-				while ((line = in.readLine()) != null){
-					sentence=line.split(",");
+				while (rs.next()){
 						String bpaDriver=null;
 					String longword=null;
 					boolean validEntry = false;
 					for (Integer position : attripos){
 						try {
 							longword.isEmpty();
-							longword =longword+" "+sentence[position];
+							longword =longword+" "+rs.getString(position);
 						}	
 						catch (NullPointerException ex){
-							longword = sentence[position];
+							longword =rs.getString(position);
 						}
 					}
 					if (!attriset.contains(longword)){
@@ -108,7 +118,7 @@ public class MapCreatorImplSQL implements MapCreator {
 							} while (!validEntry);
 						}	
 						for (Integer position : attripos){
-							out.write(sentence[position]+",");
+							out.write(rs.getString(position)+",");
 						}
 						if (!manualFlag){
 							out.write(bpaDriver);
@@ -116,10 +126,12 @@ public class MapCreatorImplSQL implements MapCreator {
 					}
 					out.println();
 				}
-			} catch ( IOException | NoSuchElementException ex){
+			} catch ( IOException | NoSuchElementException | SQLException ex){
 				glbpamapFile.delete();
 				return false;
 			}
+		
+			
 			configurationManager.setglbpamapFile(glbpamapFile);
 			configurationManager.save();
 			if (manualFlag){
@@ -142,4 +154,9 @@ public class MapCreatorImplSQL implements MapCreator {
 			return true;
 		}
 	}
+	
+	
+	
+	
+	
 }

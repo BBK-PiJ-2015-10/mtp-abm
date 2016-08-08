@@ -28,9 +28,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
+import configuration.ConfigurationManager;
 
 
-public class ConfigurationManagerSQL implements Serializable {
+public class ConfigurationManagerSQL extends ConfigurationManager implements Serializable {
 
 	private File file;
 	
@@ -57,7 +58,8 @@ public class ConfigurationManagerSQL implements Serializable {
 	private BufferedReader in = null;
 		
 	public ConfigurationManagerSQL(File file){
-		this.file=file;
+		super(file);
+		//this.file=file;
 	}
 		
 	public void setFile(File file){
@@ -113,6 +115,17 @@ public class ConfigurationManagerSQL implements Serializable {
 		return true;
 	}
 	
+	//This is a new one
+	public Connection getGLConnection(){
+		return this.glConnection;
+	}
+	
+	//This is a new one
+	
+	public List<String> getGLConnectionSettings(){
+		return this.glConnectionSettings;
+	}
+	
 	
 	public void loadFilesMap(){
 		if(file.exists() && file.isDirectory()){
@@ -134,15 +147,8 @@ public class ConfigurationManagerSQL implements Serializable {
 		return bpaFilesMap.get(name);
 	}
 	
-	//public void setGLFile(String filename){
-		//glFile = bpaFilesMap.remove(filename);	
-	//}
-	
-	//public File getGLFile(){
-		//return glFile;
-	//}
-	
-	public String getGLTableName(){
+		
+	public String getGLFileName(){
 		return glConnectionSettings.get(glConnectionSettings.size()-1);
 	}
 	
@@ -188,7 +194,6 @@ public class ConfigurationManagerSQL implements Serializable {
 			for (String input: bpaFilesMap.keySet()){
 				grabFileAttributes(bpaFilesMap.get(input),bpaFilesAttributesMap);
 			}
-			//grabFileAttributes(glFile,glFilesAttributesMap);
 			grabSQLTableAttributes(glConnectionSettings.get(glConnectionSettings.size()-1),glFilesAttributesMap);
 			isSuccesful=true;
 		} catch (RuntimeException ex) {

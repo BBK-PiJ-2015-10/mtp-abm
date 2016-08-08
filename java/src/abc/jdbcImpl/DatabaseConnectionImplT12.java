@@ -36,6 +36,9 @@ public class DatabaseConnectionImplT12 {
 			results = new LinkedList<>();
 			for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
 				//rs.getMetaData().getColumnTypeName(column)
+				//System.out.println(rs.getMetaData().getColumnClassName(i));
+				//System.out.println(rs.getMetaData().get);
+				//System.out.println((rs.getMetaData().getColumnType(i)));
 				results.add(rs.getMetaData().getColumnTypeName(i));
 				//results.add(rs.getMetaData().getColumnName(i));
 			}			
