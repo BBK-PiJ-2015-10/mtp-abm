@@ -5,12 +5,17 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Arrays;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class SQLDataLoader {
 	
@@ -24,11 +29,8 @@ public class SQLDataLoader {
 	
 	private List<String> labels = new LinkedList<>();
 	
-	private File sourceFile;
-	
-	
-	//public List<String> getLabels
-	
+	private File srcFile;
+		
 	public SQLDataLoader(String dataBase){
 		try {
 			connection = DriverManager.getConnection("jdbc:mysql://LocalHost:3306/"+dataBase,"root","tonto");
@@ -98,10 +100,24 @@ public class SQLDataLoader {
 		}
 	}
 	
-	public boolean readFile(String address){
-		String fileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\config16\\gl.csv";
-		sourceFile = new File(fileAddress);
-		return sourceFile.exists();
+	public boolean readFile(String address, String tableName){
+		srcFile = new File(address);
+		getLabels(tableName);
+		try (BufferedReader in = new BufferedReader(new FileReader(srcFile));){
+			String line;
+			line=in.readLine();
+			String[]sentence;
+			List<String> feeder;
+			while ((line = in.readLine()) != null){
+			sentence=line.split(",");
+				feeder = new LinkedList();
+				feeder = Arrays.asList(sentence);
+				inserDataPrepared(tableName,labels,feeder);
+			}
+			return true;
+		} catch (IOException ex){
+		  return false;
+		}
 	}
 	
 
@@ -111,24 +127,9 @@ public class SQLDataLoader {
 	public static void main(String[] args) {
 		
 		SQLDataLoader sqlDataLoader = new SQLDataLoader("abc");
-		
-		/*
-		List<String> plist = new LinkedList<>();
-		plist.add("Legal_Entity");
-		plist.add("Department");
-		plist.add("Account");
-		plist.add("Amount");
-		List<String> vlist = new LinkedList<>();
-		vlist.add("AUS");
-		vlist.add("ST");
-		vlist.add("600MPS");
-		vlist.add("5.99");
-		sqlDataLoader.inserDataPrepared("tester",plist,vlist);
-		*/
-		System.out.println(sqlDataLoader.readFile("anything"));
-		//labels.forEach(a->System.out.println(a));
-		
-		// TODO Auto-generated method stub
+		String srcFileAddress= "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\config16\\gl.csv";
+		sqlDataLoader.readFile(srcFileAddress,"smallgl");
+	
 
 	}
 
