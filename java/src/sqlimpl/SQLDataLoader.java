@@ -122,8 +122,6 @@ public class SQLDataLoader {
 	
 
 	
-	
-
 	public static void main(String[] args) {
 		
 		SQLDataLoader sqlDataLoader = new SQLDataLoader("abc");

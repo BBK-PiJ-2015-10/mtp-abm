@@ -59,7 +59,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 		
 	public ConfigurationManagerSQL(File file){
 		super(file);
-		//this.file=file;
+		this.file=file;
 	}
 		
 	public void setFile(File file){
