@@ -1,20 +1,16 @@
 package sqlimpl;
 
 import java.sql.DriverManager;
-
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.naming.spi.DirStateFactory.Result;
-
-import org.omg.PortableInterceptor.NON_EXISTENT;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.io.File;
 
 public class SQLDataLoader {
 	
@@ -27,6 +23,9 @@ public class SQLDataLoader {
 	private ResultSet resultSet;
 	
 	private List<String> labels = new LinkedList<>();
+	
+	private File sourceFile;
+	
 	
 	//public List<String> getLabels
 	
@@ -56,22 +55,53 @@ public class SQLDataLoader {
 	
 	public void inserData(String TableName){
 		try {
-			//String sql ="INSERT INTO "+TableName+"(?,?,?,?) VALUES('NA','IS','Ale',5.36)";
-			//String sql ="INSERT INTO tester(?,?,?,?) VALUES('NA','IS','Ale',5.36)";
-			String sql = "INSERT INTO tester(Legal_Entity,Department,Account,Amount) VALUES('NA','IS','200FL',1.26)";
-			preparedStatement = connection.prepareStatement(sql);
-			//preparedStatement.setString(1,"Legal_Entity");
-			//preparedStatement.setString(2,"Department");
-			//preparedStatement.setString(3,"Account");
-			//preparedStatement.setString(4,"Amount");
-			preparedStatement.executeUpdate();
-			//preparedStatement.executeQuery();
-			//statement = connection.createStatement();
-			//statement.executeUpdate("INSERT INTO tester(Legal_Entity,Department,Account,Amount) VALUES('NA','IS','200FL',1.26)");
-			System.out.println("Row Inserted succesfully");
+			statement = connection.createStatement();
+			statement.executeUpdate("INSERT INTO tester(Legal_Entity,Department,Account,Amount) VALUES('NA','IS','200FL',1.26)");
 		} catch (Exception ex){
 			ex.printStackTrace();
 		}
+	}
+	
+	public void inserDataPrepared(String tableName,List<String> parameters,List<String> values){
+		try {
+			String sqlm=null;
+			for (int i=0;i<parameters.size();i++){
+				if (sqlm==null){
+					sqlm="("+parameters.get(i)+",";
+				}
+				else {
+					if (i==parameters.size()-1){
+						sqlm=sqlm+=parameters.get(i)+")";
+					}
+					else {
+						sqlm=sqlm+=parameters.get(i)+",";
+					}
+				}	
+			}
+			String sql="INSERT INTO "+tableName+sqlm+" VALUES(?,?,?,?)";
+			preparedStatement = connection.prepareStatement(sql);
+			for (int k=0;k<values.size();k++){
+				Integer posn=k+1;
+				String param=values.get(k);	
+				if (k==values.size()-1){
+						preparedStatement.setDouble(posn,Double.parseDouble(param));
+					}
+					else {
+						preparedStatement.setString(posn,param);
+					}	
+			}
+			
+			preparedStatement.executeUpdate();;
+		} 
+		catch (SQLException ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	public boolean readFile(String address){
+		String fileAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\config16\\gl.csv";
+		sourceFile = new File(fileAddress);
+		return sourceFile.exists();
 	}
 	
 
@@ -81,8 +111,21 @@ public class SQLDataLoader {
 	public static void main(String[] args) {
 		
 		SQLDataLoader sqlDataLoader = new SQLDataLoader("abc");
-		sqlDataLoader.getLabels("tester").forEach(System.out::println);
-		sqlDataLoader.inserData("tester");
+		
+		/*
+		List<String> plist = new LinkedList<>();
+		plist.add("Legal_Entity");
+		plist.add("Department");
+		plist.add("Account");
+		plist.add("Amount");
+		List<String> vlist = new LinkedList<>();
+		vlist.add("AUS");
+		vlist.add("ST");
+		vlist.add("600MPS");
+		vlist.add("5.99");
+		sqlDataLoader.inserDataPrepared("tester",plist,vlist);
+		*/
+		System.out.println(sqlDataLoader.readFile("anything"));
 		//labels.forEach(a->System.out.println(a));
 		
 		// TODO Auto-generated method stub
