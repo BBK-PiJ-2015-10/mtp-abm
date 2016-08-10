@@ -125,7 +125,7 @@ public class SQLDataLoader {
 	public static void main(String[] args) {
 		
 		SQLDataLoader sqlDataLoader = new SQLDataLoader("abc");
-		String srcFileAddress= "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user16\\config16\\gl.csv";
+		String srcFileAddress= "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10\\config10\\gl.csv";
 		sqlDataLoader.readFile(srcFileAddress,"smallgl");
 	
 

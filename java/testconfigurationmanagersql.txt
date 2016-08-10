@@ -1,0 +1,10 @@
+jdbc:mysql://LocalHost:3306/abc
+root
+tonto
+smallgl
+Department Account
+Amount
+iclient
+ihours
+pclient
+pcalls

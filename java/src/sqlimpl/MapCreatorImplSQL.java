@@ -123,8 +123,8 @@ public class MapCreatorImplSQL implements MapCreator {
 						if (!manualFlag){
 							out.write(bpaDriver);
 						}
+					out.println();	
 					}
-					out.println();
 				}
 			} catch ( IOException | NoSuchElementException | SQLException ex){
 				glbpamapFile.delete();
@@ -133,7 +133,7 @@ public class MapCreatorImplSQL implements MapCreator {
 		
 			
 			configurationManager.setglbpamapFile(glbpamapFile);
-			configurationManager.save();
+			//configurationManager.save();
 			if (manualFlag){
 				System.out.println("Please go to :  " +configurationManager.getFile().getAbsolutePath());
 				System.out.println("open file " +glbpamapFile.getName() +".");

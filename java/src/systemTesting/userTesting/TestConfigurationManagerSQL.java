@@ -25,7 +25,10 @@ import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import sqlimpl.ConfigurationManagerSQL;
+import configuration.ConfigurationManager;
+import configuration.ConfigurationMapper;
+import configuration.ConfigurationMapperImpl;
+import sqlimpl.*;
 import user.UserSpace;
 import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
@@ -864,11 +867,17 @@ public class TestConfigurationManagerSQL {
 	@Test
 	public void tester () {
 		validConfigMgr=new ConfigurationManagerSQL(validFile);
+		//validConfigMgr.loadFilesMap();
 		manualFeedSetUp();
-		validConfigMgr.captureGLConnectionSettings(sc);
-		validConfigMgr.setUpGLConnection();
-		validConfigMgr.grabFilesAttributes();
-		validConfigMgr.loadGlFilesMainAttributes(sc);
+		//validConfigMgr.captureGLConnectionSettings(sc);
+		//validConfigMgr.setUpGLConnection();
+		//validConfigMgr.grabFilesAttributes();
+		//validConfigMgr.loadGlFilesMainAttributes(sc);
+		//validConfigMgr.loadBpaFilesMainAttributes(sc);
+		ConfigurationMapper configMapper = new ConfigurationMapperImplSQL(validConfigMgr);
+		configMapper.mapFiles(sc);
+		
+		
 		//Need to test running a map creator. Let's start with user10
 		
 		//validConfigMgr.getGlFilesAttributesMap().get("smallgl").forEach(System.out::println);
