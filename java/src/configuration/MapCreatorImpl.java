@@ -59,11 +59,11 @@ public class MapCreatorImpl implements MapCreator {
 				List<String> attri = configurationManager.getGlMainFilesAttributesMap().
 						get(configurationManager.getGLFileName()).subList(0, size-1);
 				List<Integer> attripos = new LinkedList<>();
-				for (int i=0;i<attri.size();i++){
-					out.write(attri.get(i)+",");
-				}
-				out.write("BPA");
-				out.println();
+				//for (int i=0;i<attri.size();i++){
+					//out.write(attri.get(i)+",");
+				//}
+				//out.write("BPA");
+				//out.println();
 				String line;
 				String[] sentence;
 				line = in.readLine();
@@ -71,8 +71,11 @@ public class MapCreatorImpl implements MapCreator {
 				for (int i=0;i<sentence.length;i++){
 					if(attri.contains(sentence[i])){
 						attripos.add(i);
+						out.write(sentence[i]+",");
 					}
 				}
+				out.write("BPA");
+				out.println();
 				Set<String> attriset = new HashSet<>();
 				while ((line = in.readLine()) != null){
 					sentence=line.split(",");

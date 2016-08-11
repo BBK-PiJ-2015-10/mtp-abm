@@ -71,26 +71,25 @@ public class MapCreatorImplSQL implements MapCreator {
 				List<String> attri = configurationManager.getGlMainFilesAttributesMap().
 						get(configurationManager.getGLFileName()).subList(0, size-1);
 				List<Integer> attripos = new LinkedList<>();
-				for (int i=0;i<attri.size();i++){
-					out.write(attri.get(i)+",");
-				}
-				out.write("BPA");
-				out.println();
 				String line;
 				Statement st = null;
 				ResultSet rs = null;
+				List<String> labels = new LinkedList<>();
 				try {
 					st = ((ConfigurationManagerSQL)configurationManager).getGLConnection().createStatement();
 					rs = st.executeQuery("SELECT * FROM `"+((ConfigurationManagerSQL)configurationManager).getGLConnectionSettings().get(((ConfigurationManagerSQL)configurationManager).getGLConnectionSettings().size()-1)+"`");
 					for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
 						if(attri.contains(rs.getMetaData().getColumnName(i))){
 							attripos.add(i);
+							out.write(rs.getMetaData().getColumnName(i)+",");
 						}
 					}	
 				} catch (NoSuchElementException | IllegalStateException | SQLException ex){
 					return false;
 				}
 				Set<String> attriset = new HashSet<>();
+				out.write("BPA");
+				out.println();
 				while (rs.next()){
 						String bpaDriver=null;
 					String longword=null;
