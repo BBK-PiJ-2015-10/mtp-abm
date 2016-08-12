@@ -24,6 +24,30 @@ public class DatabaseConnectionImplT12 {
 		}
 	}
 	
+	private void test(){
+		//List<String> list = new ArrayList<>();
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			st = connection.createStatement();
+			rs = st.executeQuery("SELECT * FROM `salespeople`");
+			while(rs.next()){
+				List<String> list = new ArrayList<>();
+				list.add(rs.getInt("id")+" "+rs.getString("s_name")+" "+rs.getString("s_city")+" "+rs.getFloat("comm"));
+				System.out.println(rs.getString(1));
+				System.out.println(rs.getString(2));
+				System.out.println(rs.getString(3));
+				System.out.println(rs.getFloat(4));
+				System.out.println(list);
+			}
+		} catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
+		
+		
+	}
+	
 	//These sections contains tests outside the tutorial scope
 	private List<String> getLabels(){
 		List<String> results = null;
@@ -200,7 +224,9 @@ public class DatabaseConnectionImplT12 {
 	public static void main(String args[]){
 		
 		DatabaseConnectionImplT12 dbc = new DatabaseConnectionImplT12();
-		dbc.getLabels().forEach(System.out::println);
+		dbc.test();
+		
+		//dbc.getLabels().forEach(System.out::println);
 		//dbc.getData().forEach(System.out::println);
 		//dbc.update(9,"Trilly","Perugia",.30);
 		//dbc.insertData("Bibbio","Perugia",.20);

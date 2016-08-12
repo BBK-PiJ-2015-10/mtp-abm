@@ -80,7 +80,8 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 	
 	public boolean validateInput(Map<String,File> periodFiles){
 		boolean result;
-		int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size()+1;
+		//int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size()+1;
+		int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size();
 		int currFiles=0;
 		File tempF;
 		for (String value :periodMaker.getConfiguration().getBPAFilesMap().keySet() ){
@@ -158,7 +159,6 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 		return true;
 	}
 	
-
 	public boolean extractGL(Map<String,File> periodFiles,Map<String,String> driversMap ){
 		try (
 				 FileWriter fw = new FileWriter(bpaCosts,false);
@@ -175,15 +175,22 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 			//line = in.readLine();
 			//sentence=line.split(",");
 			try {
+				//The first legs create a connection and creates a statement
 				st = ((ConfigurationManagerSQL)periodMaker.getConfiguration()).getGLConnection().createStatement();
+				//Executes a Query. Selects all columns from file that is stored as the last element name of the Connection setting list. The table name.
 				rs = st.executeQuery("SELECT * FROM `"+((ConfigurationManagerSQL)periodMaker.getConfiguration()).getGLConnectionSettings().get(((ConfigurationManagerSQL)periodMaker.getConfiguration()).getGLConnectionSettings().size()-1)+"`");
+				//Determine the valid position to be used in the retrieve the data from the SQL file. It starts with 1 instead of 0.
 				for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
+					//If the column name in position i is part of the GLMainFileAttributes map, then it is added to the validPOS list.
 					if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get(periodMaker.getConfiguration().getGLFileName()).contains(rs.getMetaData().getColumnName(i))){
 						validPOS.add(i);
+						//This captures the number of elements of the GLMainFilesAttributes map
 						int listSize=periodMaker.getConfiguration().getGlMainFilesAttributesMap().get(periodMaker.getConfiguration().getGLFileName()).size();
+						//If it is the last element, it writes cost.
 						if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get(periodMaker.getConfiguration().getGLFileName()).get(listSize-1).equals(rs.getMetaData().getColumnName(i))){
 				        	out.write("cost"+",");
 				        }
+						//otherwise it write the column name
 				        else {
 				        	out.write(rs.getMetaData().getColumnName(i)+",");
 				        }
@@ -210,25 +217,30 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 			out.println();
 			
 			
+			
+			
 			try {
 			while (rs.next()){
 				//sentence=line.split(",");
-				validPOS.get(validPOS.size()-1);
+				//validPOS.get(validPOS.size()-1);
 				String key = null;
 				for (int pos: validPOS){
 					if (pos!=validPOS.get(validPOS.size()-1)){
 						if (key==null){
 							//key=sentence[pos];
-							rs.getString(pos);
+							key=rs.getString(pos);
 						}
 						else {
 							//key=key+sentence[pos];
 							key=key+rs.getString(pos);
-							
 						}
+						out.write(rs.getString(pos)+",");
+					}
+					else {
+						Double dbl = rs.getDouble(pos);
+						out.write(dbl.toString()+",");
 					}
 					//out.write(sentence[pos]+",");
-					out.write(rs.getString(pos)+",");
 				}
 				out.write(driversMap.get(key));
 				out.println();

@@ -21,9 +21,11 @@ import java.util.NoSuchElementException;
 
 
 public class BpaCostsMakerImpl implements BpaCostsMaker {
-
+	
+    //This is a reference to the Period related to this BpaCost
 	private PeriodMaker periodMaker;
 	
+	//This is a reference to the file that with bpaCosts
 	private File bpaCosts;
 		
 	public BpaCostsMakerImpl(PeriodMaker periodMaker){
@@ -38,7 +40,9 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	public File getBPACosts(){
 		return this.bpaCosts;
 	}
-		
+	
+	
+	//Displays the names of the files expected in the period folder
 	public boolean displayInputFilesNames(){
 		try {
 			System.out.println("Please place on the below directory: ");
@@ -54,6 +58,8 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		return true;
 	}
 	
+	
+	//This is a timer to give x seconds to the user to place needed files on directory
 	public boolean putToSleep(int microsecondstime){
 		try {
 			Thread.sleep(microsecondstime);
@@ -68,7 +74,8 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		
 	}
 	
-	
+	//Validate that all expected files are in place, if not, then returns false. If yes
+	//it returns true.
 	public boolean validateInput(Map<String,File> periodFiles){
 		boolean result;
 		int maxFiles = periodMaker.getConfiguration().getBPAFilesMap().keySet().size()+1;
@@ -103,6 +110,11 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	}
 	
 	
+	
+	/*
+	 * mr is a reader that reads the glbpamapFile
+	 * Values are stored in the driversMap map.
+	 */
 	public boolean extractGLBPAMap(Map<String,String> driversMap){
 		try (BufferedReader mr = new BufferedReader(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
 		{
@@ -114,6 +126,10 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 					String key=null;
 					String value=null;
 					for (int i=0;i<sentence.length;i++){
+						//If string being read is not the last string in the line. Then it stores it
+						//as a key. If it is the last one, it stores it as a value.
+						//A key can be made out of several strings not just one.
+						//The value is the BPA activity associated with the tupples put as keys
 						if (i<sentence.length-1){
 							if (key==null){
 								key=sentence[i];
@@ -150,6 +166,11 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	}
 	
 
+	/*
+	* Writing to the bpaCosts file reference
+	* Reading from the gl.csv file referenced on the periodFiles
+	*
+	*/
 	public boolean extractGL(Map<String,File> periodFiles,Map<String,String> driversMap ){
 		try (
 				 FileWriter fw = new FileWriter(bpaCosts,false);
@@ -163,6 +184,13 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 			line = in.readLine();
 			sentence=line.split(",");
 			
+			/*
+			 * Checks if the sentence position being read is contained on the GLMainFileAttributes map
+			 * If positive, adds the position reference into the validPOS.
+			 * Gets the size of the GLMainFilesAttributes map
+			 * If the sentence string, equals the last value of the glMainAtributes map, the it writes costs
+			 * otherwise, it writes the label.
+			 */
 			for (int i=0;i<sentence.length;i++){
 				if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").contains(sentence[i])){
 			        validPOS.add(i);
@@ -173,28 +201,36 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 			        else {
 			        	out.write(sentence[i]+",");
 			        }
-			        
 				}
 			}
 			out.write("BPA");
 			out.println();
 			
+			
+			
 			while ((line = in.readLine()) != null){
 				
+				//assigns each line being read into a sentence array
 				sentence=line.split(",");
-				validPOS.get(validPOS.size()-1);
+				//validPOS.get(validPOS.size()-1);
 				String key = null;
+				
 				for (int pos: validPOS){
+					//If it is not the last position. The position with the amount.
 					if (pos!=validPOS.get(validPOS.size()-1)){
+						//if the key is null, makes the key equal to the sentence string value
 						if (key==null){
 							key=sentence[pos];
 						}
+						//if the key is not null, adds the sentence string to the key value
 						else {
 							key=key+sentence[pos];
 						}
 					}
+					//regardless it writes out the String sentence
 					out.write(sentence[pos]+",");
 				}
+				//Looks up on the driversMap the activity associated with the key and writes it to file
 				out.write(driversMap.get(key));
 				out.println();
 			}

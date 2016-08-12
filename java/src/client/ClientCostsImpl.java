@@ -41,6 +41,10 @@ public class ClientCostsImpl implements ClientCosts {
 			return true;
 	}
 	
+	/**
+	 * 
+	 * 
+	 */	
 	@Override
 	public boolean calculateClientCosts() {
 		if ((bpaCostCalculator!=null) && (bpaClientWeightsCalculator!=null)){
