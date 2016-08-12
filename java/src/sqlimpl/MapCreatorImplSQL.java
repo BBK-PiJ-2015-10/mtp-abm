@@ -39,6 +39,22 @@ public class MapCreatorImplSQL implements MapCreator {
 	public MapCreatorImplSQL(boolean manualFlag){
 		this.manualFlag=manualFlag;
 	}
+	
+	public boolean putToSleep(int microsecondstime){
+		try {
+			Thread.sleep(microsecondstime);
+		} catch (InterruptedException ex)
+		{
+			return Thread.currentThread().interrupted();
+		} 
+		catch (IllegalArgumentException ex){
+			return false;
+		}
+		return true;
+		
+	}
+	
+	
 
 
 	@Override
@@ -138,6 +154,7 @@ public class MapCreatorImplSQL implements MapCreator {
 				System.out.println("open file " +glbpamapFile.getName() +".");
 				System.out.println("and filled out the BPA column with the name of the files that contain "
 						+ "the drivers for each tupple");
+				putToSleep(30000);
 				System.out.println("Please type the word done, when finished");
 				boolean validEntry=false;
 				do  {

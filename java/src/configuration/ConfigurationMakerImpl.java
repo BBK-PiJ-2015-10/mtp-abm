@@ -6,6 +6,8 @@ import user.UserSpace;
 
 import java.io.File;
 
+import sqlimpl.*;
+
 
 public class ConfigurationMakerImpl implements ConfigurationMaker {
 		
@@ -48,6 +50,7 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
 			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
+			//ConfigurationMapper configMapper = new ConfigurationMapperImplSQL(new ConfigurationManagerSQL(config));
 			if (!configMapper.mapFiles(sc)){
 				return false;
 			}

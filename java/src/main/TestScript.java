@@ -79,12 +79,15 @@ public class TestScript {
 		
 		double value = 2.123456789;
 		
-		System.out.println(value);
 		
-		System.out.printf("Value: %.2f",value);
 		
-		DecimalFormat df = new DecimalFormat("####0.00");
-		System.out.println("Value: " +df.format(value));
+		
+		//System.out.println(value);
+		
+		//System.out.printf("Value: %.2f",value);
+		
+		//DecimalFormat df = new DecimalFormat("####0.00");
+		//System.out.println("Value: " +df.format(value));
 		
 		
 		

@@ -110,8 +110,8 @@ public class MapCreatorImpl implements MapCreator {
 						if (!manualFlag){
 							out.write(bpaDriver);
 						}
+						out.println();	
 					}
-					out.println();
 				}
 			} catch ( IOException | NoSuchElementException ex){
 				glbpamapFile.delete();

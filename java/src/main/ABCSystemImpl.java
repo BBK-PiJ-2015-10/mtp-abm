@@ -153,7 +153,6 @@ public class ABCSystemImpl implements ABCSystem {
 					runMakeNewPeriod();
 					runBpaCostMaker();
 					bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
-					//bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 					bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 					clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
 					clientCosts.calculateClientCosts();

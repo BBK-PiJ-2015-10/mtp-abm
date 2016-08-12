@@ -40,7 +40,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 	//private File glFile;
 	
 	//This is new
-	private Connection glConnection;
+	//private Connection glConnection;
 	
 	//This is new
 	private List<String> glConnectionSettings = new LinkedList<>();
@@ -105,6 +105,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 	
 	
 	//This is a new one
+	/*
 	public boolean setUpGLConnection(){
 		try {
 			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
@@ -114,10 +115,18 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 		}
 		return true;
 	}
+	*/
 	
 	//This is a new one
 	public Connection getGLConnection(){
-		return this.glConnection;
+		Connection glConnection;
+		try {
+			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
+			
+		} catch (SQLException ex) {
+			return null;
+		}
+		return glConnection;
 	}
 	
 	//This is a new one
@@ -175,7 +184,8 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 	
 	public boolean grabSQLTableAttributes(String SQLTableName, Map map){
 		try {
-			Statement st = glConnection.createStatement();
+			//Statement st = glConnection.createStatement();
+			Statement st = getGLConnection().createStatement();
 			ResultSet rs = st.executeQuery("SELECT * FROM `"+SQLTableName+"`");
 			Set<String> fieldsSet = new HashSet<>();
 			for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
@@ -299,7 +309,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
 			//encode.writeObject(glFile);
-			encode.writeObject(glConnection);
+			//encode.writeObject(glConnection);
 			encode.writeObject(glConnectionSettings);
 			encode.writeObject(bpaFilesAttributesMap);
 			encode.writeObject(glFilesAttributesMap);
@@ -318,7 +328,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
 			//encode.writeObject(glFile);
-			encode.writeObject(glConnection);
+			//encode.writeObject(glConnection);
 			encode.writeObject(glConnectionSettings);
 			encode.writeObject(bpaFilesAttributesMap);
 			encode.writeObject(glFilesAttributesMap);
@@ -339,7 +349,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 				file = (File)incode.readObject();
 				bpaFilesMap=(Map<String,File>)incode.readObject();
 				//glFile= (File)incode.readObject();
-				glConnection=(Connection)incode.readObject();
+				//glConnection=(Connection)incode.readObject();
 				glConnectionSettings=(List<String>)incode.readObject();
 				bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 				glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();

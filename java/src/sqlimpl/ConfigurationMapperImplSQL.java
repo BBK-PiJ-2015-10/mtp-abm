@@ -45,11 +45,11 @@ public class ConfigurationMapperImplSQL implements ConfigurationMapper {
 			*/
 			//configurationManager.setGLFile(glName);
 			configurationManager.captureGLConnectionSettings(sc);
-			configurationManager.setUpGLConnection();
+			//configurationManager.setUpGLConnection();
 			configurationManager.grabFilesAttributes();
 			configurationManager.loadGlFilesMainAttributes(sc);
 			configurationManager.loadBpaFilesMainAttributes(sc);
-			//configurationManager.save();
+			configurationManager.save();
 		    return true;
 		} catch (NoSuchElementException ex){
 			return false;

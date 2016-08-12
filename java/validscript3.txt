@@ -1,0 +1,23 @@
+yes
+user21
+yes
+config21
+done
+jdbc:mysql://LocalHost:3306/abc
+root
+tonto
+smallgl
+Account Department
+Amount
+iclient
+ihours
+client
+runs
+pclient
+pcalls
+2
+done
+yes
+config21
+period21
+no

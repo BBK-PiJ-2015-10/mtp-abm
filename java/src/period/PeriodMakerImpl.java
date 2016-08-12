@@ -16,7 +16,7 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-
+import sqlimpl.*;
 
 public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
@@ -25,6 +25,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	private UserSpace userSpace;
 	
 	private ConfigurationManager configurationManager;
+	
+	//private ConfigurationManagerSQL configurationManager;
 	
 	private File bpaCosts;
 	
@@ -102,6 +104,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			}
 		} while (!validEntry);
 		configurationManager = new ConfigurationManager(userSpace.getConfiguration(keyboardEntry));
+		//configurationManager = new ConfigurationManagerSQL(userSpace.getConfiguration(keyboardEntry));
 		configurationManager.capture(keyboardEntry);
 		return validEntry;
 	}
@@ -152,6 +155,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 			period = (File)incode.readObject();
 			userSpace=(UserSpace)incode.readObject();
 			configurationManager=(ConfigurationManager)incode.readObject();
+			//configurationManager=(ConfigurationManagerSQL)incode.readObject();
 			periodFiles=(Map<String,File> )incode.readObject();
 			driversMap=(Map<String,String>)incode.readObject();
 			bpaCosts = (File)incode.readObject();

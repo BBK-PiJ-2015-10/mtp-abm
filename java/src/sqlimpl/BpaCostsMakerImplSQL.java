@@ -1,4 +1,4 @@
-package bpa;
+package sqlimpl;
 
 import period.PeriodMaker;
 
@@ -17,16 +17,25 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import bpa.BpaCostsMaker;
+
 import java.util.NoSuchElementException;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
-public class BpaCostsMakerImpl implements BpaCostsMaker {
+
+public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 
 	private PeriodMaker periodMaker;
 	
 	private File bpaCosts;
 		
-	public BpaCostsMakerImpl(PeriodMaker periodMaker){
+	public BpaCostsMakerImplSQL(PeriodMaker periodMaker){
 		this.periodMaker=periodMaker;
 	}
 	
@@ -84,16 +93,16 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				currFiles++;
 			}
 		}
-		String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName();
-		tempF = new File(tempName);
-			if (!tempF.exists()){
-				System.out.println("The file named: " +tempF.getName() +" is missing");
-			}
-			else {
+		//String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName();
+		//tempF = new File(tempName);
+			//if (!tempF.exists()){
+				//System.out.println("The file named: " +tempF.getName() +" is missing");
+			//}
+			//else {
 				//periodFiles.put(periodMaker.getConfiguration().getGLFile().getName(),tempF);
-				periodFiles.put(periodMaker.getConfiguration().getGLFileName(),tempF);
-				currFiles++;
-			}
+				//periodFiles.put(periodMaker.getConfiguration().getGLFileName(),tempF);
+				//currFiles++;
+			//}
 		result = (currFiles==maxFiles);
 		if (!result) {
 			periodFiles=null;
@@ -154,50 +163,103 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		try (
 				 FileWriter fw = new FileWriter(bpaCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
-				 PrintWriter out = new PrintWriter(bw);
-				 BufferedReader in = new BufferedReader(new FileReader(periodFiles.get(periodMaker.getConfiguration().getGLFile().getName())));)
+				 PrintWriter out = new PrintWriter(bw);)
+				//PrintWriter out = new PrintWriter(bw);
+				 //BufferedReader in = new BufferedReader(new FileReader(periodFiles.get(periodMaker.getConfiguration().getGLFile().getName())));)
 		{
 			List<Integer> validPOS = new LinkedList<>();
-			String line;
-			String[] sentence;
-			line = in.readLine();
-			sentence=line.split(",");
-			
-			for (int i=0;i<sentence.length;i++){
-				if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").contains(sentence[i])){
-			        validPOS.add(i);
-			        int listSize=periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").size();
-			        if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").get(listSize-1).equals(sentence[i])){
-			        	out.write("cost"+",");
-			        }
-			        else {
-			        	out.write(sentence[i]+",");
-			        }
-			        
-				}
+			//String line;
+			//String[] sentence;
+			Statement st = null;
+			ResultSet rs = null;
+			//line = in.readLine();
+			//sentence=line.split(",");
+			try {
+				st = ((ConfigurationManagerSQL)periodMaker.getConfiguration()).getGLConnection().createStatement();
+				rs = st.executeQuery("SELECT * FROM `"+((ConfigurationManagerSQL)periodMaker.getConfiguration()).getGLConnectionSettings().get(((ConfigurationManagerSQL)periodMaker.getConfiguration()).getGLConnectionSettings().size()-1)+"`");
+				for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
+					if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get(periodMaker.getConfiguration().getGLFileName()).contains(rs.getMetaData().getColumnName(i))){
+						validPOS.add(i);
+						int listSize=periodMaker.getConfiguration().getGlMainFilesAttributesMap().get(periodMaker.getConfiguration().getGLFileName()).size();
+						if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get(periodMaker.getConfiguration().getGLFileName()).get(listSize-1).equals(rs.getMetaData().getColumnName(i))){
+				        	out.write("cost"+",");
+				        }
+				        else {
+				        	out.write(rs.getMetaData().getColumnName(i)+",");
+				        }
+					}
+				}	
+			} catch (NoSuchElementException | IllegalStateException | SQLException ex){
+				return false;
 			}
+			
+			
+			//for (int i=0;i<sentence.length;i++){
+				//if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").contains(sentence[i])){
+			        //validPOS.add(i);
+			        //int listSize=periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").size();
+			        //if (periodMaker.getConfiguration().getGlMainFilesAttributesMap().get("gl.csv").get(listSize-1).equals(sentence[i])){
+			        	//out.write("cost"+",");
+			        //}
+			        //else {
+			        	//out.write(sentence[i]+",");
+			        //}
+				//}
+			//}
 			out.write("BPA");
 			out.println();
 			
-			while ((line = in.readLine()) != null){
-				
-				sentence=line.split(",");
+			
+			try {
+			while (rs.next()){
+				//sentence=line.split(",");
 				validPOS.get(validPOS.size()-1);
 				String key = null;
 				for (int pos: validPOS){
 					if (pos!=validPOS.get(validPOS.size()-1)){
 						if (key==null){
-							key=sentence[pos];
+							//key=sentence[pos];
+							rs.getString(pos);
 						}
 						else {
-							key=key+sentence[pos];
+							//key=key+sentence[pos];
+							key=key+rs.getString(pos);
+							
 						}
 					}
-					out.write(sentence[pos]+",");
+					//out.write(sentence[pos]+",");
+					out.write(rs.getString(pos)+",");
 				}
 				out.write(driversMap.get(key));
 				out.println();
+			}	
+			} catch (SQLException ex){
+					ex.printStackTrace();
 			}
+			
+			
+			
+			
+			
+			//while ((line = in.readLine()) != null){
+				
+				//sentence=line.split(",");
+				//validPOS.get(validPOS.size()-1);
+				//String key = null;
+				//for (int pos: validPOS){
+					//if (pos!=validPOS.get(validPOS.size()-1)){
+						//if (key==null){
+							//key=sentence[pos];
+						//}
+						//else {
+							//key=key+sentence[pos];
+						//}
+					//}
+					//out.write(sentence[pos]+",");
+				//}
+				//out.write(driversMap.get(key));
+				//out.println();
+			//}
 			
 		}	catch ( IOException | NoSuchElementException | NullPointerException ex){	
 			return false;

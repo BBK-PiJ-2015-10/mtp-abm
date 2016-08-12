@@ -867,15 +867,28 @@ public class TestConfigurationManagerSQL {
 	@Test
 	public void tester () {
 		validConfigMgr=new ConfigurationManagerSQL(validFile);
-		//validConfigMgr.loadFilesMap();
+		validConfigMgr.loadFilesMap();
 		manualFeedSetUp();
-		//validConfigMgr.captureGLConnectionSettings(sc);
+		validConfigMgr.captureGLConnectionSettings(sc);
 		//validConfigMgr.setUpGLConnection();
-		//validConfigMgr.grabFilesAttributes();
-		//validConfigMgr.loadGlFilesMainAttributes(sc);
-		//validConfigMgr.loadBpaFilesMainAttributes(sc);
-		ConfigurationMapper configMapper = new ConfigurationMapperImplSQL(validConfigMgr);
-		configMapper.mapFiles(sc);
+		validConfigMgr.grabFilesAttributes();
+		validConfigMgr.loadGlFilesMainAttributes(sc);
+		validConfigMgr.loadBpaFilesMainAttributes(sc);
+		validConfigMgr.save();
+		
+		System.out.println(validConfigMgr.getBpaFilesAttributesMap().size());
+		
+		ConfigurationManagerSQL testC = new ConfigurationManagerSQL(validFile);
+		System.out.println("versus");
+		System.out.println(testC.getBpaFilesAttributesMap().size());
+		
+		testC.capture("config10");
+		System.out.println("versus again");
+		System.out.println(testC.getBpaFilesAttributesMap().size());
+		
+		
+		//ConfigurationMapper configMapper = new ConfigurationMapperImplSQL(validConfigMgr);
+		//configMapper.mapFiles(sc);
 		
 		
 		//Need to test running a map creator. Let's start with user10

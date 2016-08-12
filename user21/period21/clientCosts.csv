@@ -1,0 +1,10 @@
+client,BPA,cost
+American,implementation.csv,5625.0
+AirFrance,implementation.csv,14062.5
+BA,implementation.csv,2812.5
+American,payroll.csv,15000.0
+AirFrance,payroll.csv,33750.0
+BA,payroll.csv,18750.0
+American,phones.csv,5416.666666666666
+AirFrance,phones.csv,71875.0
+BA,phones.csv,1458.3333333333333
