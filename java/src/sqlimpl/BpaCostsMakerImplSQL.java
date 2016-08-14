@@ -56,7 +56,7 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 			periodMaker.getConfiguration().getBPAFilesMap().keySet().forEach(System.out::println);
 			System.out.println(periodMaker.getConfiguration().getGLFileName());
 			//System.out.println(periodMaker.getConfiguration().getGLFile().getName());
-			System.out.println("You have 30 seconds to do so");	
+			System.out.println("You have 90 seconds to do so");	
 		} catch (NullPointerException ex){
 			return false;
 		}
@@ -112,18 +112,28 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 		return result;
 	}
 	
-	
+
+	/*
+	 * mr is a reader that reads the glbpamapFile
+	 * Values are stored in the driversMap map.
+	 */
 	public boolean extractGLBPAMap(Map<String,String> driversMap){
 		try (BufferedReader mr = new BufferedReader(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
 		{
+			System.out.println("The try worked");
 			String line;
 			mr.readLine();
 			while ((line = mr.readLine()) != null){
 				if (!line.isEmpty()) {
 					String[] sentence=line.split(",");
+					System.out.println(line);
 					String key=null;
 					String value=null;
 					for (int i=0;i<sentence.length;i++){
+						//If string being read is not the last string in the line. Then it stores it
+						//as a key. If it is the last one, it stores it as a value.
+						//A key can be made out of several strings not just one.
+						//The value is the BPA activity associated with the tupples put as keys
 						if (i<sentence.length-1){
 							if (key==null){
 								key=sentence[i];
@@ -142,10 +152,13 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 		}		
 		} catch ( IOException | NoSuchElementException | NullPointerException ex){
 			driversMap=null;
+			System.out.println("This sucker is not working");
 			return false;
 		}
 		return true;
 	}
+	
+	
 	
 	@Override
 	public boolean createBpaCostsFile(){
@@ -243,6 +256,7 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 					//out.write(sentence[pos]+",");
 				}
 				out.write(driversMap.get(key));
+				
 				out.println();
 			}	
 			} catch (SQLException ex){
@@ -291,7 +305,6 @@ public class BpaCostsMakerImplSQL implements BpaCostsMaker {
 		createBpaCostsFile();
 		extractGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
 		} catch (NullPointerException ex) {
-			System.out.println("This is going wild");
 			return false;
 		}
 		return true;

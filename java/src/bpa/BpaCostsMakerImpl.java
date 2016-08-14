@@ -249,11 +249,11 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 		displayInputFilesNames();
 		putToSleep(30000);
 		validateInput(this.periodMaker.getPeriodFiles());
-		extractGLBPAMap(this.periodMaker.getDriversMap());
+		System.out.println(extractGLBPAMap(this.periodMaker.getDriversMap()));
 		createBpaCostsFile();
 		extractGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
 		} catch (NullPointerException ex) {
-			System.out.println("This is going wild");
+			System.out.println("This is going wild from the wrong bpa costs file");
 			return false;
 		}
 		return true;

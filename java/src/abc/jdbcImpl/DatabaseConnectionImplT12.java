@@ -34,10 +34,10 @@ public class DatabaseConnectionImplT12 {
 			while(rs.next()){
 				List<String> list = new ArrayList<>();
 				list.add(rs.getInt("id")+" "+rs.getString("s_name")+" "+rs.getString("s_city")+" "+rs.getFloat("comm"));
-				System.out.println(rs.getString(1));
-				System.out.println(rs.getString(2));
-				System.out.println(rs.getString(3));
-				System.out.println(rs.getFloat(4));
+				//System.out.println(rs.getString(1));
+				//System.out.println(rs.getString(2));
+				//System.out.println(rs.getString(3));
+				//System.out.println(rs.getFloat(4));
 				System.out.println(list);
 			}
 		} catch(Exception ex){

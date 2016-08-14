@@ -86,6 +86,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	//This is a test
 	public Map<String,String> getDriversMap(){
 		return this.driversMap;
+		//return null;
 	}
 	
 	public boolean validateConfiguration(String configName){

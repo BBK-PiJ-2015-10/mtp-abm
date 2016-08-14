@@ -37,9 +37,21 @@ public class ABCStarter {
 	public void launch(){
 		
 		manualFeedSetUp();
-		//autoFeedSetUpFile("validscript3.txt");
+		//autoFeedSetUpFile("validscript4.txt");
 		ABCSystem application = new ABCSystemImpl(sc);
 		application.run();
+		
+		
+		/*
+		* Files to adjust:
+		* - PeriodMaker, 3 locations.
+		* - ABCSystemsImpl, 1 location.
+		* - ConfigurationMakerImpl, 1 location.
+		*
+		*/
+				
+				
+		
 		
 	}
 	

@@ -1,12 +1,9 @@
 yes
-user22
+user24
 yes
-config22
+config24
 done
-jdbc:mysql://LocalHost:3306/abc
-root
-tonto
-smallgl
+gl.csv
 Department Account
 Amount
 iclient
@@ -18,6 +15,6 @@ pcalls
 2
 done
 yes
-config22
-period22
+config24
+period24
 no

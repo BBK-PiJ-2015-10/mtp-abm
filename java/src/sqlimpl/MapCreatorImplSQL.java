@@ -148,7 +148,7 @@ public class MapCreatorImplSQL implements MapCreator {
 		
 			
 			configurationManager.setglbpamapFile(glbpamapFile);
-			//configurationManager.save();
+			configurationManager.save();
 			if (manualFlag){
 				System.out.println("Please go to :  " +configurationManager.getFile().getAbsolutePath());
 				System.out.println("open file " +glbpamapFile.getName() +".");

@@ -21,6 +21,8 @@ import report.ReportAbstract;
 import report.ReportGenerator;
 import report.ReportGeneratorImpl;
 
+import sqlimpl.*;
+
 import java.io.File;
 
 public class ABCSystemImpl implements ABCSystem {
@@ -97,6 +99,7 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	public boolean runBpaCostMaker(){
 		bpaCostsMaker = new BpaCostsMakerImpl(periodMaker);
+		//bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
 		return bpaCostsMaker.createbpaCosts();
 	}
 	
