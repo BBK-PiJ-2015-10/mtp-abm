@@ -23,27 +23,25 @@ import java.io.BufferedReader;
 import java.util.Scanner;
 
 
-public class ConfigurationManager implements Serializable {
+public abstract class ConfigurationManagerAbstract implements Serializable {
 
-	private File file;
+	protected File file;
 	
-	private Map<String,File> bpaFilesMap = new HashMap<>();
+	protected Map<String,File> bpaFilesMap = new HashMap<>();
 	
-	private File glFile;
+	protected File glbpamapFile;
 	
-	private File glbpamapFile;
+	protected Map<String,Set<String>> bpaFilesAttributesMap = new HashMap<>();
 	
-	private Map<String,Set<String>> bpaFilesAttributesMap = new HashMap<>();
+	protected Map<String,List<String>> bpaFilesMainAttributesMap = new HashMap<>();
 	
-	private Map<String,List<String>> bpaFilesMainAttributesMap = new HashMap<>();
+	protected Map<String,Set<String>> glFilesAttributesMap = new HashMap<>();
 	
-	private Map<String,Set<String>> glFilesAttributesMap = new HashMap<>();
+	protected Map<String,List<String>> glFilesMainAttributesMap = new HashMap<>();
 	
-	private Map<String,List<String>> glFilesMainAttributesMap = new HashMap<>();
-	
-	private BufferedReader in = null;
+	protected BufferedReader in = null;
 		
-	public ConfigurationManager(File file){
+	public ConfigurationManagerAbstract(File file){
 		this.file=file;
 	}
 		
@@ -65,8 +63,7 @@ public class ConfigurationManager implements Serializable {
 		return this.glbpamapFile;
 	}
 	
-	
-		
+
 	public void loadFilesMap(){
 		if(file.exists() && file.isDirectory()){
 			File [] filenames = file.listFiles();
@@ -87,17 +84,6 @@ public class ConfigurationManager implements Serializable {
 		return bpaFilesMap.get(name);
 	}
 	
-	public void setGLFile(String filename){
-		glFile = bpaFilesMap.remove(filename);	
-	}
-	
-	public File getGLFile(){
-		return glFile;
-	}
-	
-	public String getGLFileName(){
-		return glFile.getName();
-	}
 	
 	public void grabFileAttributes(File file, Map map){
 		try {
@@ -119,23 +105,7 @@ public class ConfigurationManager implements Serializable {
 		}
 	
 	}	
-	
-	
-	
-	public boolean grabFilesAttributes() {	
-		boolean isSuccesful=false;
-		try {
-			for (String input: bpaFilesMap.keySet()){
-				grabFileAttributes(bpaFilesMap.get(input),bpaFilesAttributesMap);
-			}
-			grabFileAttributes(glFile,glFilesAttributesMap);
-			isSuccesful=true;
-		} catch (RuntimeException ex) {
-			isSuccesful=false;
-		}
-		return isSuccesful;	
-	}
-	
+			
 	public void loadBpaFilesMainAttributes(Scanner sc){
 		for (String input : bpaFilesAttributesMap.keySet()){			
 			boolean valid1=false;
@@ -210,7 +180,6 @@ public class ConfigurationManager implements Serializable {
 	}
 	
 	
-	
 	public Map<String,Set<String>> getBpaFilesAttributesMap(){
 		return this.bpaFilesAttributesMap;
 	}
@@ -227,72 +196,14 @@ public class ConfigurationManager implements Serializable {
 		return this.glFilesMainAttributesMap;
 	}	
 	
-	public void save(){
-		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
-		{
-			encode.writeObject(file);
-			encode.writeObject(bpaFilesMap);
-			encode.writeObject(glFile);
-			encode.writeObject(bpaFilesAttributesMap);
-			encode.writeObject(glFilesAttributesMap);
-			encode.writeObject(glFilesMainAttributesMap);
-			encode.writeObject(bpaFilesMainAttributesMap);
-			encode.writeObject(glbpamapFile);
-		}
-		catch (IOException ex){
-			ex.printStackTrace();
-		}
-	}
+	public abstract String getGLFileName();
 	
-	public void save(String newname){
-		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+newname+".dat"));)
-		{
-			encode.writeObject(file);
-			encode.writeObject(bpaFilesMap);
-			encode.writeObject(glFile);
-			encode.writeObject(bpaFilesAttributesMap);
-			encode.writeObject(glFilesAttributesMap);
-			encode.writeObject(glFilesMainAttributesMap);
-			encode.writeObject(bpaFilesMainAttributesMap);
-			encode.writeObject(glbpamapFile);
-		}
-		catch (IOException ex){
-			ex.printStackTrace();
-		}
-	}
+	public abstract boolean grabFilesAttributes();	
 	
-	public boolean capture(String configurationname){
-		boolean isPresent;
-		if (this.file.exists()){
-			try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+configurationname+".dat"));)
-			{
-				file = (File)incode.readObject();
-				bpaFilesMap=(Map<String,File>)incode.readObject();
-				glFile= (File)incode.readObject();
-				bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
-				glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
-				glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
-				bpaFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();
-				glbpamapFile=(File)incode.readObject();
-				isPresent = true;
-			} 
-			  catch (ClassNotFoundException ex){
-				System.out.println("error1");
-				isPresent = false;
-			} catch (IOException ex2){
-				System.out.println("error2");
-				isPresent = false;
-			} catch (NullPointerException ex){
-				System.out.println("error3");
-				isPresent = false;
-			}			
-		}
-		else {
-			System.out.println("File doesn't exists");
-			isPresent=false;
-		}
-		return isPresent;
-	}
+	public abstract void save();
 	
+	public abstract void save(String newname);
+	
+	public abstract boolean capture(String configurationname);
 		
 }

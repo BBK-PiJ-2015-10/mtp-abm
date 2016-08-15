@@ -3,7 +3,7 @@ package main;
 import java.util.Scanner;
 
 import bpa.BpaCostsMaker;
-import bpa.BpaCostsMakerImpl;
+import bpa.BpaCostsMakerImplCSV;
 import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostCalculator;
@@ -98,8 +98,8 @@ public class ABCSystemImpl implements ABCSystem {
 	}
 	
 	public boolean runBpaCostMaker(){
-		bpaCostsMaker = new BpaCostsMakerImpl(periodMaker);
-		//bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
+		//bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
+		bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
 		return bpaCostsMaker.createbpaCosts();
 	}
 	

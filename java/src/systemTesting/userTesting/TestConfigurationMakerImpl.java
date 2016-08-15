@@ -17,7 +17,7 @@ import org.junit.Test;
 
 import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImpl;
-import configuration.ConfigurationMapperImpl;
+import configuration.ConfigurationMapperImplCSV;
 import period.PeriodMakerImpl;
 import user.UserSpace;
 

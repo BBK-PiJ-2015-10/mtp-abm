@@ -13,7 +13,7 @@ import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
-import bpa.BpaCostsMakerImpl;
+import bpa.BpaCostsMakerImplCSV;
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
 import client.ClientCostsImpl;
@@ -37,7 +37,7 @@ public class TestClientCostsImpl {
 	@Before
 	public void setUp() {
 		period.capture("period15");
-		bpaCostsMaker = new BpaCostsMakerImpl(period);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		bpaCostCalculator = new BpaCostCalculatorImpl(period.getBpaCosts());
 	}

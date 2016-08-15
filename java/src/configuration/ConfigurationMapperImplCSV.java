@@ -7,15 +7,15 @@ import java.util.Arrays;
 
 import java.util.NoSuchElementException;
 
-public class ConfigurationMapperImpl implements ConfigurationMapper {
+public class ConfigurationMapperImplCSV implements ConfigurationMapper {
 	
-	private ConfigurationManager configurationManager;
+	private ConfigurationManagerCSV configurationManager;
 	
-	private MapCreatorFactory mapCreatorFactory = new MapCreatorFactory();
+	private MapCreatorFactoryCSV mapCreatorFactory = new MapCreatorFactoryCSV();
 	
 	private MapCreator mapCreator;
 	
-	public ConfigurationMapperImpl(ConfigurationManager configurationManager){
+	public ConfigurationMapperImplCSV(ConfigurationManagerCSV configurationManager){
 		this.configurationManager=configurationManager;
 	}
 

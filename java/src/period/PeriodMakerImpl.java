@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import configuration.ConfigurationManager;
 
 import java.io.Serializable;
 import java.io.FileInputStream;
@@ -18,13 +17,19 @@ import java.io.IOException;
 
 import sqlimpl.*;
 
+import configuration.ConfigurationManagerAbstract;
+import configuration.ConfigurationManagerCSV;
+import configuration.ConfigurationManagerSQL;
+
 public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	private File period;
 	
 	private UserSpace userSpace;
 	
-	private ConfigurationManager configurationManager;
+	private ConfigurationManagerAbstract configurationManager;
+	
+	//private ConfigurationManagerCSV configurationManager;
 	
 	//private ConfigurationManagerSQL configurationManager;
 	
@@ -46,7 +51,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		return this.userSpace;
 	}
 	
-	public ConfigurationManager getConfiguration(){
+	public ConfigurationManagerAbstract getConfiguration(){
 		return this.configurationManager;
 	}
 	
@@ -104,8 +109,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 				System.out.println("Configuration name not found");
 			}
 		} while (!validEntry);
-		configurationManager = new ConfigurationManager(userSpace.getConfiguration(keyboardEntry));
-		//configurationManager = new ConfigurationManagerSQL(userSpace.getConfiguration(keyboardEntry));
+		//configurationManager = new ConfigurationManagerCSV(userSpace.getConfiguration(keyboardEntry));
+		configurationManager = new ConfigurationManagerSQL(userSpace.getConfiguration(keyboardEntry));
 		configurationManager.capture(keyboardEntry);
 		return validEntry;
 	}
@@ -155,8 +160,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		{
 			period = (File)incode.readObject();
 			userSpace=(UserSpace)incode.readObject();
-			configurationManager=(ConfigurationManager)incode.readObject();
-			//configurationManager=(ConfigurationManagerSQL)incode.readObject();
+			//configurationManager=(ConfigurationManagerCSV)incode.readObject();
+			configurationManager=(ConfigurationManagerSQL)incode.readObject();
 			periodFiles=(Map<String,File> )incode.readObject();
 			driversMap=(Map<String,String>)incode.readObject();
 			bpaCosts = (File)incode.readObject();

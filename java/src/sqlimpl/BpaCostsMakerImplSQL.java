@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Set;
 
 import bpa.BpaCostsMaker;
+import configuration.ConfigurationManagerSQL;
 
 import java.util.NoSuchElementException;
 

@@ -35,8 +35,8 @@ import java.util.Arrays;
 //import java.io.PrintWriter;
 import java.util.Scanner;
 
-import configuration.ConfigurationManager;
-import configuration.MapCreatorImpl;
+import configuration.ConfigurationManagerCSV;
+import configuration.MapCreatorImplCSV;
 
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
@@ -45,7 +45,7 @@ import user.UserSpace;
 import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
-import bpa.BpaCostsMakerImpl;
+import bpa.BpaCostsMakerImplCSV;
 import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 

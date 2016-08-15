@@ -1,4 +1,4 @@
-package sqlimpl;
+package old;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,28 +22,14 @@ import java.io.BufferedReader;
 
 import java.util.Scanner;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
 
-import configuration.ConfigurationManager;
-
-
-public class ConfigurationManagerSQL extends ConfigurationManager implements Serializable {
+public class ConfigurationManagerCSVOld implements Serializable {
 
 	private File file;
 	
 	private Map<String,File> bpaFilesMap = new HashMap<>();
 	
-	//private File glFile;
-	
-	//This is new
-	//private Connection glConnection;
-	
-	//This is new
-	private List<String> glConnectionSettings = new LinkedList<>();
+	private File glFile;
 	
 	private File glbpamapFile;
 	
@@ -57,8 +43,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 	
 	private BufferedReader in = null;
 		
-	public ConfigurationManagerSQL(File file){
-		super(file);
+	public ConfigurationManagerCSVOld(File file){
 		this.file=file;
 	}
 		
@@ -80,62 +65,8 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 		return this.glbpamapFile;
 	}
 	
-	//This is a new one
-	public boolean captureGLConnectionSettings(Scanner sc){
-		String selection=null;
-		try {
-			System.out.println("Please enter the url that you wish to connect to");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-			System.out.println("Please enter the Username");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-			System.out.println("Please enter the Password");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-			System.out.println("Please enter the Database name");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-		} catch (NoSuchElementException | IllegalStateException ex) {
-			glConnectionSettings.clear();
-			return false;
-		}
-		return true;
-	}
 	
-	
-	//This is a new one
-	/*
-	public boolean setUpGLConnection(){
-		try {
-			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
-			
-		} catch (SQLException ex) {
-			return false;
-		}
-		return true;
-	}
-	*/
-	
-	//This is a new one
-	public Connection getGLConnection(){
-		Connection glConnection;
-		try {
-			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
-			
-		} catch (SQLException ex) {
-			return null;
-		}
-		return glConnection;
-	}
-	
-	//This is a new one
-	
-	public List<String> getGLConnectionSettings(){
-		return this.glConnectionSettings;
-	}
-	
-	
+		
 	public void loadFilesMap(){
 		if(file.exists() && file.isDirectory()){
 			File [] filenames = file.listFiles();
@@ -156,9 +87,16 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 		return bpaFilesMap.get(name);
 	}
 	
-		
+	public void setGLFile(String filename){
+		glFile = bpaFilesMap.remove(filename);	
+	}
+	
+	public File getGLFile(){
+		return glFile;
+	}
+	
 	public String getGLFileName(){
-		return glConnectionSettings.get(glConnectionSettings.size()-1);
+		return glFile.getName();
 	}
 	
 	public void grabFileAttributes(File file, Map map){
@@ -182,21 +120,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 	
 	}	
 	
-	public boolean grabSQLTableAttributes(String SQLTableName, Map map){
-		try {
-			//Statement st = glConnection.createStatement();
-			Statement st = getGLConnection().createStatement();
-			ResultSet rs = st.executeQuery("SELECT * FROM `"+SQLTableName+"`");
-			Set<String> fieldsSet = new HashSet<>();
-			for (int i=1;i<=rs.getMetaData().getColumnCount();i++){
-				fieldsSet.add(rs.getMetaData().getColumnName(i));
-			}
-			map.put(SQLTableName, fieldsSet);
-		} catch (Exception ex){
-			return false;
-		}
-		return true;
-	}
+	
 	
 	public boolean grabFilesAttributes() {	
 		boolean isSuccesful=false;
@@ -204,7 +128,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 			for (String input: bpaFilesMap.keySet()){
 				grabFileAttributes(bpaFilesMap.get(input),bpaFilesAttributesMap);
 			}
-			grabSQLTableAttributes(glConnectionSettings.get(glConnectionSettings.size()-1),glFilesAttributesMap);
+			grabFileAttributes(glFile,glFilesAttributesMap);
 			isSuccesful=true;
 		} catch (RuntimeException ex) {
 			isSuccesful=false;
@@ -308,9 +232,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 		{
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
-			//encode.writeObject(glFile);
-			//encode.writeObject(glConnection);
-			encode.writeObject(glConnectionSettings);
+			encode.writeObject(glFile);
 			encode.writeObject(bpaFilesAttributesMap);
 			encode.writeObject(glFilesAttributesMap);
 			encode.writeObject(glFilesMainAttributesMap);
@@ -327,9 +249,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 		{
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
-			//encode.writeObject(glFile);
-			//encode.writeObject(glConnection);
-			encode.writeObject(glConnectionSettings);
+			encode.writeObject(glFile);
 			encode.writeObject(bpaFilesAttributesMap);
 			encode.writeObject(glFilesAttributesMap);
 			encode.writeObject(glFilesMainAttributesMap);
@@ -348,9 +268,7 @@ public class ConfigurationManagerSQL extends ConfigurationManager implements Ser
 			{
 				file = (File)incode.readObject();
 				bpaFilesMap=(Map<String,File>)incode.readObject();
-				//glFile= (File)incode.readObject();
-				//glConnection=(Connection)incode.readObject();
-				glConnectionSettings=(List<String>)incode.readObject();
+				glFile= (File)incode.readObject();
 				bpaFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 				glFilesAttributesMap=(Map<String,Set<String>>)incode.readObject();
 				glFilesMainAttributesMap=(Map<String,List<String>>)incode.readObject();

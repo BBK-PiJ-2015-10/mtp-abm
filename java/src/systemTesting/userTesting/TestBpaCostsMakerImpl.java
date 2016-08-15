@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
 
-import bpa.BpaCostsMakerImpl;
+import bpa.BpaCostsMakerImplCSV;
 import period.PeriodMaker;
 import period.PeriodMakerImpl;
 
@@ -24,7 +24,7 @@ public class TestBpaCostsMakerImpl {
     
 	private PeriodMaker period = new PeriodMakerImpl(file);
 	
-	private BpaCostsMakerImpl bpaCostsMakerImpl;
+	private BpaCostsMakerImplCSV bpaCostsMakerImpl;
 	
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -62,7 +62,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testConstructorValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertNotEquals(null,bpaCostsMakerImpl.getPeriodMaker());;
 	}
 	
@@ -72,7 +72,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testConstructornull(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(null);
 		assertEquals(null,bpaCostsMakerImpl.getPeriodMaker());;
 	}
 	
@@ -87,7 +87,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void DisplayInputFilesInValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(null);
 		assertEquals(false,bpaCostsMakerImpl.displayInputFilesNames());
 	}	
 
@@ -97,7 +97,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void DisplayInputFilesValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(true,bpaCostsMakerImpl.displayInputFilesNames());
 	}	
 	
@@ -112,7 +112,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testPutToSleepValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(true,bpaCostsMakerImpl.putToSleep(30));
 	}	
 	
@@ -122,7 +122,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testPutToSleepInValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(false,bpaCostsMakerImpl.putToSleep(-30));
 	}
 	
@@ -136,7 +136,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testValidateInputValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(true,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
 	}	
 	
@@ -151,7 +151,7 @@ public class TestBpaCostsMakerImpl {
 		PeriodMaker eperiod = new PeriodMakerImpl(efile);
 		eperiod.capture("emptyperiod");
 		eperiod.save();
-	    bpaCostsMakerImpl = new BpaCostsMakerImpl(eperiod);
+	    bpaCostsMakerImpl = new BpaCostsMakerImplCSV(eperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));;
 	    String str1 = "The file named: implementation.csv is missing";
 	    String str2 = "The file named: phones.csv is missing";
@@ -175,7 +175,7 @@ public class TestBpaCostsMakerImpl {
 		PeriodMaker parperiod = new PeriodMakerImpl(parfile);
 		parperiod.capture("partialperiod");
 		parperiod.save();
-	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
+	    bpaCostsMakerImpl = new BpaCostsMakerImplCSV(parperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
 	    String str1 = "The file named: implementation.csv is missing";
 	    String str2 = "The file named: phones.csv is missing";
@@ -195,7 +195,7 @@ public class TestBpaCostsMakerImpl {
 		PeriodMaker parperiod = new PeriodMakerImpl(parfile);
 		parperiod.capture("partialperiodnogl");
 		parperiod.save();
-	    bpaCostsMakerImpl = new BpaCostsMakerImpl(parperiod);
+	    bpaCostsMakerImpl = new BpaCostsMakerImplCSV(parperiod);
 	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
 	    String result = "The file named: gl.csv is missing";
 	    assertEquals(result,outContent.toString().substring(0,result.length()));
@@ -212,7 +212,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testExtractGLPBPAMapValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(true,bpaCostsMakerImpl.extractGLBPAMap(bpaCostsMakerImpl.getPeriodMaker().getDriversMap()));
 	}	
 	
@@ -223,7 +223,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testExtractGLPBPAMapValidNull(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(null);
 		assertEquals(false,bpaCostsMakerImpl.extractGLBPAMap(null));
 	}
 	
@@ -238,7 +238,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testcreateBpaCostsValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(true,bpaCostsMakerImpl.createBpaCostsFile());
 		assertEquals("bpaCosts.csv",bpaCostsMakerImpl.getBPACosts().getName());
 	}
@@ -249,7 +249,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test (expected = NullPointerException.class)
 	public void testcreateBpaCostsNull(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(null);
 		bpaCostsMakerImpl.createBpaCostsFile();
 		assertEquals("bpaCosts.csv",bpaCostsMakerImpl.getBPACosts().getName());
 	}
@@ -264,7 +264,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testExtractGLValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles());
 		bpaCostsMakerImpl.extractGLBPAMap(bpaCostsMakerImpl.getPeriodMaker().getDriversMap());
 		bpaCostsMakerImpl.createBpaCostsFile();
@@ -279,7 +279,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testExtractGLNull(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(false,bpaCostsMakerImpl.extractGL(null,null));
 	}
 	
@@ -295,7 +295,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testCreateBpaCostsValid(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(period);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
 		assertEquals(true,bpaCostsMakerImpl.createbpaCosts());
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().exists());
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().delete());
@@ -307,7 +307,7 @@ public class TestBpaCostsMakerImpl {
 	//@Ignore
 	@Test
 	public void testCreateBpaCosts(){
-		bpaCostsMakerImpl = new BpaCostsMakerImpl(null);
+		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(null);
 		assertEquals(false,bpaCostsMakerImpl.createbpaCosts());
 	}
 	

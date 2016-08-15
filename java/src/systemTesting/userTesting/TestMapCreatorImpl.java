@@ -15,15 +15,15 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import configuration.ConfigurationManager;
+import configuration.ConfigurationManagerCSV;
 import configuration.MapCreator;
-import configuration.MapCreatorImpl;
+import configuration.MapCreatorImplCSV;
 
 public class TestMapCreatorImpl {
 	
 	private MapCreator mapCreator;
 	
-	private ConfigurationManager configurationManager;
+	private ConfigurationManagerCSV configurationManager;
 	
 	private Scanner sc;
 	
@@ -64,7 +64,7 @@ public class TestMapCreatorImpl {
 	
 	@Before
 	public void setUp() {
-		configurationManager = new ConfigurationManager
+		configurationManager = new ConfigurationManagerCSV
 				(new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\config11"));
 		configurationManager.capture("config11");
 		setUpStreams();	
@@ -86,7 +86,7 @@ public class TestMapCreatorImpl {
 	@Test
 	public void testcreateMapValidInputs() {
 		 autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl(false);
+		 mapCreator = new MapCreatorImplCSV(false);
 		 assertEquals(true,mapCreator.createMap(configurationManager, sc,mapName));
 		 String tempString = configurationManager.getFile().getAbsolutePath()+"\\"+mapName;
 		 File tempFile = new File(tempString);
@@ -101,7 +101,7 @@ public class TestMapCreatorImpl {
 	@Test
 	public void testcreateMapInValidInputNullConfiguration() {
 		 autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl(false);
+		 mapCreator = new MapCreatorImplCSV(false);
 		 assertEquals(false,mapCreator.createMap(null, sc,mapName));
 	}
 	
@@ -113,7 +113,7 @@ public class TestMapCreatorImpl {
 	public void testcreateMapInValidInputNullName() {
 		 String tempname = null;
 		 autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl(false);
+		 mapCreator = new MapCreatorImplCSV(false);
 		 assertEquals(false,mapCreator.createMap(configurationManager,sc,tempname));
 	}
 	
@@ -126,7 +126,7 @@ public class TestMapCreatorImpl {
 	@Test
 	public void testcreateMapInValidInputNullScanner() {
 		autoFeedSetUpFile("testmapcreatorimpl1.txt");
-		 mapCreator = new MapCreatorImpl(false);
+		 mapCreator = new MapCreatorImplCSV(false);
 		 assertEquals(false,mapCreator.createMap(configurationManager, null,mapName));	 
 	}
 	
@@ -137,7 +137,7 @@ public class TestMapCreatorImpl {
 	@Test
 	public void testcreateMapInValidInputsAnswers() {
 		 autoFeedSetUpFile("testmapcreatorimpl2.txt");
-		 mapCreator = new MapCreatorImpl(false);
+		 mapCreator = new MapCreatorImplCSV(false);
 		 assertEquals(false,mapCreator.createMap(configurationManager, sc,mapName));
 		 
 	}

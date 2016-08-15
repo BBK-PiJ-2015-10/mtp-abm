@@ -49,8 +49,8 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		try {
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
-			ConfigurationMapper configMapper = new ConfigurationMapperImpl(new ConfigurationManager(config));
-			//ConfigurationMapper configMapper = new ConfigurationMapperImplSQL(new ConfigurationManagerSQL(config));
+			//ConfigurationMapper configMapper = new ConfigurationMapperImplCSV(new ConfigurationManagerCSV(config));
+			ConfigurationMapper configMapper = new ConfigurationMapperImplSQL(new ConfigurationManagerSQL(config));
 			if (!configMapper.mapFiles(sc)){
 				return false;
 			}

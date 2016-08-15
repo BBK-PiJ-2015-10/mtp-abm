@@ -14,7 +14,8 @@ import java.util.NoSuchElementException;
 import java.util.LinkedList;
 import java.util.Set;
 
-import configuration.ConfigurationManager;
+import configuration.ConfigurationManagerCSV;
+import configuration.ConfigurationManagerSQL;
 import configuration.MapCreator;
 
 import java.util.HashSet;
@@ -27,6 +28,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+
+import configuration.ConfigurationManagerAbstract;
 
 
 
@@ -58,7 +61,7 @@ public class MapCreatorImplSQL implements MapCreator {
 
 
 	@Override
-	public boolean createMap(ConfigurationManager configurationManager, Scanner keyboard, String mapName) {
+	public boolean createMap(ConfigurationManagerAbstract configurationManager, Scanner keyboard, String mapName) {
 		
 		if ((keyboard==null) || (mapName == null) || (configurationManager == null) ){	
 			return false;

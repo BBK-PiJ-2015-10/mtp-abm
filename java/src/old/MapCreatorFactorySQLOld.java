@@ -1,9 +1,12 @@
-package configuration;
+package old;
 
 import java.util.Map;
 import java.util.HashMap;
 
-public class MapCreatorFactory {
+//import configuration.MapCreator;
+//import sqlimpl.MapCreatorImplSQL;
+
+public class MapCreatorFactorySQLOld {
 	
 	private Map<Integer,String> mapCreatorOptions = new HashMap();
 	
@@ -26,13 +29,13 @@ public class MapCreatorFactory {
 		return true;
 	}
 	
-	public MapCreator getMapCreator(int choice){
+	public MapCreatorOld getMapCreator(int choice){
 		if (mapCreatorOptions.isEmpty()){
 			loadOptions();
 		}
 		switch(choice){
-			case 1: return new MapCreatorImpl(false);
-			case 2: return new MapCreatorImpl(true);
+			case 1: return new MapCreatorImplSQLOld(false);
+			case 2: return new MapCreatorImplSQLOld(true);
 			default: return null;
 		}
 	}

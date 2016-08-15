@@ -6,12 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import java.util.NoSuchElementException;
-import configuration.ConfigurationManager;
+import configuration.ConfigurationManagerAbstract;
 
 public class FileValidatorImpl implements FileValidator {
 
 	@Override
-	public boolean validateInput(File file, String parameterName, ConfigurationManager configMgr) {
+	public boolean validateInput(File file, String parameterName, ConfigurationManagerAbstract configMgr) {
 		
 		if (file.exists()){
 			try (

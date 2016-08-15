@@ -2,11 +2,11 @@ package validator;
 
 import java.io.File;
 
-import configuration.ConfigurationManager;
+import configuration.ConfigurationManagerAbstract;
 
 public interface FileValidator {
 	
-	boolean validateInput(File file, String parameterName, ConfigurationManager configMgr);
+	boolean validateInput(File file, String parameterName, ConfigurationManagerAbstract configMgr);
 	
 
 }

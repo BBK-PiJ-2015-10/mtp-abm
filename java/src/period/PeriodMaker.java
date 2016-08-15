@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Map;
 import java.util.Scanner;
 
-import configuration.ConfigurationManager;
+import configuration.ConfigurationManagerAbstract;
 
 public interface PeriodMaker {
 
@@ -17,7 +17,7 @@ public interface PeriodMaker {
 	boolean capture(String periodName);
 	
     // Need to write JUnit tests
-	ConfigurationManager getConfiguration();
+	ConfigurationManagerAbstract getConfiguration();
 	
 	//Need to write JUnit tests
 	File getPeriod();

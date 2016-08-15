@@ -16,7 +16,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import configuration.ConfigurationManager;
+import configuration.ConfigurationManagerCSV;
 import user.UserSpace;
 import period.PeriodMaker;
 import period.PeriodMakerImpl;

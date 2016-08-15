@@ -3,10 +3,11 @@ package sqlimpl;
 import java.io.File;
 import java.util.Scanner;
 
-import configuration.ConfigurationManager;
+import configuration.ConfigurationManagerCSV;
+import configuration.ConfigurationManagerSQL;
 import configuration.ConfigurationMapper;
 import configuration.MapCreator;
-import configuration.MapCreatorFactory;
+import configuration.MapCreatorFactoryCSV;
 
 import java.util.Arrays;
 

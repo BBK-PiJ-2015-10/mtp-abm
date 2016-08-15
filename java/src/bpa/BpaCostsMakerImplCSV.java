@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.NoSuchElementException;
 
 
-public class BpaCostsMakerImpl implements BpaCostsMaker {
+public class BpaCostsMakerImplCSV implements BpaCostsMaker {
 	
     //This is a reference to the Period related to this BpaCost
 	private PeriodMaker periodMaker;
@@ -28,7 +28,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 	//This is a reference to the file that with bpaCosts
 	private File bpaCosts;
 		
-	public BpaCostsMakerImpl(PeriodMaker periodMaker){
+	public BpaCostsMakerImplCSV(PeriodMaker periodMaker){
 		this.periodMaker=periodMaker;
 	}
 	
@@ -91,7 +91,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				currFiles++;
 			}
 		}
-		String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFile().getName();
+		String tempName = periodMaker.getPeriod().getAbsolutePath()+"\\"+periodMaker.getConfiguration().getGLFileName();
 		tempF = new File(tempName);
 			if (!tempF.exists()){
 				System.out.println("The file named: " +tempF.getName() +" is missing");
@@ -176,7 +176,7 @@ public class BpaCostsMakerImpl implements BpaCostsMaker {
 				 FileWriter fw = new FileWriter(bpaCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);
 				 PrintWriter out = new PrintWriter(bw);
-				 BufferedReader in = new BufferedReader(new FileReader(periodFiles.get(periodMaker.getConfiguration().getGLFile().getName())));)
+				 BufferedReader in = new BufferedReader(new FileReader(periodFiles.get(periodMaker.getConfiguration().getGLFileName())));)
 		{
 			List<Integer> validPOS = new LinkedList<>();
 			String line;

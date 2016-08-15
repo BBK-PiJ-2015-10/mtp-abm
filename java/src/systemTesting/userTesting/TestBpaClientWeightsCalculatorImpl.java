@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-import bpa.BpaCostsMakerImpl;
+import bpa.BpaCostsMakerImplCSV;
 import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostsMaker;
 import period.PeriodMaker;
@@ -45,7 +45,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	//@Ignore
 	@Test
 	public void testgetClientsWeightsValidInputsI(){
-		bpaCostsMaker = new BpaCostsMakerImpl(period);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		assertEquals(5,bpaClientWeightsCalculator.getClientsWeights().keySet().size());
 		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").keySet().size());
@@ -63,7 +63,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	//@Ignore
 	@Test
 	public void testgetClientsWeightsValidInputsII(){
-		bpaCostsMaker = new BpaCostsMakerImpl(period);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		double result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("AirChina");
 		assertEquals(0.07804703,result,DELTA);
@@ -93,7 +93,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	//@Ignore
 	@Test
 	public void testgetClientsWeightsInValidInputsNullPeriodMaker(){
-		bpaCostsMaker = new BpaCostsMakerImpl(period);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(null);
 		assertEquals(null,bpaClientWeightsCalculator.getClientsWeights());
 	}
@@ -104,7 +104,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	//@Ignore
 	@Test
 	public void testgetClientsWeightsInValidInputsNullPeriodMakerII(){
-		bpaCostsMaker = new BpaCostsMakerImpl(null);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(null);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		assertEquals(null,bpaClientWeightsCalculator.getClientsWeights());
 	}
@@ -119,7 +119,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	//@Ignore
 	@Test
 	public void testPopMapValidInput(){
-		bpaCostsMaker = new BpaCostsMakerImpl(period);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		assertEquals(true,bpaClientWeightsCalculator.popmap());
 	}
@@ -130,7 +130,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	//@Ignore
 	@Test
 	public void testPopMapInValidInputI(){
-		bpaCostsMaker = new BpaCostsMakerImpl(period);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(null);
 		assertEquals(false,bpaClientWeightsCalculator.popmap());
 	}
@@ -141,7 +141,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	//@Ignore
 	@Test
 	public void testPopMapInValidInputII(){
-		bpaCostsMaker = new BpaCostsMakerImpl(null);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(null);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		assertEquals(false,bpaClientWeightsCalculator.popmap());
 	}

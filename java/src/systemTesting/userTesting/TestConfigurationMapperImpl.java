@@ -15,19 +15,19 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import configuration.ConfigurationManager;
-import configuration.ConfigurationMapperImpl;
+import configuration.ConfigurationManagerCSV;
+import configuration.ConfigurationMapperImplCSV;
 import configuration.MapCreator;
-import configuration.MapCreatorImpl;
+import configuration.MapCreatorImplCSV;
 
 import java.util.NoSuchElementException;
 
 
 public class TestConfigurationMapperImpl {
 		
-	private ConfigurationManager configurationManager;
+	private ConfigurationManagerCSV configurationManager;
 	
-	private ConfigurationMapperImpl configurationMapperImpl;
+	private ConfigurationMapperImplCSV configurationMapperImpl;
 	
 	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user12\\config12";
 	
@@ -70,7 +70,7 @@ public class TestConfigurationMapperImpl {
 	
 	@Before
 	public void setUp() {
-		configurationManager = new ConfigurationManager(validFile);
+		configurationManager = new ConfigurationManagerCSV(validFile);
 		setUpStreams();	
 	}
 	
@@ -90,9 +90,9 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testexecManagerValidInput() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl1.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 assertEquals(true,configurationMapperImpl.execManager(sc));
-		 ConfigurationManager testCM = new ConfigurationManager(validFile);
+		 ConfigurationManagerCSV testCM = new ConfigurationManagerCSV(validFile);
 		 assertEquals(true,testCM.capture("config12"));
 		 assertEquals(2,testCM.getBpaFilesAttributesMap().keySet().size());
 		 assertEquals("gl.csv",testCM.getGLFile().getName());
@@ -111,7 +111,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testexecManagerInValidglFileInput() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl2.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 assertEquals(false,configurationMapperImpl.execManager(sc));
 	}
 	
@@ -123,7 +123,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testexecManagerInValidglAccountInput() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl3.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 assertEquals(false,configurationMapperImpl.execManager(sc));
 	}
 	
@@ -135,7 +135,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testexecManagerInValidbpaAccountInput() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl4.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 assertEquals(false,configurationMapperImpl.execManager(sc));
 	}
 	
@@ -146,7 +146,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testexecManagerInValidInputNullConfigurationMNager() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl1.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(null);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(null);
 		 assertEquals(false,configurationMapperImpl.execManager(sc));
 	}
 	
@@ -164,7 +164,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testcreateMapValid() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 configurationMapperImpl.execManager(sc);
 		 assertEquals(true,configurationMapperImpl.createMap(sc));
 		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
@@ -183,7 +183,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testcreateMapNullScanner() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 configurationMapperImpl.execManager(sc);
 		 assertEquals(false,configurationMapperImpl.createMap(null));
 		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
@@ -201,7 +201,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testcreateMapNoDataScanner() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl1.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 configurationMapperImpl.execManager(sc);
 		 assertEquals(false,configurationMapperImpl.createMap(sc));
 		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
@@ -217,7 +217,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testcreateMapIncompleDataScannerLineSkipped() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl8.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		 configurationMapperImpl.execManager(sc);
 		 assertEquals(false,configurationMapperImpl.createMap(sc));
 		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
@@ -232,7 +232,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testcreateMapWithNullConfiguratoinManager() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
-		 configurationMapperImpl = new ConfigurationMapperImpl(null);
+		 configurationMapperImpl = new ConfigurationMapperImplCSV(null);
 		 configurationMapperImpl.execManager(sc);
 		 assertEquals(false,configurationMapperImpl.createMap(sc));
 		 String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
@@ -253,7 +253,7 @@ public class TestConfigurationMapperImpl {
 	public void testMapFilesValid() {
 		autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
 		//manualFeedSetUp();
-		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		assertEquals(true,configurationMapperImpl.mapFiles(sc));
 		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
 		File tempMF = new File(tempA);
@@ -271,7 +271,7 @@ public class TestConfigurationMapperImpl {
 	//@Ignore
 	@Test
 	public void testMapFilesNullScanner() {
-		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		assertEquals(false,configurationMapperImpl.mapFiles(null));
 		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
 		File tempF = new File(tempA);
@@ -286,7 +286,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testMapFilesIncompleteScannerpartI() {
 		autoFeedSetUpFile("testconfigurationmapperimpl2.txt");
-		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		assertEquals(false,configurationMapperImpl.mapFiles(sc));
 		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
 		File tempF = new File(tempA);
@@ -301,7 +301,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testMapFilesIncompleteScannerpartII() {
 		autoFeedSetUpFile("testconfigurationmapperimpl3.txt");
-		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		assertEquals(false,configurationMapperImpl.mapFiles(sc));
 		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
 		File tempF = new File(tempA);
@@ -316,7 +316,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testMapFilesIncompleteScannerpartIII() {
 		autoFeedSetUpFile("testconfigurationmapperimpl6.txt");
-		configurationMapperImpl = new ConfigurationMapperImpl(configurationManager);
+		configurationMapperImpl = new ConfigurationMapperImplCSV(configurationManager);
 		assertEquals(false,configurationMapperImpl.mapFiles(sc));
 		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
 		File tempF = new File(tempA);
@@ -334,7 +334,7 @@ public class TestConfigurationMapperImpl {
 	@Test
 	public void testMapFilesInValidNullConfiguration() {
 		autoFeedSetUpFile("testconfigurationmapperimpl5.txt");
-		configurationMapperImpl = new ConfigurationMapperImpl(null);
+		configurationMapperImpl = new ConfigurationMapperImplCSV(null);
 		assertEquals(false,configurationMapperImpl.mapFiles(sc));
 		String tempA = configurationManager.getFile().getAbsolutePath()+"\\"+"glbpamap.csv";
 		File tempF = new File(tempA);
