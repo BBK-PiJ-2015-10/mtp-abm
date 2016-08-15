@@ -1,7 +1,11 @@
-package configuration;
+package old;
 
 import java.util.Scanner;
 
+import configuration.ConfigurationMaker;
+import configuration.ConfigurationManagerCSV;
+import configuration.ConfigurationMapperAbstract;
+import configuration.ConfigurationMapperImplCSV;
 import user.UserSpace;
 
 import java.io.File;
@@ -9,9 +13,9 @@ import java.io.File;
 import sqlimpl.*;
 
 
-public class ConfigurationMakerImpl implements ConfigurationMaker {
+public class ConfigurationMakerImplOld implements ConfigurationMaker {
 		
-	public ConfigurationMakerImpl(){	
+	public ConfigurationMakerImplOld(){	
 	}
 	
 	public String captureInput(String message, Scanner sc){

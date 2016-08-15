@@ -16,8 +16,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import configuration.ConfigurationMaker;
-import configuration.ConfigurationMakerImpl;
 import configuration.ConfigurationMapperImplCSV;
+import old.ConfigurationMakerImpl;
 import old.PeriodMakerImpl;
 import user.UserSpace;
 

@@ -2,9 +2,6 @@ package configuration;
 
 import java.io.File;
 import java.util.Scanner;
-
-import sqlimpl.MapCreatorFactorySQL;
-
 import java.util.Arrays;
 
 import java.util.NoSuchElementException;

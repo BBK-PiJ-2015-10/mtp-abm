@@ -1,10 +1,10 @@
-package sqlimpl;
+package configuration;
 
 import java.util.Map;
-import java.util.HashMap;
 
-import configuration.MapCreator;
-import configuration.MapCreatorFactoryAbstract;
+import sqlimpl.MapCreatorImplSQL;
+
+import java.util.HashMap;
 
 public class MapCreatorFactorySQL extends MapCreatorFactoryAbstract {
 	
