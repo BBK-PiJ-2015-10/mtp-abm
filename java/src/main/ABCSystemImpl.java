@@ -12,8 +12,10 @@ import client.ClientCosts;
 import client.ClientCostsImpl;
 import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImpl;
+import old.PeriodMakerImpl;
 import period.PeriodMaker;
-import period.PeriodMakerImpl;
+import period.PeriodMakerImplCSV;
+import period.PeriodMakerImplSQL;
 import user.UserSpace;
 import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
@@ -92,14 +94,15 @@ public class ABCSystemImpl implements ABCSystem {
 	}
 	
 	public void runMakeNewPeriod(){
-		periodMaker = new PeriodMakerImpl(userSpace);
+		//periodMaker = new PeriodMakerImpl(userSpace);
+		periodMaker = new PeriodMakerImplCSV(userSpace);
 		periodMaker.makePeriod(sc);
 		periodMaker.save();
 	}
 	
 	public boolean runBpaCostMaker(){
-		//bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
-		bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
+		//bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
 		return bpaCostsMaker.createbpaCosts();
 	}
 	

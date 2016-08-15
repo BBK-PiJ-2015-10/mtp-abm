@@ -17,9 +17,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import configuration.ConfigurationManagerCSV;
+import old.PeriodMakerImpl;
 import user.UserSpace;
 import period.PeriodMaker;
-import period.PeriodMakerImpl;
 
 import java.util.Scanner;
 

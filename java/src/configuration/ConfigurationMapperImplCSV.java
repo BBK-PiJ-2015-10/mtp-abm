@@ -3,20 +3,18 @@ package configuration;
 import java.io.File;
 import java.util.Scanner;
 
+import sqlimpl.MapCreatorFactorySQL;
+
 import java.util.Arrays;
 
 import java.util.NoSuchElementException;
 
-public class ConfigurationMapperImplCSV implements ConfigurationMapper {
+public class ConfigurationMapperImplCSV extends ConfigurationMapperAbstract implements ConfigurationMapper {
+		
 	
-	private ConfigurationManagerCSV configurationManager;
-	
-	private MapCreatorFactoryCSV mapCreatorFactory = new MapCreatorFactoryCSV();
-	
-	private MapCreator mapCreator;
-	
-	public ConfigurationMapperImplCSV(ConfigurationManagerCSV configurationManager){
-		this.configurationManager=configurationManager;
+	public ConfigurationMapperImplCSV(ConfigurationManagerAbstract configurationManager){
+		super(configurationManager);
+		mapCreatorFactory = new MapCreatorFactoryCSV();		
 	}
 
 	public boolean execManager(Scanner sc) {
@@ -36,7 +34,7 @@ public class ConfigurationMapperImplCSV implements ConfigurationMapper {
 					System.out.println("invalid name");
 				}
 			} while (!validEntry);
-			configurationManager.setGLFile(glName);
+			((ConfigurationManagerCSV)configurationManager).setGLFile(glName);
 			configurationManager.grabFilesAttributes();
 			configurationManager.loadGlFilesMainAttributes(sc);
 			configurationManager.loadBpaFilesMainAttributes(sc);
@@ -49,33 +47,6 @@ public class ConfigurationMapperImplCSV implements ConfigurationMapper {
 		}
 	}
 	
-	@Override 
-	public boolean mapFiles(Scanner sc){
-		return (execManager(sc) && createMap(sc));	
-	}
-	
-	public boolean createMap(Scanner sc){
-		if (sc==null){
-			return false;
-		}
-		
-		boolean validEntry;
-		mapCreatorFactory.presentChoices();
-		Integer choice = null;
-		do {
-			try {
-				choice = Integer.parseInt(sc.nextLine());
-				validEntry=mapCreatorFactory.getMapCreatorOptions().containsKey((choice));
-			} catch (NumberFormatException ex){
-				validEntry=false;
-			}
-			if (!validEntry){
-				System.out.println("Invalid entry, please type a valid option");
-				mapCreatorFactory.presentChoices();
-			}
-		} while (!validEntry);
-		return mapCreatorFactory.getMapCreator(choice).createMap(configurationManager,sc,"glbpamap.csv");
-	}
-	
+
 
 }

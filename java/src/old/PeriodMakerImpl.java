@@ -1,4 +1,4 @@
-package period;
+package old;
 
 import user.UserSpace;
 
@@ -20,6 +20,7 @@ import sqlimpl.*;
 import configuration.ConfigurationManagerAbstract;
 import configuration.ConfigurationManagerCSV;
 import configuration.ConfigurationManagerSQL;
+import period.PeriodMaker;
 
 public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
@@ -28,10 +29,6 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	private UserSpace userSpace;
 	
 	private ConfigurationManagerAbstract configurationManager;
-	
-	//private ConfigurationManagerCSV configurationManager;
-	
-	//private ConfigurationManagerSQL configurationManager;
 	
 	private File bpaCosts;
 	
@@ -109,8 +106,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 				System.out.println("Configuration name not found");
 			}
 		} while (!validEntry);
-		//configurationManager = new ConfigurationManagerCSV(userSpace.getConfiguration(keyboardEntry));
-		configurationManager = new ConfigurationManagerSQL(userSpace.getConfiguration(keyboardEntry));
+		configurationManager = new ConfigurationManagerCSV(userSpace.getConfiguration(keyboardEntry));
+		//configurationManager = new ConfigurationManagerSQL(userSpace.getConfiguration(keyboardEntry));
 		configurationManager.capture(keyboardEntry);
 		return validEntry;
 	}
@@ -160,8 +157,8 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		{
 			period = (File)incode.readObject();
 			userSpace=(UserSpace)incode.readObject();
-			//configurationManager=(ConfigurationManagerCSV)incode.readObject();
-			configurationManager=(ConfigurationManagerSQL)incode.readObject();
+			configurationManager=(ConfigurationManagerCSV)incode.readObject();
+			//configurationManager=(ConfigurationManagerSQL)incode.readObject();
 			periodFiles=(Map<String,File> )incode.readObject();
 			driversMap=(Map<String,String>)incode.readObject();
 			bpaCosts = (File)incode.readObject();
@@ -179,11 +176,6 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		} 
 		return isPresent;		
 	}
-	
-	
-	
-	
-
 	
 	
 }

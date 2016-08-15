@@ -12,11 +12,12 @@ import java.io.PrintStream;
 import report.ReportGeneratorImpl;
 
 import period.PeriodMaker;
-import period.PeriodMakerImpl;
 
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import old.PeriodMakerImpl;
 
 public class TestReportGeneratorImpl {
 	

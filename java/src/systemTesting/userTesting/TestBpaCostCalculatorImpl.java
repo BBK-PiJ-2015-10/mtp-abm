@@ -12,8 +12,8 @@ import static org.junit.Assert.assertEquals;
 
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
+import old.PeriodMakerImpl;
 import period.PeriodMaker;
-import period.PeriodMakerImpl;
 
 public class TestBpaCostCalculatorImpl {
 	

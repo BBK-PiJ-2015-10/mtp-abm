@@ -13,8 +13,8 @@ import java.io.File;
 import java.io.PrintStream;
 
 import bpa.BpaCostsMakerImplCSV;
+import old.PeriodMakerImpl;
 import period.PeriodMaker;
-import period.PeriodMakerImpl;
 
 public class TestBpaCostsMakerImpl {
 	

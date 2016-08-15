@@ -14,12 +14,10 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 	public ConfigurationMakerImpl(){	
 	}
 	
-	
 	public String captureInput(String message, Scanner sc){
 		System.out.println(message);
 		return sc.nextLine();
 	}
-	
 	
 	@Override
 	public boolean makeConfiguration(UserSpace userSpace, Scanner sc) {
@@ -49,8 +47,8 @@ public class ConfigurationMakerImpl implements ConfigurationMaker {
 		try {
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
-			//ConfigurationMapper configMapper = new ConfigurationMapperImplCSV(new ConfigurationManagerCSV(config));
-			ConfigurationMapper configMapper = new ConfigurationMapperImplSQL(new ConfigurationManagerSQL(config));
+			ConfigurationMapperAbstract configMapper = new ConfigurationMapperImplCSV(new ConfigurationManagerCSV(config));
+			//ConfigurationMapperAbstract configMapper = new ConfigurationMapperImplSQL(new ConfigurationManagerSQL(config));
 			if (!configMapper.mapFiles(sc)){
 				return false;
 			}

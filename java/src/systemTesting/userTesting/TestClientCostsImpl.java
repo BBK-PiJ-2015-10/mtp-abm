@@ -15,8 +15,8 @@ import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImplCSV;
 import period.PeriodMaker;
-import period.PeriodMakerImpl;
 import client.ClientCostsImpl;
+import old.PeriodMakerImpl;
 
 public class TestClientCostsImpl {
 	

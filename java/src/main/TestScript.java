@@ -37,9 +37,8 @@ import java.util.Scanner;
 
 import configuration.ConfigurationManagerCSV;
 import configuration.MapCreatorImplCSV;
-
+import old.PeriodMakerImpl;
 import period.PeriodMaker;
-import period.PeriodMakerImpl;
 import systemTesting.userTesting.TestBpaCostsMakerImpl;
 import user.UserSpace;
 import bpa.BpaCostCalculator;

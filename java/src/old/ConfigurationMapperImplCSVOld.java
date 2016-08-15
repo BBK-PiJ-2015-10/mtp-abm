@@ -1,10 +1,9 @@
-package sqlimpl;
+package old;
 
 import java.io.File;
 import java.util.Scanner;
 
 import configuration.ConfigurationManagerCSV;
-import configuration.ConfigurationManagerSQL;
 import configuration.ConfigurationMapper;
 import configuration.MapCreator;
 import configuration.MapCreatorFactoryCSV;
@@ -13,22 +12,21 @@ import java.util.Arrays;
 
 import java.util.NoSuchElementException;
 
-public class ConfigurationMapperImplSQL implements ConfigurationMapper {
+public class ConfigurationMapperImplCSVOld implements ConfigurationMapper {
 	
-	private ConfigurationManagerSQL configurationManager;
+	private ConfigurationManagerCSV configurationManager;
 	
-	private MapCreatorFactorySQL mapCreatorFactory = new MapCreatorFactorySQL();
+	private MapCreatorFactoryCSV mapCreatorFactory = new MapCreatorFactoryCSV();
 	
 	private MapCreator mapCreator;
 	
-	public ConfigurationMapperImplSQL(ConfigurationManagerSQL configurationManager){
+	public ConfigurationMapperImplCSVOld(ConfigurationManagerCSV configurationManager){
 		this.configurationManager=configurationManager;
 	}
 
 	public boolean execManager(Scanner sc) {
 		try {
 			configurationManager.loadFilesMap();
-			/*
 			boolean validEntry=false;
 			String glName;
 			do {
@@ -43,10 +41,7 @@ public class ConfigurationMapperImplSQL implements ConfigurationMapper {
 					System.out.println("invalid name");
 				}
 			} while (!validEntry);
-			*/
-			//configurationManager.setGLFile(glName);
-			configurationManager.captureGLConnectionSettings(sc);
-			//configurationManager.setUpGLConnection();
+			configurationManager.setGLFile(glName);
 			configurationManager.grabFilesAttributes();
 			configurationManager.loadGlFilesMainAttributes(sc);
 			configurationManager.loadBpaFilesMainAttributes(sc);
