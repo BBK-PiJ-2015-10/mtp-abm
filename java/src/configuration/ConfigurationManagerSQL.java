@@ -101,19 +101,11 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 		return true;
 	}
 	
-	public boolean grabFilesAttributes() {	
-		boolean isSuccesful=false;
-		try {
-			for (String input: bpaFilesMap.keySet()){
-				grabFileAttributes(bpaFilesMap.get(input),bpaFilesAttributesMap);
-			}
-			grabSQLTableAttributes(glConnectionSettings.get(glConnectionSettings.size()-1),glFilesAttributesMap);
-			isSuccesful=true;
-		} catch (RuntimeException ex) {
-			isSuccesful=false;
-		}
-		return isSuccesful;	
+	
+	public void grabGL(){
+		grabSQLTableAttributes(glConnectionSettings.get(glConnectionSettings.size()-1),glFilesAttributesMap);
 	}
+	
 			
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)

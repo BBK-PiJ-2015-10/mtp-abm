@@ -84,7 +84,6 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 		return bpaFilesMap.get(name);
 	}
 	
-	
 	public void grabFileAttributes(File file, Map map){
 		try {
 			in = new BufferedReader(new FileReader(file));
@@ -103,8 +102,8 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 		catch(IOException ex){
 			throw new RuntimeException(ex);
 		}
+	}
 	
-	}	
 			
 	public void loadBpaFilesMainAttributes(Scanner sc){
 		for (String input : bpaFilesAttributesMap.keySet()){			
@@ -196,14 +195,30 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 		return this.glFilesMainAttributesMap;
 	}	
 	
+	public boolean grabFilesAttributes() {	
+		boolean isSuccesful=false;
+		try {
+			for (String input: bpaFilesMap.keySet()){
+				grabFileAttributes(bpaFilesMap.get(input),bpaFilesAttributesMap);
+			}
+			grabGL();
+			isSuccesful=true;
+		} catch (RuntimeException ex) {
+			isSuccesful=false;
+		}
+		return isSuccesful;	
+	}
+	
+	
 	public abstract String getGLFileName();
 	
-	public abstract boolean grabFilesAttributes();	
+	public abstract void grabGL();
 	
 	public abstract void save();
 	
 	public abstract void save(String newname);
 	
 	public abstract boolean capture(String configurationname);
+			
 		
 }

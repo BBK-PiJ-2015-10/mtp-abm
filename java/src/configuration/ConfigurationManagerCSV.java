@@ -44,21 +44,12 @@ public class ConfigurationManagerCSV extends ConfigurationManagerAbstract implem
 		return glFile.getName();
 	}
 	
-	public boolean grabFilesAttributes() {	
-		boolean isSuccesful=false;
-		try {
-			for (String input: bpaFilesMap.keySet()){
-				grabFileAttributes(bpaFilesMap.get(input),bpaFilesAttributesMap);
-			}
-			grabFileAttributes(glFile,glFilesAttributesMap);
-			isSuccesful=true;
-		} catch (RuntimeException ex) {
-			isSuccesful=false;
-		}
-		return isSuccesful;	
-	}	
-		
-		
+	
+	public void grabGL(){
+		grabFileAttributes(glFile,glFilesAttributesMap);
+	}
+
+	
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
 		{
