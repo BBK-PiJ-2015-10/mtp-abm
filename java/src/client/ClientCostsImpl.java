@@ -43,7 +43,6 @@ public class ClientCostsImpl implements ClientCosts {
 	
 	/**
 	 * 
-	 * 
 	 */	
 	@Override
 	public boolean calculateClientCosts() {

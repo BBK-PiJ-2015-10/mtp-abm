@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import java.io.File;
 import bpa.BpaCostsMakerImplCSV;
-import old.PeriodMakerImpl;
+import old.PeriodMakerImplOld;
 import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostsMaker;
 import period.PeriodMaker;
@@ -18,7 +18,7 @@ public class TestBpaClientWeightsCalculatorImpl {
 	
 	private File file = new File(address);
     
-	private PeriodMaker period = new PeriodMakerImpl(file);
+	private PeriodMaker period = new PeriodMakerImplOld(file);
 	
 	private BpaCostsMaker bpaCostsMaker;
 	

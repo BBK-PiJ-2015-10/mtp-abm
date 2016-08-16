@@ -88,10 +88,8 @@ public class UserSpace implements Serializable {
 		
 	public boolean capture(String directoryname){
 		boolean isPresent;
-		//System.out.println(file.getAbsolutePath()+"\\"+directoryname+".dat");
 		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
 		try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(address+directoryname+"\\"+directoryname+".dat"));)
-		//try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+directoryname+".dat"));)
 		{
 			file = (File)incode.readObject();
 			configurations=(Map<String,File>)incode.readObject();

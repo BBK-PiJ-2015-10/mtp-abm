@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.ActivityDiagramText</type>
+    <coordinates>
+      <x>280</x>
+      <y>0</y>
+      <w>481</w>
+      <h>1279</h>
+    </coordinates>
+    <panel_attributes>title:ABC/ABM Application Main Program Activity Diagram
+Start
+
+UserSpaceOptions
+
+If
+	[new User]
+	create UserSpace
+
+	[existing User]
+	access existing UserSpace
+
+ConfigurationOptions
+	
+If
+
+	[New Configuration]
+	create New Configuration
+
+	[Existing Configuration]
+	
+Period Options
+
+If 
+
+	[New Period]
+	create New Period
+
+	[Existing Period]
+	access Existing Period
+
+ReportOptions
+
+	While[GenerateReport(s) = yes]
+	generate Report
+	
+End
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

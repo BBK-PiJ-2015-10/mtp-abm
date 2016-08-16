@@ -15,8 +15,6 @@ import java.util.LinkedList;
 import java.util.regex.Pattern;
 import java.util.HashMap;
 
-import java.text.DecimalFormat;
-
 
 public class ReportDetailedImpl extends ReportAbstract {
 	
@@ -142,7 +140,7 @@ public class ReportDetailedImpl extends ReportAbstract {
 			out.println();
 			for (String input: costsMap.keySet()){
 				for (int k=0;k<costsMap.get(input).size();k++){
-					List<String> temp=new LinkedList();
+					List<String> temp=new LinkedList<>();
 					temp.add(input);
 					for (int m=0;m<costsMap.get(input).get(k).size();m++){
 						temp.add(costsMap.get(input).get(k).get(m));
@@ -152,8 +150,6 @@ public class ReportDetailedImpl extends ReportAbstract {
 							out.write(temp.get(z)+",");
 						}
 						else {
-							//DecimalFormat df = new DecimalFormat("####0.00");
-							//out.write(df.format(Double.parseDouble(temp.get(z))));
 							out.write(temp.get(z));
 						}
 						

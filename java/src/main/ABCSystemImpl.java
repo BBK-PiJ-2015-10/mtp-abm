@@ -15,7 +15,6 @@ import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImplCSV;
 import configuration.ConfigurationMakerImplSQL;
 import old.ConfigurationMakerImpl;
-import old.PeriodMakerImpl;
 import period.PeriodMaker;
 import period.PeriodMakerImplCSV;
 import period.PeriodMakerImplSQL;
@@ -91,7 +90,7 @@ public class ABCSystemImpl implements ABCSystem {
 		System.out.println("Please enter the name of the period you wish to access");
 		String periodName = sc.nextLine();
 		if(userSpace.validPeriod(periodName)){
-			periodMaker = new PeriodMakerImpl(new File(userSpace.getPeriod(periodName).getAbsolutePath()));
+			periodMaker = new PeriodMakerImplSQL(new File(userSpace.getPeriod(periodName).getAbsolutePath()));
 			periodMaker.capture(periodName);
 			result = true;
 		}
@@ -146,15 +145,17 @@ public class ABCSystemImpl implements ABCSystem {
 			}	
 		} while (!validEntry);
 		
+		do {
+			System.out.println("If you wish to create a new ABC Configuration, please enter yes");
+			choice = sc.nextLine();
+			validEntry = validSelection(choice);
+			if (validEntry){
+				if (choice.equalsIgnoreCase("yes")){
+					runMakeNewConfiguration();		
+				}
+			}	
+		} while (!validEntry);
 		
-		System.out.println("If you wish to create a new ABC Configuration, please enter yes");
-		choice = sc.nextLine();
-		if (choice.equalsIgnoreCase("yes")){
-			runMakeNewConfiguration();
-		}
-	
-		
-		//validEntry=false;
 		do {
 			System.out.println("Enter yes if you wish to create a new period, enter no if you wish "
 					+ "to access an existing period");

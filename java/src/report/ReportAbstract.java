@@ -1,16 +1,7 @@
 package report;
 
 import java.io.File;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.PrintWriter;
-
 import java.util.Map;
-import java.util.regex.Pattern;
 import java.util.HashMap;
 
 

@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+//import configuration.ConfigurationManagerCSV;
+//import period.PeriodMaker;
 
 import java.io.Serializable;
 import java.io.FileInputStream;
@@ -15,12 +17,9 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import sqlimpl.*;
-
-import configuration.ConfigurationManagerAbstract;
-import configuration.ConfigurationManagerCSV;
-import configuration.ConfigurationManagerSQL;
 import period.PeriodMaker;
+
+import sqlimpl.*;
 
 public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
@@ -28,7 +27,9 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 	
 	private UserSpace userSpace;
 	
-	private ConfigurationManagerAbstract configurationManager;
+	private ConfigurationManagerCSVOld configurationManager;
+	
+	//private ConfigurationManagerSQL configurationManager;
 	
 	private File bpaCosts;
 	
@@ -48,7 +49,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		return this.userSpace;
 	}
 	
-	public ConfigurationManagerAbstract getConfiguration(){
+	public ConfigurationManagerCSVOld getConfiguration(){
 		return this.configurationManager;
 	}
 	
@@ -106,7 +107,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 				System.out.println("Configuration name not found");
 			}
 		} while (!validEntry);
-		configurationManager = new ConfigurationManagerCSV(userSpace.getConfiguration(keyboardEntry));
+		configurationManager = new ConfigurationManagerCSVOld(userSpace.getConfiguration(keyboardEntry));
 		//configurationManager = new ConfigurationManagerSQL(userSpace.getConfiguration(keyboardEntry));
 		configurationManager.capture(keyboardEntry);
 		return validEntry;
@@ -157,7 +158,7 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		{
 			period = (File)incode.readObject();
 			userSpace=(UserSpace)incode.readObject();
-			configurationManager=(ConfigurationManagerCSV)incode.readObject();
+			configurationManager=(ConfigurationManagerCSVOld)incode.readObject();
 			//configurationManager=(ConfigurationManagerSQL)incode.readObject();
 			periodFiles=(Map<String,File> )incode.readObject();
 			driversMap=(Map<String,String>)incode.readObject();
@@ -176,6 +177,11 @@ public class PeriodMakerImpl implements PeriodMaker, Serializable {
 		} 
 		return isPresent;		
 	}
+	
+	
+	
+	
+
 	
 	
 }

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>304</y>
+      <w>232</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>UserSpaceMakerImpl
+--
+--
++createUserSpace(userSpace: UserSpace, 
+scanner Scanner): void
+
+--
+Responsibilities
+-- Implements UserSpaceMaker</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>96</y>
+      <w>224</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+UserSpaceMaker
+--
++createUserSpace(userSpace :UserSpace,
+scanner: Scanner)
+--
+Responsibilities
+-- Creates a UserSpace</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>8</x>
+      <y>0</y>
+      <w>832</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>Package: user</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>184</x>
+      <y>184</y>
+      <w>24</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>96</y>
+      <w>304</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>UserSpace
+--
+- file: File
+- configurations: Map&lt;String,File&gt;
+- periods: Map&lt;String,File&gt;
+--
++ addConfiguration(configName:String ,file:File) :boolean
++ removeConfiguration(configName:String ,file:File) :boolean
++ validConfiguration(configName:String):boolean
++ getConfigurationNames(): Set&lt;String&gt;
++ addPeriod(periodName:String ,file:File) :void
++ getPeriod(periodName:String): File
++ validPeriod(periodName:String): boolean
++ getPeriodNames(): Set&lt;String&gt;
++ save() : void
++ capture(directoryName: String)
+--
+Responsibilities
+-- Facilitates the access and storage of the different
+configurations and periods to be created in the application.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>296</x>
+      <y>136</y>
+      <w>200</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

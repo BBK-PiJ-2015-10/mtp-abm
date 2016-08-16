@@ -1,6 +1,5 @@
 package report;
 
-import java.io.File;
 
 import java.util.Scanner;
 
@@ -49,9 +48,9 @@ public class ReportGeneratorImpl implements ReportGenerator {
 		if (periodMaker==null){
 			return false;
 		}
-		optionsList = new LinkedList();
+		optionsList = new LinkedList<>();
 		optionsList = Arrays.asList("SummaryClientReport","DetailedClientReport","SummaryBPAReport","DetailedBPAReport");
-		optionsMap = new HashMap();
+		optionsMap = new HashMap<>();
 		for (int i=0;i<optionsList.size();i++){
 			optionsMap.put(i+1,optionsList.get(i));
 		}	
