@@ -41,7 +41,7 @@ Responsibilities
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>8</x>
+      <x>16</x>
       <y>0</y>
       <w>832</w>
       <h>640</h>
@@ -86,8 +86,8 @@ Responsibilities
 + capture(directoryName: String)
 --
 Responsibilities
--- Facilitates the access and storage of the different
-configurations and periods to be created in the application.
+-- Facilitates the access and keep references to the different
+configurations and periods created.
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -97,9 +97,12 @@ configurations and periods to be created in the application.
       <x>296</x>
       <y>136</y>
       <w>200</w>
-      <h>24</h>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>230.0;10.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=-
+m1=1..1
+m2=0..n
+creates &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
   </element>
 </diagram>

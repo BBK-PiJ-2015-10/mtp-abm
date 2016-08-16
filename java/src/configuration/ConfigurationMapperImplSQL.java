@@ -28,34 +28,7 @@ public class ConfigurationMapperImplSQL extends ConfigurationMapperAbstract impl
 			return false;
 		}
 	}
-	
-	@Override 
-	public boolean mapFiles(Scanner sc){
-		return (execManager(sc) && createMap(sc));	
-	}
-	
-	public boolean createMap(Scanner sc){
-		if (sc==null){
-			return false;
-		}
-		
-		boolean validEntry;
-		mapCreatorFactory.presentChoices();
-		Integer choice = null;
-		do {
-			try {
-				choice = Integer.parseInt(sc.nextLine());
-				validEntry=mapCreatorFactory.getMapCreatorOptions().containsKey((choice));
-			} catch (NumberFormatException ex){
-				validEntry=false;
-			}
-			if (!validEntry){
-				System.out.println("Invalid entry, please type a valid option");
-				mapCreatorFactory.presentChoices();
-			}
-		} while (!validEntry);
-		return mapCreatorFactory.getMapCreator(choice).createMap(configurationManager,sc,"glbpamap.csv");
-	}
+
 	
 
 }

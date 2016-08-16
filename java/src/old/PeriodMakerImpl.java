@@ -17,6 +17,8 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import old.ConfigurationManagerCSVOld;
+
 import period.PeriodMaker;
 
 import sqlimpl.*;

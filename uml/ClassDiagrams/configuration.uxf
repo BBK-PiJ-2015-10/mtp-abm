@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>272</x>
+      <y>136</y>
+      <w>184</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
+ConfigurationMakerAbstract
+--
+--
++ captureInput(message:String, scanner: Scanner): String
++ Abstract initConfigMapper(config:File): ConfigurationMapperAbstract
++makeConfiguration(userSpace: UserSpace, 
+scanner: Scanner): boolean
+
+--
+Responsibilities
+-- Abstract implementation of ConfigurationMaker. Coordinates
+the different steps involved in making a Configuration.
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>308</x>
+      <y>24</y>
+      <w>112</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ConfigurationMaker
+--
++makeConfiguration(userSpace :UserSpace,
+scanner: Scanner): boolean
+--
+Responsibilities
+-- Makes a configuration
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>232</x>
+      <y>292</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>ConfigurationMakerImplCSV
+--
+--
++ initConfigMapper(config:File): 
+ConfigurationMapperAbstract
+
+--
+Responsibilities
+-- Extension of ConfigurationManagerAbstract.
+Provides a CSV implementation of the configuration.
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>292</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>ConfigurationMakerImplSQL
+--
+--
++ initConfigMapper(config:File): 
+ConfigurationMapperAbstract
+
+--
+Responsibilities
+-- Extension of ConfigurationManagerAbstract.
+Provides a GLSQL implementation of the configuration.
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>356</x>
+      <y>68</y>
+      <w>12</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>204</y>
+      <w>72</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=2</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>372</x>
+      <y>204</y>
+      <w>92</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>732</x>
+      <y>12</y>
+      <w>184</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
+ConfigurationManagerAbstract
+--
+- file: File
+- bpaFilesMap: Map&lt;String,File&gt;
+- glbpamapFile: File
+- bpaFilesAttributesMap: Map&lt;String,Set&lt;String&gt;&gt;
+- bpaFilesMainAttributesMap: Map&lt;String,List&lt;String&gt;&gt;
+- glFilesAttributesMap: Map&lt;String,Set&lt;String&gt;&gt;
+- glFilesMainAttributesMap: Map&lt;String,Set&lt;String&gt;&gt;
+- in: BufferedReader
+--
++ getters and setters for all protected fields
++ loadFilesMap(): void
++ grabFileAttributes(file:File,map:Map): void
++ loadBpaFilesMainAttributes(scanner:Scanner): void
++ loadGLFilesMainAttributes(scanner:Scanner): void
++ readEntry(input:String,message:String,accumulator:
+&lt;List&gt;String,inputMap:&lt;String,Set&lt;String&gt;&gt;,maxEntry:int,
+scanner:Scanner)
++ grabFileAttributes();
++ Abstract getGLFileName():String
++ Abstract grabGL():void
++ Abstract save():void
++ Abstract save(String newName): void
++ Abstract captures(String configurationName);
+--
+Responsibilities
+-- Keeps object references and manages all the different
+files needed in a configuration. 
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>668</x>
+      <y>280</y>
+      <w>148</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>ConfigurationManagerCSV
+--
+- glfile: File
+--
++ getters and setters for all protected fields
++ getGLFileName():String
++ grabGL():void
++ save():void
++ save(String newName): void
++ capture(String configurationName):boolean
+--
+Responsibilities
+-- Extends ConfigurationManagersAbstract and provides
+a CSV implementation of the ConfigurationManager. 
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>836</x>
+      <y>280</y>
+      <w>144</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ConfigurationManagerSQL
+--
+- glConnectionSettings: List&lt;String&gt;
+--
++ captureGLConnectionSettings(scanner:Scanner): boolean
++ getGLConnection(): Connection
++ getGLConnectionSettings(): List&lt;String&gt;
++ grabSQLTableAttributes(SQLTableName: String,map:Map)
++ getGLFileName():String
++ grabGL():void
++ save():void
++ save(String newName): void
++ capture(String configurationName): boolean
+--
+Responsibilities
+-- Extends ConfigurationManagersAbstract and provides
+a SQL implementation of the ConfigurationManager. 
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>756</x>
+      <y>192</y>
+      <w>72</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=3</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>192</y>
+      <w>80</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>372</x>
+      <y>460</y>
+      <w>12</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>520</y>
+      <w>184</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
+ConfigurationMapperAbstract
+--
+- configurationManager: ConfigurationManagerAbstract
+- mapCreatorFactory: MapCreatorFactoryAbstract
+--
++ mapFiles(scanner:Scanner): boolean
++ createMap(scanner:Scanner): boolean
++ abstract execManager(scanner:Scanner): boolean
+--
+Responsibilities
+-- Launches a MapCreator object
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>588</y>
+      <w>72</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>388</x>
+      <y>588</y>
+      <w>92</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>676</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>ConfigurationMapperImplCSV
+--
+--
++ execManager(scanner:Scanner):
+--
+Responsibilities
+-- CSV implementation of ConfigurationMapper.
+-- Initializes mapCreatorFactory to type 
+MapCreatorFactoryCSV.
+-- Triggers the execution of the different 
+methods of the ConfigurationManager.
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>404</x>
+      <y>676</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>ConfigurationMapperImplSQL
+--
+--
++ execManager(scanner:Scanner):
+--
+Responsibilities
+-- SQL implementation of ConfigurationMapper.
+-- Initializes mapCreatorFactory to type 
+MapCreatorFactoryCSV.
+-- Triggers the execution of the different 
+methods of the ConfigurationManager.
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>408</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ConfigurationMapper
+--
++mapFiles(scanner: Scanner): boolean
+--
+Responsibilities
+-- Performs the mapping of GL main 
+attributes to business process activities
+(BPA)
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>464</y>
+      <w>12</w>
+      <h>68</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>604</x>
+      <y>524</y>
+      <w>184</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
+MapCreatorAbstract
+--
+- manualFlag: boolean
+- fileValidator: FileValidator
+--
++ abstract createMap(configurationManager:
+ConfigurationManagerAbstract,
+scanner : Scanner,
+mapName: String): boolean
+--
+Responsibilities
+-- Abstract class starting the implemtation of
+MapCreator. Host a boolean field to capture the
+type of map creation process and a filevalidator
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>592</y>
+      <w>72</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=4</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>592</y>
+      <w>92</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>564</x>
+      <y>680</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MapCreatorImplCSV
+--
+--
++ createMap(configurationManager:
+ConfigurationManagerAbstract,
+scanner : Scanner,
+mapName: String): boolean
+--
+Responsibilities
+-- Extends MapCreatorAbstract. Provides a
+CSV implementation of MapCreator. 
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>412</y>
+      <w>112</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+MapCreator
+--
++createMap(configurationManager:
+ConfigurationManagerAbstract,
+scanner : Scanner,
+mapName: String): boolean
+--
+Responsibilities
+-- Triggers the creation of a file that
+captures the mapping of GL attributes to
+business process activities (BPA)
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>680</y>
+      <w>136</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MapCreatorImplSQL
+--
+--
++ createMap(configurationManager:
+ConfigurationManagerAbstract,
+scanner : Scanner,
+mapName: String): boolean
+--
+Responsibilities
+-- Extends MapCreatorAbstract. Provides a
+an SQL implementation of MapCreator. 
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1000</x>
+      <y>588</y>
+      <w>124</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
+MapCreatorFactory
+--
+- mapCreatorOptions: Map&lt;Integer,String&gt; 
+--
++ loadOptions(): void
++ presentChoices(): boolean
++ abstract getMapCreator: MapCreator
+--
+Responsibilities
+-- Abstract class that provides a MapCreator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>968</x>
+      <y>648</y>
+      <w>96</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>912</x>
+      <y>684</y>
+      <w>124</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>MapCreatorFactoryCSV
+--
+- mapCreatorOptions: Map&lt;Integer,String&gt; 
+--
++ getMapCreator: MapCreator
+--
+Responsibilities
+-- Concrete class that provides a 
+MapCreator for a CSV implementation.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1080</x>
+      <y>684</y>
+      <w>124</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>MapCreatorFactorySQL
+--
+- mapCreatorOptions: Map&lt;Integer,String&gt; 
+--
++ getMapCreator: MapCreator
+--
+Responsibilities
+-- Concrete class that provides a 
+MapCreator for a SQL implementation.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>648</y>
+      <w>80</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>0</y>
+      <w>1188</w>
+      <h>868</h>
+    </coordinates>
+    <panel_attributes>Package: configuration</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
