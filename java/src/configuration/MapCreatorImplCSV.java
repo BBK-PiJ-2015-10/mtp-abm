@@ -19,14 +19,10 @@ import java.util.HashSet;
 import validator.FileValidator;
 import validator.FileValidatorImpl;
 
-public class MapCreatorImplCSV implements MapCreator {
-	
-	private boolean manualFlag;
-	
-	private FileValidator fileValidator = new FileValidatorImpl();
-		
+public class MapCreatorImplCSV extends MapCreatorAbstract {
+			
 	public MapCreatorImplCSV(boolean manualFlag){
-		this.manualFlag=manualFlag;
+		super(manualFlag);
 	}
 
 	@Override
@@ -59,11 +55,6 @@ public class MapCreatorImplCSV implements MapCreator {
 				List<String> attri = configurationManager.getGlMainFilesAttributesMap().
 						get(configurationManager.getGLFileName()).subList(0, size-1);
 				List<Integer> attripos = new LinkedList<>();
-				//for (int i=0;i<attri.size();i++){
-					//out.write(attri.get(i)+",");
-				//}
-				//out.write("BPA");
-				//out.println();
 				String line;
 				String[] sentence;
 				line = in.readLine();

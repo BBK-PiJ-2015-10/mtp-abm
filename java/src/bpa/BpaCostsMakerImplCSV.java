@@ -20,59 +20,12 @@ import java.util.Set;
 import java.util.NoSuchElementException;
 
 
-public class BpaCostsMakerImplCSV implements BpaCostsMaker {
-	
-    //This is a reference to the Period related to this BpaCost
-	private PeriodMaker periodMaker;
-	
-	//This is a reference to the file that with bpaCosts
-	private File bpaCosts;
-		
+public class BpaCostsMakerImplCSV extends BpaCostsMakerAbstract {
+			
 	public BpaCostsMakerImplCSV(PeriodMaker periodMaker){
-		this.periodMaker=periodMaker;
+		super(periodMaker);
 	}
 	
-	public PeriodMaker getPeriodMaker(){
-		return this.periodMaker;
-	}
-	
-	
-	public File getBPACosts(){
-		return this.bpaCosts;
-	}
-	
-	
-	//Displays the names of the files expected in the period folder
-	public boolean displayInputFilesNames(){
-		try {
-			System.out.println("Please place on the below directory: ");
-			System.out.println(periodMaker.getPeriod().getAbsolutePath());
-			System.out.println("The following files: ");
-			periodMaker.getConfiguration().getBPAFilesMap().keySet().forEach(System.out::println);
-			System.out.println(periodMaker.getConfiguration().getGLFileName());
-			//System.out.println(periodMaker.getConfiguration().getGLFile().getName());
-			System.out.println("You have 30 seconds to do so");	
-		} catch (NullPointerException ex){
-			return false;
-		}
-		return true;
-	}
-	
-	
-	//This is a timer to give x seconds to the user to place needed files on directory
-	public boolean putToSleep(int microsecondstime){
-		try {
-			Thread.sleep(microsecondstime);
-		} catch (InterruptedException ex)
-		{
-			return Thread.currentThread().interrupted();
-		} 
-		catch (IllegalArgumentException ex){
-			return false;
-		}
-		return true;
-		
-	}
 	
 	//Validate that all expected files are in place, if not, then returns false. If yes
 	//it returns true.
@@ -97,7 +50,6 @@ public class BpaCostsMakerImplCSV implements BpaCostsMaker {
 				System.out.println("The file named: " +tempF.getName() +" is missing");
 			}
 			else {
-				//periodFiles.put(periodMaker.getConfiguration().getGLFile().getName(),tempF);
 				periodFiles.put(periodMaker.getConfiguration().getGLFileName(),tempF);
 				currFiles++;
 			}
@@ -111,61 +63,6 @@ public class BpaCostsMakerImplCSV implements BpaCostsMaker {
 	
 	
 	
-	/*
-	 * mr is a reader that reads the glbpamapFile
-	 * Values are stored in the driversMap map.
-	 */
-	public boolean extractGLBPAMap(Map<String,String> driversMap){
-		try (BufferedReader mr = new BufferedReader(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
-		{
-			String line;
-			mr.readLine();
-			while ((line = mr.readLine()) != null){
-				if (!line.isEmpty()) {
-					String[] sentence=line.split(",");
-					String key=null;
-					String value=null;
-					for (int i=0;i<sentence.length;i++){
-						//If string being read is not the last string in the line. Then it stores it
-						//as a key. If it is the last one, it stores it as a value.
-						//A key can be made out of several strings not just one.
-						//The value is the BPA activity associated with the tupples put as keys
-						if (i<sentence.length-1){
-							if (key==null){
-								key=sentence[i];
-							}
-							else {
-								key=key+sentence[i];
-							}
-						}
-						else {
-							value=sentence[i];
-						}
-					}
-				driversMap.put(key, value);
-			}
-		    periodMaker.save();
-		}		
-		} catch ( IOException | NoSuchElementException | NullPointerException ex){
-			driversMap=null;
-			return false;
-		}
-		return true;
-	}
-	
-	@Override
-	public boolean createBpaCostsFile(){
-		try {	
-		bpaCosts = new File(periodMaker.getPeriod().getAbsolutePath()+"\\"+"bpaCosts.csv");
-		periodMaker.setBpaCosts(bpaCosts);
-		periodMaker.save();
-		} catch (NullPointerException ex){
-			return false;
-		}
-		return true;
-	}
-	
-
 	/*
 	* Writing to the bpaCosts file reference
 	* Reading from the gl.csv file referenced on the periodFiles
@@ -206,13 +103,10 @@ public class BpaCostsMakerImplCSV implements BpaCostsMaker {
 			out.write("BPA");
 			out.println();
 			
-			
-			
 			while ((line = in.readLine()) != null){
 				
 				//assigns each line being read into a sentence array
 				sentence=line.split(",");
-				//validPOS.get(validPOS.size()-1);
 				String key = null;
 				
 				for (int pos: validPOS){
@@ -241,26 +135,6 @@ public class BpaCostsMakerImplCSV implements BpaCostsMaker {
 		return true;
 	}
 	
-	
-	
-	@Override
-	public boolean createbpaCosts() {
-		try {
-		displayInputFilesNames();
-		putToSleep(30000);
-		validateInput(this.periodMaker.getPeriodFiles());
-		System.out.println(extractGLBPAMap(this.periodMaker.getDriversMap()));
-		createBpaCostsFile();
-		extractGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
-		} catch (NullPointerException ex) {
-			System.out.println("This is going wild from the wrong bpa costs file");
-			return false;
-		}
-		return true;
-	}
-	
 
-	
-	
 
 }

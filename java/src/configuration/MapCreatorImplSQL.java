@@ -1,4 +1,4 @@
-package sqlimpl;
+package configuration;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,11 +13,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.LinkedList;
 import java.util.Set;
-
-import configuration.ConfigurationManagerCSV;
-import configuration.ConfigurationManagerSQL;
-import configuration.MapCreator;
-
 import java.util.HashSet;
 
 import validator.FileValidator;
@@ -29,37 +24,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-import configuration.ConfigurationManagerAbstract;
 
 
-
-public class MapCreatorImplSQL implements MapCreator {
-	
-	private boolean manualFlag;
-	
-	private FileValidator fileValidator = new FileValidatorImpl();
-		
+public class MapCreatorImplSQL extends MapCreatorAbstract {
+			
 	public MapCreatorImplSQL(boolean manualFlag){
-		this.manualFlag=manualFlag;
+		super(manualFlag);
 	}
 	
-	public boolean putToSleep(int microsecondstime){
-		try {
-			Thread.sleep(microsecondstime);
-		} catch (InterruptedException ex)
-		{
-			return Thread.currentThread().interrupted();
-		} 
-		catch (IllegalArgumentException ex){
-			return false;
-		}
-		return true;
-		
-	}
-	
-	
-
-
 	@Override
 	public boolean createMap(ConfigurationManagerAbstract configurationManager, Scanner keyboard, String mapName) {
 		
@@ -148,8 +120,6 @@ public class MapCreatorImplSQL implements MapCreator {
 				glbpamapFile.delete();
 				return false;
 			}
-		
-			
 			configurationManager.setglbpamapFile(glbpamapFile);
 			configurationManager.save();
 			if (manualFlag){
@@ -157,7 +127,6 @@ public class MapCreatorImplSQL implements MapCreator {
 				System.out.println("open file " +glbpamapFile.getName() +".");
 				System.out.println("and filled out the BPA column with the name of the files that contain "
 						+ "the drivers for each tupple");
-				putToSleep(30000);
 				System.out.println("Please type the word done, when finished");
 				boolean validEntry=false;
 				do  {

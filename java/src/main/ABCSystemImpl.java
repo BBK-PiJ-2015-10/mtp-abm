@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImplCSV;
+import bpa.BpaCostsMakerImplSQL;
 import bpa.BpaClientWeightsCalculator;
 import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostCalculator;
