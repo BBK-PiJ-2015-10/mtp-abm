@@ -45,7 +45,7 @@ group=2</panel_attributes>
     <coordinates>
       <x>16</x>
       <y>0</y>
-      <w>832</w>
+      <w>848</w>
       <h>640</h>
     </coordinates>
     <panel_attributes>
@@ -102,15 +102,75 @@ group=2</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>296</x>
-      <y>136</y>
+      <y>88</y>
       <w>200</w>
-      <h>40</h>
+      <h>128</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
 creates &gt;
 group=2</panel_attributes>
-    <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
+    <additional_attributes>10.0;70.0;30.0;140.0;180.0;140.0;180.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>384</y>
+      <w>184</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>package: configuration
+(ConfigurationManagerAbstract.file)
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>128</y>
+      <w>96</w>
+      <h>304</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+stores
+references
+to &gt;
+group=2</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0;10.0;350.0;100.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>584</x>
+      <y>480</y>
+      <w>168</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>package: period
+(PeriodMaker.file)
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>136</y>
+      <w>128</w>
+      <h>376</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+stores 
+references
+to &gt;
+group=2</panel_attributes>
+    <additional_attributes>50.0;10.0;80.0;10.0;80.0;440.0;10.0;440.0</additional_attributes>
   </element>
 </diagram>

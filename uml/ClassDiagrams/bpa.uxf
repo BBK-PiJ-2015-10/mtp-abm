@@ -6,17 +6,17 @@
     <coordinates>
       <x>609</x>
       <y>168</y>
-      <w>21</w>
+      <w>28</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=7</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
+      <x>490</x>
       <y>210</y>
       <w>259</w>
       <h>238</h>
@@ -43,7 +43,7 @@ Responsibilities
 -- Abstract implementation of BpaCostsMaker.
 -- Extracts information from a GLBPA file
 -- Creates BPA costs file 
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -51,24 +51,24 @@ group=7</panel_attributes>
     <coordinates>
       <x>476</x>
       <y>441</y>
-      <w>119</w>
-      <h>84</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-group=7</panel_attributes>
-    <additional_attributes>150.0;10.0;10.0;100.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>651</x>
-      <y>441</y>
       <w>126</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=7</panel_attributes>
-    <additional_attributes>10.0;10.0;160.0;100.0</additional_attributes>
+group=4</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>658</x>
+      <y>441</y>
+      <w>119</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -94,7 +94,7 @@ CSV implemenation.
 -- Extract data from a GL source and process the
 data to calculate the cost of each business process
 activity.
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -121,7 +121,7 @@ SQL implemenation.
 -- Extract data from a GL source and process the
 data to calculate the cost of each business process
 activity.
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -141,7 +141,7 @@ BpaCostMaker
 --
 Responsibilities
 -- Creates and populates a BpaCosts file.
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -155,7 +155,7 @@ group=7</panel_attributes>
     <panel_attributes>
 
 package:bpa
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -178,7 +178,7 @@ Responsibilities
 -- Concrete implementation of BpaCostCalculator.
 -- Provides the cost of any existing business
 process activity.
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -190,7 +190,7 @@ group=7</panel_attributes>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
@@ -209,22 +209,50 @@ BpaCostCalculator
 Responsibilities
 -- Provides the cost of any existing business
 process activity.
-group=7</panel_attributes>
+group=4</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>252</x>
-      <y>231</y>
-      <w>245</w>
+      <y>245</y>
+      <w>252</w>
       <h>35</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1
-contains a &gt;
-group=7</panel_attributes>
-    <additional_attributes>10.0;20.0;330.0;20.0</additional_attributes>
+uses &gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;20.0;340.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>266</x>
+      <y>392</y>
+      <w>147</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>package: period
+(PeriodMaker)
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>175</y>
+      <w>112</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+&lt; contains
+group=4</panel_attributes>
+    <additional_attributes>10.0;310.0;10.0;10.0;140.0;100.0</additional_attributes>
   </element>
 </diagram>
