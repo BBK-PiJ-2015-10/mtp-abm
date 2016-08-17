@@ -1,4 +1,4 @@
-package bpa;
+package client;
 
 import java.io.File;
 import java.io.BufferedReader;
@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
+
+import bpa.BpaCostsMaker;
 
 public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculator {
 	

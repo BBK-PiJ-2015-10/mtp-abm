@@ -45,15 +45,13 @@ import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImplCSV;
-import bpa.BpaClientWeightsCalculator;
-import bpa.BpaClientWeightsCalculatorImpl;
-
 import report.ReportGenerator;
 import report.ReportGeneratorImpl;
 import report.ReportSummaryImpl;
 import report.ReportGenerator;
 import report.ReportDetailedImpl;
-
+import client.BpaClientWeightsCalculator;
+import client.BpaClientWeightsCalculatorImpl;
 import client.ClientCosts;
 import client.ClientCostsImpl;
 

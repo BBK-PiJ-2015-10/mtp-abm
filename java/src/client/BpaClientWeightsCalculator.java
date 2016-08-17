@@ -1,6 +1,8 @@
-package bpa;
+package client;
 
 import java.util.Map;
+
+import bpa.BpaCostsMaker;
 
 public interface BpaClientWeightsCalculator {
 	

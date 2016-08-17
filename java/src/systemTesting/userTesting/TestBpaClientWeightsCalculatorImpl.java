@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import java.io.File;
 import bpa.BpaCostsMakerImplCSV;
+import client.BpaClientWeightsCalculatorImpl;
 import old.PeriodMakerImplOld;
-import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostsMaker;
 import period.PeriodMaker;
 

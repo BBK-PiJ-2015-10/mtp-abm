@@ -9,12 +9,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Ignore;
 
-import bpa.BpaClientWeightsCalculatorImpl;
 import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImplCSV;
 import period.PeriodMaker;
+import client.BpaClientWeightsCalculatorImpl;
 import client.ClientCostsImpl;
 import old.PeriodMakerImpl;
 

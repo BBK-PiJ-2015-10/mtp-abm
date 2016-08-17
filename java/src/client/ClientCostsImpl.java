@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import bpa.BpaCostCalculator;
-import bpa.BpaClientWeightsCalculator;
 
 
 public class ClientCostsImpl implements ClientCosts {
