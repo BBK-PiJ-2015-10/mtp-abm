@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>4</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>272</x>
-      <y>136</y>
-      <w>184</w>
-      <h>72</h>
+      <x>65</x>
+      <y>185</y>
+      <w>230</w>
+      <h>125</h>
     </coordinates>
     <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
 ConfigurationMakerAbstract
 --
 --
 + captureInput(message:String, scanner: Scanner): String
-+ Abstract initConfigMapper(config:File): ConfigurationMapperAbstract
++ Abstract initConfigMapper(config:File): ConfigurationMapper
 +makeConfiguration(userSpace: UserSpace, 
 scanner: Scanner): boolean
 
 --
 Responsibilities
--- Abstract implementation of ConfigurationMaker. Coordinates
-the different steps involved in making a Configuration.
-group=2</panel_attributes>
+-- Abstract implementation of ConfigurationMaker.
+-- Creates a configuration File. 
+-- Provides an abstract ConfigurationMapper set up.
+-- Triggers the execution of the ConfigurationMapper
+to start the GL-BPA mapping process.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>24</y>
-      <w>112</w>
-      <h>48</h>
+      <x>110</x>
+      <y>45</y>
+      <w>140</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 ConfigurationMaker
@@ -41,94 +44,96 @@ scanner: Scanner): boolean
 --
 Responsibilities
 -- Makes a configuration
-group=2</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>232</x>
-      <y>292</y>
-      <w>136</w>
-      <h>72</h>
+      <x>15</x>
+      <y>380</y>
+      <w>170</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>ConfigurationMakerImplCSV
 --
 --
 + initConfigMapper(config:File): 
-ConfigurationMapperAbstract
+ConfigurationMapper
 
 --
 Responsibilities
 -- Extension of ConfigurationManagerAbstract.
-Provides a CSV implementation of the configuration.
-group=2</panel_attributes>
+-- Provides an instance of a CSV based configuration
+of the ConfigurationMapper.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>392</x>
-      <y>292</y>
-      <w>144</w>
-      <h>72</h>
+      <x>215</x>
+      <y>380</y>
+      <w>180</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>ConfigurationMakerImplSQL
 --
 --
 + initConfigMapper(config:File): 
-ConfigurationMapperAbstract
+ConfigurationMapper
 
 --
 Responsibilities
 -- Extension of ConfigurationManagerAbstract.
-Provides a GLSQL implementation of the configuration.
-group=2</panel_attributes>
+-- Provides an instance of a SQL based configuration
+of the ConfigurationMapper.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>356</x>
-      <y>68</y>
-      <w>12</w>
-      <h>76</h>
+      <x>170</x>
+      <y>100</y>
+      <w>15</w>
+      <h>95</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=2</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>288</x>
-      <y>204</y>
-      <w>72</w>
-      <h>96</h>
+      <x>85</x>
+      <y>305</y>
+      <w>90</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=2</panel_attributes>
-    <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
+group=13</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>372</x>
-      <y>204</y>
-      <w>92</w>
-      <h>96</h>
+      <x>190</x>
+      <y>305</y>
+      <w>115</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=2</panel_attributes>
-    <additional_attributes>10.0;10.0;210.0;220.0</additional_attributes>
+group=13</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>732</x>
-      <y>12</y>
-      <w>184</w>
-      <h>184</h>
+      <x>625</x>
+      <y>565</y>
+      <w>230</w>
+      <h>230</h>
     </coordinates>
     <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
 ConfigurationManagerAbstract
@@ -160,16 +165,16 @@ scanner:Scanner)
 Responsibilities
 -- Keeps object references and manages all the different
 files needed in a configuration. 
-group=3</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>668</x>
-      <y>280</y>
-      <w>148</w>
-      <h>84</h>
+      <x>545</x>
+      <y>900</y>
+      <w>185</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>ConfigurationManagerCSV
 --
@@ -185,16 +190,16 @@ group=3</panel_attributes>
 Responsibilities
 -- Extends ConfigurationManagersAbstract and provides
 a CSV implementation of the ConfigurationManager. 
-group=3</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>836</x>
-      <y>280</y>
-      <w>144</w>
-      <h>100</h>
+      <x>755</x>
+      <y>900</y>
+      <w>180</w>
+      <h>125</h>
     </coordinates>
     <panel_attributes>ConfigurationManagerSQL
 --
@@ -213,52 +218,52 @@ group=3</panel_attributes>
 Responsibilities
 -- Extends ConfigurationManagersAbstract and provides
 a SQL implementation of the ConfigurationManager. 
-group=3</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>756</x>
-      <y>192</y>
-      <w>72</w>
-      <h>96</h>
+      <x>655</x>
+      <y>790</y>
+      <w>90</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=3</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>820</x>
-      <y>192</y>
-      <w>80</w>
-      <h>96</h>
+      <x>735</x>
+      <y>790</y>
+      <w>100</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=3</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>10.0;10.0;180.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>372</x>
-      <y>460</y>
-      <w>12</w>
-      <h>68</h>
+      <x>670</x>
+      <y>120</y>
+      <w>15</w>
+      <h>85</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=1</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>520</y>
-      <w>184</w>
-      <h>72</h>
+      <x>565</x>
+      <y>195</y>
+      <w>230</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
 ConfigurationMapperAbstract
@@ -271,41 +276,42 @@ ConfigurationMapperAbstract
 + abstract execManager(scanner:Scanner): boolean
 --
 Responsibilities
--- Launches a MapCreator object
-group=1</panel_attributes>
+-- Launches a MapCreator object based on a user's
+selection.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>304</x>
-      <y>588</y>
-      <w>72</w>
-      <h>96</h>
+      <x>585</x>
+      <y>280</y>
+      <w>90</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=1</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>388</x>
-      <y>588</y>
-      <w>92</w>
-      <h>96</h>
+      <x>690</x>
+      <y>280</y>
+      <w>115</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=1</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>10.0;10.0;210.0;220.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>248</x>
-      <y>676</y>
-      <w>136</w>
-      <h>72</h>
+      <x>515</x>
+      <y>390</y>
+      <w>170</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>ConfigurationMapperImplCSV
 --
@@ -317,17 +323,20 @@ Responsibilities
 -- Initializes mapCreatorFactory to type 
 MapCreatorFactoryCSV.
 -- Triggers the execution of the different 
-methods of the ConfigurationManager.
-group=1</panel_attributes>
+methods of the ConfigurationManager to gather
+and store the different configuration settings
+for all files and databases involved in ABC
+process.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>404</x>
-      <y>676</y>
-      <w>136</w>
-      <h>72</h>
+      <x>710</x>
+      <y>390</y>
+      <w>170</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>ConfigurationMapperImplSQL
 --
@@ -338,18 +347,21 @@ Responsibilities
 -- SQL implementation of ConfigurationMapper.
 -- Initializes mapCreatorFactory to type 
 MapCreatorFactoryCSV.
--- Triggers the execution of the different 
-methods of the ConfigurationManager.
-group=1</panel_attributes>
+-- -- Triggers the execution of the different 
+methods of the ConfigurationManager to gather
+and store the different configuration settings
+for all files and databases involved in ABC
+process.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>324</x>
-      <y>408</y>
-      <w>112</w>
-      <h>56</h>
+      <x>610</x>
+      <y>55</y>
+      <w>140</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 ConfigurationMapper
@@ -360,28 +372,28 @@ Responsibilities
 -- Performs the mapping of GL main 
 attributes to business process activities
 (BPA)
-group=1</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>688</x>
-      <y>464</y>
-      <w>12</w>
-      <h>68</h>
+      <x>1105</x>
+      <y>145</y>
+      <w>15</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=4</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+group=13</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>604</x>
-      <y>524</y>
-      <w>184</w>
-      <h>72</h>
+      <x>1000</x>
+      <y>200</y>
+      <w>230</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
 MapCreatorAbstract
@@ -398,40 +410,40 @@ Responsibilities
 -- Abstract class starting the implemtation of
 MapCreator. Host a boolean field to capture the
 type of map creation process and a filevalidator
-group=4</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>592</y>
-      <w>72</w>
-      <h>96</h>
+      <x>1020</x>
+      <y>285</y>
+      <w>90</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=4</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>160.0;10.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
-      <y>592</y>
-      <w>92</w>
-      <h>96</h>
+      <x>1125</x>
+      <y>285</y>
+      <w>115</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
-group=4</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes>10.0;10.0;210.0;220.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>564</x>
-      <y>680</y>
-      <w>136</w>
-      <h>72</h>
+      <x>950</x>
+      <y>395</y>
+      <w>170</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>MapCreatorImplCSV
 --
@@ -444,16 +456,16 @@ mapName: String): boolean
 Responsibilities
 -- Extends MapCreatorAbstract. Provides a
 CSV implementation of MapCreator. 
-group=4</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
-      <y>412</y>
-      <w>112</w>
-      <h>56</h>
+      <x>1045</x>
+      <y>60</y>
+      <w>140</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 MapCreator
@@ -467,16 +479,16 @@ Responsibilities
 -- Triggers the creation of a file that
 captures the mapping of GL attributes to
 business process activities (BPA)
-group=4</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>680</y>
-      <w>136</w>
-      <h>72</h>
+      <x>1155</x>
+      <y>395</y>
+      <w>170</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>MapCreatorImplSQL
 --
@@ -489,16 +501,16 @@ mapName: String): boolean
 Responsibilities
 -- Extends MapCreatorAbstract. Provides a
 an SQL implementation of MapCreator. 
-group=4</panel_attributes>
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1000</x>
-      <y>588</y>
-      <w>124</w>
-      <h>64</h>
+      <x>1135</x>
+      <y>580</y>
+      <w>155</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
 MapCreatorFactory
@@ -510,27 +522,29 @@ MapCreatorFactory
 + abstract getMapCreator: MapCreator
 --
 Responsibilities
--- Abstract class that provides a MapCreator</panel_attributes>
+-- Abstract class that provides a MapCreator
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>968</x>
-      <y>648</y>
-      <w>96</w>
-      <h>44</h>
+      <x>1115</x>
+      <y>655</y>
+      <w>100</w>
+      <h>75</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>220.0;10.0;10.0;90.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+group=13</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>912</x>
-      <y>684</y>
-      <w>124</w>
-      <h>52</h>
+      <x>1045</x>
+      <y>720</y>
+      <w>155</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>MapCreatorFactoryCSV
 --
@@ -540,16 +554,17 @@ Responsibilities
 --
 Responsibilities
 -- Concrete class that provides a 
-MapCreator for a CSV implementation.</panel_attributes>
+MapCreator for a CSV implementation.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1080</x>
-      <y>684</y>
-      <w>124</w>
-      <h>52</h>
+      <x>1255</x>
+      <y>720</y>
+      <w>155</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>MapCreatorFactorySQL
 --
@@ -559,29 +574,140 @@ MapCreator for a CSV implementation.</panel_attributes>
 --
 Responsibilities
 -- Concrete class that provides a 
-MapCreator for a SQL implementation.</panel_attributes>
+MapCreator for a SQL implementation.
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1064</x>
-      <y>648</y>
-      <w>80</w>
-      <h>44</h>
+      <x>1215</x>
+      <y>655</y>
+      <w>120</w>
+      <h>75</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;90.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-
+group=13</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>95</y>
+      <w>330</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=n
+provides an instance of&gt;
+group=13</panel_attributes>
+    <additional_attributes>10.0;280.0;640.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>455</x>
+      <y>200</y>
+      <w>180</w>
+      <h>415</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1
+&lt; is a field of
+group=13</panel_attributes>
+    <additional_attributes>220.0;10.0;10.0;10.0;10.0;800.0;340.0;800.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>200</y>
+      <w>355</w>
+      <h>405</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1
+&lt; is a field of
+group=13</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;10.0;220.0;780.0;690.0;780.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>485</y>
+      <w>80</w>
+      <h>425</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1
+invokes methods of&gt;
+group=13</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;710.0;130.0;830.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>865</x>
+      <y>485</y>
+      <w>80</w>
+      <h>425</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=1
+invokes methods of&gt;
+group=13</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;830.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1180</x>
+      <y>65</y>
+      <w>210</w>
+      <h>525</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+creates a &gt;
+group=13</panel_attributes>
+    <additional_attributes>190.0;1030.0;190.0;950.0;400.0;950.0;400.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>850</x>
+      <y>90</y>
+      <w>205</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+is utilized by &gt;
+group=13</panel_attributes>
+    <additional_attributes>10.0;950.0;150.0;950.0;150.0;10.0;390.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>140</x>
+      <x>0</x>
       <y>0</y>
-      <w>1188</w>
-      <h>868</h>
+      <w>1425</w>
+      <h>1040</h>
     </coordinates>
-    <panel_attributes>Package: configuration</panel_attributes>
+    <panel_attributes>
+
+
+Package: configuration
+group=13</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

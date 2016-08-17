@@ -17,7 +17,8 @@ scanner Scanner): void
 
 --
 Responsibilities
--- Implements UserSpaceMaker</panel_attributes>
+-- Implements UserSpaceMaker
+group=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -35,7 +36,8 @@ UserSpaceMaker
 scanner: Scanner)
 --
 Responsibilities
--- Creates a UserSpace</panel_attributes>
+-- Creates a UserSpace
+group=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -46,7 +48,10 @@ Responsibilities
       <w>832</w>
       <h>640</h>
     </coordinates>
-    <panel_attributes>Package: user</panel_attributes>
+    <panel_attributes>
+
+Package: user
+group=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -57,7 +62,8 @@ Responsibilities
       <w>24</w>
       <h>136</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+group=2</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
   <element>
@@ -88,7 +94,8 @@ Responsibilities
 Responsibilities
 -- Facilitates the access and keep references to the different
 configurations and periods created.
-</panel_attributes>
+
+group=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -100,9 +107,10 @@ configurations and periods created.
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=1..1
+m1=1
 m2=0..n
-creates &gt;</panel_attributes>
+creates &gt;
+group=2</panel_attributes>
     <additional_attributes>10.0;20.0;230.0;20.0</additional_attributes>
   </element>
 </diagram>

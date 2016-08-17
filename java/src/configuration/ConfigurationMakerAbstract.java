@@ -44,7 +44,7 @@ public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 		try {
 		String input = sc.nextLine();
 		if (input.equalsIgnoreCase("done")){
-			ConfigurationMapperAbstract configMapper = initConfigMapper(config);
+			ConfigurationMapper configMapper = initConfigMapper(config);
 			if (!configMapper.mapFiles(sc)){
 				return false;
 			}
@@ -63,7 +63,7 @@ public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 		}
 	}
 	
-	public abstract ConfigurationMapperAbstract initConfigMapper(File config);
+	public abstract ConfigurationMapper initConfigMapper(File config);
 	
 	
 	

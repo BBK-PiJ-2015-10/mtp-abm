@@ -11,7 +11,7 @@ import sqlimpl.*;
 
 public class ConfigurationMakerImplSQL extends ConfigurationMakerAbstract {
 
-	public ConfigurationMapperAbstract initConfigMapper(File config){
+	public ConfigurationMapper initConfigMapper(File config){
 		return new ConfigurationMapperImplSQL(new ConfigurationManagerSQL(config));
 	}
 

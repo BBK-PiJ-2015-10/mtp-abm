@@ -11,7 +11,7 @@ import sqlimpl.*;
 
 public class ConfigurationMakerImplCSV extends ConfigurationMakerAbstract {
 		
-	public ConfigurationMapperAbstract initConfigMapper(File config){
+	public ConfigurationMapper initConfigMapper(File config){
 		return new ConfigurationMapperImplCSV(new ConfigurationManagerCSV(config));
 	}
 	
