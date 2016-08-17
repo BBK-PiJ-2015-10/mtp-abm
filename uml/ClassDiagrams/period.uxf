@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>410</x>
+      <y>370</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>420</y>
+      <w>460</w>
+      <h>380</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
+PeriodMakerAbstract
+--
+- period: File
+- userSpace: UserSpace
+- configurationManager: ConfigurationManagerAbstract
+- bpaCosts: File
+- clientCosts: File
+- periodFiles: Map&lt;String,File&gt;
+- driversMaps: Map&lt;String,String&gt;
+--
++ getters and setters for all fields in the class
++ validateConfiguration(configName:String)
++ captureConfiguration(scanner:Scanner)
++ createPeriod(): void
++ makePeriod(scanner:Scanner):void
++ save()
++ abstract initConfigurationManager(configName:String)
++ abstract capture(periodName:String)
+--
+Responsibilities
+-- Abstract implementation of PeriodMaker.
+-- Contains data structures to host the different objects
+part of a particular period.
+-- Creates a period File.
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>790</y>
+      <w>180</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=3</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>790</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;210.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>870</y>
+      <w>340</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>PeriodMakerImplCSV
+--
+--
++ initConfigurationManager(configName:String)
++ capture(periodName:String)
+--
+Responsibilities
+-- Extends PeriodMakerAbstract.
+-- Provides an object pointing to a valid
+ConfigurationManager of CSV type.
+-- Captures all the data structure elements
+of a pre-existing Period.
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>870</y>
+      <w>340</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>PeriodMakerImplSQL
+--
+--
++ initConfigurationManager(configName:String)
++ capture(periodName:String)
+--
+Responsibilities
+-- Extends PeriodMakerAbstract.
+-- Provides an object pointing to a valid
+ConfigurationManager of SQL type.
+-- Captures all the data structure elements
+of a pre-existing Period.
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>240</x>
+      <y>80</y>
+      <w>380</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+PeriodMaker
+--
++makePeriod(scanner:Scanner)
++getConfiguration(): ConfigurationManagerAbstract
++getPeriod():File
++getBpaCosts():File
++getClientCosts():File
++void setBpaCosts(bpaCosts:File)
++void setClientCosts(clientCosts:File)
++getPeriodFiles():Map&lt;String,File&gt;
++getDriversMaps():Map&lt;String,String&gt;
++capture(String periodName): boolean
++save(): void
+--
+Responsibilities
+-- Keeps pointer references to all the different elements
+needed to run a ABC costing model for a particular period.
+-- Overall coordinator of the new period making process.
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>990</w>
+      <h>1130</h>
+    </coordinates>
+    <panel_attributes>
+
+package:period
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
