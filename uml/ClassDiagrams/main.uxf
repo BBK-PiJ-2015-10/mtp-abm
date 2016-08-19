@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>224</y>
+      <w>304</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>ABCSystemImpl
+--
+- optionsList: List&lt;String&gt;
+- optionsMap: Map&lt;Integer,String&gt;
+- choice: Integer
+- periodMaker: PeriodMaker
+--
++ getters and setters for all fields in the class
++ initialize(): boolean
++ presentChoices(): boolean
++ captureChoice(scanner:Scanner):boolean
++ generateReport():boolean
+--
+Responsibilities
+-- Concrete implementation of ReportGenerator.
+-- Present report choices to a user and provides
+a report based on its selection.
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>880</x>
+      <y>160</y>
+      <w>24</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>744</x>
+      <y>80</y>
+      <w>288</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ABCSystem
+--
++ run():void
+--
+Responsibilities
+-- Runs the ABC application
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>344</x>
+      <y>216</y>
+      <w>120</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>176</x>
+      <y>56</y>
+      <w>256</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Class&gt;&gt;
+ABCStarter
+--
+- scanner: Scanner
+- auto: ByteArrayInputStream
+--
++ manualFeedSetUp():void
++ autoFeedSetUpFile():void
++ main(args:String):void
+--
+Responsibilities
+-- Launches and executes the application,
+either with an automatic input feed or an
+interactive one.
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>376</y>
+      <w>232</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>ReportDetailedImpl
+--
+- attributesOtherLabels: List&lt;String&gt;
+- costsMap: Map&lt;String,List&lt;List&lt;String&gt;&gt;&gt;
+--
++ getters and setters for fields
++ alreadyInPlace(List&lt;String&gt; list1,
+List&lt;String&gt; list2): boolean
++ popMap(srcFile:File, 
+attributefactor : String,
+attributecost : String): boolean
++ popFile( attributefactor: String,
+attributecost : String): boolean
++ generateReport(srcFile:File,
+fileName:String,attributefactor:String, 
+attributecost:String): boolean
+--
+Responsibilities
+-- Concrete implemenation of ReportAbstract.
+-- Generates a detailed report (BPA or client).
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>1096</w>
+      <h>664</h>
+    </coordinates>
+    <panel_attributes>
+
+package: main
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>192</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>package: period
+(PeriodMaker)
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>608</x>
+      <y>224</y>
+      <w>136</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; contains
+group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;80.0;150.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>376</y>
+      <w>248</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>ReportSummaryImpl
+--
+- costsMap: Map&lt;String,Double&gt;
+--
++ getClientCosts: Map&lt;String,Double&gt; 
++ popMap(srcFile:File, 
+attributefactor : String,
+attributecost : String): boolean
++ popFile( attributefactor: String,
+attributecost : String): boolean
++ generateReport(srcFile:File,
+fileName:String,attributefactor:String, 
+attributecost:String): boolean
+--
+Responsibilities
+-- Concrete implemenation of ReportAbstract.
+-- Generates a summary report (BPA or client).
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>216</y>
+      <w>128</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=2</panel_attributes>
+    <additional_attributes>140.0;10.0;50.0;140.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>208</x>
+      <y>336</y>
+      <w>536</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..2
+m2=0..n
+&lt; generates
+group=2</panel_attributes>
+    <additional_attributes>10.0;50.0;90.0;10.0;650.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>352</y>
+      <w>192</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..2
+&lt; generates
+group=2</panel_attributes>
+    <additional_attributes>10.0;40.0;220.0;10.0</additional_attributes>
+  </element>
+</diagram>
