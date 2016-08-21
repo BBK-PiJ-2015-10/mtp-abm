@@ -78,9 +78,8 @@ public class ABCSystemImpl implements ABCSystem {
 	}
 	
 	public void runMakeNewConfiguration(){
-		//configurationMaker = new ConfigurationMakerImpl();
-		//configurationMaker = new ConfigurationMakerImplCSV();
-		configurationMaker = new ConfigurationMakerImplSQL();
+		configurationMaker = new ConfigurationMakerImplCSV();
+		//configurationMaker = new ConfigurationMakerImplSQL();
 		configurationMaker.makeConfiguration(userSpace,sc);
 	}
 	
@@ -98,16 +97,15 @@ public class ABCSystemImpl implements ABCSystem {
 	}
 	
 	public void runMakeNewPeriod(){
-		//periodMaker = new PeriodMakerImpl(userSpace);
-		//periodMaker = new PeriodMakerImplCSV(userSpace);
-		periodMaker = new PeriodMakerImplSQL(userSpace);
+		periodMaker = new PeriodMakerImplCSV(userSpace);
+		//periodMaker = new PeriodMakerImplSQL(userSpace);
 		periodMaker.makePeriod(sc);
 		periodMaker.save();
 	}
 	
 	public boolean runBpaCostMaker(){
-		//bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
-		bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
+		bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
+		//bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
 		return bpaCostsMaker.createbpaCosts();
 	}
 	

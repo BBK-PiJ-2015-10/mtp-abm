@@ -41,22 +41,41 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 
 	//This is a new one
 	public boolean captureGLConnectionSettings(Scanner sc){
+		boolean validEntry = false;
 		String selection=null;
+		while (!validEntry){
+			try {
+				System.out.println("Please enter the url that you wish to connect to");
+				selection=sc.nextLine();
+				glConnectionSettings.add(selection);
+				System.out.println("Please enter the Username");
+				selection=sc.nextLine();
+				glConnectionSettings.add(selection);
+				System.out.println("Please enter the Password");
+				selection=sc.nextLine();
+				glConnectionSettings.add(selection);
+				System.out.println("Please enter the Database name");
+				selection=sc.nextLine();
+				glConnectionSettings.add(selection);
+				validEntry = testConnection();
+				if (!validEntry){
+					System.out.println("Can't connect to the SQL database");
+					glConnectionSettings.clear();
+				}
+				
+			} catch (NoSuchElementException | IllegalStateException ex) {
+				glConnectionSettings.clear();
+				return false;	
+			}
+		}
+		return true;
+	}
+	
+	public boolean testConnection(){
 		try {
-			System.out.println("Please enter the url that you wish to connect to");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-			System.out.println("Please enter the Username");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-			System.out.println("Please enter the Password");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-			System.out.println("Please enter the Database name");
-			selection=sc.nextLine();
-			glConnectionSettings.add(selection);
-		} catch (NoSuchElementException | IllegalStateException ex) {
-			glConnectionSettings.clear();
+			DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
+			
+		} catch (SQLException ex) {
 			return false;
 		}
 		return true;
