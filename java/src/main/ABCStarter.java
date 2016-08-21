@@ -13,6 +13,9 @@ public class ABCStarter {
 	
 	private ByteArrayInputStream auto;
 	
+	private ABCSystem application;
+	
+	
 	public void manualFeedSetUp(){
 		sc = new Scanner(System.in);
 	}
@@ -38,7 +41,7 @@ public class ABCStarter {
 		
 		manualFeedSetUp();
 		//autoFeedSetUpFile("validscript4.txt");
-		ABCSystem application = new ABCSystemImpl(sc);
+		application = new ABCSystemImpl(sc);
 		application.run();
 		
 		

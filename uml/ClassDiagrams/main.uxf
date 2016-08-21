@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>8</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>224</y>
-      <w>304</w>
-      <h>200</h>
+      <x>693</x>
+      <y>288</y>
+      <w>342</w>
+      <h>396</h>
     </coordinates>
     <panel_attributes>ABCSystemImpl
 --
@@ -21,34 +21,42 @@
 - clientCosts: ClientCosts
 - reportGenerator: reportGenerator
 - scanner: Scanner
-
 --
-+ 
---
++ runMakeNewUserSpace(): boolean
++ runAccessExistingUserSpace(): void
++ runMakeNewConfiguration(): void
++ runMakeNewPeriod(): String
++ accessExistingPeriod(): boolean
++ runBpaCostMaker(periodType:String): boolean
++ runGenerateReports(): boolean
++ validSelection(selection:String):boolean
++ run()
+-- 
 Responsibilities
--- Concrete implementation of ReportGenerator.
--- Present report choices to a user and provides
-a report based on its selection.</panel_attributes>
+-- Concrete implementation of ABCSystem.
+-- Main program manager that captures the input
+from user for the creation/access of userSpace,
+configurations, periods, and reports.</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>880</x>
-      <y>160</y>
-      <w>24</w>
-      <h>80</h>
+      <x>864</x>
+      <y>207</y>
+      <w>27</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>744</x>
-      <y>80</y>
-      <w>288</w>
-      <h>88</h>
+      <x>711</x>
+      <y>117</y>
+      <w>324</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 ABCSystem
@@ -62,16 +70,16 @@ Responsibilities
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>176</x>
-      <y>56</y>
-      <w>256</w>
-      <h>168</h>
+      <x>72</x>
+      <y>63</y>
+      <w>288</w>
+      <h>198</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Class&gt;&gt;
-ABCStarter
+    <panel_attributes>ABCStarter
 --
 - scanner: Scanner
 - auto: ByteArrayInputStream
+- application: ABCSystem
 --
 + manualFeedSetUp():void
 + autoFeedSetUpFile():void
@@ -88,8 +96,8 @@ interactive one.</panel_attributes>
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>1096</w>
-      <h>664</h>
+      <w>1116</w>
+      <h>747</h>
     </coordinates>
     <panel_attributes>
 
@@ -99,40 +107,145 @@ package: main</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>192</y>
-      <w>160</w>
-      <h>40</h>
+      <x>441</x>
+      <y>216</y>
+      <w>180</w>
+      <h>45</h>
     </coordinates>
-    <panel_attributes>package: period
-(PeriodMaker)</panel_attributes>
+    <panel_attributes>package: user
+(UserSpace,UserSpaceMaker)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
-      <y>224</y>
-      <w>136</w>
-      <h>88</h>
+      <x>558</x>
+      <y>252</y>
+      <w>153</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
 &lt; contains</panel_attributes>
-    <additional_attributes>10.0;10.0;20.0;80.0;150.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;20.0;70.0;150.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>352</y>
-      <w>192</w>
-      <h>56</h>
+      <x>351</x>
+      <y>117</y>
+      <w>378</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=-
-m1=0..2
-&lt; generates</panel_attributes>
-    <additional_attributes>10.0;40.0;220.0;10.0</additional_attributes>
+m1=0..n
+m2=1
+contains &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;400.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>522</x>
+      <y>333</y>
+      <w>189</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; contains</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>333</y>
+      <w>180</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>package: configuration
+(ConfigurationManager)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>522</x>
+      <y>378</y>
+      <w>189</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; contains</panel_attributes>
+    <additional_attributes>10.0;30.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>387</y>
+      <w>207</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>package: bpa
+(BpaCostMaker,BpaCostCalculator)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>441</y>
+      <w>207</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>package: client
+(BpaWeightsCalculator,ClientCosts)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>522</x>
+      <y>405</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; contains</panel_attributes>
+    <additional_attributes>10.0;60.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>495</y>
+      <w>207</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>package: report
+(ReportGenerator)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>522</x>
+      <y>423</y>
+      <w>189</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+&lt; contains</panel_attributes>
+    <additional_attributes>10.0;100.0;190.0;10.0</additional_attributes>
   </element>
 </diagram>
