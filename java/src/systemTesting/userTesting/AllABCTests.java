@@ -7,10 +7,10 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ TestABCSystemImpl.class,
 TestUserSpace.class, TestUserSpaceMakerImpl.class,
-TestConfigurationMakerImpl.class,
-TestConfigurationManager.class,TestConfigurationMapperImpl.class,TestMapCreatorImpl.class,
-TestPeriodMakerImpl.class,
-TestBpaCostsMakerImpl.class,TestBpaCostCalculatorImpl.class,TestBpaClientWeightsCalculatorImpl.class,
+TestConfigurationMakerImplCSV.class,
+TestConfigurationManagerCSV.class,TestConfigurationMapperImplCSV.class,TestMapCreatorImplCSV.class,
+TestPeriodMakerImplCSV.class,
+TestBpaCostsMakerImplCSV.class,TestBpaCostCalculatorImpl.class,TestBpaClientWeightsCalculatorImpl.class,
 TestClientCostsImpl.class,
 TestReportSummaryImpl.class,TestReportDetailedImpl.class,TestReportGeneratorImpl.class
 })
