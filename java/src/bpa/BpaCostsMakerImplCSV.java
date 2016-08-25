@@ -68,7 +68,7 @@ public class BpaCostsMakerImplCSV extends BpaCostsMakerAbstract {
 	* Reading from the gl.csv file referenced on the periodFiles
 	*
 	*/
-	public boolean extractGL(Map<String,File> periodFiles,Map<String,String> driversMap ){
+	public boolean processGL(Map<String,File> periodFiles,Map<String,String> driversMap ){
 		try (
 				 FileWriter fw = new FileWriter(bpaCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);

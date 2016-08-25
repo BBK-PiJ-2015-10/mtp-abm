@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>8</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>240</y>
-      <w>304</w>
-      <h>152</h>
+      <x>610</x>
+      <y>280</y>
+      <w>380</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>BpaClientWeightsCalculatorImpl
 --
@@ -28,10 +28,10 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>176</y>
-      <w>24</w>
-      <h>80</h>
+      <x>750</x>
+      <y>200</y>
+      <w>30</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=4</panel_attributes>
@@ -40,10 +40,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
+      <x>610</x>
       <y>80</y>
-      <w>288</w>
-      <h>104</h>
+      <w>360</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 BpaClientWeightsCalculator
@@ -60,10 +60,10 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>176</y>
-      <w>24</w>
-      <h>80</h>
+      <x>270</x>
+      <y>200</y>
+      <w>30</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 group=4</panel_attributes>
@@ -72,10 +72,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
+      <x>130</x>
       <y>80</y>
-      <w>256</w>
-      <h>104</h>
+      <w>320</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 ClientCosts
@@ -92,10 +92,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>120</x>
-      <y>240</y>
-      <w>304</w>
-      <h>144</h>
+      <x>130</x>
+      <y>280</y>
+      <w>380</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>ClientCostsImpl
 --
@@ -117,10 +117,10 @@ group=4</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>16</x>
-      <y>16</y>
-      <w>808</w>
-      <h>520</h>
+      <x>0</x>
+      <y>0</y>
+      <w>1010</w>
+      <h>650</h>
     </coordinates>
     <panel_attributes>
 
@@ -132,9 +132,9 @@ group=4</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>80</x>
-      <y>432</y>
-      <w>160</w>
-      <h>56</h>
+      <y>520</y>
+      <w>200</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>package: bpa
 (BpaCostsMaker,
@@ -145,10 +145,10 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>392</x>
-      <y>96</y>
-      <w>128</w>
-      <h>160</h>
+      <x>470</x>
+      <y>100</y>
+      <w>160</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
@@ -160,10 +160,10 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>264</y>
-      <w>288</w>
-      <h>224</h>
+      <x>270</x>
+      <y>310</y>
+      <w>360</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -175,10 +175,10 @@ group=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>32</x>
-      <y>256</y>
-      <w>104</w>
-      <h>224</h>
+      <x>20</x>
+      <y>300</y>
+      <w>130</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1

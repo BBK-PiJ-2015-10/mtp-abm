@@ -22,7 +22,7 @@ group=4</panel_attributes>
       <h>238</h>
     </coordinates>
     <panel_attributes>&lt;&lt;AbstractClass&gt;&gt;
-BpaCostsMakerAbstracts
+BpaCostsMakerAbstract
 --
 - periodMaker: PeriodMaker
 - bpaCosts: File

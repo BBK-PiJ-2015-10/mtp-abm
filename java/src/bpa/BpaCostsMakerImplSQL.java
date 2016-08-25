@@ -60,7 +60,7 @@ public class BpaCostsMakerImplSQL extends BpaCostsMakerAbstract {
 	}
 	
 	
-	public boolean extractGL(Map<String,File> periodFiles,Map<String,String> driversMap ){
+	public boolean processGL(Map<String,File> periodFiles,Map<String,String> driversMap ){
 		try (
 				 FileWriter fw = new FileWriter(bpaCosts,false);
 				 BufferedWriter bw = new BufferedWriter(fw);

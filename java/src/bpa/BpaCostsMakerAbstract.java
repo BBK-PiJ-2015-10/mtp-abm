@@ -85,7 +85,8 @@ public abstract class BpaCostsMakerAbstract implements BpaCostsMaker {
 	 * Values are stored in the driversMap map.
 	 */
 	public boolean extractGLBPAMap(Map<String,String> driversMap){
-		try (BufferedReader mr = new BufferedReader(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
+		try (BufferedReader mr = new BufferedReader
+				(new FileReader(periodMaker.getConfiguration().getglbpamapFile()));)
 		{
 			String line;
 			mr.readLine();
@@ -143,9 +144,8 @@ public abstract class BpaCostsMakerAbstract implements BpaCostsMaker {
 		validateInput(this.periodMaker.getPeriodFiles());
 		extractGLBPAMap(this.periodMaker.getDriversMap());
 		createBpaCostsFile();
-		extractGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
+		processGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
 		} catch (NullPointerException ex) {
-			System.out.println("This is going wild from the wrong bpa costs file");
 			return false;
 		}
 		return true;
@@ -157,7 +157,7 @@ public abstract class BpaCostsMakerAbstract implements BpaCostsMaker {
 	public abstract boolean validateInput(Map<String,File> periodFiles);
 	
 	
-	public abstract boolean extractGL(Map<String,File> periodFiles,Map<String,String> driversMap );
+	public abstract boolean processGL(Map<String,File> periodFiles,Map<String,String> driversMap );
 	
 
 	

@@ -12,8 +12,9 @@ import static org.junit.Assert.assertEquals;
 
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
-import old.PeriodMakerImpl;
+
 import period.PeriodMaker;
+import period.PeriodMakerImplCSV;
 
 public class TestBpaCostCalculatorImpl {
 	
@@ -21,7 +22,7 @@ public class TestBpaCostCalculatorImpl {
 	
 	private File file = new File(address);
     
-	private PeriodMaker period = new PeriodMakerImpl(file);
+	private PeriodMaker period = new PeriodMakerImplCSV(file);
 	
 	private BpaCostCalculatorImpl bpaCostCalculator;
 	

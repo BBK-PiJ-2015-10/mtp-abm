@@ -31,15 +31,12 @@ import java.sql.ResultSet;
 
 public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implements Serializable {
 
-	//This is new
 	private List<String> glConnectionSettings = new LinkedList<>();
 		
 	public ConfigurationManagerSQL(File file){
 		super(file);
 	}
 		
-
-	//This is a new one
 	public boolean captureGLConnectionSettings(Scanner sc){
 		boolean validEntry = false;
 		String selection=null;
@@ -114,7 +111,7 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 				fieldsSet.add(rs.getMetaData().getColumnName(i));
 			}
 			map.put(SQLTableName, fieldsSet);
-		} catch (Exception ex){
+		} catch (SQLException ex){
 			return false;
 		}
 		return true;
@@ -127,7 +124,8 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	
 			
 	public void save(){
-		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
+		try (ObjectOutputStream encode = new ObjectOutputStream
+				(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
 		{
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
@@ -144,7 +142,8 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	}
 	
 	public void save(String newname){
-		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+newname+".dat"));)
+		try (ObjectOutputStream encode = new ObjectOutputStream
+				(new FileOutputStream(file.getAbsolutePath()+"\\"+newname+".dat"));)
 		{
 			encode.writeObject(file);
 			encode.writeObject(bpaFilesMap);
@@ -163,7 +162,8 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	public boolean capture(String configurationname){
 		boolean isPresent;
 		if (this.file.exists()){
-			try (ObjectInputStream incode = new ObjectInputStream(new FileInputStream(file.getAbsolutePath()+"\\"+configurationname+".dat"));)
+			try (ObjectInputStream incode = new ObjectInputStream
+					(new FileInputStream(file.getAbsolutePath()+"\\"+configurationname+".dat"));)
 			{
 				file = (File)incode.readObject();
 				bpaFilesMap=(Map<String,File>)incode.readObject();
@@ -175,16 +175,9 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 				glbpamapFile=(File)incode.readObject();
 				isPresent = true;
 			} 
-			  catch (ClassNotFoundException ex){
-				System.out.println("error1");
-				isPresent = false;
-			} catch (IOException ex2){
-				System.out.println("error2");
-				isPresent = false;
-			} catch (NullPointerException ex){
-				System.out.println("error3");
-				isPresent = false;
-			}			
+			  catch (ClassNotFoundException | IOException | NullPointerException ex){
+				isPresent = false;	
+			  }	
 		}
 		else {
 			System.out.println("File doesn't exists");

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.NoSuchElementException;
 import configuration.ConfigurationManagerAbstract;
 
-public class FileValidatorImpl implements FileValidator {
+public class FileValidatorImplBpaMap implements FileValidator {
 
 	@Override
 	public boolean validateInput(File file, String parameterName, ConfigurationManagerAbstract configMgr) {

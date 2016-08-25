@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 import validator.FileValidator;
-import validator.FileValidatorImpl;
+import validator.FileValidatorImplBpaMap;
 
 public class MapCreatorImplCSV extends MapCreatorAbstract {
 			
@@ -32,7 +32,7 @@ public class MapCreatorImplCSV extends MapCreatorAbstract {
 			return false;
 		}	
 		else {
-			
+
 			File glbpamapFile = new File(configurationManager.getFile().getAbsolutePath()+"\\"+mapName);
 			
 			try {
@@ -42,13 +42,12 @@ public class MapCreatorImplCSV extends MapCreatorAbstract {
 				System.out.println("Couldn't create the file");
 				return false;
 			}
-			
-		
 			try (
 					 FileWriter fw = new FileWriter(glbpamapFile,false);
 					 BufferedWriter bw = new BufferedWriter(fw);
 					 PrintWriter out = new PrintWriter(bw);
-					 BufferedReader in = new BufferedReader(new FileReader(((ConfigurationManagerCSV)configurationManager).getGLFile()));)
+					 BufferedReader in = new BufferedReader(new FileReader
+							 (((ConfigurationManagerCSV)configurationManager).getGLFile()));)
 			{
 				int size = configurationManager.getGlMainFilesAttributesMap().
 						get(configurationManager.getGLFileName()).size();
@@ -130,4 +129,5 @@ public class MapCreatorImplCSV extends MapCreatorAbstract {
 			return true;
 		}
 	}
+	
 }

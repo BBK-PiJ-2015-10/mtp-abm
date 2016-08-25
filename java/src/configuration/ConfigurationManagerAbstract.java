@@ -216,9 +216,11 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 	
 	public abstract void save();
 	
+	public abstract boolean capture(String configurationName);
+	
+	
 	public abstract void save(String newName);
 	
-	public abstract boolean capture(String configurationName);
 			
 		
 }

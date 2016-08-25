@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>8</zoom_level>
+  <zoom_level>13</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>304</y>
-      <w>232</w>
-      <h>104</h>
+      <x>104</x>
+      <y>494</y>
+      <w>377</w>
+      <h>169</h>
     </coordinates>
     <panel_attributes>UserSpaceMakerImpl
 --
@@ -24,10 +24,10 @@ group=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>96</y>
-      <w>224</w>
-      <h>96</h>
+      <x>104</x>
+      <y>156</y>
+      <w>364</w>
+      <h>156</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 UserSpaceMaker
@@ -43,10 +43,10 @@ group=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>16</x>
+      <x>0</x>
       <y>0</y>
-      <w>848</w>
-      <h>640</h>
+      <w>1378</w>
+      <h>884</h>
     </coordinates>
     <panel_attributes>
 
@@ -57,10 +57,10 @@ group=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>184</x>
-      <y>184</y>
-      <w>24</w>
-      <h>136</h>
+      <x>273</x>
+      <y>299</y>
+      <w>39</w>
+      <h>221</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 group=2</panel_attributes>
@@ -69,10 +69,10 @@ group=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>96</y>
-      <w>304</w>
-      <h>240</h>
+      <x>754</x>
+      <y>156</y>
+      <w>494</w>
+      <h>390</h>
     </coordinates>
     <panel_attributes>UserSpace
 --
@@ -101,10 +101,10 @@ group=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
-      <y>88</y>
-      <w>200</w>
-      <h>128</h>
+      <x>455</x>
+      <y>143</y>
+      <w>325</w>
+      <h>208</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -116,10 +116,10 @@ group=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>384</y>
-      <w>184</w>
-      <h>40</h>
+      <x>754</x>
+      <y>624</y>
+      <w>299</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>package: configuration
 (ConfigurationManagerAbstract.file)
@@ -129,10 +129,10 @@ group=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>128</y>
-      <w>96</w>
-      <h>304</h>
+      <x>624</x>
+      <y>208</y>
+      <w>156</w>
+      <h>494</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -146,10 +146,10 @@ group=2</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>584</x>
-      <y>480</y>
-      <w>168</w>
-      <h>40</h>
+      <x>923</x>
+      <y>780</y>
+      <w>273</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>package: period
 (PeriodMaker.file)
@@ -159,10 +159,10 @@ group=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>744</x>
-      <y>136</y>
-      <w>128</w>
-      <h>376</h>
+      <x>1183</x>
+      <y>221</y>
+      <w>208</w>
+      <h>611</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1

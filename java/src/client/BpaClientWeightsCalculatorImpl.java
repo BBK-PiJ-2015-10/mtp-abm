@@ -24,7 +24,7 @@ public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculato
 	public Map<String,Map<String,Double>> getClientsWeights(){
 		try {
 		if (clientsWeights.isEmpty()){
-			if(!popmap()){
+			if(!calcWeights()){
 				return null;
 			}
 		}
@@ -38,7 +38,7 @@ public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculato
 		return this.bpaCostsMaker;
 	}
 	
-	public boolean popmap(){
+	public boolean calcWeights(){
 		
 		try {
 			for (String input: bpaCostsMaker.getPeriodMaker().getConfiguration().getBPAFilesMap().keySet() ){
