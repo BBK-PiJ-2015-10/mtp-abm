@@ -12,12 +12,14 @@ import java.io.PrintStream;
 import report.ReportGeneratorImpl;
 
 import period.PeriodMaker;
+import period.PeriodMakerImplCSV;
 
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import old.PeriodMakerImpl;
+//import old.PeriodMakerImpl;
+
 
 public class TestReportGeneratorImpl {
 	
@@ -27,7 +29,7 @@ public class TestReportGeneratorImpl {
 	
 	private File validPeriodFile = new File(validPeriodAddress);
 	
-	private PeriodMaker validPeriodMaker = new PeriodMakerImpl(validPeriodFile);
+	private PeriodMaker validPeriodMaker = new PeriodMakerImplCSV(validPeriodFile);
 	
 	private ReportGeneratorImpl reportGeneratorImpl;
 	
@@ -185,6 +187,7 @@ public class TestReportGeneratorImpl {
 	@Test
 	public void testGenerateReportValidReportDetailedBPA() {
 	    autoFeedSetUp("4");
+	    manualScanner();
 		reportGeneratorImpl = new ReportGeneratorImpl(validPeriodMaker);
 		reportGeneratorImpl.captureChoice(sc);
 		assertEquals(true,reportGeneratorImpl.generateReport());

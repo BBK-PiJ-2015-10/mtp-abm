@@ -1,4 +1,4 @@
-Account,Department,BPA
+Department,Account,BPA
 Sales,100000,implementation.csv
 Sales,101000,phones.csv
 Marketing,100000,phones.csv

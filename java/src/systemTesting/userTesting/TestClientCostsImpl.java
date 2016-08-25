@@ -13,10 +13,12 @@ import bpa.BpaCostCalculator;
 import bpa.BpaCostCalculatorImpl;
 import bpa.BpaCostsMaker;
 import bpa.BpaCostsMakerImplCSV;
+
 import period.PeriodMaker;
+import period.PeriodMakerImplCSV;
 import client.BpaClientWeightsCalculatorImpl;
 import client.ClientCostsImpl;
-import old.PeriodMakerImpl;
+//import old.PeriodMakerImpl;
 
 public class TestClientCostsImpl {
 	
@@ -24,7 +26,7 @@ public class TestClientCostsImpl {
 	
 	private File file = new File(address);
     
-	private PeriodMaker period = new PeriodMakerImpl(file);
+	private PeriodMaker period = new PeriodMakerImplCSV(file);
 	
 	private BpaCostsMaker bpaCostsMaker;
 	
