@@ -53,7 +53,7 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 				System.out.println("Please enter the Database name");
 				selection=sc.nextLine();
 				glConnectionSettings.add(selection);
-				validEntry = testConnection();
+				validEntry = testConnection() && testDatabase(selection);
 				if (!validEntry){
 					System.out.println("Can't connect to the SQL database");
 					glConnectionSettings.clear();
@@ -77,6 +77,19 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 		}
 		return true;
 	}
+	
+	
+	public boolean testDatabase(String SQLTableName){
+		try {
+			Statement st = getGLConnection().createStatement();
+			st.executeQuery("SELECT * FROM `"+SQLTableName+"`");
+			return true;
+		} catch (SQLException ex){
+			return false;
+		}
+		
+	}
+	
 	
 	
 	public Connection getGLConnection(){
