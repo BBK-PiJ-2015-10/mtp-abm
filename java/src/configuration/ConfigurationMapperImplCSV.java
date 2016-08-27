@@ -37,11 +37,9 @@ public class ConfigurationMapperImplCSV extends ConfigurationMapperAbstract impl
 			configurationManager.loadBpaFilesMainAttributes(sc);
 			configurationManager.save();
 		    return true;
-		} catch (NoSuchElementException ex){
+		} catch (NoSuchElementException | NullPointerException ex){
 			return false;
-		} catch (NullPointerException ex){
-			return false;
-		}
+		} 
 	}
 	
 

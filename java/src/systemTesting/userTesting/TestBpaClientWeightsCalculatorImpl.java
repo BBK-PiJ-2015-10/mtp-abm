@@ -37,57 +37,9 @@ public class TestBpaClientWeightsCalculatorImpl {
 	
 ///////////////////////////////////////////////////////////////////////////////////////////
 	
-    //Below are the tests for the getClientsWeights
+    //Below are the tests for the getClientWeights
 
-	/*
-	* The below tests the contents of a valid getClientsWeights results. Testing for the keys in the master
-	* map and also for the keys on the sub maps.
-	*/
-	//@Ignore
-	@Test
-	public void testgetClientsWeightsValidInputsI(){
-		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
-		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
-		assertEquals(5,bpaClientWeightsCalculator.getClientsWeights().keySet().size());
-		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").keySet().size());
-		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").keySet().size());
-		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("ITDemand.csv").keySet().size());
-		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("payroll.csv").keySet().size());
-		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").keySet().size());
-		
-	}
 	
-	/*
-	* The below tests the contents of a valid getClientsWeights results. Testing for the weights of
-	* the values in the submaps.
-	*/
-	//@Ignore
-	@Test
-	public void testgetClientsWeightsValidInputsII(){
-		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
-		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
-		double result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("AirChina");
-		assertEquals(0.07804703,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("AirFrance");
-		assertEquals(0.094488749,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("AirJapan");
-		assertEquals(0.09108809,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("SwissAir");
-		assertEquals(0.101317799,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").get("Alitalia");
-		assertEquals(0.058946825,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").get("TACA");
-		assertEquals(0.002382105,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").get("AirJapan");
-		assertEquals(0.079902613,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").get("BA");
-		assertEquals(0.089247312,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").get("EmiratesAirlines");
-		assertEquals(0.106451613,result,DELTA);
-		result = bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").get("SwissAir");
-		assertEquals(0.07311828,result,DELTA);
-	}
-		
 	/*
 	* The below tests that calling a getClientsWeights on a calculator with a null Cost Maker returns null
 	*/
@@ -112,10 +64,10 @@ public class TestBpaClientWeightsCalculatorImpl {
 	
 /////////////////////////////////////////////////////////////////////////////////////////////////
 	
-    //Below are the tests for popMap();
+    //Below are the tests for calcWeights();
 
 	/*
-	* The below test that a popMap on a valid set of input returns a true
+	* The below test that a calcWeights on a valid set of input returns a true
 	*/
 	//@Ignore
 	@Test
@@ -124,6 +76,54 @@ public class TestBpaClientWeightsCalculatorImpl {
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		assertEquals(true,bpaClientWeightsCalculator.calcWeights());
 	}
+	
+	
+	/*
+	* The below tests the contents for completeness of the calcWeights. Testing for the keys in
+	* the master map and also for the keys on the sub maps.
+	*/
+	@Test
+	public void testCalcWeightsValidInputsII(){
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
+		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
+		assertEquals(5,bpaClientWeightsCalculator.getClientsWeights().keySet().size());
+		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").keySet().size());
+		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").keySet().size());
+		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("ITDemand.csv").keySet().size());
+		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("payroll.csv").keySet().size());
+		assertEquals(11,bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").keySet().size());
+	}
+	
+	/*
+	* The below tests the contents accuracy of the calcWeights. Testing for the weights of
+	* the values in the submaps.
+	*/
+	@Test
+	public void testCalcWeightsValidInputsIII(){
+		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
+		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
+		double result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("AirChina");
+		assertEquals(0.07804703,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("AirFrance");
+		assertEquals(0.094488749,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("AirJapan");
+		assertEquals(0.09108809,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("phones.csv").get("SwissAir");
+		assertEquals(0.101317799,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").get("Alitalia");
+		assertEquals(0.058946825,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").get("TACA");
+		assertEquals(0.002382105,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("sales.csv").get("AirJapan");
+		assertEquals(0.079902613,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").get("BA");
+		assertEquals(0.089247312,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").get("EmiratesAirlines");
+		assertEquals(0.106451613,result,DELTA);
+		result = bpaClientWeightsCalculator.getClientsWeights().get("implementation.csv").get("SwissAir");
+		assertEquals(0.07311828,result,DELTA);
+	}
+	
 	
 	/*
 	* The below test that a popMap on an invalid set of input returns false

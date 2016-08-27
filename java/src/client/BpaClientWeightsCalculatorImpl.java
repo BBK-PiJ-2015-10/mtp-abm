@@ -21,6 +21,10 @@ public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculato
 		this.bpaCostsMaker=bpaCostsMaker;
 	}
 	
+	public BpaCostsMaker getBpaCostsMaker(){
+		return this.bpaCostsMaker;
+	}
+	
 	public Map<String,Map<String,Double>> getClientsWeights(){
 		try {
 		if (clientsWeights.isEmpty()){
@@ -32,10 +36,6 @@ public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculato
 		} catch (NullPointerException ex){
 			return null;
 		}
-	}
-	
-	public BpaCostsMaker getBpaCostsMaker(){
-		return this.bpaCostsMaker;
 	}
 	
 	public boolean calcWeights(){

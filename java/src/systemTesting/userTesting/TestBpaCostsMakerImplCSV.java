@@ -142,9 +142,9 @@ public class TestBpaCostsMakerImplCSV {
 	}	
 	
 	/*
-	* Test that if no files are present the method returns false.
+	* Test that if no files are present the method returns false as well as the messages generated
+	* by the system.
 	*/
-	//@Ignore
 	@Test
 	public void testValidateInputEmpty(){
 		String eaddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13\\emptyperiod";
@@ -153,7 +153,7 @@ public class TestBpaCostsMakerImplCSV {
 		eperiod.capture("emptyperiod");
 		eperiod.save();
 	    bpaCostsMakerImpl = new BpaCostsMakerImplCSV(eperiod);
-	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));;
+	    assertEquals(false,bpaCostsMakerImpl.validateInput(bpaCostsMakerImpl.getPeriodMaker().getPeriodFiles()));
 	    String str1 = "The file named: implementation.csv is missing";
 	    String str2 = "The file named: phones.csv is missing";
 	    String str3 = "The file named: gl.csv is missing";

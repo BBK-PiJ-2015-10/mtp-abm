@@ -46,7 +46,6 @@ public class TestConfigurationMapperImplCSV {
 	    System.setErr(new PrintStream(errContent));
 	}
 	
-	
 	public void manualFeedSetUp(){
 		sc = new Scanner(System.in);
 	}
@@ -86,7 +85,6 @@ public class TestConfigurationMapperImplCSV {
 	/*
 	* Testing execManager() with valid inputs
 	*/
-	//@Ignore
 	@Test
 	public void testexecManagerValidInput() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl1.txt");
@@ -94,11 +92,11 @@ public class TestConfigurationMapperImplCSV {
 		 assertEquals(true,configurationMapperImpl.execManager(sc));
 		 ConfigurationManagerCSV testCM = new ConfigurationManagerCSV(validFile);
 		 assertEquals(true,testCM.capture("config12"));
-		 assertEquals(2,testCM.getBpaFilesAttributesMap().keySet().size());
-		 assertEquals("gl.csv",testCM.getGLFile().getName());
 		 assertEquals(2,testCM.getBPAFilesMap().size());
-		 assertEquals(2,testCM.getBpaMainFilesAttributesMap().size());
+		 assertEquals("gl.csv",testCM.getGLFile().getName());
 		 assertEquals(2,testCM.getBpaFilesAttributesMap().keySet().size());
+		 assertEquals(2,testCM.getBpaMainFilesAttributesMap().size());
+		 assertEquals(3,testCM.getGlMainFilesAttributesMap().get("gl.csv").size());
 		 String value = configurationManager.getFile().getAbsolutePath()+"\\"+"config12.dat";
 		 File temp = new File(value);
 		 temp.delete();
@@ -160,7 +158,6 @@ public class TestConfigurationMapperImplCSV {
 	/*
 	* Testing createMap with valid input
 	*/
-	//@Ignore
 	@Test
 	public void testcreateMapValid() {
 		 autoFeedSetUpFile("testconfigurationmapperimpl5.txt");

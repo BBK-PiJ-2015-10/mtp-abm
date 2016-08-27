@@ -28,7 +28,6 @@ public abstract class ConfigurationMapperAbstract implements ConfigurationMapper
 		if (sc==null){
 			return false;
 		}
-		
 		boolean validEntry;
 		mapCreatorFactory.presentChoices();
 		Integer choice = null;
@@ -46,6 +45,7 @@ public abstract class ConfigurationMapperAbstract implements ConfigurationMapper
 		} while (!validEntry);
 		return mapCreatorFactory.getMapCreator(choice).createMap(configurationManager,sc,"glbpamap.csv");
 	}
+	
 	
 	public abstract boolean execManager(Scanner sc);
 

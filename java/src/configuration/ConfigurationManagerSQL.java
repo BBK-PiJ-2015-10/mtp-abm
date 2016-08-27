@@ -17,7 +17,6 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.io.BufferedReader;
 
 import java.util.Scanner;
@@ -70,7 +69,8 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	
 	public boolean testConnection(){
 		try {
-			DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
+			DriverManager.getConnection(glConnectionSettings.get(0),
+			                            glConnectionSettings.get(1),glConnectionSettings.get(2));
 			
 		} catch (SQLException ex) {
 			return false;
@@ -79,11 +79,11 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	}
 	
 	
-	//This is a new one
 	public Connection getGLConnection(){
 		Connection glConnection;
 		try {
-			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),glConnectionSettings.get(1),glConnectionSettings.get(2));
+			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),
+					       glConnectionSettings.get(1),glConnectionSettings.get(2));
 			
 		} catch (SQLException ex) {
 			return null;
@@ -91,8 +91,8 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 		return glConnection;
 	}
 	
-	//This is a new one
 	
+	//This is a new one
 	public List<String> getGLConnectionSettings(){
 		return this.glConnectionSettings;
 	}

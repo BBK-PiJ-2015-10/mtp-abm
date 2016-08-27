@@ -40,13 +40,13 @@ public class TestPeriodMakerImplCSV {
 	
 	private ByteArrayInputStream auto;
 	
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	//private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
-	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+	//private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
 	public void setUpStreams() {
-	    System.setOut(new PrintStream(outContent));
-	    System.setErr(new PrintStream(errContent));
+	    //System.setOut(new PrintStream(outContent));
+	    //System.setErr(new PrintStream(errContent));
 	}
 
 	

@@ -192,7 +192,6 @@ public class TestReportDetailedImpl {
 	/*
 	* Testing generateReport with invalid inputs
 	*/
-	//@Ignore
 	@Test
 	public void testGenerateReportInValidNullFile(){
 		assertEquals(false,bpaDetailedReport.generateReport(null,"bpaDetailedReport","BPA","Amount"));

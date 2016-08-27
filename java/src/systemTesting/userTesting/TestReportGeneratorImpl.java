@@ -70,7 +70,6 @@ public class TestReportGeneratorImpl {
 	/*
 	 * Test print output of method call with valid parameters()
 	 */
-	//@Ignore
 	@Test
 	public void testPresentChoiceValid() {
 		reportGeneratorImpl = new ReportGeneratorImpl(validPeriodMaker);
