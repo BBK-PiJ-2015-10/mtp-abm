@@ -53,7 +53,7 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 				System.out.println("Please enter the Database name");
 				selection=sc.nextLine();
 				glConnectionSettings.add(selection);
-				validEntry = testConnection() && testDatabase(selection);
+				validEntry = testConnection() && testTable(selection);
 				if (!validEntry){
 					System.out.println("Can't connect to the SQL database");
 					glConnectionSettings.clear();
@@ -72,19 +72,19 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 			DriverManager.getConnection(glConnectionSettings.get(0),
 			                            glConnectionSettings.get(1),glConnectionSettings.get(2));
 			
-		} catch (SQLException ex) {
+		} catch (SQLException | IndexOutOfBoundsException ex) {
 			return false;
 		}
 		return true;
 	}
 	
 	
-	public boolean testDatabase(String SQLTableName){
+	public boolean testTable(String SQLTableName){
 		try {
 			Statement st = getGLConnection().createStatement();
 			st.executeQuery("SELECT * FROM `"+SQLTableName+"`");
 			return true;
-		} catch (SQLException ex){
+		} catch (SQLException | IndexOutOfBoundsException ex){
 			return false;
 		}
 		
@@ -98,7 +98,7 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),
 					       glConnectionSettings.get(1),glConnectionSettings.get(2));
 			
-		} catch (SQLException ex) {
+		} catch (SQLException |IndexOutOfBoundsException ex) {
 			return null;
 		}
 		return glConnection;
@@ -112,7 +112,11 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	
 		
 	public String getGLFileName(){
-		return glConnectionSettings.get(glConnectionSettings.size()-1);
+		try {
+			return glConnectionSettings.get(glConnectionSettings.size()-1);
+		} catch (IndexOutOfBoundsException ex){
+			return null;
+		}
 	}
 		
 	public boolean grabSQLTableAttributes(String SQLTableName, Map map){

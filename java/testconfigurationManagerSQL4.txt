@@ -1,0 +1,8 @@
+a wrong url
+root
+tonto
+smallgl
+jdbc:mysql://LocalHost:3306/abc
+root
+tonto
+smallgl
