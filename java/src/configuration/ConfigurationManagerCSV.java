@@ -45,8 +45,8 @@ public class ConfigurationManagerCSV extends ConfigurationManagerAbstract implem
 	}
 	
 	
-	public void grabGL(){
-		grabFileAttributes(glFile,glFilesAttributesMap);
+	public boolean grabGL(){
+		return grabFileAttributes(glFile,glFilesAttributesMap);
 	}
 
 	

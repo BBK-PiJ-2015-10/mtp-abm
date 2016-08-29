@@ -84,7 +84,7 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 			Statement st = getGLConnection().createStatement();
 			st.executeQuery("SELECT * FROM `"+SQLTableName+"`");
 			return true;
-		} catch (SQLException | IndexOutOfBoundsException ex){
+		} catch (SQLException | IndexOutOfBoundsException | NullPointerException ex){
 			return false;
 		}
 		
@@ -135,8 +135,12 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	}
 	
 	
-	public void grabGL(){
-		grabSQLTableAttributes(glConnectionSettings.get(glConnectionSettings.size()-1),glFilesAttributesMap);
+	public boolean grabGL(){
+		try {
+			return grabSQLTableAttributes(glConnectionSettings.get(glConnectionSettings.size()-1),glFilesAttributesMap);
+		} catch (IndexOutOfBoundsException ex){
+			return false;
+		}
 	}
 	
 			

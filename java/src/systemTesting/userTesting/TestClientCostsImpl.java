@@ -22,7 +22,7 @@ import client.ClientCostsImpl;
 
 public class TestClientCostsImpl {
 	
-	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user15\\period15";
+	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\period11";
 	
 	private File file = new File(address);
     
@@ -38,7 +38,7 @@ public class TestClientCostsImpl {
 	
 	@Before
 	public void setUp() {
-		period.capture("period15");
+		period.capture("period11");
 		bpaCostsMaker = new BpaCostsMakerImplCSV(period);
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 		bpaCostCalculator = new BpaCostCalculatorImpl(period.getBpaCosts());

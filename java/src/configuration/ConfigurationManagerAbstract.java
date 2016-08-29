@@ -84,7 +84,7 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 		return bpaFilesMap.get(name);
 	}
 	
-	public void grabFileAttributes(File file, Map map){
+	public boolean grabFileAttributes(File file, Map map){
 		try {
 			in = new BufferedReader(new FileReader(file));
 			String line;
@@ -95,6 +95,7 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 				fieldsSet.add(strArray[i]);
 			}
 			map.put(file.getName(), fieldsSet);
+			return true;
 		}
 		catch (FileNotFoundException ex){
 			throw new RuntimeException(ex);
@@ -166,14 +167,19 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 			if (counter >= maxEntry){
 				return false;
 			}
-			result = inputMap.get(input).contains(selectionarray[i]) && !accumulator.contains(selectionarray[i]);
+			try {
+				result = inputMap.get(input).contains(selectionarray[i]) && !accumulator.contains(selectionarray[i]);
+			} catch(NullPointerException ex){
+				return false;
+			}
 			if (!result){
 				return false;
 			}
 			else {
 				accumulator.add(selectionarray[i]);
 				counter ++;
-			}		
+			}
+			
 		}
 		return true;
 	}
@@ -212,7 +218,7 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 	
 	public abstract String getGLFileName();
 	
-	public abstract void grabGL();
+	public abstract boolean grabGL();
 	
 	public abstract void save();
 	

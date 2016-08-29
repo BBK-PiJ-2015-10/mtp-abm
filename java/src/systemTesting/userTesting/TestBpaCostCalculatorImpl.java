@@ -18,7 +18,7 @@ import period.PeriodMakerImplCSV;
 
 public class TestBpaCostCalculatorImpl {
 	
-	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user15\\period15";
+	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\period11";
 	
 	private File file = new File(address);
     
@@ -31,7 +31,7 @@ public class TestBpaCostCalculatorImpl {
 	
 	@Before
 	public void setUp() {
-		period.capture("period15");
+		period.capture("period11");
 	}
 	
 

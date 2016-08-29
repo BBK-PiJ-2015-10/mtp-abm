@@ -386,7 +386,7 @@ public class TestConfigurationManagerCSV {
 	 * Testing readEntry with a null input file.
 	 */
 	//@Ignore
-	@Test (expected = NullPointerException.class)
+	@Test
 	public void testReadEntryNullfile() {
 		autoFeedSetUp("something irrelevant");
 		List<String> accum= new LinkedList<>();
@@ -394,14 +394,14 @@ public class TestConfigurationManagerCSV {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry(null,"type something",accum,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
+		assertEquals(false,validConfigMgr.readEntry(null,"type something",accum,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
 	}
 	
 	/*
 	 * Testing readEntry with a null accumulator List
 	 */
 	//@Ignore
-	@Test (expected = NullPointerException.class)
+	@Test
 	public void testReadEntryNullAccumulator() {
 		autoFeedSetUp("pclient");
 		List<String> accum= new LinkedList<>();
@@ -409,7 +409,7 @@ public class TestConfigurationManagerCSV {
 		validConfigMgr.loadFilesMap();
 		validConfigMgr.setGLFile("gl.csv");
 		validConfigMgr.grabFilesAttributes();
-		assertEquals(true,validConfigMgr.readEntry("phones.csv","type one of the below",null,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
+		assertEquals(false,validConfigMgr.readEntry("phones.csv","type one of the below",null,validConfigMgr.getBpaFilesAttributesMap(),1,sc));
 	}
 	
 	/*
