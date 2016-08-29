@@ -10,7 +10,7 @@ TestUserSpace.class, TestUserSpaceMakerImpl.class,
 TestConfigurationMakerImplCSV.class,TestConfigurationMakerImplSQL.class,
 TestConfigurationManagerCSV.class,TestConfigurationMapperImplCSV.class,TestMapCreatorImplCSV.class,
 TestConfigurationManagerSQL.class,TestConfigurationMapperImplSQL.class,TestMapCreatorImplSQL.class,
-TestPeriodMakerImplCSV.class,
+TestPeriodMakerImplCSV.class,TestPeriodMakerImplSQL.class,
 TestBpaCostsMakerImplCSV.class,TestBpaCostCalculatorImpl.class,TestBpaClientWeightsCalculatorImpl.class,
 TestClientCostsImpl.class,
 TestReportSummaryImpl.class,TestReportDetailedImpl.class,TestReportGeneratorImpl.class

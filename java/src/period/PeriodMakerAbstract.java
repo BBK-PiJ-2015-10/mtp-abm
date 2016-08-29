@@ -116,24 +116,8 @@ public abstract class PeriodMakerAbstract implements PeriodMaker, Serializable {
 		captureConfiguration(sc);
 		createPeriod(sc);
 	}
-	
-	
-	@Override
-	public void save(){
-		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(period.getAbsolutePath()+"\\"+period.getName()+".dat"));)
-		{
-			encode.writeObject(period);
-			encode.writeObject(userSpace);
-			encode.writeObject(configurationManager);
-			encode.writeObject(periodFiles);
-			encode.writeObject(driversMap);
-			encode.writeObject(bpaCosts);
-			encode.writeObject(clientCosts);
-		}
-		catch (IOException ex){
-			ex.printStackTrace();
-		}		
-	}
+		
+	public abstract void save();
 	
 	public abstract void initConfigurationManager(String configName);
 	

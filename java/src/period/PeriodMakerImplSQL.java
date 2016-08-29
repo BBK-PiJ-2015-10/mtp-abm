@@ -2,12 +2,16 @@ package period;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Map;
 
 import configuration.ConfigurationManagerSQL;
+import configuration.ConfigurationManagerAbstract;
+import configuration.ConfigurationManagerCSV;
 import user.UserSpace;
 
 public class PeriodMakerImplSQL extends PeriodMakerAbstract implements Serializable {
@@ -38,15 +42,30 @@ public class PeriodMakerImplSQL extends PeriodMakerAbstract implements Serializa
 			clientCosts = (File)incode.readObject();
 			isPresent = true;
 		} catch (ClassNotFoundException ex){
-			System.out.println("error1");
 			isPresent = false;
 		} catch (IOException ex2){
-			System.out.println("error2");
 			isPresent = false;
 		} 
 		return isPresent;		
 	}
 		
+	@Override
+	public void save(){
+		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(period.getAbsolutePath()+"\\"+period.getName()+".dat"));)
+		{
+			encode.writeObject(period);
+			encode.writeObject(userSpace);
+			encode.writeObject(configurationManager);
+			encode.writeObject(periodFiles);
+			encode.writeObject(driversMap);
+			encode.writeObject(bpaCosts);
+			encode.writeObject(clientCosts);
+		}
+		catch (IOException ex){
+			ex.printStackTrace();
+		}		
+	}
+	
 	
 	
 
