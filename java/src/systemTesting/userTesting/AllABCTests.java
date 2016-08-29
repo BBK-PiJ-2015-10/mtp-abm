@@ -9,7 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 TestUserSpace.class, TestUserSpaceMakerImpl.class,
 TestConfigurationMakerImplCSV.class,
 TestConfigurationManagerCSV.class,TestConfigurationMapperImplCSV.class,TestMapCreatorImplCSV.class,
-TestConfigurationManagerSQL.class,
+TestConfigurationManagerSQL.class,TestConfigurationMapperImplSQL.class,TestMapCreatorImplSQL.class,
 TestPeriodMakerImplCSV.class,
 TestBpaCostsMakerImplCSV.class,TestBpaCostCalculatorImpl.class,TestBpaClientWeightsCalculatorImpl.class,
 TestClientCostsImpl.class,

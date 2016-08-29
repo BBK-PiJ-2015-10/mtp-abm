@@ -1,0 +1,11 @@
+jdbc:mysql://LocalHost:3306/abc
+root
+tonto
+smallgl
+bad stuff
+Amount
+iclient
+ihours
+pclient
+pcalls
+1

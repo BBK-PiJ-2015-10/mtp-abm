@@ -1,0 +1,16 @@
+jdbc:mysql://LocalHost:3306/abc
+root
+tonto
+smallgl
+Account Department
+Amount
+iclient
+ihours
+pclient
+pcalls
+
+phones.csv
+implementation.csv
+phones.csv
+phones.csv
+1

@@ -1,0 +1,11 @@
+jdbc:mysql://LocalHost:3306/abc
+root
+tonto
+smallgl
+Account Department
+Amount
+bad 
+bad1
+bd4
+baddd5
+1
