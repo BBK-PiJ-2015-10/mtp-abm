@@ -14,6 +14,19 @@ public abstract class MapCreatorAbstract implements MapCreator {
 	public MapCreatorAbstract(boolean manualFlag){
 		this.manualFlag=manualFlag;
 	}
+	
+	public boolean putToSleep(int microsecondstime){
+		try {
+			Thread.sleep(microsecondstime);
+		} catch (InterruptedException ex)
+		{
+			return Thread.currentThread().interrupted();
+		} 
+		catch (IllegalArgumentException ex){
+			return false;
+		}
+		return true;	
+	}
 
 	public abstract boolean createMap(ConfigurationManagerAbstract configurationManager, Scanner keyboard, String mapName);
 	

@@ -41,11 +41,9 @@ public class PeriodMakerImplSQL extends PeriodMakerAbstract implements Serializa
 			bpaCosts = (File)incode.readObject();
 			clientCosts = (File)incode.readObject();
 			isPresent = true;
-		} catch (ClassNotFoundException ex){
+		} catch (ClassNotFoundException | IOException | NullPointerException | ClassCastException ex){
 			isPresent = false;
-		} catch (IOException ex2){
-			isPresent = false;
-		} 
+		}  
 		return isPresent;		
 	}
 		

@@ -40,7 +40,7 @@ public class PeriodMakerImplCSV extends PeriodMakerAbstract implements Serializa
 			bpaCosts = (File)incode.readObject();
 			clientCosts = (File)incode.readObject();
 			isPresent = true;
-		} catch (ClassNotFoundException | IOException | NullPointerException ex){
+		} catch (ClassNotFoundException | IOException | NullPointerException | ClassCastException ex){
 			isPresent = false;
 		}  
 		return isPresent;		

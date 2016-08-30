@@ -128,6 +128,7 @@ public class MapCreatorImplSQL extends MapCreatorAbstract {
 				System.out.println("and filled out the BPA column with the name of the files that contain "
 						+ "the drivers for each tupple");
 				System.out.println("Please type the word done, when finished");
+				putToSleep(30000);
 				boolean validEntry=false;
 				do  {
 					String choice = keyboard.nextLine();

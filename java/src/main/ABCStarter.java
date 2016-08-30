@@ -40,7 +40,7 @@ public class ABCStarter {
 	public void launch(){
 		
 		manualFeedSetUp();
-		//autoFeedSetUpFile("validscript4.txt");
+		//autoFeedSetUpFile("validscriptUser13.txt");
 		application = new ABCSystemImpl(sc);
 		application.run();
 		
