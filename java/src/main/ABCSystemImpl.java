@@ -31,7 +31,6 @@ import java.io.File;
 
 public class ABCSystemImpl implements ABCSystem {
 
-	//Will do dependency injection latter. This might go away.
 	
 	public ABCSystemImpl(Scanner sc){
 		this.sc=sc;
@@ -79,12 +78,13 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	public void runMakeNewConfiguration(){
 		boolean valid=false;
+		String configType = null;
 		do
 		{
 			System.out.println("For a CSV configuration type CSV");
 			System.out.println("For a SQL configuration type SQL");
-			String configType = sc.nextLine();
-			switch (configType.toUpperCase()){
+			configType = sc.nextLine().toUpperCase();
+			switch (configType){
 				case "CSV":  configurationMaker = new ConfigurationMakerImplCSV();
 							 valid=true;
 							 break;
@@ -95,7 +95,7 @@ public class ABCSystemImpl implements ABCSystem {
 						     break;
 			}
 		} while (!valid);
-		configurationMaker.makeConfiguration(userSpace,sc);
+		configurationMaker.makeConfiguration(userSpace,sc,configType);
 	}
 	
 	
@@ -107,9 +107,8 @@ public class ABCSystemImpl implements ABCSystem {
 			boolean valid=false;
 			do
 			{
-				System.out.println("If the period is based on a CSV implementation, type CSV");
-				System.out.println("If the period is based on a SQL implementation, type SQL");
-				String configType = sc.nextLine();
+				String configType;
+				configType = userSpace.getPeriodConfigurationType(periodName);
 				switch (configType.toUpperCase()){
 					case "CSV":  periodMaker = new PeriodMakerImplCSV(new File(userSpace.getPeriod(periodName).getAbsolutePath()));
 								 valid=true;	
@@ -126,6 +125,7 @@ public class ABCSystemImpl implements ABCSystem {
 		}
 		return result;
 	}
+	
 	
 	public String runMakeNewPeriod(){
 		String result=null;
@@ -153,14 +153,14 @@ public class ABCSystemImpl implements ABCSystem {
 		return result;
 	}
 	
-	public boolean runBpaCostMaker(String periodType){
+	public boolean runBpaCostMaker(String periodType, Scanner sc){
 		switch (periodType.toUpperCase()){
 		case "CSV":  bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
 					 break;
 		case "SQL":  bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
 		 			 break;
 		}
-		return bpaCostsMaker.createbpaCosts();
+		return bpaCostsMaker.createbpaCosts(sc);
 	}
 	
 	
@@ -216,7 +216,7 @@ public class ABCSystemImpl implements ABCSystem {
 			validEntry = validSelection(choice);
 			if (validEntry){
 				if (choice.equalsIgnoreCase("yes")){
-					runBpaCostMaker(runMakeNewPeriod());
+					runBpaCostMaker(runMakeNewPeriod(),sc);
 					bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
 					bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
 					clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);

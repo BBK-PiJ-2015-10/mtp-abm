@@ -15,7 +15,6 @@ public class ABCStarter {
 	
 	private ABCSystem application;
 	
-	
 	public void manualFeedSetUp(){
 		sc = new Scanner(System.in);
 	}

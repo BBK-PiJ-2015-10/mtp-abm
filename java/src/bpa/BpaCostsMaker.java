@@ -1,12 +1,13 @@
 package bpa;
 
-import java.io.File;
+import java.util.Scanner;
+
 
 import period.PeriodMaker;
 
 public interface BpaCostsMaker {
 	
-	boolean createbpaCosts();
+	boolean createbpaCosts(Scanner sc);
 	
 	PeriodMaker getPeriodMaker();
 		

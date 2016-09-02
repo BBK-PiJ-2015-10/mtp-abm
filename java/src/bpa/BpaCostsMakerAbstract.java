@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.NoSuchElementException;
 
 
+
 public abstract class BpaCostsMakerAbstract implements BpaCostsMaker {
 	
     //This is a reference to the Period related to this BpaCost
@@ -137,14 +138,26 @@ public abstract class BpaCostsMakerAbstract implements BpaCostsMaker {
 	
 	
 	@Override
-	public boolean createbpaCosts() {
+	public boolean createbpaCosts(Scanner sc) {
+		String keyboard =null;
 		try {
 		displayInputFilesNames();
 		putToSleep(30000);
-		validateInput(this.periodMaker.getPeriodFiles());
-		extractGLBPAMap(this.periodMaker.getDriversMap());
-		createBpaCostsFile();
-		processGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
+		boolean validEntry = false;
+		do {
+			validEntry = validateInput(this.periodMaker.getPeriodFiles());
+			if (!validEntry){
+				System.out.println("Please load missing file(s), enter done when finish");
+				keyboard = sc.nextLine();
+				while (!keyboard.equalsIgnoreCase("done")){
+					System.out.println("Invalid entry, please enter the word done when finished");
+					keyboard = sc.nextLine();
+				}	
+			}
+		} while (!validEntry);
+			extractGLBPAMap(this.periodMaker.getDriversMap());
+			createBpaCostsFile();
+			processGL(this.periodMaker.getPeriodFiles(),this.periodMaker.getDriversMap());
 		} catch (NullPointerException ex) {
 			return false;
 		}

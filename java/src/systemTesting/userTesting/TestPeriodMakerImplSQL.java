@@ -34,7 +34,9 @@ public class TestPeriodMakerImplSQL {
 	
 	private File validFile = new File(validAddress);
 	
-	private PeriodMakerImplSQL PeriodMakerImplSQL; 
+	private PeriodMakerImplSQL PeriodMakerImplSQL;
+	
+	private String configName ="config10";
 	
 	private Scanner sc;
 	
@@ -45,8 +47,8 @@ public class TestPeriodMakerImplSQL {
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
 	public void setUpStreams() {
-	    //System.setOut(new PrintStream(outContent));
-	    //System.setErr(new PrintStream(errContent));
+	    System.setOut(new PrintStream(outContent));
+	    System.setErr(new PrintStream(errContent));
 	}
 
 	
@@ -140,7 +142,7 @@ public class TestPeriodMakerImplSQL {
 	@Test
 	public void testCaptureConfigurationValid(){
 		autoFeedSetUp("config10");
-		assertEquals(true,PeriodMakerImplSQL.captureConfiguration(sc));
+		assertEquals("config10",PeriodMakerImplSQL.captureConfiguration(sc));
 	}
 	
 	/*
@@ -150,7 +152,7 @@ public class TestPeriodMakerImplSQL {
 	@Test
 	public void testCaptureConfigurationInValid(){
 		autoFeedSetUpFile("testPeriodMakerImpl1SQL.txt");
-		assertEquals(true,PeriodMakerImplSQL.captureConfiguration(sc));
+		assertEquals("config10",PeriodMakerImplSQL.captureConfiguration(sc));
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////////
@@ -164,7 +166,7 @@ public class TestPeriodMakerImplSQL {
 	@Test
 	public void testCreatePeriodValid(){
 		autoFeedSetUp("period13");
-		PeriodMakerImplSQL.createPeriod(sc);
+		PeriodMakerImplSQL.createPeriod(sc,configName);
 		assertEquals("period13",PeriodMakerImplSQL.getPeriod().getName());
 		PeriodMakerImplSQL.getPeriod().delete();
 	}	
@@ -176,7 +178,7 @@ public class TestPeriodMakerImplSQL {
 	@Test
 	public void testCreatePeriodInValid(){
 		autoFeedSetUp("period13");
-		PeriodMakerImplSQL.createPeriod(sc);
+		PeriodMakerImplSQL.createPeriod(sc,configName);
 		assertNotEquals("period12",PeriodMakerImplSQL.getPeriod().getName());
 		PeriodMakerImplSQL.getPeriod().delete();
 	}
@@ -262,7 +264,7 @@ public class TestPeriodMakerImplSQL {
 		autoFeedSetUp("config10");
 		validPeriod.captureConfiguration(sc);
 		autoFeedSetUp("period25");
-		validPeriod.createPeriod(sc);
+		validPeriod.createPeriod(sc,configName);
 		validPeriod.save();
 		String targetaddress1 =  validPeriod.getPeriod().getAbsolutePath()+"\\"+validPeriod.getPeriod().getName()+".dat";
 		String targetaddress2 =  validPeriod.getPeriod().getAbsolutePath();
@@ -284,7 +286,7 @@ public class TestPeriodMakerImplSQL {
 		autoFeedSetUp("config10");
 		validPeriod.captureConfiguration(sc);
 		autoFeedSetUp("period26");
-		validPeriod.createPeriod(sc);
+		validPeriod.createPeriod(sc,configName);
 		validPeriod.save();
 		PeriodMakerImplSQL validPeriodtemp = new PeriodMakerImplSQL(new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10sql\\period26"));
 		validPeriodtemp.capture("period26");

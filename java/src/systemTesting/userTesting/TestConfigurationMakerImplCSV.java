@@ -21,6 +21,8 @@ import user.UserSpace;
 
 public class TestConfigurationMakerImplCSV {
 	
+	private String configType = "CSV";
+	
 	private UserSpace userSpace;
 	
 	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user12\\";
@@ -126,7 +128,7 @@ public class TestConfigurationMakerImplCSV {
 		autoFeedSetUpFile("testconfigurationmakerimpl1.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc));
+		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc,configType));
 	}
 	
 	/*
@@ -138,7 +140,7 @@ public class TestConfigurationMakerImplCSV {
 		autoFeedSetUpFile("testconfigurationmakerimpl2.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(userSpace, null));
+		assertEquals(false,configurationMaker.makeConfiguration(userSpace, null,configType));
 	}
 	
 	/*
@@ -150,7 +152,7 @@ public class TestConfigurationMakerImplCSV {
 		autoFeedSetUpFile("testconfigurationmakerimpl2.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(null, sc));
+		assertEquals(false,configurationMaker.makeConfiguration(null, sc,configType));
 	}
 	
 	/*
@@ -162,7 +164,7 @@ public class TestConfigurationMakerImplCSV {
 		autoFeedSetUpFile("testconfigurationmakerimpl2.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc));
+		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc,configType));
 	}
 	
 

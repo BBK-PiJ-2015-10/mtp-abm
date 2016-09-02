@@ -84,37 +84,37 @@ public abstract class PeriodMakerAbstract implements PeriodMaker, Serializable {
 		return userSpace.validConfiguration(configName);
 	}
 	
-	public boolean captureConfiguration(Scanner sc){
+	public String captureConfiguration(Scanner sc){
 		Boolean validEntry = false;
-		String keyboardEntry;
+		String configName = null;
 		do {
 			System.out.println("Please enter the name of the configuration that you wish to leverage");
-			keyboardEntry = sc.nextLine();
-			validEntry = validateConfiguration(keyboardEntry);
+			configName = sc.nextLine();
+			validEntry = validateConfiguration(configName);
 			if (!validEntry){
 				System.out.println("Configuration name not found");
 			}
 		} while (!validEntry);
-		initConfigurationManager(keyboardEntry);
-		configurationManager.capture(keyboardEntry);
-		return validEntry;
+		initConfigurationManager(configName);
+		configurationManager.capture(configName);
+		return configName;
 	}
 	
-	public void createPeriod(Scanner sc){
+	public void createPeriod(Scanner sc,String configName){
 		String dirname;
 		System.out.println("Please enter the name of the period you wish to create ");
 		dirname = sc.nextLine();
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		period = new File(address+dirname);
 		period.mkdir();
-		userSpace.addPeriod(dirname,period);
+		userSpace.addPeriod(dirname,period,configName);
 		userSpace.save();
 	}
 
 	@Override
 	public void makePeriod(Scanner sc) {
-		captureConfiguration(sc);
-		createPeriod(sc);
+		//captureConfiguration(sc);
+		createPeriod(sc,captureConfiguration(sc));
 	}
 		
 	public abstract void save();

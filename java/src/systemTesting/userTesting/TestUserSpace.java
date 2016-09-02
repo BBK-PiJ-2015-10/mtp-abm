@@ -50,14 +50,14 @@ public class TestUserSpace {
 	
 	public void setUpUserSpace(){
 		userSpace.FileSetUserSpaceFile(validFile);
-		userSpace.addConfiguration("valid1", config1);
-		userSpace.addConfiguration("valid2", config2);
+		userSpace.addConfiguration("valid1", config1,"config1");
+		userSpace.addConfiguration("valid2", config2,"config2");
 	}
 	
 	public void setUpInvalidUserSpace(){
 		invaliduserSpace.FileSetUserSpaceFile(invalidFile);
-		invaliduserSpace.addConfiguration("valid1", config1);
-		invaliduserSpace.addConfiguration("valid2", config2);
+		invaliduserSpace.addConfiguration("valid1", config1,"config1");
+		invaliduserSpace.addConfiguration("valid2", config2,"config2");
 	}
 	
 	
@@ -106,7 +106,7 @@ public class TestUserSpace {
 	 */
 	@Test
 	public void addConfigurationValid(){
-		userSpace.addConfiguration("valid1", config1);
+		userSpace.addConfiguration("valid1", config1,"config1");
 		assertEquals(config1,userSpace.getConfiguration("valid1"));
 	}
 	
@@ -124,8 +124,8 @@ public class TestUserSpace {
 	 */
 	@Test
 	public void addConfigurationTwoValidPartI(){
-		userSpace.addConfiguration("valid1", config1);
-		userSpace.addConfiguration("valid2", config2);
+		userSpace.addConfiguration("valid1", config1,"config1");
+		userSpace.addConfiguration("valid2", config2,"config2");
 		assertEquals(config1,userSpace.getConfiguration("valid1"));
 	}
 	
@@ -134,8 +134,8 @@ public class TestUserSpace {
 	 */
 	@Test
 	public void addConfigurationTwoValidPartII(){
-		userSpace.addConfiguration("valid1", config1);
-		userSpace.addConfiguration("valid2", config2);
+		userSpace.addConfiguration("valid1", config1,"config1");
+		userSpace.addConfiguration("valid2", config2,"config2");
 		assertEquals(config2,userSpace.getConfiguration("valid2"));
 	}	
 	
@@ -149,8 +149,8 @@ public class TestUserSpace {
 	 */
 	@Test
 	public void getConfigurationsNamesValidSize(){
-		userSpace.addConfiguration("valid1", config1);
-		userSpace.addConfiguration("valid2", config2);
+		userSpace.addConfiguration("valid1", config1,"config1");
+		userSpace.addConfiguration("valid2", config2,"config2");
 		assertEquals(2,userSpace.getConfigurationsNames().size());
 	}	
 	

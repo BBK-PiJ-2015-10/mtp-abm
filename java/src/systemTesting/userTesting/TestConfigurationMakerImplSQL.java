@@ -21,6 +21,8 @@ import user.UserSpace;
 
 public class TestConfigurationMakerImplSQL {
 	
+	private String configType = "SQL";
+	
 	private UserSpace userSpace;
 	
 	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10sql\\";
@@ -126,7 +128,7 @@ public class TestConfigurationMakerImplSQL {
 		autoFeedSetUpFile("testconfigurationmakerimpl1SQL.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc));
+		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc,configType));
 	}
 	
 	/*
@@ -138,7 +140,7 @@ public class TestConfigurationMakerImplSQL {
 		autoFeedSetUpFile("testconfigurationmakerimpl2SQL.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(userSpace, null));
+		assertEquals(false,configurationMaker.makeConfiguration(userSpace, null,configType));
 	}
 	
 	/*
@@ -150,7 +152,7 @@ public class TestConfigurationMakerImplSQL {
 		autoFeedSetUpFile("testconfigurationmakerimpl2SQL.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(null, sc));
+		assertEquals(false,configurationMaker.makeConfiguration(null, sc,configType));
 	}
 	
 	/*
@@ -162,7 +164,7 @@ public class TestConfigurationMakerImplSQL {
 		autoFeedSetUpFile("testconfigurationmakerimpl2SQL.txt");
 		userSpace = new UserSpace();
 		userSpace.FileSetUserSpaceFile(validFile);
-		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc));
+		assertEquals(false,configurationMaker.makeConfiguration(userSpace, sc,configType));
 	}
 	
 

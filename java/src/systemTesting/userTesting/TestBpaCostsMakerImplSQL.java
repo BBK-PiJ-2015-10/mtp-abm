@@ -11,6 +11,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 import bpa.BpaCostsMakerImplSQL;
 
@@ -27,6 +28,7 @@ public class TestBpaCostsMakerImplSQL {
 	
 	private BpaCostsMakerImplSQL bpaCostsMakerImpl;
 	
+	private Scanner sc = new Scanner(System.in);
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	
@@ -276,7 +278,7 @@ public class TestBpaCostsMakerImplSQL {
 	@Test
 	public void testCreateBpaCostsValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImplSQL(period);
-		assertEquals(true,bpaCostsMakerImpl.createbpaCosts());
+		assertEquals(true,bpaCostsMakerImpl.createbpaCosts(sc));
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().exists());
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().delete());
 	}	
@@ -288,7 +290,7 @@ public class TestBpaCostsMakerImplSQL {
 	@Test
 	public void testCreateBpaCosts(){
 		bpaCostsMakerImpl = new BpaCostsMakerImplSQL(null);
-		assertEquals(false,bpaCostsMakerImpl.createbpaCosts());
+		assertEquals(false,bpaCostsMakerImpl.createbpaCosts(sc));
 	}
 	
 	

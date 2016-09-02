@@ -140,8 +140,7 @@ public class TestPeriodMakerImplCSV {
 	@Test
 	public void testCaptureConfigurationValid(){
 		autoFeedSetUp("config11");
-		System.out.println(PeriodMakerImplCSV.captureConfiguration(sc));
-		assertEquals(2,2);
+		assertEquals("config11",PeriodMakerImplCSV.captureConfiguration(sc));
 	}
 	
 	/*
@@ -151,7 +150,7 @@ public class TestPeriodMakerImplCSV {
 	@Test
 	public void testCaptureConfigurationInValid(){
 		autoFeedSetUpFile("testPeriodMakerImpl1.txt");
-		assertEquals(true,PeriodMakerImplCSV.captureConfiguration(sc));
+		assertEquals("config11",PeriodMakerImplCSV.captureConfiguration(sc));
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////////
@@ -165,7 +164,7 @@ public class TestPeriodMakerImplCSV {
 	@Test
 	public void testCreatePeriodValid(){
 		autoFeedSetUp("period13");
-		PeriodMakerImplCSV.createPeriod(sc);
+		PeriodMakerImplCSV.createPeriod(sc,"config11");
 		assertEquals("period13",PeriodMakerImplCSV.getPeriod().getName());
 		PeriodMakerImplCSV.getPeriod().delete();
 	}	
@@ -177,7 +176,7 @@ public class TestPeriodMakerImplCSV {
 	@Test
 	public void testCreatePeriodInValid(){
 		autoFeedSetUp("period13");
-		PeriodMakerImplCSV.createPeriod(sc);
+		PeriodMakerImplCSV.createPeriod(sc,"config11");
 		assertNotEquals("period12",PeriodMakerImplCSV.getPeriod().getName());
 	}
 
@@ -262,7 +261,7 @@ public class TestPeriodMakerImplCSV {
 		autoFeedSetUp("config11");
 		validPeriod.captureConfiguration(sc);
 		autoFeedSetUp("period25");
-		validPeriod.createPeriod(sc);
+		validPeriod.createPeriod(sc,"config11");
 		validPeriod.save();
 		String targetaddress1 =  validPeriod.getPeriod().getAbsolutePath()+"\\"+validPeriod.getPeriod().getName()+".dat";
 		String targetaddress2 =  validPeriod.getPeriod().getAbsolutePath();
@@ -284,7 +283,7 @@ public class TestPeriodMakerImplCSV {
 		autoFeedSetUp("config11");
 		validPeriod.captureConfiguration(sc);
 		autoFeedSetUp("period26");
-		validPeriod.createPeriod(sc);
+		validPeriod.createPeriod(sc,"config11");
 		validPeriod.save();
 		PeriodMakerImplCSV validPeriodtemp = new PeriodMakerImplCSV(new File("C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11\\period26"));
 		validPeriodtemp.capture("period26");

@@ -1,3 +1,24 @@
 This is a test for copying from file A 
 to file B
 I truly hope it works
+
+
+CREATE TABLE smallglmod(
+	Legal_Entity  varchar(64) DEFAULT NULL,
+    Department  varchar(64) DEFAULT NULL,
+    Account  varchar(64) DEFAULT NULL,
+    Amount  double(15,2) DEFAULT NULL,
+	PRIMARY KEY(Legal_Entity,Department,Account,Amount)
+)
+
+CREATE TABLE mediumgl(
+	Legal_Entity  varchar(64) DEFAULT NULL,
+    Legal_Entity_Name varchar(64) DEFAULT NULL,
+    '\Function' varchar(64) DEFAULT NULL,
+    CostCenter varchar(64) DEFAULT NULL,
+    CostCenter_Name varchar(64) DEFAULT NULL, 
+    Account integer (15) DEFAULT NULL, 
+    Account_Name varchar(64) DEFAULT NULL,
+    Amount double(15,2) DEFAULT NULL,
+    Origin varchar(64) DEFAULT NULL,
+	PRIMARY KEY(Legal_Entity,Legal_EntityName,'\Function',CostCenter,CostCenter_Name,Account,Account_Name,Amount,Origin))

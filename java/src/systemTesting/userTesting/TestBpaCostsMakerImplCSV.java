@@ -17,6 +17,8 @@ import bpa.BpaCostsMakerImplCSV;
 import period.PeriodMakerImplCSV;
 import period.PeriodMaker;
 
+import java.util.Scanner;
+
 public class TestBpaCostsMakerImplCSV {
 	
 	private String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user13\\period13";
@@ -26,6 +28,8 @@ public class TestBpaCostsMakerImplCSV {
 	private PeriodMaker period = new PeriodMakerImplCSV(file);
 	
 	private BpaCostsMakerImplCSV bpaCostsMakerImpl;
+	
+	private Scanner sc = new Scanner(System.in);
 	
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -297,7 +301,7 @@ public class TestBpaCostsMakerImplCSV {
 	@Test
 	public void testCreateBpaCostsValid(){
 		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(period);
-		assertEquals(true,bpaCostsMakerImpl.createbpaCosts());
+		assertEquals(true,bpaCostsMakerImpl.createbpaCosts(sc));
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().exists());
 		assertEquals(true,bpaCostsMakerImpl.getBPACosts().delete());
 	}	
@@ -309,7 +313,7 @@ public class TestBpaCostsMakerImplCSV {
 	@Test
 	public void testCreateBpaCosts(){
 		bpaCostsMakerImpl = new BpaCostsMakerImplCSV(null);
-		assertEquals(false,bpaCostsMakerImpl.createbpaCosts());
+		assertEquals(false,bpaCostsMakerImpl.createbpaCosts(sc));
 	}
 	
 	

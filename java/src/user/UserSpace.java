@@ -3,6 +3,7 @@ package user;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.HashSet;
 
 import java.io.Serializable;
 import java.io.File;
@@ -18,8 +19,14 @@ public class UserSpace implements Serializable {
 	
 	private Map<String,File> configurations = new HashMap<>();
 	
+	private Map<String,Set<String>> configTypesMap = new HashMap<>();
+	
+	private Map<String,Set<String>> configperiodMap = new HashMap<>();
+	
 	//Need to create JUnit Testing for this field
 	private Map<String,File> periods = new HashMap<>();
+	
+	//private Map<String,String>
 	
 	public UserSpace() {
 	}
@@ -33,12 +40,22 @@ public class UserSpace implements Serializable {
 	}
 	
 	
-	public void addConfiguration(String configname, File file){
+	public void addConfiguration(String configname, File file,String type){
 		configurations.put(configname, file);
+		if (configTypesMap.containsKey(type)){
+			configTypesMap.get(type).add(configname);
+		}
+		else {
+			Set<String> temp = new HashSet<>();
+			temp.add(configname);
+			configTypesMap.put(type, temp);
+		}
 	}
 	
-	public void removeConfiguration(String configname){
-		configurations.remove(configname);
+	public void removeConfiguration(String configName, String type){
+		configurations.remove(configName);
+		configTypesMap.get(type).remove(configName);
+		configperiodMap.remove(configName);
 	}
 	
 	public File getConfiguration(String configName){
@@ -55,8 +72,16 @@ public class UserSpace implements Serializable {
 	}
 	
 	//Need to create JT
-	public void addPeriod(String periodName, File file){
+	public void addPeriod(String periodName, File file,String configType){
 		periods.put(periodName, file);
+		if (configperiodMap.containsKey(configType)){
+			configperiodMap.get(configType).add(periodName);
+		}
+		else {
+			Set<String> temp = new HashSet<>();
+			temp.add(periodName);
+			configperiodMap.put(configType, temp);
+		}
 	}
 	
 	//Need to create JT
@@ -72,7 +97,33 @@ public class UserSpace implements Serializable {
 	//Need to create JUnit test for this method
 	public boolean validPeriod(String periodName){
 		return periods.containsKey(periodName);
-	}	
+	}
+	
+	
+	public Map<String,Set<String>> getConfigTypesMap(){
+		return this.configTypesMap;
+	}
+	
+	public String getConfigurationType(String configurationName){
+		for (String input : configTypesMap.keySet()){
+			if(configTypesMap.get(input).contains(configurationName)){
+				return input;
+			}
+		}
+		return null;
+	}
+	
+
+	public String getPeriodConfigurationType(String periodName){
+		for (String input : configperiodMap.keySet()){
+			if(configperiodMap.get(input).contains(periodName)){
+				return getConfigurationType(input);
+			}
+		}
+		return null;
+	}
+	
+	
 	
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
@@ -80,6 +131,8 @@ public class UserSpace implements Serializable {
 			encode.writeObject(file);
 			encode.writeObject(configurations);
 			encode.writeObject(periods);
+			encode.writeObject(configTypesMap);
+			encode.writeObject(configperiodMap);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -94,8 +147,9 @@ public class UserSpace implements Serializable {
 			file = (File)incode.readObject();
 			configurations=(Map<String,File>)incode.readObject();
 			periods=(Map<String,File>)incode.readObject();
+			configTypesMap=(Map<String,Set<String>>)incode.readObject();
+			configperiodMap=(Map<String,Set<String>>)incode.readObject();
 			isPresent = true;
-			
 		} catch (ClassNotFoundException ex){
 			isPresent = false;
 		} catch (IOException ex2){

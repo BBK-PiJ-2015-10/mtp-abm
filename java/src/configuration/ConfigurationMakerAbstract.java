@@ -17,7 +17,7 @@ public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 	}
 	
 	@Override
-	public boolean makeConfiguration(UserSpace userSpace, Scanner sc) {
+	public boolean makeConfiguration(UserSpace userSpace, Scanner sc,String configType) {
 		if (sc == null || userSpace == null){
 			return false;
 		}
@@ -28,7 +28,7 @@ public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 		String address  = userSpace.getUserSpaceFile().getAbsolutePath()+"\\";		
 		File config = new File(address+dirname);
 		config.mkdir();
-		userSpace.addConfiguration(dirname,config);
+		userSpace.addConfiguration(dirname,config,configType);
 		userSpace.save();
 		System.out.println("Please go to the below location and drop your general ledger and operation data files");
 		System.out.println(address+dirname);
@@ -51,7 +51,7 @@ public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 	     }
 		return true;
 		} catch (NullPointerException ex){
-			userSpace.removeConfiguration(dirname);
+			userSpace.removeConfiguration(dirname,configType);
 			userSpace.save();
 			String tempD = config.getAbsolutePath()+"//"+config.getName()+".dat";
 			new File(tempD).delete();

@@ -80,17 +80,20 @@ public class SQLDataLoader {
 					}
 				}	
 			}
-			String sql="INSERT INTO "+tableName+sqlm+" VALUES(?,?,?,?)";
+			String sql="INSERT INTO "+tableName+sqlm+" VALUES(?,?,?,?,?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(sql);
 			for (int k=0;k<values.size();k++){
 				Integer posn=k+1;
 				String param=values.get(k);	
-				if (k==values.size()-1){
+				if (k==values.size()-2){
 						preparedStatement.setDouble(posn,Double.parseDouble(param));
 					}
-					else {
+				else if (k==values.size()-4){
+					preparedStatement.setInt(posn,Integer.parseInt(param));
+				}
+				else {
 						preparedStatement.setString(posn,param);
-					}	
+				}	
 			}
 			
 			preparedStatement.executeUpdate();;
@@ -100,7 +103,7 @@ public class SQLDataLoader {
 		}
 	}
 	
-	public boolean readFile(String address, String tableName){
+	public boolean readWriteFile(String address, String tableName){
 		srcFile = new File(address);
 		getLabels(tableName);
 		try (BufferedReader in = new BufferedReader(new FileReader(srcFile));){
@@ -125,8 +128,8 @@ public class SQLDataLoader {
 	public static void main(String[] args) {
 		
 		SQLDataLoader sqlDataLoader = new SQLDataLoader("abc");
-		String srcFileAddress= "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10\\config10\\gl.csv";
-		sqlDataLoader.readFile(srcFileAddress,"smallgl");
+		String srcFileAddress= "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user17\\config17\\gl.csv";
+		sqlDataLoader.readWriteFile(srcFileAddress,"mediumgl");
 	
 
 	}
