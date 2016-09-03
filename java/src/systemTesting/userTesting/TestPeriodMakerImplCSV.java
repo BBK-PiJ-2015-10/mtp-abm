@@ -38,6 +38,8 @@ public class TestPeriodMakerImplCSV {
 	
 	private Scanner sc;
 	
+	private String configName = "config11";
+	
 	private ByteArrayInputStream auto;
 	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -140,7 +142,7 @@ public class TestPeriodMakerImplCSV {
 	@Test
 	public void testCaptureConfigurationValid(){
 		autoFeedSetUp("config11");
-		assertEquals("config11",PeriodMakerImplCSV.captureConfiguration(sc));
+		assertEquals("config11",PeriodMakerImplCSV.captureConfiguration(sc,configName));
 	}
 	
 	/*
@@ -150,7 +152,7 @@ public class TestPeriodMakerImplCSV {
 	@Test
 	public void testCaptureConfigurationInValid(){
 		autoFeedSetUpFile("testPeriodMakerImpl1.txt");
-		assertEquals("config11",PeriodMakerImplCSV.captureConfiguration(sc));
+		assertEquals("config11",PeriodMakerImplCSV.captureConfiguration(sc,configName));
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////////
@@ -191,8 +193,8 @@ public class TestPeriodMakerImplCSV {
 	//@Ignore
 	@Test
 	public void testMakePeriodValid(){
-		autoFeedSetUpFile("testPeriodMakerImpl1.txt");
-		PeriodMakerImplCSV.makePeriod(sc);
+		autoFeedSetUp("period15");
+		PeriodMakerImplCSV.makePeriod(sc,configName);
 		assertEquals("period15",PeriodMakerImplCSV.getPeriod().getName());
 		PeriodMakerImplCSV.getPeriod().delete();
 	}	
@@ -259,7 +261,7 @@ public class TestPeriodMakerImplCSV {
 	public void testSaveValid(){
 		PeriodMakerImplCSV validPeriod = new PeriodMakerImplCSV(userSpace);
 		autoFeedSetUp("config11");
-		validPeriod.captureConfiguration(sc);
+		validPeriod.captureConfiguration(sc,configName);
 		autoFeedSetUp("period25");
 		validPeriod.createPeriod(sc,"config11");
 		validPeriod.save();
@@ -281,7 +283,7 @@ public class TestPeriodMakerImplCSV {
 	public void testSaveValidTestingContent(){
 		PeriodMakerImplCSV validPeriod = new PeriodMakerImplCSV(userSpace);
 		autoFeedSetUp("config11");
-		validPeriod.captureConfiguration(sc);
+		validPeriod.captureConfiguration(sc,configName);
 		autoFeedSetUp("period26");
 		validPeriod.createPeriod(sc,"config11");
 		validPeriod.save();

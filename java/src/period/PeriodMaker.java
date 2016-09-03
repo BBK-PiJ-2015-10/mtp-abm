@@ -8,7 +8,8 @@ import configuration.ConfigurationManagerAbstract;
 
 public interface PeriodMaker {
 
-	void makePeriod(Scanner sc);
+	
+	void makePeriod(Scanner sc,String configName);
 	
 	//for the sake of testing
 	void save();

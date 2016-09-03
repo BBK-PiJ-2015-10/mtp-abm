@@ -29,7 +29,7 @@ public class TestConfigurationMapperImplSQL {
 	
 	private ConfigurationMapperImplSQL configurationMapperImpl;
 	
-	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user10sql\\config10";
+	private String validAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user11sql\\config11";
 	
 	private File validFile = new File(validAddress);
 	
@@ -92,7 +92,7 @@ public class TestConfigurationMapperImplSQL {
 		 configurationMapperImpl = new ConfigurationMapperImplSQL(configurationManager);
 		 assertEquals(true,configurationMapperImpl.execManager(sc));
 		 ConfigurationManagerSQL testCM = new ConfigurationManagerSQL(validFile);
-		 assertEquals(true,testCM.capture("config10"));
+		 assertEquals(true,testCM.capture("config11"));
 		 assertEquals(2,testCM.getBPAFilesMap().size());
 		 assertEquals("smallgl",testCM.getGLFileName());
 		 assertEquals(2,testCM.getBpaFilesAttributesMap().keySet().size());

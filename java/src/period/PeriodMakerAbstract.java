@@ -84,21 +84,13 @@ public abstract class PeriodMakerAbstract implements PeriodMaker, Serializable {
 		return userSpace.validConfiguration(configName);
 	}
 	
-	public String captureConfiguration(Scanner sc){
-		Boolean validEntry = false;
-		String configName = null;
-		do {
-			System.out.println("Please enter the name of the configuration that you wish to leverage");
-			configName = sc.nextLine();
-			validEntry = validateConfiguration(configName);
-			if (!validEntry){
-				System.out.println("Configuration name not found");
-			}
-		} while (!validEntry);
+	
+	public String captureConfiguration(Scanner sc,String configName){
 		initConfigurationManager(configName);
 		configurationManager.capture(configName);
 		return configName;
 	}
+	
 	
 	public void createPeriod(Scanner sc,String configName){
 		String dirname;
@@ -112,10 +104,10 @@ public abstract class PeriodMakerAbstract implements PeriodMaker, Serializable {
 	}
 
 	@Override
-	public void makePeriod(Scanner sc) {
-		//captureConfiguration(sc);
-		createPeriod(sc,captureConfiguration(sc));
+	public void makePeriod(Scanner sc,String configName){
+		createPeriod(sc,captureConfiguration(sc,configName));
 	}
+	
 		
 	public abstract void save();
 	

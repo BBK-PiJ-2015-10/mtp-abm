@@ -73,7 +73,7 @@ public class TestPeriodMakerImplSQL {
 		}	
 	}
 	
-	@Ignore
+	//@Ignore
 	@Before
 	public void initializeUserSpace(){
 		setUpStreams();
@@ -142,7 +142,7 @@ public class TestPeriodMakerImplSQL {
 	@Test
 	public void testCaptureConfigurationValid(){
 		autoFeedSetUp("config10");
-		assertEquals("config10",PeriodMakerImplSQL.captureConfiguration(sc));
+		assertEquals("config10",PeriodMakerImplSQL.captureConfiguration(sc,configName));
 	}
 	
 	/*
@@ -152,7 +152,7 @@ public class TestPeriodMakerImplSQL {
 	@Test
 	public void testCaptureConfigurationInValid(){
 		autoFeedSetUpFile("testPeriodMakerImpl1SQL.txt");
-		assertEquals("config10",PeriodMakerImplSQL.captureConfiguration(sc));
+		assertEquals("config10",PeriodMakerImplSQL.captureConfiguration(sc,configName));
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////////
@@ -194,8 +194,8 @@ public class TestPeriodMakerImplSQL {
 	//@Ignore
 	@Test
 	public void testMakePeriodValid(){
-		autoFeedSetUpFile("testPeriodMakerImpl1SQL.txt");
-		PeriodMakerImplSQL.makePeriod(sc);
+		autoFeedSetUp("period15");
+		PeriodMakerImplSQL.makePeriod(sc,configName);
 		assertEquals("period15",PeriodMakerImplSQL.getPeriod().getName());
 		PeriodMakerImplSQL.getPeriod().delete();
 	}	
@@ -262,7 +262,7 @@ public class TestPeriodMakerImplSQL {
 	public void testSaveValid(){
 		PeriodMakerImplSQL validPeriod = new PeriodMakerImplSQL(userSpace);
 		autoFeedSetUp("config10");
-		validPeriod.captureConfiguration(sc);
+		validPeriod.captureConfiguration(sc,configName);
 		autoFeedSetUp("period25");
 		validPeriod.createPeriod(sc,configName);
 		validPeriod.save();
@@ -284,7 +284,7 @@ public class TestPeriodMakerImplSQL {
 	public void testSaveValidTestingContent(){
 		PeriodMakerImplSQL validPeriod = new PeriodMakerImplSQL(userSpace);
 		autoFeedSetUp("config10");
-		validPeriod.captureConfiguration(sc);
+		validPeriod.captureConfiguration(sc,configName);
 		autoFeedSetUp("period26");
 		validPeriod.createPeriod(sc,configName);
 		validPeriod.save();

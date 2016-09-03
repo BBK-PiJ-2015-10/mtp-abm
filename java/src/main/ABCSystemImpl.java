@@ -14,7 +14,6 @@ import client.ClientCostsImpl;
 import configuration.ConfigurationMaker;
 import configuration.ConfigurationMakerImplCSV;
 import configuration.ConfigurationMakerImplSQL;
-import old.ConfigurationMakerImpl;
 import period.PeriodMaker;
 import period.PeriodMakerImplCSV;
 import period.PeriodMakerImplSQL;
@@ -129,37 +128,39 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	public String runMakeNewPeriod(){
 		String result=null;
-		boolean valid=false;
-		do
-		{
-			System.out.println("If the configuration to use is a CSV implementation, type CSV");
-			System.out.println("If the configuration to use is a SQL implementation, type SQL");
-			String configType = sc.nextLine();
-			switch (configType.toUpperCase()){
-				case "CSV":  periodMaker = new PeriodMakerImplCSV(userSpace);
-							 valid=true;
-							 result="CSV";
-							 break;
-				case "SQL":  periodMaker = new PeriodMakerImplSQL(userSpace);
-							 valid=true;
-							 result="SQL";
-							 break;
-				default:     System.out.println("Invalid selection");
-						     break;
+		String configName;
+		do {
+			System.out.println("Please enter the name of the configuration to use");
+			configName = sc.nextLine();
+			if (!userSpace.validConfiguration(configName)){
+				System.out.println("Invalid configuration name");
 			}
-		} while (!valid);
-		periodMaker.makePeriod(sc);
+		} while(!userSpace.validConfiguration(configName));
+		String configType = userSpace.getConfigurationType(configName);
+		switch (configType.toUpperCase()){
+			case "CSV":  periodMaker = new PeriodMakerImplCSV(userSpace);
+						 result="CSV";
+						 break;
+			case "SQL":  periodMaker = new PeriodMakerImplSQL(userSpace);
+						 result="SQL";
+						 break;
+			default:     System.out.println("Invalid selection");
+					     break;
+		}
+		periodMaker.makePeriod(sc,configName);
 		periodMaker.save();
-		return result;
+		return result;	
 	}
+	
+	
 	
 	public boolean runBpaCostMaker(String periodType, Scanner sc){
 		switch (periodType.toUpperCase()){
-		case "CSV":  bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
-					 break;
-		case "SQL":  bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
-		 			 break;
-		}
+			case "CSV":  bpaCostsMaker = new BpaCostsMakerImplCSV(periodMaker);
+						 break;
+			case "SQL":  bpaCostsMaker = new BpaCostsMakerImplSQL(periodMaker);
+			 			 break;
+			}
 		return bpaCostsMaker.createbpaCosts(sc);
 	}
 	
@@ -255,10 +256,7 @@ public class ABCSystemImpl implements ABCSystem {
 				} while (!validEntry);	
 			}
 		} while (!validEntry);
-		
-		
-		
-		
+			
 		
 	}
 	
