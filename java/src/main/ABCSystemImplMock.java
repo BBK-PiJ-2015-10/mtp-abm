@@ -123,7 +123,7 @@ public class ABCSystemImplMock implements ABCSystem {
 			keyboard = sc.nextLine();
 		} while (!validSelection(keyboard));
 		switch (keyboard){
-			case "yes":  System.out.println("I need to make a new period");
+			case "yes":  runMakeNewPeriodEnhanced();
 			break;
 			case "no":break;
 			case "exit": return true;
@@ -160,7 +160,7 @@ public class ABCSystemImplMock implements ABCSystem {
 	}
 	
 	
-	public String runMakeNewPeriod(){
+	public String createPeriodMaker(){
 		String result=null;
 		String configName;
 		do {
@@ -187,6 +187,28 @@ public class ABCSystemImplMock implements ABCSystem {
 	}
 	
 	
+	public boolean runMakeNewPeriodEnhanced(){
+		runBpaCostMaker(createPeriodMaker(),sc);
+		bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
+		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
+		clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
+		clientCosts.calculateClientCosts();
+		do {
+			System.out.println("Enter yes if you wish to run a report(s)");
+			System.out.println("Enter no if you wish to return to the main menu");
+			System.out.println("Enter exit if you wish to exit the application");
+			keyboard = sc.nextLine();
+		} while (!validSelection(keyboard));
+		switch (keyboard){
+			case "yes":  runGenerateReportEnhanced();
+			break;
+			case "no":break;
+			case "exit": return true;
+		}
+		return false;
+	}
+	
+	
 	
 	public boolean runBpaCostMaker(String periodType, Scanner sc){
 		switch (periodType.toUpperCase()){
@@ -199,11 +221,27 @@ public class ABCSystemImplMock implements ABCSystem {
 	}
 	
 	
-	public boolean runGenerateReport(){
+	public boolean runGenerateReportEnhanced(){
 		reportGenerator= new ReportGeneratorImpl(periodMaker);
 		reportGenerator.captureChoice(sc);
-		return reportGenerator.generateReport();
+		reportGenerator.generateReport();
+		do {
+			System.out.println("Enter yes if you wish to run another report(s)");
+			System.out.println("Enter no if you wish to return to the main menu");
+			System.out.println("Enter exit if you wish to exit the application");
+			keyboard = sc.nextLine();
+		} while (!validSelection(keyboard));
+		switch (keyboard){
+			case "yes":  
+				System.out.println("I selected yes");
+				return runGenerateReportEnhanced();
+			case "no":break;
+			case "exit": return true;
+		}
+		return false;
 	}
+	
+	
 	
 	public boolean validSelection(String selection){
 		switch (selection.toLowerCase()){
@@ -228,8 +266,9 @@ public class ABCSystemImplMock implements ABCSystem {
 	public boolean launchABCServiceRequest(String selection){
 		switch (selection.toLowerCase()){
 			case "user" : return runMakeNewUserSpaceEnhanced();
-			case "configuration"  : System.out.println("We will create a configuration for you");
-			return false;
+			case "configuration"  : 
+				runAccessExistingUserSpace();
+				return runMakeNewConfiguration();
 			case "period" : System.out.println("We will create a period for you");
 			return false;
 			case "report" : System.out.println("We will create a report for you");
@@ -274,98 +313,7 @@ public class ABCSystemImplMock implements ABCSystem {
 		
 		
 		
-		
-		/*
-		do {
-		
-			do {
-				System.out.println("If you are a new user, please enter yes, if not, please enter no");
-				choice = sc.nextLine();
-				validEntry = validSelection(choice);
-				if (validEntry){
-					if (choice.equalsIgnoreCase("yes")){
-						runMakeNewUserSpace();		
-					}
-					else {
-						runAccessExistingUserSpace();
-					}
-				}	
-			} while (!validEntry);
-			
-			do {
-				System.out.println("If you wish to create a new ABC Configuration, please enter yes");
-				choice = sc.nextLine();
-				validEntry = validSelection(choice);
-				if (validEntry){
-					if (choice.equalsIgnoreCase("yes")){
-						runMakeNewConfiguration();		
-					}
-				}	
-			} while (!validEntry);
-			
-			do {
-				System.out.println("Enter yes if you wish to create a new period, enter no if you wish "
-						+ "to access an existing period");
-				choice = sc.nextLine();
-				validEntry = validSelection(choice);
-				if (validEntry){
-					if (choice.equalsIgnoreCase("yes")){
-						runBpaCostMaker(runMakeNewPeriod(),sc);
-						bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
-						bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
-						clientCosts = new ClientCostsImpl(bpaCostCalculator,bpaClientWeightsCalculator);
-						clientCosts.calculateClientCosts();
-					} else if (choice.equalsIgnoreCase("exit")){
-						validEntry=true;
-					}
-					else {
-						do {
-							validEntry = accessExistingPeriod();
-							if (!validEntry){
-								System.out.println("Invalid entry");
-							}				
-						} while (!validEntry);	
-					}
-				}
-			} while (!validEntry);
-			
-			
-			do {
-				System.out.println("Enter yes if you wish to run a report, enter no if not");
-				choice = sc.nextLine();
-				validEntry = validSelection(choice);
-				if (choice.equalsIgnoreCase("yes")){
-					runGenerateReport();
-					do {
-						System.out.println("Enter yes if you wish to run another report, enter no if not");
-						choice = sc.nextLine();
-						validEntry = validSelection(choice);
-						if (validEntry){
-							if (choice.equalsIgnoreCase("yes")){
-								runGenerateReport();
-								validEntry=false;
-							}
-							else {
-								validEntry=true;
-							}
-						}
-					} while (!validEntry);	
-				}
-				else if (choice.equalsIgnoreCase("exit")){
-					validEntry=true;
-				}
-			} while (!validEntry);
-			
-			System.out.println("If you wish to exit the application type yes");
-			choice = sc.nextLine();
-			if (choice.equalsIgnoreCase("yes")){
-				System.out.println("Existing the application");
-				terminate=true;
-			}
-			
-			} while(!terminate);
-		
-			*/
+	
 		
 	}
 	
