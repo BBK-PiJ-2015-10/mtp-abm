@@ -21,7 +21,7 @@ public class UserSpace implements Serializable {
 	
 	private Map<String,Set<String>> configTypesMap = new HashMap<>();
 	
-	private Map<String,Set<String>> configperiodMap = new HashMap<>();
+	private Map<String,Set<String>> configPeriodMap = new HashMap<>();
 	
 	//Need to create JUnit Testing for this field
 	private Map<String,File> periods = new HashMap<>();
@@ -55,7 +55,7 @@ public class UserSpace implements Serializable {
 	public void removeConfiguration(String configName, String type){
 		configurations.remove(configName);
 		configTypesMap.get(type).remove(configName);
-		configperiodMap.remove(configName);
+		configPeriodMap.remove(configName);
 	}
 	
 	public File getConfiguration(String configName){
@@ -74,13 +74,13 @@ public class UserSpace implements Serializable {
 	//Need to create JT
 	public void addPeriod(String periodName, File file,String configType){
 		periods.put(periodName, file);
-		if (configperiodMap.containsKey(configType)){
-			configperiodMap.get(configType).add(periodName);
+		if (configPeriodMap.containsKey(configType)){
+			configPeriodMap.get(configType).add(periodName);
 		}
 		else {
 			Set<String> temp = new HashSet<>();
 			temp.add(periodName);
-			configperiodMap.put(configType, temp);
+			configPeriodMap.put(configType, temp);
 		}
 	}
 	
@@ -115,8 +115,8 @@ public class UserSpace implements Serializable {
 	
 
 	public String getPeriodConfigurationType(String periodName){
-		for (String input : configperiodMap.keySet()){
-			if(configperiodMap.get(input).contains(periodName)){
+		for (String input : configPeriodMap.keySet()){
+			if(configPeriodMap.get(input).contains(periodName)){
 				return getConfigurationType(input);
 			}
 		}
@@ -132,7 +132,7 @@ public class UserSpace implements Serializable {
 			encode.writeObject(configurations);
 			encode.writeObject(periods);
 			encode.writeObject(configTypesMap);
-			encode.writeObject(configperiodMap);
+			encode.writeObject(configPeriodMap);
 		}
 		catch (IOException ex){
 			ex.printStackTrace();
@@ -148,7 +148,7 @@ public class UserSpace implements Serializable {
 			configurations=(Map<String,File>)incode.readObject();
 			periods=(Map<String,File>)incode.readObject();
 			configTypesMap=(Map<String,Set<String>>)incode.readObject();
-			configperiodMap=(Map<String,Set<String>>)incode.readObject();
+			configPeriodMap=(Map<String,Set<String>>)incode.readObject();
 			isPresent = true;
 		} catch (ClassNotFoundException ex){
 			isPresent = false;

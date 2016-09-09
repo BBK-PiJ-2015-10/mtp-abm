@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public interface ConfigurationMaker {
 	
-	boolean makeConfiguration(UserSpace userSpace,Scanner sc,String type);
+	boolean makeConfiguration(UserSpace userSpace,Scanner sc,String configType);
 	
 	
 

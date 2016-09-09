@@ -1,0 +1,2353 @@
+CostCenter_Name,Account_Name,cost,BPA
+Accounting,Salary,728.8,sales.csv
+Accounting,Benefits,189.49,sales.csv
+Accounting,Contractors,49099.24,sales.csv
+Accounting,Travel-Trips,150.98,sales.csv
+Accounting,Travel-Hotels,706.93,sales.csv
+Accounting,Professional-Services-Consultants,9044.08,sales.csv
+Accounting,Legal-Consultants,7878.27,sales.csv
+Accounting,Legal-Corporate Fees,12628.14,sales.csv
+Accounting,Legal-Employment Fees,15106.73,sales.csv
+Accounting,IT-Application-On-Premise,7139.53,ITDemand.csv
+Accounting,IT-Application-Subscription,385.26,ITDemand.csv
+Accounting,IT-Infrastructure,8551.99,ITDemand.csv
+Accounting,IT-Consultant-System Implementation,9784.77,ITDemand.csv
+Accounting,Facilities-Offices,486.2,sales.csv
+Accounting,Facilities-Supplies,8188.0,sales.csv
+Accounting,Facilities-Supplies,6467.23,sales.csv
+Exec-Office,Salary,76812.39,sales.csv
+Exec-Office,Benefits,19971.22,sales.csv
+Exec-Office,Contractors,74104.95,sales.csv
+Exec-Office,Travel-Trips,761.28,sales.csv
+Exec-Office,Travel-Hotels,122.61,sales.csv
+Exec-Office,Professional-Services-Consultants,1360.69,sales.csv
+Exec-Office,Legal-Consultants,5284.04,sales.csv
+Exec-Office,Legal-Corporate Fees,42691.68,sales.csv
+Exec-Office,Legal-Employment Fees,33872.87,sales.csv
+Exec-Office,IT-Application-On-Premise,7909.45,sales.csv
+Exec-Office,IT-Application-Subscription,5468.01,sales.csv
+Exec-Office,IT-Infrastructure,4964.49,sales.csv
+Exec-Office,IT-Consultant-System Implementation,2914.36,sales.csv
+Exec-Office,Facilities-Offices,6056.19,sales.csv
+Exec-Office,Facilities-Supplies,1667.45,sales.csv
+Exec-Office,Facilities-Supplies,2216.16,sales.csv
+Finance,Salary,69098.28,sales.csv
+Finance,Benefits,17965.55,sales.csv
+Finance,Contractors,76646.02,sales.csv
+Finance,Travel-Trips,233.35,sales.csv
+Finance,Travel-Hotels,575.68,sales.csv
+Finance,Professional-Services-Consultants,19276.19,sales.csv
+Finance,Legal-Consultants,14126.99,sales.csv
+Finance,Legal-Corporate Fees,26192.84,sales.csv
+Finance,Legal-Employment Fees,27560.81,sales.csv
+Finance,IT-Application-On-Premise,2487.59,ITDemand.csv
+Finance,IT-Application-Subscription,5371.7,ITDemand.csv
+Finance,IT-Infrastructure,9719.29,ITDemand.csv
+Finance,IT-Consultant-System Implementation,6542.27,ITDemand.csv
+Finance,Facilities-Offices,8722.97,sales.csv
+Finance,Facilities-Supplies,8344.83,sales.csv
+Finance,Facilities-Supplies,8568.61,sales.csv
+IS,Salary,77265.53,payroll.csv
+IS,Benefits,20089.04,payroll.csv
+IS,Contractors,60258.64,payroll.csv
+IS,Travel-Trips,142.54,payroll.csv
+IS,Travel-Hotels,958.99,payroll.csv
+IS,Professional-Services-Consultants,28416.04,payroll.csv
+IS,Legal-Consultants,33170.6,payroll.csv
+IS,Legal-Corporate Fees,30976.45,payroll.csv
+IS,Legal-Employment Fees,31491.75,payroll.csv
+IS,IT-Application-On-Premise,1779.34,payroll.csv
+IS,IT-Application-Subscription,4326.76,payroll.csv
+IS,IT-Infrastructure,7897.4,payroll.csv
+IS,IT-Consultant-System Implementation,3703.01,payroll.csv
+IS,Facilities-Offices,3114.45,payroll.csv
+IS,Facilities-Supplies,1873.72,payroll.csv
+IS,Facilities-Supplies,7450.96,payroll.csv
+IT,Salary,56799.2,ITDemand.csv
+IT,Benefits,14767.79,ITDemand.csv
+IT,Contractors,74320.57,ITDemand.csv
+IT,Travel-Trips,798.23,ITDemand.csv
+IT,Travel-Hotels,734.64,ITDemand.csv
+IT,Professional-Services-Consultants,24119.33,ITDemand.csv
+IT,Legal-Consultants,37721.64,ITDemand.csv
+IT,Legal-Corporate Fees,12279.56,ITDemand.csv
+IT,Legal-Employment Fees,38787.13,ITDemand.csv
+IT,IT-Application-On-Premise,9952.73,ITDemand.csv
+IT,IT-Application-Subscription,8458.67,ITDemand.csv
+IT,IT-Infrastructure,9841.48,ITDemand.csv
+IT,IT-Consultant-System Implementation,6257.28,ITDemand.csv
+IT,Facilities-Offices,2966.36,ITDemand.csv
+IT,Facilities-Supplies,8877.31,ITDemand.csv
+IT,Facilities-Supplies,6001.12,ITDemand.csv
+Legal,Salary,3200.92,sales.csv
+Legal,Benefits,832.24,sales.csv
+Legal,Contractors,22006.67,sales.csv
+Legal,Travel-Trips,777.45,sales.csv
+Legal,Travel-Hotels,599.48,sales.csv
+Legal,Professional-Services-Consultants,36119.75,sales.csv
+Legal,Legal-Consultants,24932.2,sales.csv
+Legal,Legal-Corporate Fees,30527.82,sales.csv
+Legal,Legal-Employment Fees,36791.48,sales.csv
+Legal,IT-Application-On-Premise,8133.79,ITDemand.csv
+Legal,IT-Application-Subscription,9167.77,ITDemand.csv
+Legal,IT-Infrastructure,8228.52,ITDemand.csv
+Legal,IT-Consultant-System Implementation,6785.52,ITDemand.csv
+Legal,Facilities-Offices,3600.78,sales.csv
+Legal,Facilities-Supplies,5586.42,sales.csv
+Legal,Facilities-Supplies,8912.44,sales.csv
+Marketing-Events,Salary,47775.15,sales.csv
+Marketing-Events,Benefits,12421.54,sales.csv
+Marketing-Events,Contractors,15402.11,sales.csv
+Marketing-Events,Travel-Trips,482.47,sales.csv
+Marketing-Events,Travel-Hotels,159.51,sales.csv
+Marketing-Events,Professional-Services-Consultants,4459.76,sales.csv
+Marketing-Events,Legal-Consultants,29546.97,sales.csv
+Marketing-Events,Legal-Corporate Fees,38263.98,sales.csv
+Marketing-Events,Legal-Employment Fees,20343.03,sales.csv
+Marketing-Events,IT-Application-On-Premise,6678.0,ITDemand.csv
+Marketing-Events,IT-Application-Subscription,5367.56,ITDemand.csv
+Marketing-Events,IT-Infrastructure,4990.81,ITDemand.csv
+Marketing-Events,IT-Consultant-System Implementation,707.81,ITDemand.csv
+Marketing-Events,Facilities-Offices,5199.21,sales.csv
+Marketing-Events,Facilities-Supplies,9806.15,sales.csv
+Marketing-Events,Facilities-Supplies,6984.51,sales.csv
+Marketing-Research,Salary,27829.09,sales.csv
+Marketing-Research,Benefits,7235.56,sales.csv
+Marketing-Research,Contractors,59984.68,sales.csv
+Marketing-Research,Travel-Trips,549.69,sales.csv
+Marketing-Research,Travel-Hotels,128.75,sales.csv
+Marketing-Research,Professional-Services-Consultants,19778.48,sales.csv
+Marketing-Research,Legal-Consultants,42473.4,sales.csv
+Marketing-Research,Legal-Corporate Fees,28533.66,sales.csv
+Marketing-Research,Legal-Employment Fees,24124.73,sales.csv
+Marketing-Research,IT-Application-On-Premise,1198.36,ITDemand.csv
+Marketing-Research,IT-Application-Subscription,9425.5,ITDemand.csv
+Marketing-Research,IT-Infrastructure,2095.26,ITDemand.csv
+Marketing-Research,IT-Consultant-System Implementation,8338.4,ITDemand.csv
+Marketing-Research,Facilities-Offices,1804.5,sales.csv
+Marketing-Research,Facilities-Supplies,780.5,sales.csv
+Marketing-Research,Facilities-Supplies,1145.63,sales.csv
+Marketing-PR,Salary,42749.23,sales.csv
+Marketing-PR,Benefits,11114.8,sales.csv
+Marketing-PR,Contractors,38274.99,sales.csv
+Marketing-PR,Travel-Trips,482.97,sales.csv
+Marketing-PR,Travel-Hotels,582.99,sales.csv
+Marketing-PR,Professional-Services-Consultants,8904.36,sales.csv
+Marketing-PR,Legal-Consultants,37754.91,sales.csv
+Marketing-PR,Legal-Corporate Fees,17720.18,sales.csv
+Marketing-PR,Legal-Employment Fees,42365.89,sales.csv
+Marketing-PR,IT-Application-On-Premise,3731.93,ITDemand.csv
+Marketing-PR,IT-Application-Subscription,7696.47,ITDemand.csv
+Marketing-PR,IT-Infrastructure,6533.03,ITDemand.csv
+Marketing-PR,IT-Consultant-System Implementation,865.86,ITDemand.csv
+Marketing-PR,Facilities-Offices,2378.9,sales.csv
+Marketing-PR,Facilities-Supplies,1106.42,sales.csv
+Marketing-PR,Facilities-Supplies,3180.86,sales.csv
+Product-Management,Salary,32725.62,implementation.csv
+Product-Management,Benefits,8508.66,implementation.csv
+Product-Management,Contractors,21572.79,implementation.csv
+Product-Management,Travel-Trips,535.43,implementation.csv
+Product-Management,Travel-Hotels,69.91,implementation.csv
+Product-Management,Professional-Services-Consultants,39643.41,implementation.csv
+Product-Management,Legal-Consultants,19222.71,implementation.csv
+Product-Management,Legal-Corporate Fees,44237.59,implementation.csv
+Product-Management,Legal-Employment Fees,32809.54,implementation.csv
+Product-Management,IT-Application-On-Premise,4112.86,ITDemand.csv
+Product-Management,IT-Application-Subscription,1361.91,ITDemand.csv
+Product-Management,IT-Infrastructure,4888.45,ITDemand.csv
+Product-Management,IT-Consultant-System Implementation,367.53,ITDemand.csv
+Product-Management,Facilities-Offices,4911.75,implementation.csv
+Product-Management,Facilities-Supplies,2240.54,implementation.csv
+Product-Management,Facilities-Supplies,3292.86,implementation.csv
+PS,Salary,24564.81,implementation.csv
+PS,Benefits,6386.85,implementation.csv
+PS,Contractors,68171.78,implementation.csv
+PS,Travel-Trips,484.24,implementation.csv
+PS,Travel-Hotels,444.79,implementation.csv
+PS,Professional-Services-Consultants,6638.53,implementation.csv
+PS,Legal-Consultants,44868.7,implementation.csv
+PS,Legal-Corporate Fees,18619.19,implementation.csv
+PS,Legal-Employment Fees,29844.31,implementation.csv
+PS,IT-Application-On-Premise,3246.57,implementation.csv
+PS,IT-Application-Subscription,2503.73,implementation.csv
+PS,IT-Infrastructure,4739.36,implementation.csv
+PS,IT-Consultant-System Implementation,7814.77,implementation.csv
+PS,Facilities-Offices,1832.77,implementation.csv
+PS,Facilities-Supplies,2522.58,implementation.csv
+PS,Facilities-Supplies,305.09,implementation.csv
+R&D-Infrastructure Developmet,Salary,20068.43,implementation.csv
+R&D-Infrastructure Developmet,Benefits,5217.79,implementation.csv
+R&D-Infrastructure Developmet,Contractors,82796.41,implementation.csv
+R&D-Infrastructure Developmet,Travel-Trips,763.64,implementation.csv
+R&D-Infrastructure Developmet,Travel-Hotels,889.5,implementation.csv
+R&D-Infrastructure Developmet,Professional-Services-Consultants,5515.99,implementation.csv
+R&D-Infrastructure Developmet,Legal-Consultants,19975.83,implementation.csv
+R&D-Infrastructure Developmet,Legal-Corporate Fees,25462.77,implementation.csv
+R&D-Infrastructure Developmet,Legal-Employment Fees,19057.1,implementation.csv
+R&D-Infrastructure Developmet,IT-Application-On-Premise,7430.79,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Application-Subscription,7325.61,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Infrastructure,5901.69,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Consultant-System Implementation,6817.74,ITDemand.csv
+R&D-Infrastructure Developmet,Facilities-Offices,4982.6,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,4584.94,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,2888.85,implementation.csv
+R&D-Applications Development,Salary,6054.12,implementation.csv
+R&D-Applications Development,Benefits,1574.07,implementation.csv
+R&D-Applications Development,Contractors,38183.67,implementation.csv
+R&D-Applications Development,Travel-Trips,188.91,implementation.csv
+R&D-Applications Development,Travel-Hotels,970.64,implementation.csv
+R&D-Applications Development,Professional-Services-Consultants,36741.69,implementation.csv
+R&D-Applications Development,Legal-Consultants,15121.98,implementation.csv
+R&D-Applications Development,Legal-Corporate Fees,1649.21,implementation.csv
+R&D-Applications Development,Legal-Employment Fees,29245.95,implementation.csv
+R&D-Applications Development,IT-Application-On-Premise,1077.61,ITDemand.csv
+R&D-Applications Development,IT-Application-Subscription,9529.04,ITDemand.csv
+R&D-Applications Development,IT-Infrastructure,8744.52,ITDemand.csv
+R&D-Applications Development,IT-Consultant-System Implementation,2068.88,ITDemand.csv
+R&D-Applications Development,Facilities-Offices,8042.38,implementation.csv
+R&D-Applications Development,Facilities-Supplies,8718.92,implementation.csv
+R&D-Applications Development,Facilities-Supplies,222.63,implementation.csv
+R&D-Research,Salary,98362.11,implementation.csv
+R&D-Research,Benefits,25574.15,implementation.csv
+R&D-Research,Contractors,56125.15,implementation.csv
+R&D-Research,Travel-Trips,235.83,implementation.csv
+R&D-Research,Travel-Hotels,474.84,implementation.csv
+R&D-Research,Professional-Services-Consultants,38076.97,implementation.csv
+R&D-Research,Legal-Consultants,10178.77,implementation.csv
+R&D-Research,Legal-Corporate Fees,30480.77,implementation.csv
+R&D-Research,Legal-Employment Fees,34127.02,implementation.csv
+R&D-Research,IT-Application-On-Premise,9709.23,ITDemand.csv
+R&D-Research,IT-Application-Subscription,1046.56,ITDemand.csv
+R&D-Research,IT-Infrastructure,8456.49,ITDemand.csv
+R&D-Research,IT-Consultant-System Implementation,9180.79,ITDemand.csv
+R&D-Research,Facilities-Offices,8772.96,implementation.csv
+R&D-Research,Facilities-Supplies,7129.96,implementation.csv
+R&D-Research,Facilities-Supplies,571.17,implementation.csv
+R&D-Parternerships,Salary,95921.78,sales.csv
+R&D-Parternerships,Benefits,24939.66,sales.csv
+R&D-Parternerships,Contractors,93691.06,sales.csv
+R&D-Parternerships,Travel-Trips,415.12,sales.csv
+R&D-Parternerships,Travel-Hotels,208.58,sales.csv
+R&D-Parternerships,Professional-Services-Consultants,1811.66,sales.csv
+R&D-Parternerships,Legal-Consultants,38897.79,sales.csv
+R&D-Parternerships,Legal-Corporate Fees,30065.66,sales.csv
+R&D-Parternerships,Legal-Employment Fees,27289.48,sales.csv
+R&D-Parternerships,IT-Application-On-Premise,4141.88,ITDemand.csv
+R&D-Parternerships,IT-Application-Subscription,7561.14,ITDemand.csv
+R&D-Parternerships,IT-Infrastructure,9564.31,ITDemand.csv
+R&D-Parternerships,IT-Consultant-System Implementation,6520.08,ITDemand.csv
+R&D-Parternerships,Facilities-Offices,2290.03,sales.csv
+R&D-Parternerships,Facilities-Supplies,6236.79,sales.csv
+R&D-Parternerships,Facilities-Supplies,2924.79,sales.csv
+Sales-Direct,Salary,74267.8,sales.csv
+Sales-Direct,Benefits,19309.63,sales.csv
+Sales-Direct,Contractors,335.54,sales.csv
+Sales-Direct,Travel-Trips,570.67,sales.csv
+Sales-Direct,Travel-Hotels,295.45,sales.csv
+Sales-Direct,Professional-Services-Consultants,19748.52,sales.csv
+Sales-Direct,Legal-Consultants,12573.3,sales.csv
+Sales-Direct,Legal-Corporate Fees,16465.36,sales.csv
+Sales-Direct,Legal-Employment Fees,3385.77,sales.csv
+Sales-Direct,IT-Application-On-Premise,9894.1,ITDemand.csv
+Sales-Direct,IT-Application-Subscription,7959.04,ITDemand.csv
+Sales-Direct,IT-Infrastructure,4073.92,ITDemand.csv
+Sales-Direct,IT-Consultant-System Implementation,8740.29,ITDemand.csv
+Sales-Direct,Facilities-Offices,805.75,phones.csv
+Sales-Direct,Facilities-Supplies,5678.09,phones.csv
+Sales-Direct,Facilities-Supplies,1198.07,phones.csv
+Sales-Partners,Salary,89337.22,sales.csv
+Sales-Partners,Benefits,23227.68,sales.csv
+Sales-Partners,Contractors,10951.54,sales.csv
+Sales-Partners,Travel-Trips,173.87,sales.csv
+Sales-Partners,Travel-Hotels,114.18,sales.csv
+Sales-Partners,Professional-Services-Consultants,28282.68,sales.csv
+Sales-Partners,Legal-Consultants,29262.9,sales.csv
+Sales-Partners,Legal-Corporate Fees,22591.69,sales.csv
+Sales-Partners,Legal-Employment Fees,19281.45,sales.csv
+Sales-Partners,IT-Application-On-Premise,7571.1,sales.csv
+Sales-Partners,IT-Application-Subscription,2770.68,sales.csv
+Sales-Partners,IT-Infrastructure,6461.51,sales.csv
+Sales-Partners,IT-Consultant-System Implementation,5745.08,sales.csv
+Sales-Partners,Facilities-Offices,9641.25,sales.csv
+Sales-Partners,Facilities-Supplies,8720.86,sales.csv
+Sales-Partners,Facilities-Supplies,2560.3,sales.csv
+Sales-Online,Salary,45430.71,sales.csv
+Sales-Online,Benefits,11811.98,sales.csv
+Sales-Online,Contractors,58784.03,sales.csv
+Sales-Online,Travel-Trips,182.96,sales.csv
+Sales-Online,Travel-Hotels,467.41,sales.csv
+Sales-Online,Professional-Services-Consultants,13718.75,sales.csv
+Sales-Online,Legal-Consultants,12806.54,sales.csv
+Sales-Online,Legal-Corporate Fees,15729.53,sales.csv
+Sales-Online,Legal-Employment Fees,22214.01,sales.csv
+Sales-Online,IT-Application-On-Premise,3916.82,sales.csv
+Sales-Online,IT-Application-Subscription,1959.93,sales.csv
+Sales-Online,IT-Infrastructure,9396.54,sales.csv
+Sales-Online,IT-Consultant-System Implementation,693.99,sales.csv
+Sales-Online,Facilities-Offices,3038.29,sales.csv
+Sales-Online,Facilities-Supplies,9858.48,sales.csv
+Sales-Online,Facilities-Supplies,8011.91,sales.csv
+Sales-Ops,Salary,52548.83,sales.csv
+Sales-Ops,Benefits,13662.7,sales.csv
+Sales-Ops,Contractors,66651.17,sales.csv
+Sales-Ops,Travel-Trips,171.55,sales.csv
+Sales-Ops,Travel-Hotels,91.62,sales.csv
+Sales-Ops,Professional-Services-Consultants,6459.66,sales.csv
+Sales-Ops,Legal-Consultants,21555.64,sales.csv
+Sales-Ops,Legal-Corporate Fees,40209.4,sales.csv
+Sales-Ops,Legal-Employment Fees,30711.66,sales.csv
+Sales-Ops,IT-Application-On-Premise,7389.78,ITDemand.csv
+Sales-Ops,IT-Application-Subscription,4191.11,ITDemand.csv
+Sales-Ops,IT-Infrastructure,9407.05,ITDemand.csv
+Sales-Ops,IT-Consultant-System Implementation,6056.37,ITDemand.csv
+Sales-Ops,Facilities-Offices,5005.74,phones.csv
+Sales-Ops,Facilities-Supplies,7699.19,phones.csv
+Sales-Ops,Facilities-Supplies,115.46,phones.csv
+Sales-Exec,Salary,15517.96,sales.csv
+Sales-Exec,Benefits,4034.67,sales.csv
+Sales-Exec,Contractors,33553.76,sales.csv
+Sales-Exec,Travel-Trips,880.59,sales.csv
+Sales-Exec,Travel-Hotels,801.38,sales.csv
+Sales-Exec,Professional-Services-Consultants,20989.61,sales.csv
+Sales-Exec,Legal-Consultants,111.19,sales.csv
+Sales-Exec,Legal-Corporate Fees,22576.67,sales.csv
+Sales-Exec,Legal-Employment Fees,13913.57,sales.csv
+Sales-Exec,IT-Application-On-Premise,801.32,ITDemand.csv
+Sales-Exec,IT-Application-Subscription,7498.18,ITDemand.csv
+Sales-Exec,IT-Infrastructure,5893.79,ITDemand.csv
+Sales-Exec,IT-Consultant-System Implementation,4991.7,ITDemand.csv
+Sales-Exec,Facilities-Offices,6823.21,sales.csv
+Sales-Exec,Facilities-Supplies,8831.45,sales.csv
+Sales-Exec,Facilities-Supplies,8283.36,sales.csv
+Tax,Salary,20772.76,sales.csv
+Tax,Benefits,5400.92,sales.csv
+Tax,Contractors,62961.8,sales.csv
+Tax,Travel-Trips,581.52,sales.csv
+Tax,Travel-Hotels,825.6,sales.csv
+Tax,Professional-Services-Consultants,17220.3,sales.csv
+Tax,Legal-Consultants,5292.66,sales.csv
+Tax,Legal-Corporate Fees,16670.13,sales.csv
+Tax,Legal-Employment Fees,37100.27,sales.csv
+Tax,IT-Application-On-Premise,8932.43,ITDemand.csv
+Tax,IT-Application-Subscription,4352.52,ITDemand.csv
+Tax,IT-Infrastructure,7309.42,ITDemand.csv
+Tax,IT-Consultant-System Implementation,6616.51,ITDemand.csv
+Tax,Facilities-Offices,9481.84,sales.csv
+Tax,Facilities-Supplies,1340.18,sales.csv
+Tax,Facilities-Supplies,6620.76,sales.csv
+Accounting,Salary,72599.76,sales.csv
+Accounting,Benefits,18875.94,sales.csv
+Accounting,Contractors,37283.11,sales.csv
+Accounting,Travel-Trips,283.11,sales.csv
+Accounting,Travel-Hotels,794.79,sales.csv
+Accounting,Professional-Services-Consultants,23008.48,sales.csv
+Accounting,Legal-Consultants,10784.77,sales.csv
+Accounting,Legal-Corporate Fees,10.93,sales.csv
+Accounting,Legal-Employment Fees,24073.56,sales.csv
+Accounting,IT-Application-On-Premise,2129.64,ITDemand.csv
+Accounting,IT-Application-Subscription,8020.15,ITDemand.csv
+Accounting,IT-Infrastructure,9347.79,ITDemand.csv
+Accounting,IT-Consultant-System Implementation,3814.57,ITDemand.csv
+Accounting,Facilities-Offices,5942.25,sales.csv
+Accounting,Facilities-Supplies,4481.31,sales.csv
+Accounting,Facilities-Supplies,1355.55,sales.csv
+Exec-Office,Salary,71792.86,sales.csv
+Exec-Office,Benefits,18666.14,sales.csv
+Exec-Office,Contractors,38280.26,sales.csv
+Exec-Office,Travel-Trips,896.91,sales.csv
+Exec-Office,Travel-Hotels,610.92,sales.csv
+Exec-Office,Professional-Services-Consultants,1330.74,sales.csv
+Exec-Office,Legal-Consultants,43242.63,sales.csv
+Exec-Office,Legal-Corporate Fees,5724.72,sales.csv
+Exec-Office,Legal-Employment Fees,21119.26,sales.csv
+Exec-Office,IT-Application-On-Premise,493.04,sales.csv
+Exec-Office,IT-Application-Subscription,2994.29,sales.csv
+Exec-Office,IT-Infrastructure,5404.48,sales.csv
+Exec-Office,IT-Consultant-System Implementation,5370.6,sales.csv
+Exec-Office,Facilities-Offices,4873.28,sales.csv
+Exec-Office,Facilities-Supplies,6392.38,sales.csv
+Exec-Office,Facilities-Supplies,5331.29,sales.csv
+Finance,Salary,82384.9,sales.csv
+Finance,Benefits,21420.07,sales.csv
+Finance,Contractors,5139.09,sales.csv
+Finance,Travel-Trips,385.97,sales.csv
+Finance,Travel-Hotels,634.06,sales.csv
+Finance,Professional-Services-Consultants,19897.24,sales.csv
+Finance,Legal-Consultants,8153.72,sales.csv
+Finance,Legal-Corporate Fees,44891.63,sales.csv
+Finance,Legal-Employment Fees,38478.7,sales.csv
+Finance,IT-Application-On-Premise,6229.27,ITDemand.csv
+Finance,IT-Application-Subscription,3123.19,ITDemand.csv
+Finance,IT-Infrastructure,8214.5,ITDemand.csv
+Finance,IT-Consultant-System Implementation,665.36,ITDemand.csv
+Finance,Facilities-Offices,8464.96,sales.csv
+Finance,Facilities-Supplies,6702.03,sales.csv
+Finance,Facilities-Supplies,1154.39,sales.csv
+IS,Salary,14210.99,payroll.csv
+IS,Benefits,3694.86,payroll.csv
+IS,Contractors,80609.53,payroll.csv
+IS,Travel-Trips,872.06,payroll.csv
+IS,Travel-Hotels,575.49,payroll.csv
+IS,Professional-Services-Consultants,14064.28,payroll.csv
+IS,Legal-Consultants,42953.76,payroll.csv
+IS,Legal-Corporate Fees,13098.53,payroll.csv
+IS,Legal-Employment Fees,10929.06,payroll.csv
+IS,IT-Application-On-Premise,146.12,payroll.csv
+IS,IT-Application-Subscription,9495.57,payroll.csv
+IS,IT-Infrastructure,916.98,payroll.csv
+IS,IT-Consultant-System Implementation,2069.64,payroll.csv
+IS,Facilities-Offices,1075.93,payroll.csv
+IS,Facilities-Supplies,834.91,payroll.csv
+IS,Facilities-Supplies,2330.21,payroll.csv
+IT,Salary,99702.11,ITDemand.csv
+IT,Benefits,25922.55,ITDemand.csv
+IT,Contractors,14642.51,ITDemand.csv
+IT,Travel-Trips,208.61,ITDemand.csv
+IT,Travel-Hotels,562.84,ITDemand.csv
+IT,Professional-Services-Consultants,39706.62,ITDemand.csv
+IT,Legal-Consultants,16129.12,ITDemand.csv
+IT,Legal-Corporate Fees,39959.59,ITDemand.csv
+IT,Legal-Employment Fees,1510.63,ITDemand.csv
+IT,IT-Application-On-Premise,8013.89,ITDemand.csv
+IT,IT-Application-Subscription,2718.61,ITDemand.csv
+IT,IT-Infrastructure,874.32,ITDemand.csv
+IT,IT-Consultant-System Implementation,5033.3,ITDemand.csv
+IT,Facilities-Offices,6814.78,ITDemand.csv
+IT,Facilities-Supplies,1922.68,ITDemand.csv
+IT,Facilities-Supplies,8298.93,ITDemand.csv
+Legal,Salary,95604.84,sales.csv
+Legal,Benefits,24857.26,sales.csv
+Legal,Contractors,36002.62,sales.csv
+Legal,Travel-Trips,708.41,sales.csv
+Legal,Travel-Hotels,991.33,sales.csv
+Legal,Professional-Services-Consultants,28762.58,sales.csv
+Legal,Legal-Consultants,15239.24,sales.csv
+Legal,Legal-Corporate Fees,13461.66,sales.csv
+Legal,Legal-Employment Fees,20804.01,sales.csv
+Legal,IT-Application-On-Premise,4041.74,ITDemand.csv
+Legal,IT-Application-Subscription,7490.25,ITDemand.csv
+Legal,IT-Infrastructure,890.39,ITDemand.csv
+Legal,IT-Consultant-System Implementation,9733.0,ITDemand.csv
+Legal,Facilities-Offices,5168.15,sales.csv
+Legal,Facilities-Supplies,1831.16,sales.csv
+Legal,Facilities-Supplies,5667.7,sales.csv
+Marketing-Events,Salary,68637.04,sales.csv
+Marketing-Events,Benefits,17845.63,sales.csv
+Marketing-Events,Contractors,93662.1,sales.csv
+Marketing-Events,Travel-Trips,799.47,sales.csv
+Marketing-Events,Travel-Hotels,997.6,sales.csv
+Marketing-Events,Professional-Services-Consultants,2948.46,sales.csv
+Marketing-Events,Legal-Consultants,32610.19,sales.csv
+Marketing-Events,Legal-Corporate Fees,34949.09,sales.csv
+Marketing-Events,Legal-Employment Fees,19065.07,sales.csv
+Marketing-Events,IT-Application-On-Premise,4609.2,ITDemand.csv
+Marketing-Events,IT-Application-Subscription,7556.7,ITDemand.csv
+Marketing-Events,IT-Infrastructure,5253.67,ITDemand.csv
+Marketing-Events,IT-Consultant-System Implementation,9244.76,ITDemand.csv
+Marketing-Events,Facilities-Offices,588.52,sales.csv
+Marketing-Events,Facilities-Supplies,3901.69,sales.csv
+Marketing-Events,Facilities-Supplies,4786.46,sales.csv
+Marketing-Research,Salary,47233.12,sales.csv
+Marketing-Research,Benefits,12280.61,sales.csv
+Marketing-Research,Contractors,87579.1,sales.csv
+Marketing-Research,Travel-Trips,25.9,sales.csv
+Marketing-Research,Travel-Hotels,241.25,sales.csv
+Marketing-Research,Professional-Services-Consultants,1168.7,sales.csv
+Marketing-Research,Legal-Consultants,40699.74,sales.csv
+Marketing-Research,Legal-Corporate Fees,33584.58,sales.csv
+Marketing-Research,Legal-Employment Fees,20416.66,sales.csv
+Marketing-Research,IT-Application-On-Premise,8591.56,ITDemand.csv
+Marketing-Research,IT-Application-Subscription,7696.14,ITDemand.csv
+Marketing-Research,IT-Infrastructure,6862.74,ITDemand.csv
+Marketing-Research,IT-Consultant-System Implementation,4968.85,ITDemand.csv
+Marketing-Research,Facilities-Offices,8901.62,sales.csv
+Marketing-Research,Facilities-Supplies,5713.17,sales.csv
+Marketing-Research,Facilities-Supplies,4524.55,sales.csv
+Marketing-PR,Salary,4979.99,sales.csv
+Marketing-PR,Benefits,1294.8,sales.csv
+Marketing-PR,Contractors,20942.12,sales.csv
+Marketing-PR,Travel-Trips,887.87,sales.csv
+Marketing-PR,Travel-Hotels,127.27,sales.csv
+Marketing-PR,Professional-Services-Consultants,36511.56,sales.csv
+Marketing-PR,Legal-Consultants,44678.28,sales.csv
+Marketing-PR,Legal-Corporate Fees,33930.23,sales.csv
+Marketing-PR,Legal-Employment Fees,37362.16,sales.csv
+Marketing-PR,IT-Application-On-Premise,9636.24,ITDemand.csv
+Marketing-PR,IT-Application-Subscription,3683.68,ITDemand.csv
+Marketing-PR,IT-Infrastructure,9462.48,ITDemand.csv
+Marketing-PR,IT-Consultant-System Implementation,2238.06,ITDemand.csv
+Marketing-PR,Facilities-Offices,3447.76,sales.csv
+Marketing-PR,Facilities-Supplies,2071.83,sales.csv
+Marketing-PR,Facilities-Supplies,33.03,sales.csv
+Product-Management,Salary,90056.46,implementation.csv
+Product-Management,Benefits,23414.68,implementation.csv
+Product-Management,Contractors,18737.71,implementation.csv
+Product-Management,Travel-Trips,9.1,implementation.csv
+Product-Management,Travel-Hotels,225.03,implementation.csv
+Product-Management,Professional-Services-Consultants,6373.42,implementation.csv
+Product-Management,Legal-Consultants,13852.23,implementation.csv
+Product-Management,Legal-Corporate Fees,36260.89,implementation.csv
+Product-Management,Legal-Employment Fees,27231.49,implementation.csv
+Product-Management,IT-Application-On-Premise,1328.62,ITDemand.csv
+Product-Management,IT-Application-Subscription,3345.74,ITDemand.csv
+Product-Management,IT-Infrastructure,8483.23,ITDemand.csv
+Product-Management,IT-Consultant-System Implementation,9991.29,ITDemand.csv
+Product-Management,Facilities-Offices,7649.79,implementation.csv
+Product-Management,Facilities-Supplies,937.55,implementation.csv
+Product-Management,Facilities-Supplies,4836.07,implementation.csv
+PS,Salary,56883.07,implementation.csv
+PS,Benefits,14789.6,implementation.csv
+PS,Contractors,19898.21,implementation.csv
+PS,Travel-Trips,910.98,implementation.csv
+PS,Travel-Hotels,254.01,implementation.csv
+PS,Professional-Services-Consultants,22714.0,implementation.csv
+PS,Legal-Consultants,34485.97,implementation.csv
+PS,Legal-Corporate Fees,13562.93,implementation.csv
+PS,Legal-Employment Fees,20226.66,implementation.csv
+PS,IT-Application-On-Premise,1962.71,implementation.csv
+PS,IT-Application-Subscription,6987.56,implementation.csv
+PS,IT-Infrastructure,1266.68,implementation.csv
+PS,IT-Consultant-System Implementation,7039.6,implementation.csv
+PS,Facilities-Offices,9840.91,implementation.csv
+PS,Facilities-Supplies,3810.68,implementation.csv
+PS,Facilities-Supplies,8786.83,implementation.csv
+R&D-Infrastructure Developmet,Salary,51424.47,implementation.csv
+R&D-Infrastructure Developmet,Benefits,13370.36,implementation.csv
+R&D-Infrastructure Developmet,Contractors,75097.37,implementation.csv
+R&D-Infrastructure Developmet,Travel-Trips,510.82,implementation.csv
+R&D-Infrastructure Developmet,Travel-Hotels,108.68,implementation.csv
+R&D-Infrastructure Developmet,Professional-Services-Consultants,17487.59,implementation.csv
+R&D-Infrastructure Developmet,Legal-Consultants,9858.62,implementation.csv
+R&D-Infrastructure Developmet,Legal-Corporate Fees,40567.94,implementation.csv
+R&D-Infrastructure Developmet,Legal-Employment Fees,15397.21,implementation.csv
+R&D-Infrastructure Developmet,IT-Application-On-Premise,7806.68,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Application-Subscription,4547.6,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Infrastructure,6367.06,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Consultant-System Implementation,5917.54,ITDemand.csv
+R&D-Infrastructure Developmet,Facilities-Offices,5200.17,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,5582.75,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,6032.65,implementation.csv
+R&D-Applications Development,Salary,40519.77,implementation.csv
+R&D-Applications Development,Benefits,10535.14,implementation.csv
+R&D-Applications Development,Contractors,99039.04,implementation.csv
+R&D-Applications Development,Travel-Trips,201.56,implementation.csv
+R&D-Applications Development,Travel-Hotels,240.67,implementation.csv
+R&D-Applications Development,Professional-Services-Consultants,15394.39,implementation.csv
+R&D-Applications Development,Legal-Consultants,20550.94,implementation.csv
+R&D-Applications Development,Legal-Corporate Fees,41307.57,implementation.csv
+R&D-Applications Development,Legal-Employment Fees,10257.49,implementation.csv
+R&D-Applications Development,IT-Application-On-Premise,2313.63,ITDemand.csv
+R&D-Applications Development,IT-Application-Subscription,7306.86,ITDemand.csv
+R&D-Applications Development,IT-Infrastructure,3282.48,ITDemand.csv
+R&D-Applications Development,IT-Consultant-System Implementation,9970.51,ITDemand.csv
+R&D-Applications Development,Facilities-Offices,9655.46,implementation.csv
+R&D-Applications Development,Facilities-Supplies,3396.49,implementation.csv
+R&D-Applications Development,Facilities-Supplies,6284.33,implementation.csv
+R&D-Research,Salary,5929.22,implementation.csv
+R&D-Research,Benefits,1541.6,implementation.csv
+R&D-Research,Contractors,58479.94,implementation.csv
+R&D-Research,Travel-Trips,950.24,implementation.csv
+R&D-Research,Travel-Hotels,842.72,implementation.csv
+R&D-Research,Professional-Services-Consultants,3362.58,implementation.csv
+R&D-Research,Legal-Consultants,38345.04,implementation.csv
+R&D-Research,Legal-Corporate Fees,21945.77,implementation.csv
+R&D-Research,Legal-Employment Fees,13444.01,implementation.csv
+R&D-Research,IT-Application-On-Premise,5098.45,ITDemand.csv
+R&D-Research,IT-Application-Subscription,3333.0,ITDemand.csv
+R&D-Research,IT-Infrastructure,8556.25,ITDemand.csv
+R&D-Research,IT-Consultant-System Implementation,1896.2,ITDemand.csv
+R&D-Research,Facilities-Offices,6197.01,implementation.csv
+R&D-Research,Facilities-Supplies,1325.53,implementation.csv
+R&D-Research,Facilities-Supplies,9332.0,implementation.csv
+R&D-Parternerships,Salary,20975.6,sales.csv
+R&D-Parternerships,Benefits,5453.66,sales.csv
+R&D-Parternerships,Contractors,96590.66,sales.csv
+R&D-Parternerships,Travel-Trips,514.34,sales.csv
+R&D-Parternerships,Travel-Hotels,331.81,sales.csv
+R&D-Parternerships,Professional-Services-Consultants,29005.98,sales.csv
+R&D-Parternerships,Legal-Consultants,12555.98,sales.csv
+R&D-Parternerships,Legal-Corporate Fees,7380.81,sales.csv
+R&D-Parternerships,Legal-Employment Fees,12342.14,sales.csv
+R&D-Parternerships,IT-Application-On-Premise,9286.68,ITDemand.csv
+R&D-Parternerships,IT-Application-Subscription,8200.56,ITDemand.csv
+R&D-Parternerships,IT-Infrastructure,9340.43,ITDemand.csv
+R&D-Parternerships,IT-Consultant-System Implementation,9019.21,ITDemand.csv
+R&D-Parternerships,Facilities-Offices,7086.49,sales.csv
+R&D-Parternerships,Facilities-Supplies,4078.68,sales.csv
+R&D-Parternerships,Facilities-Supplies,576.05,sales.csv
+Sales-Direct,Salary,54931.72,sales.csv
+Sales-Direct,Benefits,14282.25,sales.csv
+Sales-Direct,Contractors,23035.12,sales.csv
+Sales-Direct,Travel-Trips,254.86,sales.csv
+Sales-Direct,Travel-Hotels,652.5,sales.csv
+Sales-Direct,Professional-Services-Consultants,29058.1,sales.csv
+Sales-Direct,Legal-Consultants,6726.86,sales.csv
+Sales-Direct,Legal-Corporate Fees,5414.32,sales.csv
+Sales-Direct,Legal-Employment Fees,33999.31,sales.csv
+Sales-Direct,IT-Application-On-Premise,9613.82,ITDemand.csv
+Sales-Direct,IT-Application-Subscription,3570.05,ITDemand.csv
+Sales-Direct,IT-Infrastructure,5751.18,ITDemand.csv
+Sales-Direct,IT-Consultant-System Implementation,2139.93,ITDemand.csv
+Sales-Direct,Facilities-Offices,5871.5,phones.csv
+Sales-Direct,Facilities-Supplies,181.63,phones.csv
+Sales-Direct,Facilities-Supplies,4816.23,phones.csv
+Sales-Partners,Salary,22612.11,sales.csv
+Sales-Partners,Benefits,5879.15,sales.csv
+Sales-Partners,Contractors,12931.95,sales.csv
+Sales-Partners,Travel-Trips,674.8,sales.csv
+Sales-Partners,Travel-Hotels,348.93,sales.csv
+Sales-Partners,Professional-Services-Consultants,18362.15,sales.csv
+Sales-Partners,Legal-Consultants,44658.85,sales.csv
+Sales-Partners,Legal-Corporate Fees,35000.48,sales.csv
+Sales-Partners,Legal-Employment Fees,7005.77,sales.csv
+Sales-Partners,IT-Application-On-Premise,8360.48,sales.csv
+Sales-Partners,IT-Application-Subscription,3933.15,sales.csv
+Sales-Partners,IT-Infrastructure,6690.84,sales.csv
+Sales-Partners,IT-Consultant-System Implementation,1691.29,sales.csv
+Sales-Partners,Facilities-Offices,2992.36,sales.csv
+Sales-Partners,Facilities-Supplies,9155.91,sales.csv
+Sales-Partners,Facilities-Supplies,6490.4,sales.csv
+Sales-Online,Salary,28358.44,sales.csv
+Sales-Online,Benefits,7373.19,sales.csv
+Sales-Online,Contractors,54132.08,sales.csv
+Sales-Online,Travel-Trips,549.02,sales.csv
+Sales-Online,Travel-Hotels,286.84,sales.csv
+Sales-Online,Professional-Services-Consultants,16785.77,sales.csv
+Sales-Online,Legal-Consultants,38218.7,sales.csv
+Sales-Online,Legal-Corporate Fees,28643.82,sales.csv
+Sales-Online,Legal-Employment Fees,14364.32,sales.csv
+Sales-Online,IT-Application-On-Premise,6450.4,sales.csv
+Sales-Online,IT-Application-Subscription,6815.71,sales.csv
+Sales-Online,IT-Infrastructure,8941.66,sales.csv
+Sales-Online,IT-Consultant-System Implementation,3850.04,sales.csv
+Sales-Online,Facilities-Offices,809.11,sales.csv
+Sales-Online,Facilities-Supplies,7711.3,sales.csv
+Sales-Online,Facilities-Supplies,2415.74,sales.csv
+Sales-Ops,Salary,30776.42,sales.csv
+Sales-Ops,Benefits,8001.87,sales.csv
+Sales-Ops,Contractors,96455.49,sales.csv
+Sales-Ops,Travel-Trips,969.41,sales.csv
+Sales-Ops,Travel-Hotels,961.74,sales.csv
+Sales-Ops,Professional-Services-Consultants,26531.3,sales.csv
+Sales-Ops,Legal-Consultants,16279.67,sales.csv
+Sales-Ops,Legal-Corporate Fees,3787.76,sales.csv
+Sales-Ops,Legal-Employment Fees,10422.84,sales.csv
+Sales-Ops,IT-Application-On-Premise,1286.08,ITDemand.csv
+Sales-Ops,IT-Application-Subscription,9059.93,ITDemand.csv
+Sales-Ops,IT-Infrastructure,7572.39,ITDemand.csv
+Sales-Ops,IT-Consultant-System Implementation,7730.84,ITDemand.csv
+Sales-Ops,Facilities-Offices,3588.58,phones.csv
+Sales-Ops,Facilities-Supplies,4803.35,phones.csv
+Sales-Ops,Facilities-Supplies,2882.72,phones.csv
+Sales-Exec,Salary,59954.37,sales.csv
+Sales-Exec,Benefits,15588.14,sales.csv
+Sales-Exec,Contractors,82968.47,sales.csv
+Sales-Exec,Travel-Trips,121.2,sales.csv
+Sales-Exec,Travel-Hotels,340.02,sales.csv
+Sales-Exec,Professional-Services-Consultants,21636.32,sales.csv
+Sales-Exec,Legal-Consultants,11012.38,sales.csv
+Sales-Exec,Legal-Corporate Fees,20623.15,sales.csv
+Sales-Exec,Legal-Employment Fees,19242.83,sales.csv
+Sales-Exec,IT-Application-On-Premise,9474.81,ITDemand.csv
+Sales-Exec,IT-Application-Subscription,7725.18,ITDemand.csv
+Sales-Exec,IT-Infrastructure,5757.31,ITDemand.csv
+Sales-Exec,IT-Consultant-System Implementation,5012.32,ITDemand.csv
+Sales-Exec,Facilities-Offices,7958.44,sales.csv
+Sales-Exec,Facilities-Supplies,7263.82,sales.csv
+Sales-Exec,Facilities-Supplies,9620.62,sales.csv
+Tax,Salary,42687.49,sales.csv
+Tax,Benefits,11098.75,sales.csv
+Tax,Contractors,82170.57,sales.csv
+Tax,Travel-Trips,756.0,sales.csv
+Tax,Travel-Hotels,717.77,sales.csv
+Tax,Professional-Services-Consultants,13257.8,sales.csv
+Tax,Legal-Consultants,40771.19,sales.csv
+Tax,Legal-Corporate Fees,17062.05,sales.csv
+Tax,Legal-Employment Fees,4485.77,sales.csv
+Tax,IT-Application-On-Premise,9104.34,ITDemand.csv
+Tax,IT-Application-Subscription,1623.68,ITDemand.csv
+Tax,IT-Infrastructure,1897.89,ITDemand.csv
+Tax,IT-Consultant-System Implementation,9364.33,ITDemand.csv
+Tax,Facilities-Offices,2413.67,sales.csv
+Tax,Facilities-Supplies,7860.69,sales.csv
+Tax,Facilities-Supplies,7794.47,sales.csv
+Accounting,Salary,12612.56,sales.csv
+Accounting,Benefits,3279.27,sales.csv
+Accounting,Contractors,84060.49,sales.csv
+Accounting,Travel-Trips,273.69,sales.csv
+Accounting,Travel-Hotels,526.1,sales.csv
+Accounting,Professional-Services-Consultants,8922.66,sales.csv
+Accounting,Legal-Consultants,32054.17,sales.csv
+Accounting,Legal-Corporate Fees,38688.06,sales.csv
+Accounting,Legal-Employment Fees,17508.38,sales.csv
+Accounting,IT-Application-On-Premise,4093.02,ITDemand.csv
+Accounting,IT-Application-Subscription,8993.46,ITDemand.csv
+Accounting,IT-Infrastructure,1546.85,ITDemand.csv
+Accounting,IT-Consultant-System Implementation,6442.22,ITDemand.csv
+Accounting,Facilities-Offices,8688.51,sales.csv
+Accounting,Facilities-Supplies,5219.59,sales.csv
+Accounting,Facilities-Supplies,8225.46,sales.csv
+Exec-Office,Salary,56684.33,sales.csv
+Exec-Office,Benefits,14737.93,sales.csv
+Exec-Office,Contractors,92594.3,sales.csv
+Exec-Office,Travel-Trips,811.35,sales.csv
+Exec-Office,Travel-Hotels,700.67,sales.csv
+Exec-Office,Professional-Services-Consultants,25691.14,sales.csv
+Exec-Office,Legal-Consultants,33911.24,sales.csv
+Exec-Office,Legal-Corporate Fees,14420.61,sales.csv
+Exec-Office,Legal-Employment Fees,41450.07,sales.csv
+Exec-Office,IT-Application-On-Premise,5089.47,sales.csv
+Exec-Office,IT-Application-Subscription,9431.38,sales.csv
+Exec-Office,IT-Infrastructure,9853.15,sales.csv
+Exec-Office,IT-Consultant-System Implementation,2358.0,sales.csv
+Exec-Office,Facilities-Offices,8958.61,sales.csv
+Exec-Office,Facilities-Supplies,4738.03,sales.csv
+Exec-Office,Facilities-Supplies,4371.9,sales.csv
+Finance,Salary,44301.75,sales.csv
+Finance,Benefits,11518.46,sales.csv
+Finance,Contractors,26043.99,sales.csv
+Finance,Travel-Trips,689.85,sales.csv
+Finance,Travel-Hotels,370.33,sales.csv
+Finance,Professional-Services-Consultants,3114.88,sales.csv
+Finance,Legal-Consultants,17203.69,sales.csv
+Finance,Legal-Corporate Fees,20019.61,sales.csv
+Finance,Legal-Employment Fees,41109.44,sales.csv
+Finance,IT-Application-On-Premise,4829.44,ITDemand.csv
+Finance,IT-Application-Subscription,2218.18,ITDemand.csv
+Finance,IT-Infrastructure,2690.08,ITDemand.csv
+Finance,IT-Consultant-System Implementation,6249.75,ITDemand.csv
+Finance,Facilities-Offices,862.25,sales.csv
+Finance,Facilities-Supplies,7664.27,sales.csv
+Finance,Facilities-Supplies,6020.19,sales.csv
+IS,Salary,68504.5,payroll.csv
+IS,Benefits,17811.17,payroll.csv
+IS,Contractors,31453.29,payroll.csv
+IS,Travel-Trips,912.09,payroll.csv
+IS,Travel-Hotels,94.95,payroll.csv
+IS,Professional-Services-Consultants,32119.37,payroll.csv
+IS,Legal-Consultants,18802.72,payroll.csv
+IS,Legal-Corporate Fees,12272.07,payroll.csv
+IS,Legal-Employment Fees,9002.71,payroll.csv
+IS,IT-Application-On-Premise,9135.63,payroll.csv
+IS,IT-Application-Subscription,5857.96,payroll.csv
+IS,IT-Infrastructure,4159.14,payroll.csv
+IS,IT-Consultant-System Implementation,3849.78,payroll.csv
+IS,Facilities-Offices,9691.71,payroll.csv
+IS,Facilities-Supplies,62.36,payroll.csv
+IS,Facilities-Supplies,4598.86,payroll.csv
+IT,Salary,38823.44,ITDemand.csv
+IT,Benefits,10094.09,ITDemand.csv
+IT,Contractors,3270.9,ITDemand.csv
+IT,Travel-Trips,209.44,ITDemand.csv
+IT,Travel-Hotels,894.4,ITDemand.csv
+IT,Professional-Services-Consultants,28318.46,ITDemand.csv
+IT,Legal-Consultants,30260.92,ITDemand.csv
+IT,Legal-Corporate Fees,1788.69,ITDemand.csv
+IT,Legal-Employment Fees,23345.66,ITDemand.csv
+IT,IT-Application-On-Premise,6721.48,ITDemand.csv
+IT,IT-Application-Subscription,7687.65,ITDemand.csv
+IT,IT-Infrastructure,5217.38,ITDemand.csv
+IT,IT-Consultant-System Implementation,9617.21,ITDemand.csv
+IT,Facilities-Offices,9093.76,ITDemand.csv
+IT,Facilities-Supplies,2717.9,ITDemand.csv
+IT,Facilities-Supplies,3152.0,ITDemand.csv
+Legal,Salary,86861.68,sales.csv
+Legal,Benefits,22584.04,sales.csv
+Legal,Contractors,87257.61,sales.csv
+Legal,Travel-Trips,641.1,sales.csv
+Legal,Travel-Hotels,289.7,sales.csv
+Legal,Professional-Services-Consultants,34816.24,sales.csv
+Legal,Legal-Consultants,625.14,sales.csv
+Legal,Legal-Corporate Fees,11465.73,sales.csv
+Legal,Legal-Employment Fees,22560.42,sales.csv
+Legal,IT-Application-On-Premise,1871.16,ITDemand.csv
+Legal,IT-Application-Subscription,9997.67,ITDemand.csv
+Legal,IT-Infrastructure,6650.88,ITDemand.csv
+Legal,IT-Consultant-System Implementation,9838.87,ITDemand.csv
+Legal,Facilities-Offices,5125.25,sales.csv
+Legal,Facilities-Supplies,5524.84,sales.csv
+Legal,Facilities-Supplies,7123.67,sales.csv
+Marketing-Events,Salary,24355.31,sales.csv
+Marketing-Events,Benefits,6332.38,sales.csv
+Marketing-Events,Contractors,76380.39,sales.csv
+Marketing-Events,Travel-Trips,383.79,sales.csv
+Marketing-Events,Travel-Hotels,633.79,sales.csv
+Marketing-Events,Professional-Services-Consultants,16286.85,sales.csv
+Marketing-Events,Legal-Consultants,33884.18,sales.csv
+Marketing-Events,Legal-Corporate Fees,36006.04,sales.csv
+Marketing-Events,Legal-Employment Fees,11219.66,sales.csv
+Marketing-Events,IT-Application-On-Premise,979.76,ITDemand.csv
+Marketing-Events,IT-Application-Subscription,5610.05,ITDemand.csv
+Marketing-Events,IT-Infrastructure,2498.32,ITDemand.csv
+Marketing-Events,IT-Consultant-System Implementation,3519.85,ITDemand.csv
+Marketing-Events,Facilities-Offices,3308.76,sales.csv
+Marketing-Events,Facilities-Supplies,5746.56,sales.csv
+Marketing-Events,Facilities-Supplies,2052.33,sales.csv
+Marketing-Research,Salary,93714.58,sales.csv
+Marketing-Research,Benefits,24365.79,sales.csv
+Marketing-Research,Contractors,76617.02,sales.csv
+Marketing-Research,Travel-Trips,18.64,sales.csv
+Marketing-Research,Travel-Hotels,896.82,sales.csv
+Marketing-Research,Professional-Services-Consultants,38352.48,sales.csv
+Marketing-Research,Legal-Consultants,12689.63,sales.csv
+Marketing-Research,Legal-Corporate Fees,8946.67,sales.csv
+Marketing-Research,Legal-Employment Fees,14146.98,sales.csv
+Marketing-Research,IT-Application-On-Premise,7072.89,ITDemand.csv
+Marketing-Research,IT-Application-Subscription,5274.07,ITDemand.csv
+Marketing-Research,IT-Infrastructure,3755.83,ITDemand.csv
+Marketing-Research,IT-Consultant-System Implementation,437.72,ITDemand.csv
+Marketing-Research,Facilities-Offices,525.01,sales.csv
+Marketing-Research,Facilities-Supplies,1694.29,sales.csv
+Marketing-Research,Facilities-Supplies,8484.82,sales.csv
+Marketing-PR,Salary,5661.31,sales.csv
+Marketing-PR,Benefits,1471.94,sales.csv
+Marketing-PR,Contractors,54890.67,sales.csv
+Marketing-PR,Travel-Trips,391.58,sales.csv
+Marketing-PR,Travel-Hotels,513.92,sales.csv
+Marketing-PR,Professional-Services-Consultants,40432.3,sales.csv
+Marketing-PR,Legal-Consultants,40983.28,sales.csv
+Marketing-PR,Legal-Corporate Fees,37838.16,sales.csv
+Marketing-PR,Legal-Employment Fees,10778.21,sales.csv
+Marketing-PR,IT-Application-On-Premise,9285.22,ITDemand.csv
+Marketing-PR,IT-Application-Subscription,9450.55,ITDemand.csv
+Marketing-PR,IT-Infrastructure,3998.68,ITDemand.csv
+Marketing-PR,IT-Consultant-System Implementation,1416.88,ITDemand.csv
+Marketing-PR,Facilities-Offices,6561.38,sales.csv
+Marketing-PR,Facilities-Supplies,4069.11,sales.csv
+Marketing-PR,Facilities-Supplies,9944.51,sales.csv
+Product-Management,Salary,94248.61,implementation.csv
+Product-Management,Benefits,24504.64,implementation.csv
+Product-Management,Contractors,90073.88,implementation.csv
+Product-Management,Travel-Trips,246.63,implementation.csv
+Product-Management,Travel-Hotels,566.22,implementation.csv
+Product-Management,Professional-Services-Consultants,25082.26,implementation.csv
+Product-Management,Legal-Consultants,10059.13,implementation.csv
+Product-Management,Legal-Corporate Fees,13739.36,implementation.csv
+Product-Management,Legal-Employment Fees,29200.59,implementation.csv
+Product-Management,IT-Application-On-Premise,9794.23,ITDemand.csv
+Product-Management,IT-Application-Subscription,6713.22,ITDemand.csv
+Product-Management,IT-Infrastructure,6227.4,ITDemand.csv
+Product-Management,IT-Consultant-System Implementation,20.96,ITDemand.csv
+Product-Management,Facilities-Offices,6370.19,implementation.csv
+Product-Management,Facilities-Supplies,5213.82,implementation.csv
+Product-Management,Facilities-Supplies,5448.19,implementation.csv
+PS,Salary,93005.96,implementation.csv
+PS,Benefits,24181.55,implementation.csv
+PS,Contractors,23437.91,implementation.csv
+PS,Travel-Trips,252.48,implementation.csv
+PS,Travel-Hotels,846.68,implementation.csv
+PS,Professional-Services-Consultants,941.67,implementation.csv
+PS,Legal-Consultants,22344.5,implementation.csv
+PS,Legal-Corporate Fees,43842.17,implementation.csv
+PS,Legal-Employment Fees,26988.38,implementation.csv
+PS,IT-Application-On-Premise,3734.93,implementation.csv
+PS,IT-Application-Subscription,3379.74,implementation.csv
+PS,IT-Infrastructure,150.28,implementation.csv
+PS,IT-Consultant-System Implementation,8596.21,implementation.csv
+PS,Facilities-Offices,3046.62,implementation.csv
+PS,Facilities-Supplies,4502.6,implementation.csv
+PS,Facilities-Supplies,9688.67,implementation.csv
+R&D-Infrastructure Developmet,Salary,56845.08,implementation.csv
+R&D-Infrastructure Developmet,Benefits,14779.72,implementation.csv
+R&D-Infrastructure Developmet,Contractors,92025.34,implementation.csv
+R&D-Infrastructure Developmet,Travel-Trips,5.83,implementation.csv
+R&D-Infrastructure Developmet,Travel-Hotels,101.26,implementation.csv
+R&D-Infrastructure Developmet,Professional-Services-Consultants,43128.11,implementation.csv
+R&D-Infrastructure Developmet,Legal-Consultants,39338.7,implementation.csv
+R&D-Infrastructure Developmet,Legal-Corporate Fees,43629.8,implementation.csv
+R&D-Infrastructure Developmet,Legal-Employment Fees,32935.9,implementation.csv
+R&D-Infrastructure Developmet,IT-Application-On-Premise,160.03,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Application-Subscription,6653.48,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Infrastructure,3909.09,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Consultant-System Implementation,1384.31,ITDemand.csv
+R&D-Infrastructure Developmet,Facilities-Offices,3448.53,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,6781.25,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,6134.67,implementation.csv
+R&D-Applications Development,Salary,29485.3,implementation.csv
+R&D-Applications Development,Benefits,7666.18,implementation.csv
+R&D-Applications Development,Contractors,57812.7,implementation.csv
+R&D-Applications Development,Travel-Trips,371.25,implementation.csv
+R&D-Applications Development,Travel-Hotels,689.84,implementation.csv
+R&D-Applications Development,Professional-Services-Consultants,8104.71,implementation.csv
+R&D-Applications Development,Legal-Consultants,1884.51,implementation.csv
+R&D-Applications Development,Legal-Corporate Fees,10808.21,implementation.csv
+R&D-Applications Development,Legal-Employment Fees,29388.33,implementation.csv
+R&D-Applications Development,IT-Application-On-Premise,3550.94,ITDemand.csv
+R&D-Applications Development,IT-Application-Subscription,8719.75,ITDemand.csv
+R&D-Applications Development,IT-Infrastructure,4990.04,ITDemand.csv
+R&D-Applications Development,IT-Consultant-System Implementation,5045.95,ITDemand.csv
+R&D-Applications Development,Facilities-Offices,7182.42,implementation.csv
+R&D-Applications Development,Facilities-Supplies,637.55,implementation.csv
+R&D-Applications Development,Facilities-Supplies,421.1,implementation.csv
+R&D-Research,Salary,55403.71,implementation.csv
+R&D-Research,Benefits,14404.96,implementation.csv
+R&D-Research,Contractors,74825.44,implementation.csv
+R&D-Research,Travel-Trips,888.36,implementation.csv
+R&D-Research,Travel-Hotels,988.78,implementation.csv
+R&D-Research,Professional-Services-Consultants,24134.17,implementation.csv
+R&D-Research,Legal-Consultants,38342.73,implementation.csv
+R&D-Research,Legal-Corporate Fees,285.89,implementation.csv
+R&D-Research,Legal-Employment Fees,38185.09,implementation.csv
+R&D-Research,IT-Application-On-Premise,9540.57,ITDemand.csv
+R&D-Research,IT-Application-Subscription,4581.83,ITDemand.csv
+R&D-Research,IT-Infrastructure,598.66,ITDemand.csv
+R&D-Research,IT-Consultant-System Implementation,6351.88,ITDemand.csv
+R&D-Research,Facilities-Offices,3748.89,implementation.csv
+R&D-Research,Facilities-Supplies,4703.86,implementation.csv
+R&D-Research,Facilities-Supplies,6971.68,implementation.csv
+R&D-Parternerships,Salary,2890.9,sales.csv
+R&D-Parternerships,Benefits,751.63,sales.csv
+R&D-Parternerships,Contractors,20664.74,sales.csv
+R&D-Parternerships,Travel-Trips,153.67,sales.csv
+R&D-Parternerships,Travel-Hotels,927.16,sales.csv
+R&D-Parternerships,Professional-Services-Consultants,12879.9,sales.csv
+R&D-Parternerships,Legal-Consultants,5617.52,sales.csv
+R&D-Parternerships,Legal-Corporate Fees,25874.53,sales.csv
+R&D-Parternerships,Legal-Employment Fees,17621.78,sales.csv
+R&D-Parternerships,IT-Application-On-Premise,1192.78,ITDemand.csv
+R&D-Parternerships,IT-Application-Subscription,3466.09,ITDemand.csv
+R&D-Parternerships,IT-Infrastructure,6555.49,ITDemand.csv
+R&D-Parternerships,IT-Consultant-System Implementation,4228.73,ITDemand.csv
+R&D-Parternerships,Facilities-Offices,1252.84,sales.csv
+R&D-Parternerships,Facilities-Supplies,3450.03,sales.csv
+R&D-Parternerships,Facilities-Supplies,2819.82,sales.csv
+Sales-Direct,Salary,44191.87,sales.csv
+Sales-Direct,Benefits,11489.89,sales.csv
+Sales-Direct,Contractors,35560.85,sales.csv
+Sales-Direct,Travel-Trips,744.25,sales.csv
+Sales-Direct,Travel-Hotels,251.14,sales.csv
+Sales-Direct,Professional-Services-Consultants,1928.42,sales.csv
+Sales-Direct,Legal-Consultants,20619.97,sales.csv
+Sales-Direct,Legal-Corporate Fees,16154.13,sales.csv
+Sales-Direct,Legal-Employment Fees,43755.14,sales.csv
+Sales-Direct,IT-Application-On-Premise,7198.46,ITDemand.csv
+Sales-Direct,IT-Application-Subscription,6564.69,ITDemand.csv
+Sales-Direct,IT-Infrastructure,3356.23,ITDemand.csv
+Sales-Direct,IT-Consultant-System Implementation,4705.11,ITDemand.csv
+Sales-Direct,Facilities-Offices,4086.39,phones.csv
+Sales-Direct,Facilities-Supplies,8448.89,phones.csv
+Sales-Direct,Facilities-Supplies,2297.36,phones.csv
+Sales-Partners,Salary,68515.94,sales.csv
+Sales-Partners,Benefits,17814.14,sales.csv
+Sales-Partners,Contractors,22024.04,sales.csv
+Sales-Partners,Travel-Trips,54.42,sales.csv
+Sales-Partners,Travel-Hotels,148.09,sales.csv
+Sales-Partners,Professional-Services-Consultants,24502.38,sales.csv
+Sales-Partners,Legal-Consultants,578.18,sales.csv
+Sales-Partners,Legal-Corporate Fees,13706.91,sales.csv
+Sales-Partners,Legal-Employment Fees,10830.52,sales.csv
+Sales-Partners,IT-Application-On-Premise,5970.16,sales.csv
+Sales-Partners,IT-Application-Subscription,7624.06,sales.csv
+Sales-Partners,IT-Infrastructure,1646.67,sales.csv
+Sales-Partners,IT-Consultant-System Implementation,506.09,sales.csv
+Sales-Partners,Facilities-Offices,5061.98,sales.csv
+Sales-Partners,Facilities-Supplies,5339.1,sales.csv
+Sales-Partners,Facilities-Supplies,1269.96,sales.csv
+Sales-Online,Salary,28506.22,sales.csv
+Sales-Online,Benefits,7411.62,sales.csv
+Sales-Online,Contractors,39736.05,sales.csv
+Sales-Online,Travel-Trips,967.68,sales.csv
+Sales-Online,Travel-Hotels,347.05,sales.csv
+Sales-Online,Professional-Services-Consultants,31442.82,sales.csv
+Sales-Online,Legal-Consultants,15797.47,sales.csv
+Sales-Online,Legal-Corporate Fees,24239.38,sales.csv
+Sales-Online,Legal-Employment Fees,42753.23,sales.csv
+Sales-Online,IT-Application-On-Premise,3393.85,sales.csv
+Sales-Online,IT-Application-Subscription,9506.24,sales.csv
+Sales-Online,IT-Infrastructure,7741.84,sales.csv
+Sales-Online,IT-Consultant-System Implementation,9965.29,sales.csv
+Sales-Online,Facilities-Offices,7888.61,sales.csv
+Sales-Online,Facilities-Supplies,4070.86,sales.csv
+Sales-Online,Facilities-Supplies,5003.78,sales.csv
+Sales-Ops,Salary,92119.81,sales.csv
+Sales-Ops,Benefits,23951.15,sales.csv
+Sales-Ops,Contractors,89760.72,sales.csv
+Sales-Ops,Travel-Trips,160.54,sales.csv
+Sales-Ops,Travel-Hotels,424.61,sales.csv
+Sales-Ops,Professional-Services-Consultants,26452.6,sales.csv
+Sales-Ops,Legal-Consultants,5085.15,sales.csv
+Sales-Ops,Legal-Corporate Fees,14631.24,sales.csv
+Sales-Ops,Legal-Employment Fees,28134.24,sales.csv
+Sales-Ops,IT-Application-On-Premise,8124.61,ITDemand.csv
+Sales-Ops,IT-Application-Subscription,3349.07,ITDemand.csv
+Sales-Ops,IT-Infrastructure,9280.15,ITDemand.csv
+Sales-Ops,IT-Consultant-System Implementation,2668.97,ITDemand.csv
+Sales-Ops,Facilities-Offices,5230.99,phones.csv
+Sales-Ops,Facilities-Supplies,4927.52,phones.csv
+Sales-Ops,Facilities-Supplies,3916.3,phones.csv
+Sales-Exec,Salary,93888.96,sales.csv
+Sales-Exec,Benefits,24411.13,sales.csv
+Sales-Exec,Contractors,56909.15,sales.csv
+Sales-Exec,Travel-Trips,912.15,sales.csv
+Sales-Exec,Travel-Hotels,406.0,sales.csv
+Sales-Exec,Professional-Services-Consultants,30501.81,sales.csv
+Sales-Exec,Legal-Consultants,28529.32,sales.csv
+Sales-Exec,Legal-Corporate Fees,4431.97,sales.csv
+Sales-Exec,Legal-Employment Fees,19142.47,sales.csv
+Sales-Exec,IT-Application-On-Premise,9127.3,ITDemand.csv
+Sales-Exec,IT-Application-Subscription,500.94,ITDemand.csv
+Sales-Exec,IT-Infrastructure,8260.18,ITDemand.csv
+Sales-Exec,IT-Consultant-System Implementation,1363.96,ITDemand.csv
+Sales-Exec,Facilities-Offices,8469.07,sales.csv
+Sales-Exec,Facilities-Supplies,8169.75,sales.csv
+Sales-Exec,Facilities-Supplies,795.71,sales.csv
+Tax,Salary,49541.87,sales.csv
+Tax,Benefits,12880.89,sales.csv
+Tax,Contractors,56724.64,sales.csv
+Tax,Travel-Trips,713.98,sales.csv
+Tax,Travel-Hotels,274.01,sales.csv
+Tax,Professional-Services-Consultants,21902.44,sales.csv
+Tax,Legal-Consultants,18264.24,sales.csv
+Tax,Legal-Corporate Fees,30792.35,sales.csv
+Tax,Legal-Employment Fees,18157.92,sales.csv
+Tax,IT-Application-On-Premise,1596.16,ITDemand.csv
+Tax,IT-Application-Subscription,5759.33,ITDemand.csv
+Tax,IT-Infrastructure,8649.51,ITDemand.csv
+Tax,IT-Consultant-System Implementation,6115.85,ITDemand.csv
+Tax,Facilities-Offices,8728.53,sales.csv
+Tax,Facilities-Supplies,7627.47,sales.csv
+Tax,Facilities-Supplies,9703.58,sales.csv
+Accounting,Salary,19133.56,sales.csv
+Accounting,Benefits,4974.73,sales.csv
+Accounting,Contractors,45727.25,sales.csv
+Accounting,Travel-Trips,11.93,sales.csv
+Accounting,Travel-Hotels,15.2,sales.csv
+Accounting,Professional-Services-Consultants,42120.85,sales.csv
+Accounting,Legal-Consultants,28916.29,sales.csv
+Accounting,Legal-Corporate Fees,40130.09,sales.csv
+Accounting,Legal-Employment Fees,42322.94,sales.csv
+Accounting,IT-Application-On-Premise,489.19,ITDemand.csv
+Accounting,IT-Application-Subscription,5018.34,ITDemand.csv
+Accounting,IT-Infrastructure,2665.59,ITDemand.csv
+Accounting,IT-Consultant-System Implementation,8205.77,ITDemand.csv
+Accounting,Facilities-Offices,2350.43,sales.csv
+Accounting,Facilities-Supplies,821.8,sales.csv
+Accounting,Facilities-Supplies,1659.11,sales.csv
+Exec-Office,Salary,54656.52,sales.csv
+Exec-Office,Benefits,14210.7,sales.csv
+Exec-Office,Contractors,45078.83,sales.csv
+Exec-Office,Travel-Trips,385.16,sales.csv
+Exec-Office,Travel-Hotels,13.0,sales.csv
+Exec-Office,Professional-Services-Consultants,36582.59,sales.csv
+Exec-Office,Legal-Consultants,33142.76,sales.csv
+Exec-Office,Legal-Corporate Fees,15958.61,sales.csv
+Exec-Office,Legal-Employment Fees,17664.69,sales.csv
+Exec-Office,IT-Application-On-Premise,4277.98,sales.csv
+Exec-Office,IT-Application-Subscription,8964.81,sales.csv
+Exec-Office,IT-Infrastructure,4797.44,sales.csv
+Exec-Office,IT-Consultant-System Implementation,9828.21,sales.csv
+Exec-Office,Facilities-Offices,6575.83,sales.csv
+Exec-Office,Facilities-Supplies,2728.23,sales.csv
+Exec-Office,Facilities-Supplies,1995.53,sales.csv
+Finance,Salary,98156.78,sales.csv
+Finance,Benefits,25520.76,sales.csv
+Finance,Contractors,77141.04,sales.csv
+Finance,Travel-Trips,896.81,sales.csv
+Finance,Travel-Hotels,649.65,sales.csv
+Finance,Professional-Services-Consultants,24358.28,sales.csv
+Finance,Legal-Consultants,28606.47,sales.csv
+Finance,Legal-Corporate Fees,11901.92,sales.csv
+Finance,Legal-Employment Fees,19113.01,sales.csv
+Finance,IT-Application-On-Premise,573.1,ITDemand.csv
+Finance,IT-Application-Subscription,8475.95,ITDemand.csv
+Finance,IT-Infrastructure,471.55,ITDemand.csv
+Finance,IT-Consultant-System Implementation,7761.84,ITDemand.csv
+Finance,Facilities-Offices,5458.88,sales.csv
+Finance,Facilities-Supplies,1227.93,sales.csv
+Finance,Facilities-Supplies,4302.04,sales.csv
+IS,Salary,71015.1,payroll.csv
+IS,Benefits,18463.93,payroll.csv
+IS,Contractors,37458.87,payroll.csv
+IS,Travel-Trips,947.84,payroll.csv
+IS,Travel-Hotels,859.85,payroll.csv
+IS,Professional-Services-Consultants,41955.53,payroll.csv
+IS,Legal-Consultants,4320.38,payroll.csv
+IS,Legal-Corporate Fees,35608.66,payroll.csv
+IS,Legal-Employment Fees,25430.37,payroll.csv
+IS,IT-Application-On-Premise,536.04,payroll.csv
+IS,IT-Application-Subscription,9661.95,payroll.csv
+IS,IT-Infrastructure,6997.38,payroll.csv
+IS,IT-Consultant-System Implementation,3756.96,payroll.csv
+IS,Facilities-Offices,7270.82,payroll.csv
+IS,Facilities-Supplies,2716.36,payroll.csv
+IS,Facilities-Supplies,3899.35,payroll.csv
+IT,Salary,42833.54,ITDemand.csv
+IT,Benefits,11136.72,ITDemand.csv
+IT,Contractors,24471.22,ITDemand.csv
+IT,Travel-Trips,397.79,ITDemand.csv
+IT,Travel-Hotels,409.41,ITDemand.csv
+IT,Professional-Services-Consultants,14506.86,ITDemand.csv
+IT,Legal-Consultants,15816.02,ITDemand.csv
+IT,Legal-Corporate Fees,28858.28,ITDemand.csv
+IT,Legal-Employment Fees,31249.0,ITDemand.csv
+IT,IT-Application-On-Premise,9811.52,ITDemand.csv
+IT,IT-Application-Subscription,264.08,ITDemand.csv
+IT,IT-Infrastructure,3528.39,ITDemand.csv
+IT,IT-Consultant-System Implementation,9547.0,ITDemand.csv
+IT,Facilities-Offices,5993.87,ITDemand.csv
+IT,Facilities-Supplies,8136.16,ITDemand.csv
+IT,Facilities-Supplies,4962.59,ITDemand.csv
+Legal,Salary,42384.21,sales.csv
+Legal,Benefits,11019.89,sales.csv
+Legal,Contractors,51928.23,sales.csv
+Legal,Travel-Trips,21.12,sales.csv
+Legal,Travel-Hotels,54.14,sales.csv
+Legal,Professional-Services-Consultants,17844.77,sales.csv
+Legal,Legal-Consultants,15146.6,sales.csv
+Legal,Legal-Corporate Fees,26931.15,sales.csv
+Legal,Legal-Employment Fees,43823.99,sales.csv
+Legal,IT-Application-On-Premise,7153.1,ITDemand.csv
+Legal,IT-Application-Subscription,755.48,ITDemand.csv
+Legal,IT-Infrastructure,1830.2,ITDemand.csv
+Legal,IT-Consultant-System Implementation,2839.92,ITDemand.csv
+Legal,Facilities-Offices,2124.83,sales.csv
+Legal,Facilities-Supplies,2952.41,sales.csv
+Legal,Facilities-Supplies,6068.86,sales.csv
+Marketing-Events,Salary,21957.35,sales.csv
+Marketing-Events,Benefits,5708.91,sales.csv
+Marketing-Events,Contractors,50195.7,sales.csv
+Marketing-Events,Travel-Trips,70.45,sales.csv
+Marketing-Events,Travel-Hotels,255.38,sales.csv
+Marketing-Events,Professional-Services-Consultants,43904.06,sales.csv
+Marketing-Events,Legal-Consultants,16239.7,sales.csv
+Marketing-Events,Legal-Corporate Fees,17879.23,sales.csv
+Marketing-Events,Legal-Employment Fees,23478.65,sales.csv
+Marketing-Events,IT-Application-On-Premise,2517.46,ITDemand.csv
+Marketing-Events,IT-Application-Subscription,8859.4,ITDemand.csv
+Marketing-Events,IT-Infrastructure,4296.79,ITDemand.csv
+Marketing-Events,IT-Consultant-System Implementation,2453.55,ITDemand.csv
+Marketing-Events,Facilities-Offices,6297.22,sales.csv
+Marketing-Events,Facilities-Supplies,8374.19,sales.csv
+Marketing-Events,Facilities-Supplies,9376.93,sales.csv
+Marketing-Research,Salary,68542.97,sales.csv
+Marketing-Research,Benefits,17821.17,sales.csv
+Marketing-Research,Contractors,83827.06,sales.csv
+Marketing-Research,Travel-Trips,312.86,sales.csv
+Marketing-Research,Travel-Hotels,267.27,sales.csv
+Marketing-Research,Professional-Services-Consultants,37938.27,sales.csv
+Marketing-Research,Legal-Consultants,21126.63,sales.csv
+Marketing-Research,Legal-Corporate Fees,39743.49,sales.csv
+Marketing-Research,Legal-Employment Fees,523.8,sales.csv
+Marketing-Research,IT-Application-On-Premise,4504.07,ITDemand.csv
+Marketing-Research,IT-Application-Subscription,9570.82,ITDemand.csv
+Marketing-Research,IT-Infrastructure,3549.16,ITDemand.csv
+Marketing-Research,IT-Consultant-System Implementation,9260.64,ITDemand.csv
+Marketing-Research,Facilities-Offices,4153.76,sales.csv
+Marketing-Research,Facilities-Supplies,940.71,sales.csv
+Marketing-Research,Facilities-Supplies,3083.39,sales.csv
+Marketing-PR,Salary,49067.06,sales.csv
+Marketing-PR,Benefits,12757.44,sales.csv
+Marketing-PR,Contractors,19660.11,sales.csv
+Marketing-PR,Travel-Trips,865.4,sales.csv
+Marketing-PR,Travel-Hotels,331.3,sales.csv
+Marketing-PR,Professional-Services-Consultants,27661.13,sales.csv
+Marketing-PR,Legal-Consultants,14826.75,sales.csv
+Marketing-PR,Legal-Corporate Fees,30077.26,sales.csv
+Marketing-PR,Legal-Employment Fees,10715.24,sales.csv
+Marketing-PR,IT-Application-On-Premise,340.93,ITDemand.csv
+Marketing-PR,IT-Application-Subscription,523.6,ITDemand.csv
+Marketing-PR,IT-Infrastructure,7308.89,ITDemand.csv
+Marketing-PR,IT-Consultant-System Implementation,2315.19,ITDemand.csv
+Marketing-PR,Facilities-Offices,2555.2,sales.csv
+Marketing-PR,Facilities-Supplies,4747.29,sales.csv
+Marketing-PR,Facilities-Supplies,1384.81,sales.csv
+Product-Management,Salary,22311.98,implementation.csv
+Product-Management,Benefits,5801.11,implementation.csv
+Product-Management,Contractors,68235.31,implementation.csv
+Product-Management,Travel-Trips,701.81,implementation.csv
+Product-Management,Travel-Hotels,419.45,implementation.csv
+Product-Management,Professional-Services-Consultants,20900.86,implementation.csv
+Product-Management,Legal-Consultants,20250.93,implementation.csv
+Product-Management,Legal-Corporate Fees,11225.34,implementation.csv
+Product-Management,Legal-Employment Fees,5333.82,implementation.csv
+Product-Management,IT-Application-On-Premise,6320.17,ITDemand.csv
+Product-Management,IT-Application-Subscription,9596.28,ITDemand.csv
+Product-Management,IT-Infrastructure,9776.98,ITDemand.csv
+Product-Management,IT-Consultant-System Implementation,7436.88,ITDemand.csv
+Product-Management,Facilities-Offices,5378.57,implementation.csv
+Product-Management,Facilities-Supplies,4206.11,implementation.csv
+Product-Management,Facilities-Supplies,3763.53,implementation.csv
+PS,Salary,59577.97,implementation.csv
+PS,Benefits,15490.27,implementation.csv
+PS,Contractors,71446.13,implementation.csv
+PS,Travel-Trips,433.1,implementation.csv
+PS,Travel-Hotels,797.26,implementation.csv
+PS,Professional-Services-Consultants,33736.47,implementation.csv
+PS,Legal-Consultants,21897.46,implementation.csv
+PS,Legal-Corporate Fees,24622.69,implementation.csv
+PS,Legal-Employment Fees,28959.98,implementation.csv
+PS,IT-Application-On-Premise,8359.23,implementation.csv
+PS,IT-Application-Subscription,3815.34,implementation.csv
+PS,IT-Infrastructure,9519.15,implementation.csv
+PS,IT-Consultant-System Implementation,7367.7,implementation.csv
+PS,Facilities-Offices,7004.87,implementation.csv
+PS,Facilities-Supplies,4637.23,implementation.csv
+PS,Facilities-Supplies,5160.45,implementation.csv
+R&D-Infrastructure Developmet,Salary,46900.6,implementation.csv
+R&D-Infrastructure Developmet,Benefits,12194.16,implementation.csv
+R&D-Infrastructure Developmet,Contractors,75621.27,implementation.csv
+R&D-Infrastructure Developmet,Travel-Trips,712.55,implementation.csv
+R&D-Infrastructure Developmet,Travel-Hotels,68.33,implementation.csv
+R&D-Infrastructure Developmet,Professional-Services-Consultants,28674.06,implementation.csv
+R&D-Infrastructure Developmet,Legal-Consultants,11722.25,implementation.csv
+R&D-Infrastructure Developmet,Legal-Corporate Fees,9657.4,implementation.csv
+R&D-Infrastructure Developmet,Legal-Employment Fees,3745.32,implementation.csv
+R&D-Infrastructure Developmet,IT-Application-On-Premise,382.53,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Application-Subscription,1660.93,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Infrastructure,9809.71,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Consultant-System Implementation,9227.11,ITDemand.csv
+R&D-Infrastructure Developmet,Facilities-Offices,1069.17,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,1706.71,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,6317.81,implementation.csv
+R&D-Applications Development,Salary,84026.0,implementation.csv
+R&D-Applications Development,Benefits,21846.76,implementation.csv
+R&D-Applications Development,Contractors,49284.59,implementation.csv
+R&D-Applications Development,Travel-Trips,508.38,implementation.csv
+R&D-Applications Development,Travel-Hotels,35.49,implementation.csv
+R&D-Applications Development,Professional-Services-Consultants,29870.94,implementation.csv
+R&D-Applications Development,Legal-Consultants,27322.6,implementation.csv
+R&D-Applications Development,Legal-Corporate Fees,2888.53,implementation.csv
+R&D-Applications Development,Legal-Employment Fees,4477.21,implementation.csv
+R&D-Applications Development,IT-Application-On-Premise,4838.01,ITDemand.csv
+R&D-Applications Development,IT-Application-Subscription,7724.4,ITDemand.csv
+R&D-Applications Development,IT-Infrastructure,6204.1,ITDemand.csv
+R&D-Applications Development,IT-Consultant-System Implementation,6302.84,ITDemand.csv
+R&D-Applications Development,Facilities-Offices,7057.77,implementation.csv
+R&D-Applications Development,Facilities-Supplies,7846.9,implementation.csv
+R&D-Applications Development,Facilities-Supplies,3717.15,implementation.csv
+R&D-Research,Salary,18852.55,implementation.csv
+R&D-Research,Benefits,4901.66,implementation.csv
+R&D-Research,Contractors,50913.4,implementation.csv
+R&D-Research,Travel-Trips,844.63,implementation.csv
+R&D-Research,Travel-Hotels,119.18,implementation.csv
+R&D-Research,Professional-Services-Consultants,17732.46,implementation.csv
+R&D-Research,Legal-Consultants,27394.31,implementation.csv
+R&D-Research,Legal-Corporate Fees,35601.77,implementation.csv
+R&D-Research,Legal-Employment Fees,8907.3,implementation.csv
+R&D-Research,IT-Application-On-Premise,9665.75,ITDemand.csv
+R&D-Research,IT-Application-Subscription,6821.79,ITDemand.csv
+R&D-Research,IT-Infrastructure,7971.93,ITDemand.csv
+R&D-Research,IT-Consultant-System Implementation,2703.69,ITDemand.csv
+R&D-Research,Facilities-Offices,9339.05,implementation.csv
+R&D-Research,Facilities-Supplies,1204.63,implementation.csv
+R&D-Research,Facilities-Supplies,6075.46,implementation.csv
+R&D-Parternerships,Salary,72384.79,sales.csv
+R&D-Parternerships,Benefits,18820.05,sales.csv
+R&D-Parternerships,Contractors,40725.73,sales.csv
+R&D-Parternerships,Travel-Trips,76.88,sales.csv
+R&D-Parternerships,Travel-Hotels,74.57,sales.csv
+R&D-Parternerships,Professional-Services-Consultants,33321.53,sales.csv
+R&D-Parternerships,Legal-Consultants,35306.66,sales.csv
+R&D-Parternerships,Legal-Corporate Fees,35277.87,sales.csv
+R&D-Parternerships,Legal-Employment Fees,44619.42,sales.csv
+R&D-Parternerships,IT-Application-On-Premise,2918.12,ITDemand.csv
+R&D-Parternerships,IT-Application-Subscription,4549.92,ITDemand.csv
+R&D-Parternerships,IT-Infrastructure,6718.25,ITDemand.csv
+R&D-Parternerships,IT-Consultant-System Implementation,5127.54,ITDemand.csv
+R&D-Parternerships,Facilities-Offices,8722.1,sales.csv
+R&D-Parternerships,Facilities-Supplies,5431.33,sales.csv
+R&D-Parternerships,Facilities-Supplies,794.45,sales.csv
+Sales-Direct,Salary,23484.03,sales.csv
+Sales-Direct,Benefits,6105.85,sales.csv
+Sales-Direct,Contractors,4438.96,sales.csv
+Sales-Direct,Travel-Trips,66.73,sales.csv
+Sales-Direct,Travel-Hotels,38.9,sales.csv
+Sales-Direct,Professional-Services-Consultants,5793.95,sales.csv
+Sales-Direct,Legal-Consultants,35395.46,sales.csv
+Sales-Direct,Legal-Corporate Fees,39383.06,sales.csv
+Sales-Direct,Legal-Employment Fees,25033.53,sales.csv
+Sales-Direct,IT-Application-On-Premise,3460.84,ITDemand.csv
+Sales-Direct,IT-Application-Subscription,7483.95,ITDemand.csv
+Sales-Direct,IT-Infrastructure,2482.65,ITDemand.csv
+Sales-Direct,IT-Consultant-System Implementation,5112.63,ITDemand.csv
+Sales-Direct,Facilities-Offices,7410.03,phones.csv
+Sales-Direct,Facilities-Supplies,3709.12,phones.csv
+Sales-Direct,Facilities-Supplies,4408.2,phones.csv
+Sales-Partners,Salary,62460.91,sales.csv
+Sales-Partners,Benefits,16239.84,sales.csv
+Sales-Partners,Contractors,95750.41,sales.csv
+Sales-Partners,Travel-Trips,980.82,sales.csv
+Sales-Partners,Travel-Hotels,267.88,sales.csv
+Sales-Partners,Professional-Services-Consultants,36841.36,sales.csv
+Sales-Partners,Legal-Consultants,19625.58,sales.csv
+Sales-Partners,Legal-Corporate Fees,18372.5,sales.csv
+Sales-Partners,Legal-Employment Fees,2252.97,sales.csv
+Sales-Partners,IT-Application-On-Premise,466.97,sales.csv
+Sales-Partners,IT-Application-Subscription,8571.94,sales.csv
+Sales-Partners,IT-Infrastructure,6517.94,sales.csv
+Sales-Partners,IT-Consultant-System Implementation,9376.62,sales.csv
+Sales-Partners,Facilities-Offices,1398.88,sales.csv
+Sales-Partners,Facilities-Supplies,3628.15,sales.csv
+Sales-Partners,Facilities-Supplies,8848.37,sales.csv
+Sales-Online,Salary,28071.23,sales.csv
+Sales-Online,Benefits,7298.52,sales.csv
+Sales-Online,Contractors,40968.45,sales.csv
+Sales-Online,Travel-Trips,664.36,sales.csv
+Sales-Online,Travel-Hotels,551.96,sales.csv
+Sales-Online,Professional-Services-Consultants,20232.0,sales.csv
+Sales-Online,Legal-Consultants,17436.68,sales.csv
+Sales-Online,Legal-Corporate Fees,13332.11,sales.csv
+Sales-Online,Legal-Employment Fees,2125.78,sales.csv
+Sales-Online,IT-Application-On-Premise,1600.07,sales.csv
+Sales-Online,IT-Application-Subscription,1228.75,sales.csv
+Sales-Online,IT-Infrastructure,5203.96,sales.csv
+Sales-Online,IT-Consultant-System Implementation,7600.48,sales.csv
+Sales-Online,Facilities-Offices,6990.44,sales.csv
+Sales-Online,Facilities-Supplies,8061.59,sales.csv
+Sales-Online,Facilities-Supplies,9981.59,sales.csv
+Sales-Ops,Salary,14849.78,sales.csv
+Sales-Ops,Benefits,3860.94,sales.csv
+Sales-Ops,Contractors,38863.79,sales.csv
+Sales-Ops,Travel-Trips,916.97,sales.csv
+Sales-Ops,Travel-Hotels,163.8,sales.csv
+Sales-Ops,Professional-Services-Consultants,3344.63,sales.csv
+Sales-Ops,Legal-Consultants,11230.23,sales.csv
+Sales-Ops,Legal-Corporate Fees,19434.14,sales.csv
+Sales-Ops,Legal-Employment Fees,44348.76,sales.csv
+Sales-Ops,IT-Application-On-Premise,144.4,ITDemand.csv
+Sales-Ops,IT-Application-Subscription,9995.28,ITDemand.csv
+Sales-Ops,IT-Infrastructure,9001.14,ITDemand.csv
+Sales-Ops,IT-Consultant-System Implementation,2517.13,ITDemand.csv
+Sales-Ops,Facilities-Offices,7006.42,phones.csv
+Sales-Ops,Facilities-Supplies,8557.61,phones.csv
+Sales-Ops,Facilities-Supplies,9342.44,phones.csv
+Sales-Exec,Salary,17811.33,sales.csv
+Sales-Exec,Benefits,4630.95,sales.csv
+Sales-Exec,Contractors,33642.66,sales.csv
+Sales-Exec,Travel-Trips,556.49,sales.csv
+Sales-Exec,Travel-Hotels,995.24,sales.csv
+Sales-Exec,Professional-Services-Consultants,44287.77,sales.csv
+Sales-Exec,Legal-Consultants,6581.34,sales.csv
+Sales-Exec,Legal-Corporate Fees,7190.81,sales.csv
+Sales-Exec,Legal-Employment Fees,25451.48,sales.csv
+Sales-Exec,IT-Application-On-Premise,3619.39,ITDemand.csv
+Sales-Exec,IT-Application-Subscription,3392.31,ITDemand.csv
+Sales-Exec,IT-Infrastructure,1218.15,ITDemand.csv
+Sales-Exec,IT-Consultant-System Implementation,7353.95,ITDemand.csv
+Sales-Exec,Facilities-Offices,555.41,sales.csv
+Sales-Exec,Facilities-Supplies,9386.75,sales.csv
+Sales-Exec,Facilities-Supplies,4809.42,sales.csv
+Tax,Salary,94821.86,sales.csv
+Tax,Benefits,24653.68,sales.csv
+Tax,Contractors,75577.65,sales.csv
+Tax,Travel-Trips,942.64,sales.csv
+Tax,Travel-Hotels,857.22,sales.csv
+Tax,Professional-Services-Consultants,25074.08,sales.csv
+Tax,Legal-Consultants,944.57,sales.csv
+Tax,Legal-Corporate Fees,6816.46,sales.csv
+Tax,Legal-Employment Fees,14757.59,sales.csv
+Tax,IT-Application-On-Premise,9384.18,ITDemand.csv
+Tax,IT-Application-Subscription,3695.3,ITDemand.csv
+Tax,IT-Infrastructure,2850.99,ITDemand.csv
+Tax,IT-Consultant-System Implementation,2706.36,ITDemand.csv
+Tax,Facilities-Offices,9163.87,sales.csv
+Tax,Facilities-Supplies,3566.86,sales.csv
+Tax,Facilities-Supplies,2223.76,sales.csv
+Accounting,Salary,9759.98,sales.csv
+Accounting,Benefits,2537.59,sales.csv
+Accounting,Contractors,41288.95,sales.csv
+Accounting,Travel-Trips,261.11,sales.csv
+Accounting,Travel-Hotels,104.97,sales.csv
+Accounting,Professional-Services-Consultants,43519.44,sales.csv
+Accounting,Legal-Consultants,19837.8,sales.csv
+Accounting,Legal-Corporate Fees,19908.07,sales.csv
+Accounting,Legal-Employment Fees,39006.97,sales.csv
+Accounting,IT-Application-On-Premise,4896.32,ITDemand.csv
+Accounting,IT-Application-Subscription,4093.61,ITDemand.csv
+Accounting,IT-Infrastructure,1057.32,ITDemand.csv
+Accounting,IT-Consultant-System Implementation,3166.33,ITDemand.csv
+Accounting,Facilities-Offices,4584.2,sales.csv
+Accounting,Facilities-Supplies,6524.69,sales.csv
+Accounting,Facilities-Supplies,7739.32,sales.csv
+Exec-Office,Salary,20220.69,sales.csv
+Exec-Office,Benefits,5257.38,sales.csv
+Exec-Office,Contractors,92710.07,sales.csv
+Exec-Office,Travel-Trips,412.19,sales.csv
+Exec-Office,Travel-Hotels,70.16,sales.csv
+Exec-Office,Professional-Services-Consultants,26431.78,sales.csv
+Exec-Office,Legal-Consultants,25514.3,sales.csv
+Exec-Office,Legal-Corporate Fees,35293.19,sales.csv
+Exec-Office,Legal-Employment Fees,42735.84,sales.csv
+Exec-Office,IT-Application-On-Premise,1395.94,sales.csv
+Exec-Office,IT-Application-Subscription,2467.32,sales.csv
+Exec-Office,IT-Infrastructure,8657.31,sales.csv
+Exec-Office,IT-Consultant-System Implementation,6605.35,sales.csv
+Exec-Office,Facilities-Offices,2685.59,sales.csv
+Exec-Office,Facilities-Supplies,9571.0,sales.csv
+Exec-Office,Facilities-Supplies,3852.83,sales.csv
+Finance,Salary,16128.42,sales.csv
+Finance,Benefits,4193.39,sales.csv
+Finance,Contractors,22705.27,sales.csv
+Finance,Travel-Trips,18.36,sales.csv
+Finance,Travel-Hotels,87.12,sales.csv
+Finance,Professional-Services-Consultants,43576.79,sales.csv
+Finance,Legal-Consultants,40391.45,sales.csv
+Finance,Legal-Corporate Fees,948.0,sales.csv
+Finance,Legal-Employment Fees,338.57,sales.csv
+Finance,IT-Application-On-Premise,4255.8,ITDemand.csv
+Finance,IT-Application-Subscription,4294.93,ITDemand.csv
+Finance,IT-Infrastructure,2091.68,ITDemand.csv
+Finance,IT-Consultant-System Implementation,6762.87,ITDemand.csv
+Finance,Facilities-Offices,2839.16,sales.csv
+Finance,Facilities-Supplies,3081.08,sales.csv
+Finance,Facilities-Supplies,4161.29,sales.csv
+IS,Salary,68355.09,payroll.csv
+IS,Benefits,17772.32,payroll.csv
+IS,Contractors,99916.38,payroll.csv
+IS,Travel-Trips,943.51,payroll.csv
+IS,Travel-Hotels,111.87,payroll.csv
+IS,Professional-Services-Consultants,24672.53,payroll.csv
+IS,Legal-Consultants,21568.18,payroll.csv
+IS,Legal-Corporate Fees,11266.58,payroll.csv
+IS,Legal-Employment Fees,34767.98,payroll.csv
+IS,IT-Application-On-Premise,8941.78,payroll.csv
+IS,IT-Application-Subscription,8570.33,payroll.csv
+IS,IT-Infrastructure,3908.13,payroll.csv
+IS,IT-Consultant-System Implementation,6248.76,payroll.csv
+IS,Facilities-Offices,3005.53,payroll.csv
+IS,Facilities-Supplies,6799.13,payroll.csv
+IS,Facilities-Supplies,8360.41,payroll.csv
+IT,Salary,75625.79,ITDemand.csv
+IT,Benefits,19662.71,ITDemand.csv
+IT,Contractors,57737.79,ITDemand.csv
+IT,Travel-Trips,112.96,ITDemand.csv
+IT,Travel-Hotels,393.41,ITDemand.csv
+IT,Professional-Services-Consultants,28568.13,ITDemand.csv
+IT,Legal-Consultants,37040.38,ITDemand.csv
+IT,Legal-Corporate Fees,32213.64,ITDemand.csv
+IT,Legal-Employment Fees,38062.85,ITDemand.csv
+IT,IT-Application-On-Premise,9424.42,ITDemand.csv
+IT,IT-Application-Subscription,7298.41,ITDemand.csv
+IT,IT-Infrastructure,8599.69,ITDemand.csv
+IT,IT-Consultant-System Implementation,8175.31,ITDemand.csv
+IT,Facilities-Offices,615.07,ITDemand.csv
+IT,Facilities-Supplies,7556.48,ITDemand.csv
+IT,Facilities-Supplies,9208.81,ITDemand.csv
+Legal,Salary,54927.72,sales.csv
+Legal,Benefits,14281.21,sales.csv
+Legal,Contractors,75647.98,sales.csv
+Legal,Travel-Trips,357.22,sales.csv
+Legal,Travel-Hotels,921.17,sales.csv
+Legal,Professional-Services-Consultants,13997.73,sales.csv
+Legal,Legal-Consultants,8671.0,sales.csv
+Legal,Legal-Corporate Fees,5792.92,sales.csv
+Legal,Legal-Employment Fees,36693.49,sales.csv
+Legal,IT-Application-On-Premise,9588.96,ITDemand.csv
+Legal,IT-Application-Subscription,550.55,ITDemand.csv
+Legal,IT-Infrastructure,3015.08,ITDemand.csv
+Legal,IT-Consultant-System Implementation,1429.2,ITDemand.csv
+Legal,Facilities-Offices,5162.73,sales.csv
+Legal,Facilities-Supplies,475.84,sales.csv
+Legal,Facilities-Supplies,7827.13,sales.csv
+Marketing-Events,Salary,37234.42,sales.csv
+Marketing-Events,Benefits,9680.95,sales.csv
+Marketing-Events,Contractors,75809.82,sales.csv
+Marketing-Events,Travel-Trips,634.22,sales.csv
+Marketing-Events,Travel-Hotels,563.31,sales.csv
+Marketing-Events,Professional-Services-Consultants,24158.23,sales.csv
+Marketing-Events,Legal-Consultants,7130.25,sales.csv
+Marketing-Events,Legal-Corporate Fees,1796.96,sales.csv
+Marketing-Events,Legal-Employment Fees,34795.63,sales.csv
+Marketing-Events,IT-Application-On-Premise,1001.76,ITDemand.csv
+Marketing-Events,IT-Application-Subscription,745.61,ITDemand.csv
+Marketing-Events,IT-Infrastructure,7536.52,ITDemand.csv
+Marketing-Events,IT-Consultant-System Implementation,9189.41,ITDemand.csv
+Marketing-Events,Facilities-Offices,9995.62,sales.csv
+Marketing-Events,Facilities-Supplies,253.43,sales.csv
+Marketing-Events,Facilities-Supplies,8188.3,sales.csv
+Marketing-Research,Salary,82829.62,sales.csv
+Marketing-Research,Benefits,21535.7,sales.csv
+Marketing-Research,Contractors,25236.21,sales.csv
+Marketing-Research,Travel-Trips,305.71,sales.csv
+Marketing-Research,Travel-Hotels,208.43,sales.csv
+Marketing-Research,Professional-Services-Consultants,42100.86,sales.csv
+Marketing-Research,Legal-Consultants,23755.07,sales.csv
+Marketing-Research,Legal-Corporate Fees,17920.94,sales.csv
+Marketing-Research,Legal-Employment Fees,35964.56,sales.csv
+Marketing-Research,IT-Application-On-Premise,2709.32,ITDemand.csv
+Marketing-Research,IT-Application-Subscription,7601.98,ITDemand.csv
+Marketing-Research,IT-Infrastructure,9335.65,ITDemand.csv
+Marketing-Research,IT-Consultant-System Implementation,7600.94,ITDemand.csv
+Marketing-Research,Facilities-Offices,5570.47,sales.csv
+Marketing-Research,Facilities-Supplies,5984.48,sales.csv
+Marketing-Research,Facilities-Supplies,8909.27,sales.csv
+Marketing-PR,Salary,46928.52,sales.csv
+Marketing-PR,Benefits,12201.42,sales.csv
+Marketing-PR,Contractors,61136.77,sales.csv
+Marketing-PR,Travel-Trips,992.69,sales.csv
+Marketing-PR,Travel-Hotels,273.26,sales.csv
+Marketing-PR,Professional-Services-Consultants,23206.62,sales.csv
+Marketing-PR,Legal-Consultants,13055.38,sales.csv
+Marketing-PR,Legal-Corporate Fees,31041.34,sales.csv
+Marketing-PR,Legal-Employment Fees,987.2,sales.csv
+Marketing-PR,IT-Application-On-Premise,1027.35,ITDemand.csv
+Marketing-PR,IT-Application-Subscription,1650.98,ITDemand.csv
+Marketing-PR,IT-Infrastructure,2978.14,ITDemand.csv
+Marketing-PR,IT-Consultant-System Implementation,5487.76,ITDemand.csv
+Marketing-PR,Facilities-Offices,6192.99,sales.csv
+Marketing-PR,Facilities-Supplies,750.54,sales.csv
+Marketing-PR,Facilities-Supplies,45.49,sales.csv
+Product-Management,Salary,51699.6,implementation.csv
+Product-Management,Benefits,13441.9,implementation.csv
+Product-Management,Contractors,88630.77,implementation.csv
+Product-Management,Travel-Trips,271.1,implementation.csv
+Product-Management,Travel-Hotels,84.93,implementation.csv
+Product-Management,Professional-Services-Consultants,34308.01,implementation.csv
+Product-Management,Legal-Consultants,16157.67,implementation.csv
+Product-Management,Legal-Corporate Fees,9262.61,implementation.csv
+Product-Management,Legal-Employment Fees,30396.99,implementation.csv
+Product-Management,IT-Application-On-Premise,6824.07,ITDemand.csv
+Product-Management,IT-Application-Subscription,4180.38,ITDemand.csv
+Product-Management,IT-Infrastructure,2864.07,ITDemand.csv
+Product-Management,IT-Consultant-System Implementation,8183.67,ITDemand.csv
+Product-Management,Facilities-Offices,5989.35,implementation.csv
+Product-Management,Facilities-Supplies,7820.04,implementation.csv
+Product-Management,Facilities-Supplies,8903.18,implementation.csv
+PS,Salary,16397.38,implementation.csv
+PS,Benefits,4263.32,implementation.csv
+PS,Contractors,86644.6,implementation.csv
+PS,Travel-Trips,867.13,implementation.csv
+PS,Travel-Hotels,338.89,implementation.csv
+PS,Professional-Services-Consultants,41726.9,implementation.csv
+PS,Legal-Consultants,26009.07,implementation.csv
+PS,Legal-Corporate Fees,293.44,implementation.csv
+PS,Legal-Employment Fees,16953.22,implementation.csv
+PS,IT-Application-On-Premise,5153.4,implementation.csv
+PS,IT-Application-Subscription,7543.19,implementation.csv
+PS,IT-Infrastructure,3409.74,implementation.csv
+PS,IT-Consultant-System Implementation,5966.08,implementation.csv
+PS,Facilities-Offices,4199.41,implementation.csv
+PS,Facilities-Supplies,8379.17,implementation.csv
+PS,Facilities-Supplies,8105.17,implementation.csv
+R&D-Infrastructure Developmet,Salary,11497.05,implementation.csv
+R&D-Infrastructure Developmet,Benefits,2989.23,implementation.csv
+R&D-Infrastructure Developmet,Contractors,47791.44,implementation.csv
+R&D-Infrastructure Developmet,Travel-Trips,774.53,implementation.csv
+R&D-Infrastructure Developmet,Travel-Hotels,376.98,implementation.csv
+R&D-Infrastructure Developmet,Professional-Services-Consultants,5928.44,implementation.csv
+R&D-Infrastructure Developmet,Legal-Consultants,14356.61,implementation.csv
+R&D-Infrastructure Developmet,Legal-Corporate Fees,14611.84,implementation.csv
+R&D-Infrastructure Developmet,Legal-Employment Fees,35965.02,implementation.csv
+R&D-Infrastructure Developmet,IT-Application-On-Premise,4507.5,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Application-Subscription,9877.27,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Infrastructure,228.11,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Consultant-System Implementation,2288.81,ITDemand.csv
+R&D-Infrastructure Developmet,Facilities-Offices,5777.31,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,9687.32,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,7853.05,implementation.csv
+R&D-Applications Development,Salary,33761.26,implementation.csv
+R&D-Applications Development,Benefits,8777.93,implementation.csv
+R&D-Applications Development,Contractors,64358.23,implementation.csv
+R&D-Applications Development,Travel-Trips,593.69,implementation.csv
+R&D-Applications Development,Travel-Hotels,693.86,implementation.csv
+R&D-Applications Development,Professional-Services-Consultants,34149.58,implementation.csv
+R&D-Applications Development,Legal-Consultants,39907.19,implementation.csv
+R&D-Applications Development,Legal-Corporate Fees,12657.73,implementation.csv
+R&D-Applications Development,Legal-Employment Fees,25793.57,implementation.csv
+R&D-Applications Development,IT-Application-On-Premise,7099.01,ITDemand.csv
+R&D-Applications Development,IT-Application-Subscription,795.87,ITDemand.csv
+R&D-Applications Development,IT-Infrastructure,399.39,ITDemand.csv
+R&D-Applications Development,IT-Consultant-System Implementation,6200.76,ITDemand.csv
+R&D-Applications Development,Facilities-Offices,9501.21,implementation.csv
+R&D-Applications Development,Facilities-Supplies,2539.37,implementation.csv
+R&D-Applications Development,Facilities-Supplies,282.19,implementation.csv
+R&D-Research,Salary,11585.13,implementation.csv
+R&D-Research,Benefits,3012.13,implementation.csv
+R&D-Research,Contractors,47561.28,implementation.csv
+R&D-Research,Travel-Trips,288.88,implementation.csv
+R&D-Research,Travel-Hotels,155.64,implementation.csv
+R&D-Research,Professional-Services-Consultants,26796.0,implementation.csv
+R&D-Research,Legal-Consultants,12568.84,implementation.csv
+R&D-Research,Legal-Corporate Fees,42561.78,implementation.csv
+R&D-Research,Legal-Employment Fees,41069.6,implementation.csv
+R&D-Research,IT-Application-On-Premise,2496.64,ITDemand.csv
+R&D-Research,IT-Application-Subscription,3505.28,ITDemand.csv
+R&D-Research,IT-Infrastructure,7412.31,ITDemand.csv
+R&D-Research,IT-Consultant-System Implementation,1510.97,ITDemand.csv
+R&D-Research,Facilities-Offices,8338.07,implementation.csv
+R&D-Research,Facilities-Supplies,3819.94,implementation.csv
+R&D-Research,Facilities-Supplies,4009.0,implementation.csv
+R&D-Parternerships,Salary,46718.4,sales.csv
+R&D-Parternerships,Benefits,12146.78,sales.csv
+R&D-Parternerships,Contractors,84321.45,sales.csv
+R&D-Parternerships,Travel-Trips,949.41,sales.csv
+R&D-Parternerships,Travel-Hotels,834.48,sales.csv
+R&D-Parternerships,Professional-Services-Consultants,14259.66,sales.csv
+R&D-Parternerships,Legal-Consultants,42959.01,sales.csv
+R&D-Parternerships,Legal-Corporate Fees,16158.9,sales.csv
+R&D-Parternerships,Legal-Employment Fees,41973.62,sales.csv
+R&D-Parternerships,IT-Application-On-Premise,1338.27,ITDemand.csv
+R&D-Parternerships,IT-Application-Subscription,3106.93,ITDemand.csv
+R&D-Parternerships,IT-Infrastructure,3518.05,ITDemand.csv
+R&D-Parternerships,IT-Consultant-System Implementation,3217.07,ITDemand.csv
+R&D-Parternerships,Facilities-Offices,247.08,sales.csv
+R&D-Parternerships,Facilities-Supplies,4670.55,sales.csv
+R&D-Parternerships,Facilities-Supplies,7034.05,sales.csv
+Sales-Direct,Salary,66922.74,sales.csv
+Sales-Direct,Benefits,17399.91,sales.csv
+Sales-Direct,Contractors,64249.09,sales.csv
+Sales-Direct,Travel-Trips,21.48,sales.csv
+Sales-Direct,Travel-Hotels,530.15,sales.csv
+Sales-Direct,Professional-Services-Consultants,27596.28,sales.csv
+Sales-Direct,Legal-Consultants,16463.3,sales.csv
+Sales-Direct,Legal-Corporate Fees,32794.59,sales.csv
+Sales-Direct,Legal-Employment Fees,13990.61,sales.csv
+Sales-Direct,IT-Application-On-Premise,7228.93,ITDemand.csv
+Sales-Direct,IT-Application-Subscription,800.3,ITDemand.csv
+Sales-Direct,IT-Infrastructure,9273.51,ITDemand.csv
+Sales-Direct,IT-Consultant-System Implementation,4740.52,ITDemand.csv
+Sales-Direct,Facilities-Offices,678.04,phones.csv
+Sales-Direct,Facilities-Supplies,5855.73,phones.csv
+Sales-Direct,Facilities-Supplies,1021.68,phones.csv
+Sales-Partners,Salary,15261.31,sales.csv
+Sales-Partners,Benefits,3967.94,sales.csv
+Sales-Partners,Contractors,78417.22,sales.csv
+Sales-Partners,Travel-Trips,408.29,sales.csv
+Sales-Partners,Travel-Hotels,544.37,sales.csv
+Sales-Partners,Professional-Services-Consultants,4578.22,sales.csv
+Sales-Partners,Legal-Consultants,21133.31,sales.csv
+Sales-Partners,Legal-Corporate Fees,31002.04,sales.csv
+Sales-Partners,Legal-Employment Fees,8684.98,sales.csv
+Sales-Partners,IT-Application-On-Premise,551.67,sales.csv
+Sales-Partners,IT-Application-Subscription,3039.23,sales.csv
+Sales-Partners,IT-Infrastructure,528.43,sales.csv
+Sales-Partners,IT-Consultant-System Implementation,855.17,sales.csv
+Sales-Partners,Facilities-Offices,6348.89,sales.csv
+Sales-Partners,Facilities-Supplies,8954.77,sales.csv
+Sales-Partners,Facilities-Supplies,1034.1,sales.csv
+Sales-Online,Salary,16411.91,sales.csv
+Sales-Online,Benefits,4267.1,sales.csv
+Sales-Online,Contractors,62973.89,sales.csv
+Sales-Online,Travel-Trips,312.78,sales.csv
+Sales-Online,Travel-Hotels,248.7,sales.csv
+Sales-Online,Professional-Services-Consultants,42284.04,sales.csv
+Sales-Online,Legal-Consultants,5819.69,sales.csv
+Sales-Online,Legal-Corporate Fees,19514.78,sales.csv
+Sales-Online,Legal-Employment Fees,16675.47,sales.csv
+Sales-Online,IT-Application-On-Premise,2936.62,sales.csv
+Sales-Online,IT-Application-Subscription,2710.8,sales.csv
+Sales-Online,IT-Infrastructure,4177.88,sales.csv
+Sales-Online,IT-Consultant-System Implementation,1766.9,sales.csv
+Sales-Online,Facilities-Offices,6030.19,sales.csv
+Sales-Online,Facilities-Supplies,3180.42,sales.csv
+Sales-Online,Facilities-Supplies,4035.1,sales.csv
+Sales-Ops,Salary,15543.57,sales.csv
+Sales-Ops,Benefits,4041.33,sales.csv
+Sales-Ops,Contractors,1347.29,sales.csv
+Sales-Ops,Travel-Trips,848.06,sales.csv
+Sales-Ops,Travel-Hotels,783.67,sales.csv
+Sales-Ops,Professional-Services-Consultants,21833.18,sales.csv
+Sales-Ops,Legal-Consultants,40848.66,sales.csv
+Sales-Ops,Legal-Corporate Fees,43913.27,sales.csv
+Sales-Ops,Legal-Employment Fees,23523.12,sales.csv
+Sales-Ops,IT-Application-On-Premise,4205.47,ITDemand.csv
+Sales-Ops,IT-Application-Subscription,6729.07,ITDemand.csv
+Sales-Ops,IT-Infrastructure,7861.74,ITDemand.csv
+Sales-Ops,IT-Consultant-System Implementation,7316.17,ITDemand.csv
+Sales-Ops,Facilities-Offices,8593.85,phones.csv
+Sales-Ops,Facilities-Supplies,2213.31,phones.csv
+Sales-Ops,Facilities-Supplies,944.7,phones.csv
+Sales-Exec,Salary,81355.33,sales.csv
+Sales-Exec,Benefits,21152.39,sales.csv
+Sales-Exec,Contractors,75336.63,sales.csv
+Sales-Exec,Travel-Trips,49.54,sales.csv
+Sales-Exec,Travel-Hotels,206.96,sales.csv
+Sales-Exec,Professional-Services-Consultants,3079.87,sales.csv
+Sales-Exec,Legal-Consultants,17433.81,sales.csv
+Sales-Exec,Legal-Corporate Fees,24675.5,sales.csv
+Sales-Exec,Legal-Employment Fees,29601.01,sales.csv
+Sales-Exec,IT-Application-On-Premise,1365.59,ITDemand.csv
+Sales-Exec,IT-Application-Subscription,224.94,ITDemand.csv
+Sales-Exec,IT-Infrastructure,4841.67,ITDemand.csv
+Sales-Exec,IT-Consultant-System Implementation,426.12,ITDemand.csv
+Sales-Exec,Facilities-Offices,8507.95,sales.csv
+Sales-Exec,Facilities-Supplies,2728.24,sales.csv
+Sales-Exec,Facilities-Supplies,3080.9,sales.csv
+Tax,Salary,63262.82,sales.csv
+Tax,Benefits,16448.33,sales.csv
+Tax,Contractors,28979.25,sales.csv
+Tax,Travel-Trips,826.74,sales.csv
+Tax,Travel-Hotels,244.85,sales.csv
+Tax,Professional-Services-Consultants,1426.14,sales.csv
+Tax,Legal-Consultants,11814.65,sales.csv
+Tax,Legal-Corporate Fees,12843.55,sales.csv
+Tax,Legal-Employment Fees,14621.02,sales.csv
+Tax,IT-Application-On-Premise,9730.06,ITDemand.csv
+Tax,IT-Application-Subscription,6308.69,ITDemand.csv
+Tax,IT-Infrastructure,2673.36,ITDemand.csv
+Tax,IT-Consultant-System Implementation,3947.86,ITDemand.csv
+Tax,Facilities-Offices,838.0,sales.csv
+Tax,Facilities-Supplies,8663.39,sales.csv
+Tax,Facilities-Supplies,6150.67,sales.csv
+Accounting,Salary,99661.9,sales.csv
+Accounting,Benefits,25912.09,sales.csv
+Accounting,Contractors,19276.79,sales.csv
+Accounting,Travel-Trips,741.0,sales.csv
+Accounting,Travel-Hotels,169.56,sales.csv
+Accounting,Professional-Services-Consultants,43007.34,sales.csv
+Accounting,Legal-Consultants,43810.48,sales.csv
+Accounting,Legal-Corporate Fees,21897.35,sales.csv
+Accounting,Legal-Employment Fees,24084.02,sales.csv
+Accounting,IT-Application-On-Premise,848.1,ITDemand.csv
+Accounting,IT-Application-Subscription,238.5,ITDemand.csv
+Accounting,IT-Infrastructure,859.8,ITDemand.csv
+Accounting,IT-Consultant-System Implementation,4915.83,ITDemand.csv
+Accounting,Facilities-Offices,4557.29,sales.csv
+Accounting,Facilities-Supplies,6467.35,sales.csv
+Accounting,Facilities-Supplies,167.04,sales.csv
+Exec-Office,Salary,60732.84,sales.csv
+Exec-Office,Benefits,15790.54,sales.csv
+Exec-Office,Contractors,32855.06,sales.csv
+Exec-Office,Travel-Trips,455.39,sales.csv
+Exec-Office,Travel-Hotels,414.8,sales.csv
+Exec-Office,Professional-Services-Consultants,44928.4,sales.csv
+Exec-Office,Legal-Consultants,3538.88,sales.csv
+Exec-Office,Legal-Corporate Fees,2101.23,sales.csv
+Exec-Office,Legal-Employment Fees,19172.12,sales.csv
+Exec-Office,IT-Application-On-Premise,4215.5,sales.csv
+Exec-Office,IT-Application-Subscription,8345.23,sales.csv
+Exec-Office,IT-Infrastructure,6578.88,sales.csv
+Exec-Office,IT-Consultant-System Implementation,5230.34,sales.csv
+Exec-Office,Facilities-Offices,8157.1,sales.csv
+Exec-Office,Facilities-Supplies,3339.09,sales.csv
+Exec-Office,Facilities-Supplies,3292.87,sales.csv
+Finance,Salary,400.49,sales.csv
+Finance,Benefits,104.13,sales.csv
+Finance,Contractors,56430.75,sales.csv
+Finance,Travel-Trips,821.12,sales.csv
+Finance,Travel-Hotels,849.13,sales.csv
+Finance,Professional-Services-Consultants,3389.91,sales.csv
+Finance,Legal-Consultants,13461.28,sales.csv
+Finance,Legal-Corporate Fees,13274.7,sales.csv
+Finance,Legal-Employment Fees,33279.01,sales.csv
+Finance,IT-Application-On-Premise,1685.96,ITDemand.csv
+Finance,IT-Application-Subscription,5188.76,ITDemand.csv
+Finance,IT-Infrastructure,1540.87,ITDemand.csv
+Finance,IT-Consultant-System Implementation,511.37,ITDemand.csv
+Finance,Facilities-Offices,1629.22,sales.csv
+Finance,Facilities-Supplies,3697.4,sales.csv
+Finance,Facilities-Supplies,5869.33,sales.csv
+IS,Salary,20132.0,payroll.csv
+IS,Benefits,5234.32,payroll.csv
+IS,Contractors,53456.64,payroll.csv
+IS,Travel-Trips,844.58,payroll.csv
+IS,Travel-Hotels,111.65,payroll.csv
+IS,Professional-Services-Consultants,476.15,payroll.csv
+IS,Legal-Consultants,43120.34,payroll.csv
+IS,Legal-Corporate Fees,12670.84,payroll.csv
+IS,Legal-Employment Fees,41058.02,payroll.csv
+IS,IT-Application-On-Premise,3734.61,payroll.csv
+IS,IT-Application-Subscription,9903.57,payroll.csv
+IS,IT-Infrastructure,7958.38,payroll.csv
+IS,IT-Consultant-System Implementation,2977.06,payroll.csv
+IS,Facilities-Offices,28.64,payroll.csv
+IS,Facilities-Supplies,4602.6,payroll.csv
+IS,Facilities-Supplies,4244.65,payroll.csv
+IT,Salary,5478.62,ITDemand.csv
+IT,Benefits,1424.44,ITDemand.csv
+IT,Contractors,93799.94,ITDemand.csv
+IT,Travel-Trips,489.12,ITDemand.csv
+IT,Travel-Hotels,412.98,ITDemand.csv
+IT,Professional-Services-Consultants,34823.92,ITDemand.csv
+IT,Legal-Consultants,24649.07,ITDemand.csv
+IT,Legal-Corporate Fees,31821.33,ITDemand.csv
+IT,Legal-Employment Fees,6019.21,ITDemand.csv
+IT,IT-Application-On-Premise,3160.17,ITDemand.csv
+IT,IT-Application-Subscription,8947.19,ITDemand.csv
+IT,IT-Infrastructure,4009.68,ITDemand.csv
+IT,IT-Consultant-System Implementation,1696.66,ITDemand.csv
+IT,Facilities-Offices,4420.0,ITDemand.csv
+IT,Facilities-Supplies,9782.73,ITDemand.csv
+IT,Facilities-Supplies,8470.54,ITDemand.csv
+Legal,Salary,56021.81,sales.csv
+Legal,Benefits,14565.67,sales.csv
+Legal,Contractors,17288.62,sales.csv
+Legal,Travel-Trips,274.45,sales.csv
+Legal,Travel-Hotels,591.42,sales.csv
+Legal,Professional-Services-Consultants,3773.65,sales.csv
+Legal,Legal-Consultants,21337.7,sales.csv
+Legal,Legal-Corporate Fees,7454.5,sales.csv
+Legal,Legal-Employment Fees,39087.87,sales.csv
+Legal,IT-Application-On-Premise,3762.21,ITDemand.csv
+Legal,IT-Application-Subscription,5158.1,ITDemand.csv
+Legal,IT-Infrastructure,4781.37,ITDemand.csv
+Legal,IT-Consultant-System Implementation,4118.57,ITDemand.csv
+Legal,Facilities-Offices,3103.62,sales.csv
+Legal,Facilities-Supplies,5116.17,sales.csv
+Legal,Facilities-Supplies,6283.45,sales.csv
+Marketing-Events,Salary,66887.37,sales.csv
+Marketing-Events,Benefits,17390.72,sales.csv
+Marketing-Events,Contractors,49055.81,sales.csv
+Marketing-Events,Travel-Trips,845.77,sales.csv
+Marketing-Events,Travel-Hotels,461.83,sales.csv
+Marketing-Events,Professional-Services-Consultants,11253.06,sales.csv
+Marketing-Events,Legal-Consultants,7440.4,sales.csv
+Marketing-Events,Legal-Corporate Fees,33092.83,sales.csv
+Marketing-Events,Legal-Employment Fees,13690.66,sales.csv
+Marketing-Events,IT-Application-On-Premise,3916.33,ITDemand.csv
+Marketing-Events,IT-Application-Subscription,413.72,ITDemand.csv
+Marketing-Events,IT-Infrastructure,9456.19,ITDemand.csv
+Marketing-Events,IT-Consultant-System Implementation,5175.16,ITDemand.csv
+Marketing-Events,Facilities-Offices,9448.98,sales.csv
+Marketing-Events,Facilities-Supplies,6620.53,sales.csv
+Marketing-Events,Facilities-Supplies,3736.34,sales.csv
+Marketing-Research,Salary,79037.68,sales.csv
+Marketing-Research,Benefits,20549.8,sales.csv
+Marketing-Research,Contractors,85016.9,sales.csv
+Marketing-Research,Travel-Trips,517.05,sales.csv
+Marketing-Research,Travel-Hotels,949.02,sales.csv
+Marketing-Research,Professional-Services-Consultants,40520.32,sales.csv
+Marketing-Research,Legal-Consultants,3870.0,sales.csv
+Marketing-Research,Legal-Corporate Fees,14260.03,sales.csv
+Marketing-Research,Legal-Employment Fees,5072.35,sales.csv
+Marketing-Research,IT-Application-On-Premise,4484.09,ITDemand.csv
+Marketing-Research,IT-Application-Subscription,9522.98,ITDemand.csv
+Marketing-Research,IT-Infrastructure,8975.81,ITDemand.csv
+Marketing-Research,IT-Consultant-System Implementation,2909.99,ITDemand.csv
+Marketing-Research,Facilities-Offices,1290.08,sales.csv
+Marketing-Research,Facilities-Supplies,1023.41,sales.csv
+Marketing-Research,Facilities-Supplies,789.1,sales.csv
+Marketing-PR,Salary,6876.37,sales.csv
+Marketing-PR,Benefits,1787.86,sales.csv
+Marketing-PR,Contractors,53233.38,sales.csv
+Marketing-PR,Travel-Trips,897.67,sales.csv
+Marketing-PR,Travel-Hotels,465.02,sales.csv
+Marketing-PR,Professional-Services-Consultants,41000.03,sales.csv
+Marketing-PR,Legal-Consultants,23210.59,sales.csv
+Marketing-PR,Legal-Corporate Fees,34471.23,sales.csv
+Marketing-PR,Legal-Employment Fees,18843.06,sales.csv
+Marketing-PR,IT-Application-On-Premise,6802.09,ITDemand.csv
+Marketing-PR,IT-Application-Subscription,9113.01,ITDemand.csv
+Marketing-PR,IT-Infrastructure,5146.27,ITDemand.csv
+Marketing-PR,IT-Consultant-System Implementation,5246.06,ITDemand.csv
+Marketing-PR,Facilities-Offices,3394.76,sales.csv
+Marketing-PR,Facilities-Supplies,7490.47,sales.csv
+Marketing-PR,Facilities-Supplies,1382.35,sales.csv
+Product-Management,Salary,94463.3,implementation.csv
+Product-Management,Benefits,24560.46,implementation.csv
+Product-Management,Contractors,85286.88,implementation.csv
+Product-Management,Travel-Trips,375.92,implementation.csv
+Product-Management,Travel-Hotels,295.84,implementation.csv
+Product-Management,Professional-Services-Consultants,27217.35,implementation.csv
+Product-Management,Legal-Consultants,28445.35,implementation.csv
+Product-Management,Legal-Corporate Fees,24552.2,implementation.csv
+Product-Management,Legal-Employment Fees,38044.14,implementation.csv
+Product-Management,IT-Application-On-Premise,1475.85,ITDemand.csv
+Product-Management,IT-Application-Subscription,4554.87,ITDemand.csv
+Product-Management,IT-Infrastructure,1058.28,ITDemand.csv
+Product-Management,IT-Consultant-System Implementation,4119.74,ITDemand.csv
+Product-Management,Facilities-Offices,2171.86,implementation.csv
+Product-Management,Facilities-Supplies,9494.86,implementation.csv
+Product-Management,Facilities-Supplies,1653.13,implementation.csv
+PS,Salary,32789.42,implementation.csv
+PS,Benefits,8525.25,implementation.csv
+PS,Contractors,75380.48,implementation.csv
+PS,Travel-Trips,414.12,implementation.csv
+PS,Travel-Hotels,880.98,implementation.csv
+PS,Professional-Services-Consultants,35149.36,implementation.csv
+PS,Legal-Consultants,18523.55,implementation.csv
+PS,Legal-Corporate Fees,25400.08,implementation.csv
+PS,Legal-Employment Fees,12141.74,implementation.csv
+PS,IT-Application-On-Premise,3606.01,implementation.csv
+PS,IT-Application-Subscription,4417.18,implementation.csv
+PS,IT-Infrastructure,1413.71,implementation.csv
+PS,IT-Consultant-System Implementation,2119.07,implementation.csv
+PS,Facilities-Offices,7146.34,implementation.csv
+PS,Facilities-Supplies,7048.24,implementation.csv
+PS,Facilities-Supplies,7590.48,implementation.csv
+R&D-Infrastructure Developmet,Salary,9523.16,implementation.csv
+R&D-Infrastructure Developmet,Benefits,2476.02,implementation.csv
+R&D-Infrastructure Developmet,Contractors,22413.1,implementation.csv
+R&D-Infrastructure Developmet,Travel-Trips,6.71,implementation.csv
+R&D-Infrastructure Developmet,Travel-Hotels,531.5,implementation.csv
+R&D-Infrastructure Developmet,Professional-Services-Consultants,16450.23,implementation.csv
+R&D-Infrastructure Developmet,Legal-Consultants,24294.57,implementation.csv
+R&D-Infrastructure Developmet,Legal-Corporate Fees,26987.94,implementation.csv
+R&D-Infrastructure Developmet,Legal-Employment Fees,29792.13,implementation.csv
+R&D-Infrastructure Developmet,IT-Application-On-Premise,3334.59,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Application-Subscription,8409.58,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Infrastructure,2550.95,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Consultant-System Implementation,6113.46,ITDemand.csv
+R&D-Infrastructure Developmet,Facilities-Offices,750.71,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,1176.71,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,8688.92,implementation.csv
+R&D-Applications Development,Salary,80847.74,implementation.csv
+R&D-Applications Development,Benefits,21020.41,implementation.csv
+R&D-Applications Development,Contractors,56494.53,implementation.csv
+R&D-Applications Development,Travel-Trips,845.39,implementation.csv
+R&D-Applications Development,Travel-Hotels,406.63,implementation.csv
+R&D-Applications Development,Professional-Services-Consultants,26221.73,implementation.csv
+R&D-Applications Development,Legal-Consultants,21285.89,implementation.csv
+R&D-Applications Development,Legal-Corporate Fees,12224.63,implementation.csv
+R&D-Applications Development,Legal-Employment Fees,23193.07,implementation.csv
+R&D-Applications Development,IT-Application-On-Premise,5045.45,ITDemand.csv
+R&D-Applications Development,IT-Application-Subscription,3696.82,ITDemand.csv
+R&D-Applications Development,IT-Infrastructure,3984.14,ITDemand.csv
+R&D-Applications Development,IT-Consultant-System Implementation,6144.41,ITDemand.csv
+R&D-Applications Development,Facilities-Offices,6190.68,implementation.csv
+R&D-Applications Development,Facilities-Supplies,3985.21,implementation.csv
+R&D-Applications Development,Facilities-Supplies,5609.77,implementation.csv
+R&D-Research,Salary,27622.53,implementation.csv
+R&D-Research,Benefits,7181.86,implementation.csv
+R&D-Research,Contractors,75009.86,implementation.csv
+R&D-Research,Travel-Trips,171.11,implementation.csv
+R&D-Research,Travel-Hotels,151.73,implementation.csv
+R&D-Research,Professional-Services-Consultants,37503.76,implementation.csv
+R&D-Research,Legal-Consultants,4596.66,implementation.csv
+R&D-Research,Legal-Corporate Fees,9192.88,implementation.csv
+R&D-Research,Legal-Employment Fees,17803.66,implementation.csv
+R&D-Research,IT-Application-On-Premise,4256.64,ITDemand.csv
+R&D-Research,IT-Application-Subscription,8112.22,ITDemand.csv
+R&D-Research,IT-Infrastructure,279.37,ITDemand.csv
+R&D-Research,IT-Consultant-System Implementation,3734.01,ITDemand.csv
+R&D-Research,Facilities-Offices,3125.74,implementation.csv
+R&D-Research,Facilities-Supplies,2422.66,implementation.csv
+R&D-Research,Facilities-Supplies,2536.51,implementation.csv
+R&D-Parternerships,Salary,37862.33,sales.csv
+R&D-Parternerships,Benefits,9844.21,sales.csv
+R&D-Parternerships,Contractors,88747.55,sales.csv
+R&D-Parternerships,Travel-Trips,733.64,sales.csv
+R&D-Parternerships,Travel-Hotels,431.65,sales.csv
+R&D-Parternerships,Professional-Services-Consultants,43405.42,sales.csv
+R&D-Parternerships,Legal-Consultants,4666.56,sales.csv
+R&D-Parternerships,Legal-Corporate Fees,22523.85,sales.csv
+R&D-Parternerships,Legal-Employment Fees,25837.07,sales.csv
+R&D-Parternerships,IT-Application-On-Premise,6268.39,ITDemand.csv
+R&D-Parternerships,IT-Application-Subscription,8120.74,ITDemand.csv
+R&D-Parternerships,IT-Infrastructure,4302.69,ITDemand.csv
+R&D-Parternerships,IT-Consultant-System Implementation,1095.24,ITDemand.csv
+R&D-Parternerships,Facilities-Offices,6327.01,sales.csv
+R&D-Parternerships,Facilities-Supplies,1149.67,sales.csv
+R&D-Parternerships,Facilities-Supplies,9357.9,sales.csv
+Sales-Direct,Salary,24513.39,sales.csv
+Sales-Direct,Benefits,6373.48,sales.csv
+Sales-Direct,Contractors,34200.09,sales.csv
+Sales-Direct,Travel-Trips,980.56,sales.csv
+Sales-Direct,Travel-Hotels,627.67,sales.csv
+Sales-Direct,Professional-Services-Consultants,24967.36,sales.csv
+Sales-Direct,Legal-Consultants,27856.25,sales.csv
+Sales-Direct,Legal-Corporate Fees,40625.14,sales.csv
+Sales-Direct,Legal-Employment Fees,14575.01,sales.csv
+Sales-Direct,IT-Application-On-Premise,5056.55,ITDemand.csv
+Sales-Direct,IT-Application-Subscription,2849.79,ITDemand.csv
+Sales-Direct,IT-Infrastructure,1520.27,ITDemand.csv
+Sales-Direct,IT-Consultant-System Implementation,8021.03,ITDemand.csv
+Sales-Direct,Facilities-Offices,8905.99,phones.csv
+Sales-Direct,Facilities-Supplies,5003.49,phones.csv
+Sales-Direct,Facilities-Supplies,3514.21,phones.csv
+Sales-Partners,Salary,11511.03,sales.csv
+Sales-Partners,Benefits,2992.87,sales.csv
+Sales-Partners,Contractors,92679.17,sales.csv
+Sales-Partners,Travel-Trips,309.25,sales.csv
+Sales-Partners,Travel-Hotels,689.88,sales.csv
+Sales-Partners,Professional-Services-Consultants,10521.86,sales.csv
+Sales-Partners,Legal-Consultants,2697.82,sales.csv
+Sales-Partners,Legal-Corporate Fees,15493.35,sales.csv
+Sales-Partners,Legal-Employment Fees,30643.35,sales.csv
+Sales-Partners,IT-Application-On-Premise,8063.62,sales.csv
+Sales-Partners,IT-Application-Subscription,6822.53,sales.csv
+Sales-Partners,IT-Infrastructure,1844.42,sales.csv
+Sales-Partners,IT-Consultant-System Implementation,8579.75,sales.csv
+Sales-Partners,Facilities-Offices,2877.44,sales.csv
+Sales-Partners,Facilities-Supplies,9251.65,sales.csv
+Sales-Partners,Facilities-Supplies,6699.3,sales.csv
+Sales-Online,Salary,89364.4,sales.csv
+Sales-Online,Benefits,23234.74,sales.csv
+Sales-Online,Contractors,73933.51,sales.csv
+Sales-Online,Travel-Trips,767.11,sales.csv
+Sales-Online,Travel-Hotels,519.46,sales.csv
+Sales-Online,Professional-Services-Consultants,25524.33,sales.csv
+Sales-Online,Legal-Consultants,1968.75,sales.csv
+Sales-Online,Legal-Corporate Fees,22456.87,sales.csv
+Sales-Online,Legal-Employment Fees,38881.24,sales.csv
+Sales-Online,IT-Application-On-Premise,6441.41,sales.csv
+Sales-Online,IT-Application-Subscription,9500.52,sales.csv
+Sales-Online,IT-Infrastructure,3139.77,sales.csv
+Sales-Online,IT-Consultant-System Implementation,1007.56,sales.csv
+Sales-Online,Facilities-Offices,6881.19,sales.csv
+Sales-Online,Facilities-Supplies,464.34,sales.csv
+Sales-Online,Facilities-Supplies,3753.58,sales.csv
+Sales-Ops,Salary,49553.9,sales.csv
+Sales-Ops,Benefits,12884.01,sales.csv
+Sales-Ops,Contractors,26633.31,sales.csv
+Sales-Ops,Travel-Trips,651.79,sales.csv
+Sales-Ops,Travel-Hotels,910.93,sales.csv
+Sales-Ops,Professional-Services-Consultants,16905.68,sales.csv
+Sales-Ops,Legal-Consultants,26820.82,sales.csv
+Sales-Ops,Legal-Corporate Fees,13558.68,sales.csv
+Sales-Ops,Legal-Employment Fees,28137.73,sales.csv
+Sales-Ops,IT-Application-On-Premise,9908.93,ITDemand.csv
+Sales-Ops,IT-Application-Subscription,2399.52,ITDemand.csv
+Sales-Ops,IT-Infrastructure,1942.54,ITDemand.csv
+Sales-Ops,IT-Consultant-System Implementation,2105.35,ITDemand.csv
+Sales-Ops,Facilities-Offices,958.85,phones.csv
+Sales-Ops,Facilities-Supplies,1665.89,phones.csv
+Sales-Ops,Facilities-Supplies,9455.95,phones.csv
+Sales-Exec,Salary,26660.98,sales.csv
+Sales-Exec,Benefits,6931.85,sales.csv
+Sales-Exec,Contractors,71187.79,sales.csv
+Sales-Exec,Travel-Trips,84.26,sales.csv
+Sales-Exec,Travel-Hotels,516.86,sales.csv
+Sales-Exec,Professional-Services-Consultants,3607.79,sales.csv
+Sales-Exec,Legal-Consultants,20100.63,sales.csv
+Sales-Exec,Legal-Corporate Fees,29670.83,sales.csv
+Sales-Exec,Legal-Employment Fees,23211.49,sales.csv
+Sales-Exec,IT-Application-On-Premise,506.02,ITDemand.csv
+Sales-Exec,IT-Application-Subscription,4750.97,ITDemand.csv
+Sales-Exec,IT-Infrastructure,1522.83,ITDemand.csv
+Sales-Exec,IT-Consultant-System Implementation,6908.0,ITDemand.csv
+Sales-Exec,Facilities-Offices,6095.73,sales.csv
+Sales-Exec,Facilities-Supplies,6012.85,sales.csv
+Sales-Exec,Facilities-Supplies,3535.07,sales.csv
+Tax,Salary,75513.17,sales.csv
+Tax,Benefits,19633.42,sales.csv
+Tax,Contractors,42760.95,sales.csv
+Tax,Travel-Trips,125.42,sales.csv
+Tax,Travel-Hotels,450.34,sales.csv
+Tax,Professional-Services-Consultants,42937.05,sales.csv
+Tax,Legal-Consultants,27367.82,sales.csv
+Tax,Legal-Corporate Fees,40897.38,sales.csv
+Tax,Legal-Employment Fees,22224.8,sales.csv
+Tax,IT-Application-On-Premise,8923.05,ITDemand.csv
+Tax,IT-Application-Subscription,5174.7,ITDemand.csv
+Tax,IT-Infrastructure,3163.48,ITDemand.csv
+Tax,IT-Consultant-System Implementation,348.58,ITDemand.csv
+Tax,Facilities-Offices,5443.52,sales.csv
+Tax,Facilities-Supplies,8767.58,sales.csv
+Tax,Facilities-Supplies,3128.08,sales.csv
+Accounting,Salary,14853.64,sales.csv
+Accounting,Benefits,3861.95,sales.csv
+Accounting,Contractors,17817.09,sales.csv
+Accounting,Travel-Trips,425.3,sales.csv
+Accounting,Travel-Hotels,655.71,sales.csv
+Accounting,Professional-Services-Consultants,29963.02,sales.csv
+Accounting,Legal-Consultants,32404.04,sales.csv
+Accounting,Legal-Corporate Fees,14559.36,sales.csv
+Accounting,Legal-Employment Fees,21273.94,sales.csv
+Accounting,IT-Application-On-Premise,5348.65,ITDemand.csv
+Accounting,IT-Application-Subscription,6793.52,ITDemand.csv
+Accounting,IT-Infrastructure,8809.83,ITDemand.csv
+Accounting,IT-Consultant-System Implementation,5040.49,ITDemand.csv
+Accounting,Facilities-Offices,2129.32,sales.csv
+Accounting,Facilities-Supplies,8784.01,sales.csv
+Accounting,Facilities-Supplies,9959.49,sales.csv
+Exec-Office,Salary,80257.59,sales.csv
+Exec-Office,Benefits,20866.97,sales.csv
+Exec-Office,Contractors,56372.46,sales.csv
+Exec-Office,Travel-Trips,39.02,sales.csv
+Exec-Office,Travel-Hotels,996.04,sales.csv
+Exec-Office,Professional-Services-Consultants,42458.86,sales.csv
+Exec-Office,Legal-Consultants,4916.14,sales.csv
+Exec-Office,Legal-Corporate Fees,44026.87,sales.csv
+Exec-Office,Legal-Employment Fees,22145.64,sales.csv
+Exec-Office,IT-Application-On-Premise,9849.93,sales.csv
+Exec-Office,IT-Application-Subscription,9263.78,sales.csv
+Exec-Office,IT-Infrastructure,9483.89,sales.csv
+Exec-Office,IT-Consultant-System Implementation,580.83,sales.csv
+Exec-Office,Facilities-Offices,5408.22,sales.csv
+Exec-Office,Facilities-Supplies,8019.92,sales.csv
+Exec-Office,Facilities-Supplies,813.3,sales.csv
+Finance,Salary,6070.93,sales.csv
+Finance,Benefits,1578.44,sales.csv
+Finance,Contractors,52781.63,sales.csv
+Finance,Travel-Trips,959.83,sales.csv
+Finance,Travel-Hotels,573.41,sales.csv
+Finance,Professional-Services-Consultants,40920.05,sales.csv
+Finance,Legal-Consultants,3097.64,sales.csv
+Finance,Legal-Corporate Fees,38287.9,sales.csv
+Finance,Legal-Employment Fees,41649.7,sales.csv
+Finance,IT-Application-On-Premise,8874.81,ITDemand.csv
+Finance,IT-Application-Subscription,5034.35,ITDemand.csv
+Finance,IT-Infrastructure,7430.25,ITDemand.csv
+Finance,IT-Consultant-System Implementation,6218.1,ITDemand.csv
+Finance,Facilities-Offices,4115.62,sales.csv
+Finance,Facilities-Supplies,4858.73,sales.csv
+Finance,Facilities-Supplies,6580.16,sales.csv
+IS,Salary,51028.52,payroll.csv
+IS,Benefits,13267.42,payroll.csv
+IS,Contractors,34134.37,payroll.csv
+IS,Travel-Trips,608.58,payroll.csv
+IS,Travel-Hotels,356.84,payroll.csv
+IS,Professional-Services-Consultants,40256.28,payroll.csv
+IS,Legal-Consultants,43938.14,payroll.csv
+IS,Legal-Corporate Fees,26969.63,payroll.csv
+IS,Legal-Employment Fees,3008.23,payroll.csv
+IS,IT-Application-On-Premise,1152.11,payroll.csv
+IS,IT-Application-Subscription,9440.16,payroll.csv
+IS,IT-Infrastructure,4597.06,payroll.csv
+IS,IT-Consultant-System Implementation,9947.39,payroll.csv
+IS,Facilities-Offices,9969.95,payroll.csv
+IS,Facilities-Supplies,8161.76,payroll.csv
+IS,Facilities-Supplies,169.39,payroll.csv
+IT,Salary,61742.9,ITDemand.csv
+IT,Benefits,16053.15,ITDemand.csv
+IT,Contractors,87274.62,ITDemand.csv
+IT,Travel-Trips,960.42,ITDemand.csv
+IT,Travel-Hotels,261.86,ITDemand.csv
+IT,Professional-Services-Consultants,8378.83,ITDemand.csv
+IT,Legal-Consultants,7156.82,ITDemand.csv
+IT,Legal-Corporate Fees,38662.95,ITDemand.csv
+IT,Legal-Employment Fees,22211.38,ITDemand.csv
+IT,IT-Application-On-Premise,7036.54,ITDemand.csv
+IT,IT-Application-Subscription,4077.15,ITDemand.csv
+IT,IT-Infrastructure,867.21,ITDemand.csv
+IT,IT-Consultant-System Implementation,1476.08,ITDemand.csv
+IT,Facilities-Offices,4228.49,ITDemand.csv
+IT,Facilities-Supplies,3570.37,ITDemand.csv
+IT,Facilities-Supplies,7825.65,ITDemand.csv
+Legal,Salary,39347.15,sales.csv
+Legal,Benefits,10230.26,sales.csv
+Legal,Contractors,19132.09,sales.csv
+Legal,Travel-Trips,314.11,sales.csv
+Legal,Travel-Hotels,511.2,sales.csv
+Legal,Professional-Services-Consultants,35813.97,sales.csv
+Legal,Legal-Consultants,38323.32,sales.csv
+Legal,Legal-Corporate Fees,5164.59,sales.csv
+Legal,Legal-Employment Fees,21890.78,sales.csv
+Legal,IT-Application-On-Premise,4153.98,ITDemand.csv
+Legal,IT-Application-Subscription,489.74,ITDemand.csv
+Legal,IT-Infrastructure,4852.46,ITDemand.csv
+Legal,IT-Consultant-System Implementation,9081.08,ITDemand.csv
+Legal,Facilities-Offices,2706.32,sales.csv
+Legal,Facilities-Supplies,8446.0,sales.csv
+Legal,Facilities-Supplies,4556.46,sales.csv
+Marketing-Events,Salary,98939.32,sales.csv
+Marketing-Events,Benefits,25724.22,sales.csv
+Marketing-Events,Contractors,17972.66,sales.csv
+Marketing-Events,Travel-Trips,103.72,sales.csv
+Marketing-Events,Travel-Hotels,544.74,sales.csv
+Marketing-Events,Professional-Services-Consultants,41993.17,sales.csv
+Marketing-Events,Legal-Consultants,9797.14,sales.csv
+Marketing-Events,Legal-Corporate Fees,1171.2,sales.csv
+Marketing-Events,Legal-Employment Fees,37867.36,sales.csv
+Marketing-Events,IT-Application-On-Premise,2486.96,ITDemand.csv
+Marketing-Events,IT-Application-Subscription,8583.37,ITDemand.csv
+Marketing-Events,IT-Infrastructure,99.87,ITDemand.csv
+Marketing-Events,IT-Consultant-System Implementation,9758.56,ITDemand.csv
+Marketing-Events,Facilities-Offices,4863.35,sales.csv
+Marketing-Events,Facilities-Supplies,3307.32,sales.csv
+Marketing-Events,Facilities-Supplies,1440.57,sales.csv
+Marketing-Research,Salary,83262.63,sales.csv
+Marketing-Research,Benefits,21648.28,sales.csv
+Marketing-Research,Contractors,19469.07,sales.csv
+Marketing-Research,Travel-Trips,262.55,sales.csv
+Marketing-Research,Travel-Hotels,884.04,sales.csv
+Marketing-Research,Professional-Services-Consultants,27048.3,sales.csv
+Marketing-Research,Legal-Consultants,33222.18,sales.csv
+Marketing-Research,Legal-Corporate Fees,413.63,sales.csv
+Marketing-Research,Legal-Employment Fees,44752.52,sales.csv
+Marketing-Research,IT-Application-On-Premise,75.28,ITDemand.csv
+Marketing-Research,IT-Application-Subscription,7620.22,ITDemand.csv
+Marketing-Research,IT-Infrastructure,7092.57,ITDemand.csv
+Marketing-Research,IT-Consultant-System Implementation,8241.61,ITDemand.csv
+Marketing-Research,Facilities-Offices,4174.31,sales.csv
+Marketing-Research,Facilities-Supplies,1142.13,sales.csv
+Marketing-Research,Facilities-Supplies,6262.06,sales.csv
+Marketing-PR,Salary,9819.44,sales.csv
+Marketing-PR,Benefits,2553.05,sales.csv
+Marketing-PR,Contractors,27799.76,sales.csv
+Marketing-PR,Travel-Trips,966.22,sales.csv
+Marketing-PR,Travel-Hotels,149.31,sales.csv
+Marketing-PR,Professional-Services-Consultants,28051.96,sales.csv
+Marketing-PR,Legal-Consultants,12878.78,sales.csv
+Marketing-PR,Legal-Corporate Fees,9070.05,sales.csv
+Marketing-PR,Legal-Employment Fees,22669.38,sales.csv
+Marketing-PR,IT-Application-On-Premise,8167.88,ITDemand.csv
+Marketing-PR,IT-Application-Subscription,5550.5,ITDemand.csv
+Marketing-PR,IT-Infrastructure,9448.62,ITDemand.csv
+Marketing-PR,IT-Consultant-System Implementation,1819.73,ITDemand.csv
+Marketing-PR,Facilities-Offices,6165.29,sales.csv
+Marketing-PR,Facilities-Supplies,5091.12,sales.csv
+Marketing-PR,Facilities-Supplies,1589.8,sales.csv
+Product-Management,Salary,43651.33,implementation.csv
+Product-Management,Benefits,11349.35,implementation.csv
+Product-Management,Contractors,58614.34,implementation.csv
+Product-Management,Travel-Trips,933.09,implementation.csv
+Product-Management,Travel-Hotels,845.33,implementation.csv
+Product-Management,Professional-Services-Consultants,12234.63,implementation.csv
+Product-Management,Legal-Consultants,42734.21,implementation.csv
+Product-Management,Legal-Corporate Fees,22132.86,implementation.csv
+Product-Management,Legal-Employment Fees,38174.83,implementation.csv
+Product-Management,IT-Application-On-Premise,1285.97,ITDemand.csv
+Product-Management,IT-Application-Subscription,8679.06,ITDemand.csv
+Product-Management,IT-Infrastructure,6791.43,ITDemand.csv
+Product-Management,IT-Consultant-System Implementation,6610.25,ITDemand.csv
+Product-Management,Facilities-Offices,8524.92,implementation.csv
+Product-Management,Facilities-Supplies,8136.03,implementation.csv
+Product-Management,Facilities-Supplies,1519.78,implementation.csv
+PS,Salary,24065.67,implementation.csv
+PS,Benefits,6257.07,implementation.csv
+PS,Contractors,88936.52,implementation.csv
+PS,Travel-Trips,339.71,implementation.csv
+PS,Travel-Hotels,93.75,implementation.csv
+PS,Professional-Services-Consultants,36330.58,implementation.csv
+PS,Legal-Consultants,18107.22,implementation.csv
+PS,Legal-Corporate Fees,19631.78,implementation.csv
+PS,Legal-Employment Fees,12374.9,implementation.csv
+PS,IT-Application-On-Premise,8786.13,implementation.csv
+PS,IT-Application-Subscription,1617.26,implementation.csv
+PS,IT-Infrastructure,7820.21,implementation.csv
+PS,IT-Consultant-System Implementation,7705.47,implementation.csv
+PS,Facilities-Offices,3244.62,implementation.csv
+PS,Facilities-Supplies,2580.15,implementation.csv
+PS,Facilities-Supplies,4562.83,implementation.csv
+R&D-Infrastructure Developmet,Salary,82699.08,implementation.csv
+R&D-Infrastructure Developmet,Benefits,21501.76,implementation.csv
+R&D-Infrastructure Developmet,Contractors,28700.09,implementation.csv
+R&D-Infrastructure Developmet,Travel-Trips,790.03,implementation.csv
+R&D-Infrastructure Developmet,Travel-Hotels,593.36,implementation.csv
+R&D-Infrastructure Developmet,Professional-Services-Consultants,16057.53,implementation.csv
+R&D-Infrastructure Developmet,Legal-Consultants,35410.0,implementation.csv
+R&D-Infrastructure Developmet,Legal-Corporate Fees,33701.79,implementation.csv
+R&D-Infrastructure Developmet,Legal-Employment Fees,23453.83,implementation.csv
+R&D-Infrastructure Developmet,IT-Application-On-Premise,3132.63,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Application-Subscription,9609.18,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Infrastructure,8283.97,ITDemand.csv
+R&D-Infrastructure Developmet,IT-Consultant-System Implementation,5366.86,ITDemand.csv
+R&D-Infrastructure Developmet,Facilities-Offices,460.33,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,6203.32,implementation.csv
+R&D-Infrastructure Developmet,Facilities-Supplies,8292.34,implementation.csv
+R&D-Applications Development,Salary,64713.63,implementation.csv
+R&D-Applications Development,Benefits,16825.54,implementation.csv
+R&D-Applications Development,Contractors,2638.48,implementation.csv
+R&D-Applications Development,Travel-Trips,830.03,implementation.csv
+R&D-Applications Development,Travel-Hotels,334.32,implementation.csv
+R&D-Applications Development,Professional-Services-Consultants,37679.92,implementation.csv
+R&D-Applications Development,Legal-Consultants,2226.47,implementation.csv
+R&D-Applications Development,Legal-Corporate Fees,44280.69,implementation.csv
+R&D-Applications Development,Legal-Employment Fees,18812.02,implementation.csv
+R&D-Applications Development,IT-Application-On-Premise,5127.18,ITDemand.csv
+R&D-Applications Development,IT-Application-Subscription,8756.83,ITDemand.csv
+R&D-Applications Development,IT-Infrastructure,5399.28,ITDemand.csv
+R&D-Applications Development,IT-Consultant-System Implementation,7654.34,ITDemand.csv
+R&D-Applications Development,Facilities-Offices,1917.67,implementation.csv
+R&D-Applications Development,Facilities-Supplies,2321.73,implementation.csv
+R&D-Applications Development,Facilities-Supplies,6287.27,implementation.csv
+R&D-Research,Salary,23132.61,implementation.csv
+R&D-Research,Benefits,6014.48,implementation.csv
+R&D-Research,Contractors,59976.44,implementation.csv
+R&D-Research,Travel-Trips,636.32,implementation.csv
+R&D-Research,Travel-Hotels,396.55,implementation.csv
+R&D-Research,Professional-Services-Consultants,4851.39,implementation.csv
+R&D-Research,Legal-Consultants,41858.08,implementation.csv
+R&D-Research,Legal-Corporate Fees,10519.89,implementation.csv
+R&D-Research,Legal-Employment Fees,8835.81,implementation.csv
+R&D-Research,IT-Application-On-Premise,5041.63,ITDemand.csv
+R&D-Research,IT-Application-Subscription,1930.48,ITDemand.csv
+R&D-Research,IT-Infrastructure,5447.1,ITDemand.csv
+R&D-Research,IT-Consultant-System Implementation,5098.81,ITDemand.csv
+R&D-Research,Facilities-Offices,3280.03,implementation.csv
+R&D-Research,Facilities-Supplies,792.97,implementation.csv
+R&D-Research,Facilities-Supplies,4213.65,implementation.csv
+R&D-Parternerships,Salary,34414.19,sales.csv
+R&D-Parternerships,Benefits,8947.69,sales.csv
+R&D-Parternerships,Contractors,61503.88,sales.csv
+R&D-Parternerships,Travel-Trips,285.8,sales.csv
+R&D-Parternerships,Travel-Hotels,604.09,sales.csv
+R&D-Parternerships,Professional-Services-Consultants,43112.97,sales.csv
+R&D-Parternerships,Legal-Consultants,38239.74,sales.csv
+R&D-Parternerships,Legal-Corporate Fees,9656.64,sales.csv
+R&D-Parternerships,Legal-Employment Fees,8910.94,sales.csv
+R&D-Parternerships,IT-Application-On-Premise,3611.12,ITDemand.csv
+R&D-Parternerships,IT-Application-Subscription,4994.04,ITDemand.csv
+R&D-Parternerships,IT-Infrastructure,3670.85,ITDemand.csv
+R&D-Parternerships,IT-Consultant-System Implementation,1353.53,ITDemand.csv
+R&D-Parternerships,Facilities-Offices,1497.8,sales.csv
+R&D-Parternerships,Facilities-Supplies,3950.29,sales.csv
+R&D-Parternerships,Facilities-Supplies,3694.29,sales.csv
+Sales-Direct,Salary,32795.31,sales.csv
+Sales-Direct,Benefits,8526.78,sales.csv
+Sales-Direct,Contractors,60535.91,sales.csv
+Sales-Direct,Travel-Trips,95.89,sales.csv
+Sales-Direct,Travel-Hotels,952.61,sales.csv
+Sales-Direct,Professional-Services-Consultants,2159.35,sales.csv
+Sales-Direct,Legal-Consultants,39058.38,sales.csv
+Sales-Direct,Legal-Corporate Fees,12080.59,sales.csv
+Sales-Direct,Legal-Employment Fees,19308.8,sales.csv
+Sales-Direct,IT-Application-On-Premise,8882.29,ITDemand.csv
+Sales-Direct,IT-Application-Subscription,3383.44,ITDemand.csv
+Sales-Direct,IT-Infrastructure,8448.38,ITDemand.csv
+Sales-Direct,IT-Consultant-System Implementation,4376.19,ITDemand.csv
+Sales-Direct,Facilities-Offices,4492.73,phones.csv
+Sales-Direct,Facilities-Supplies,6781.67,phones.csv
+Sales-Direct,Facilities-Supplies,8376.11,phones.csv
+Sales-Partners,Salary,40665.05,sales.csv
+Sales-Partners,Benefits,10572.91,sales.csv
+Sales-Partners,Contractors,65661.02,sales.csv
+Sales-Partners,Travel-Trips,980.82,sales.csv
+Sales-Partners,Travel-Hotels,798.22,sales.csv
+Sales-Partners,Professional-Services-Consultants,35266.27,sales.csv
+Sales-Partners,Legal-Consultants,20772.15,sales.csv
+Sales-Partners,Legal-Corporate Fees,14271.12,sales.csv
+Sales-Partners,Legal-Employment Fees,4073.79,sales.csv
+Sales-Partners,IT-Application-On-Premise,7756.17,sales.csv
+Sales-Partners,IT-Application-Subscription,809.37,sales.csv
+Sales-Partners,IT-Infrastructure,8662.35,sales.csv
+Sales-Partners,IT-Consultant-System Implementation,3463.0,sales.csv
+Sales-Partners,Facilities-Offices,4021.27,sales.csv
+Sales-Partners,Facilities-Supplies,2180.62,sales.csv
+Sales-Partners,Facilities-Supplies,6887.15,sales.csv
+Sales-Online,Salary,19150.39,sales.csv
+Sales-Online,Benefits,4979.1,sales.csv
+Sales-Online,Contractors,84899.77,sales.csv
+Sales-Online,Travel-Trips,266.2,sales.csv
+Sales-Online,Travel-Hotels,864.3,sales.csv
+Sales-Online,Professional-Services-Consultants,36091.52,sales.csv
+Sales-Online,Legal-Consultants,43033.49,sales.csv
+Sales-Online,Legal-Corporate Fees,43435.6,sales.csv
+Sales-Online,Legal-Employment Fees,36869.11,sales.csv
+Sales-Online,IT-Application-On-Premise,6942.46,sales.csv
+Sales-Online,IT-Application-Subscription,5915.21,sales.csv
+Sales-Online,IT-Infrastructure,1526.71,sales.csv
+Sales-Online,IT-Consultant-System Implementation,1564.73,sales.csv
+Sales-Online,Facilities-Offices,1922.99,sales.csv
+Sales-Online,Facilities-Supplies,9240.54,sales.csv
+Sales-Online,Facilities-Supplies,634.11,sales.csv
+Sales-Ops,Salary,24018.08,sales.csv
+Sales-Ops,Benefits,6244.7,sales.csv
+Sales-Ops,Contractors,1457.66,sales.csv
+Sales-Ops,Travel-Trips,486.79,sales.csv
+Sales-Ops,Travel-Hotels,231.51,sales.csv
+Sales-Ops,Professional-Services-Consultants,11553.64,sales.csv
+Sales-Ops,Legal-Consultants,22427.68,sales.csv
+Sales-Ops,Legal-Corporate Fees,19107.37,sales.csv
+Sales-Ops,Legal-Employment Fees,30741.48,sales.csv
+Sales-Ops,IT-Application-On-Premise,4292.32,ITDemand.csv
+Sales-Ops,IT-Application-Subscription,7857.9,ITDemand.csv
+Sales-Ops,IT-Infrastructure,1367.03,ITDemand.csv
+Sales-Ops,IT-Consultant-System Implementation,8174.75,ITDemand.csv
+Sales-Ops,Facilities-Offices,3686.75,phones.csv
+Sales-Ops,Facilities-Supplies,6147.26,phones.csv
+Sales-Ops,Facilities-Supplies,2797.46,phones.csv
+Sales-Exec,Salary,32121.68,sales.csv
+Sales-Exec,Benefits,8351.64,sales.csv
+Sales-Exec,Contractors,65295.53,sales.csv
+Sales-Exec,Travel-Trips,549.73,sales.csv
+Sales-Exec,Travel-Hotels,307.24,sales.csv
+Sales-Exec,Professional-Services-Consultants,42223.44,sales.csv
+Sales-Exec,Legal-Consultants,15199.84,sales.csv
+Sales-Exec,Legal-Corporate Fees,334.17,sales.csv
+Sales-Exec,Legal-Employment Fees,44300.54,sales.csv
+Sales-Exec,IT-Application-On-Premise,3195.5,ITDemand.csv
+Sales-Exec,IT-Application-Subscription,3750.66,ITDemand.csv
+Sales-Exec,IT-Infrastructure,37.88,ITDemand.csv
+Sales-Exec,IT-Consultant-System Implementation,4751.21,ITDemand.csv
+Sales-Exec,Facilities-Offices,2526.35,sales.csv
+Sales-Exec,Facilities-Supplies,9783.97,sales.csv
+Sales-Exec,Facilities-Supplies,1895.82,sales.csv
+Tax,Salary,48659.74,sales.csv
+Tax,Benefits,12651.53,sales.csv
+Tax,Contractors,66722.26,sales.csv
+Tax,Travel-Trips,518.32,sales.csv
+Tax,Travel-Hotels,171.74,sales.csv
+Tax,Professional-Services-Consultants,36091.48,sales.csv
+Tax,Legal-Consultants,3791.62,sales.csv
+Tax,Legal-Corporate Fees,16438.9,sales.csv
+Tax,Legal-Employment Fees,36075.23,sales.csv
+Tax,IT-Application-On-Premise,9917.88,ITDemand.csv
+Tax,IT-Application-Subscription,5541.32,ITDemand.csv
+Tax,IT-Infrastructure,3396.94,ITDemand.csv
+Tax,IT-Consultant-System Implementation,5121.68,ITDemand.csv
+Tax,Facilities-Offices,9071.12,sales.csv
+Tax,Facilities-Supplies,9127.95,sales.csv
+Tax,Facilities-Supplies,3428.66,sales.csv

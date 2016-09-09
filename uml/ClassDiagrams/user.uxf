@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>13</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>104</x>
-      <y>494</y>
-      <w>377</w>
-      <h>169</h>
+      <x>64</x>
+      <y>304</y>
+      <w>232</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>UserSpaceMakerImpl
 --
@@ -17,17 +17,16 @@ scanner Scanner): void
 
 --
 Responsibilities
--- Implements UserSpaceMaker
-group=2</panel_attributes>
+-- Implements UserSpaceMaker</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>104</x>
-      <y>156</y>
-      <w>364</w>
-      <h>156</h>
+      <x>64</x>
+      <y>96</y>
+      <w>224</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 UserSpaceMaker
@@ -36,8 +35,7 @@ UserSpaceMaker
 scanner: Scanner)
 --
 Responsibilities
--- Creates a UserSpace
-group=2</panel_attributes>
+-- Creates a UserSpace</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -45,40 +43,40 @@ group=2</panel_attributes>
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>1378</w>
-      <h>884</h>
+      <w>848</w>
+      <h>544</h>
     </coordinates>
     <panel_attributes>
 
-Package: user
-group=2</panel_attributes>
+Package: user</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>273</x>
-      <y>299</y>
-      <w>39</w>
-      <h>221</h>
+      <x>168</x>
+      <y>184</y>
+      <w>24</w>
+      <h>136</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-group=2</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>754</x>
-      <y>156</y>
-      <w>494</w>
-      <h>390</h>
+      <x>464</x>
+      <y>96</y>
+      <w>312</w>
+      <h>304</h>
     </coordinates>
     <panel_attributes>UserSpace
 --
 - file: File
 - configurations: Map&lt;String,File&gt;
 - periods: Map&lt;String,File&gt;
+- configTypesMap: Map&lt;String,Set&lt;String&gt;&gt;
+- configPeriodMap: Map&lt;String,Set&lt;String&gt;&gt;
 --
 + addConfiguration(configName:String ,file:File) :boolean
 + removeConfiguration(configName:String ,file:File) :boolean
@@ -88,89 +86,86 @@ group=2</panel_attributes>
 + getPeriod(periodName:String): File
 + validPeriod(periodName:String): boolean
 + getPeriodNames(): Set&lt;String&gt;
++ getConfigTypesMap():  Map&lt;String,Set&lt;String&gt;&gt;
++ getConfigurationType(configName:String): String
++ getPeriodConfigurationType(periodName:String):String
 + save() : void
 + capture(directoryName: String)
 --
 Responsibilities
 -- Facilitates the access and keep references to the different
 configurations and periods created.
-
-group=2</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>455</x>
-      <y>143</y>
-      <w>325</w>
-      <h>208</h>
+      <x>280</x>
+      <y>88</y>
+      <w>200</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
-creates &gt;
-group=2</panel_attributes>
+creates &gt;</panel_attributes>
     <additional_attributes>10.0;70.0;30.0;140.0;180.0;140.0;180.0;10.0;230.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>754</x>
-      <y>624</y>
-      <w>299</w>
-      <h>65</h>
+      <x>464</x>
+      <y>424</y>
+      <w>184</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>package: configuration
-(ConfigurationManagerAbstract.file)
-group=2</panel_attributes>
+(ConfigurationManagerAbstract.file)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>208</y>
-      <w>156</w>
-      <h>494</h>
+      <x>384</x>
+      <y>128</y>
+      <w>96</w>
+      <h>344</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
 stores
 references
-to &gt;
-group=2</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;10.0;10.0;350.0;100.0;350.0</additional_attributes>
+to &gt;</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0;10.0;400.0;100.0;400.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>923</x>
-      <y>780</y>
-      <w>273</w>
-      <h>65</h>
+      <x>568</x>
+      <y>480</y>
+      <w>168</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>package: period
-(PeriodMaker.file)
-group=2</panel_attributes>
+(PeriodMaker.file)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1183</x>
-      <y>221</y>
-      <w>208</w>
-      <h>611</h>
+      <x>728</x>
+      <y>136</y>
+      <w>128</w>
+      <h>376</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=0..n
 stores 
 references
-to &gt;
-group=2</panel_attributes>
-    <additional_attributes>50.0;10.0;80.0;10.0;80.0;440.0;10.0;440.0</additional_attributes>
+to &gt;</panel_attributes>
+    <additional_attributes>60.0;10.0;80.0;10.0;80.0;440.0;10.0;440.0</additional_attributes>
   </element>
 </diagram>

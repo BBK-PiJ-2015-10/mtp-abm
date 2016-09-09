@@ -15,6 +15,10 @@ public abstract class MapCreatorAbstract implements MapCreator {
 		this.manualFlag=manualFlag;
 	}
 	
+	public boolean getFlag(){
+		return this.manualFlag;
+	}
+	
 	public boolean putToSleep(int microsecondstime){
 		try {
 			Thread.sleep(microsecondstime);

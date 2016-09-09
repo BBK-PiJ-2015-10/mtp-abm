@@ -1,0 +1,27 @@
+yes
+user17
+yes
+CSV
+config17
+done
+gl.csv
+CostCenter Account
+Amount
+client
+hours
+client
+total_revenue
+client
+ftes
+iclient
+total_duration
+client
+total_phonetime
+2
+done
+yes
+config17
+period17
+no
+
+no

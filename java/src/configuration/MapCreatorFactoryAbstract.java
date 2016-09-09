@@ -16,6 +16,7 @@ public abstract class MapCreatorFactoryAbstract {
 		mapCreatorOptions.put(2,"a manual table reference");
 	}
 	
+	
 	public boolean presentChoices(){
 		if (mapCreatorOptions.isEmpty()){
 			loadOptions();

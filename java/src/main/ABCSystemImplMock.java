@@ -20,11 +20,10 @@ import period.PeriodMakerImplSQL;
 import user.UserSpace;
 import user.UserSpaceMaker;
 import user.UserSpaceMakerImpl;
-import report.ReportAbstract;
 import report.ReportGenerator;
 import report.ReportGeneratorImpl;
 
-import sqlimpl.*;
+
 
 import java.io.File;
 
@@ -62,8 +61,7 @@ public class ABCSystemImplMock implements ABCSystem {
 	private String keyboard = null;
 	
 
-	
-	public boolean runMakeNewUserSpaceEnhanced(){
+	public boolean runMakeNewUserSpace(){
 		userSpaceMaker = new UserSpaceMakerImpl();
 		userSpaceMaker.createUserSpace(userSpace,sc);
 		do {
@@ -79,9 +77,6 @@ public class ABCSystemImplMock implements ABCSystem {
 		}
 		return false;
 	}
-	
-	
-	
 	
 	
 	public void runAccessExistingUserSpace() {
@@ -123,7 +118,7 @@ public class ABCSystemImplMock implements ABCSystem {
 			keyboard = sc.nextLine();
 		} while (!validSelection(keyboard));
 		switch (keyboard){
-			case "yes":  runMakeNewPeriodEnhanced();
+			case "yes":  runMakeNewPeriod();
 			break;
 			case "no":break;
 			case "exit": return true;
@@ -134,28 +129,34 @@ public class ABCSystemImplMock implements ABCSystem {
 	
 	public boolean accessExistingPeriod(){
 		boolean result = false;
-		System.out.println("Please enter the name of the period you wish to access");
-		String periodName = sc.nextLine();
-		if(userSpace.validPeriod(periodName)){
-			boolean valid=false;
-			do
-			{
-				String configType;
-				configType = userSpace.getPeriodConfigurationType(periodName);
-				switch (configType.toUpperCase()){
-					case "CSV":  periodMaker = new PeriodMakerImplCSV(new File(userSpace.getPeriod(periodName).getAbsolutePath()));
-								 valid=true;	
-								 break;
-					case "SQL":  periodMaker = new PeriodMakerImplSQL(new File(userSpace.getPeriod(periodName).getAbsolutePath()));
-					 			 valid=true;	
-								 break;
-					default:     System.out.println("Invalid selection");
-							     break;
-				}
-			} while (!valid);
-			periodMaker.capture(periodName);
-			result = true;
-		}
+		String periodName;
+		do {
+			System.out.println("Please enter the name of the period you wish to access");
+			periodName = sc.nextLine();
+			if(userSpace.validPeriod(periodName)){
+				boolean valid=false;
+				do {
+					String configType;
+					configType = userSpace.getPeriodConfigurationType(periodName);
+					switch (configType.toUpperCase()){
+						case "CSV":  periodMaker = new PeriodMakerImplCSV(new File(userSpace.getPeriod(periodName).getAbsolutePath()));
+							valid=true;	
+							break;
+						case "SQL":  periodMaker = new PeriodMakerImplSQL(new File(userSpace.getPeriod(periodName).getAbsolutePath()));
+					 		valid=true;	
+							break;
+						default:     
+							System.out.println("Invalid selection");
+							break;
+					}
+				} while (!valid);
+				periodMaker.capture(periodName);
+				result = true;
+			}
+			else {
+				System.out.println("Invalid selection");
+			}
+		} while (!userSpace.validPeriod(periodName));
 		return result;
 	}
 	
@@ -187,7 +188,7 @@ public class ABCSystemImplMock implements ABCSystem {
 	}
 	
 	
-	public boolean runMakeNewPeriodEnhanced(){
+	public boolean runMakeNewPeriod(){
 		runBpaCostMaker(createPeriodMaker(),sc);
 		bpaCostCalculator = new BpaCostCalculatorImpl(periodMaker.getBpaCosts());
 		bpaClientWeightsCalculator = new BpaClientWeightsCalculatorImpl(bpaCostsMaker);
@@ -200,9 +201,9 @@ public class ABCSystemImplMock implements ABCSystem {
 			keyboard = sc.nextLine();
 		} while (!validSelection(keyboard));
 		switch (keyboard){
-			case "yes":  runGenerateReportEnhanced();
-			break;
-			case "no":break;
+			case "yes":  runGenerateReport();
+					     break;
+			case "no":   break;
 			case "exit": return true;
 		}
 		return false;
@@ -221,7 +222,7 @@ public class ABCSystemImplMock implements ABCSystem {
 	}
 	
 	
-	public boolean runGenerateReportEnhanced(){
+	public boolean runGenerateReport(){
 		reportGenerator= new ReportGeneratorImpl(periodMaker);
 		reportGenerator.captureChoice(sc);
 		reportGenerator.generateReport();
@@ -232,15 +233,12 @@ public class ABCSystemImplMock implements ABCSystem {
 			keyboard = sc.nextLine();
 		} while (!validSelection(keyboard));
 		switch (keyboard){
-			case "yes":  
-				System.out.println("I selected yes");
-				return runGenerateReportEnhanced();
-			case "no":break;
+			case "yes":  return runGenerateReport();
+			case "no":   break;
 			case "exit": return true;
 		}
 		return false;
 	}
-	
 	
 	
 	public boolean validSelection(String selection){
@@ -251,6 +249,7 @@ public class ABCSystemImplMock implements ABCSystem {
 		}
 		return false;
 	}
+	
 	
 	public boolean validMainSelection(String selection){
 		switch (selection.toLowerCase()){
@@ -263,23 +262,26 @@ public class ABCSystemImplMock implements ABCSystem {
 		return false;
 	}
 	
+	
 	public boolean launchABCServiceRequest(String selection){
 		switch (selection.toLowerCase()){
-			case "user" : return runMakeNewUserSpaceEnhanced();
+			case "user" : 
+				return runMakeNewUserSpace();
 			case "configuration"  : 
 				runAccessExistingUserSpace();
 				return runMakeNewConfiguration();
-			case "period" : System.out.println("We will create a period for you");
-			return false;
-			case "report" : System.out.println("We will create a report for you");
-			return false;
-			case "exit" :return true;
+			case "period" : 
+				runAccessExistingUserSpace();
+				return runMakeNewPeriod();
+			case "report" :
+				runAccessExistingUserSpace();
+				accessExistingPeriod();
+				return runGenerateReport();
+			case "exit" :
+				return true;
 		}
 		return false;
 	}
-	
-	
-	
 	
 	
 	@Override
@@ -296,7 +298,7 @@ public class ABCSystemImplMock implements ABCSystem {
 				System.out.println("To create a new user type: user");
 				System.out.println("To create a new configuration type: configuration");
 				System.out.println("To create a new period type: period");
-				System.out.println("To create run a report type: report");
+				System.out.println("To run a report type: report");
 				System.out.println("To exit the application type: exit");
 				choice = sc.nextLine();
 				if (!(validEntry = validMainSelection(choice))){
@@ -308,13 +310,8 @@ public class ABCSystemImplMock implements ABCSystem {
 		
 		} while (!terminate);
 		
-		System.out.println("Good bye user. Thank you for choosing ABC application");
-		
-		
-		
-		
-	
-		
+		System.out.println("Good bye user. Thank you for choosing Activity Based Costing Application");
+			
 	}
 	
 	
