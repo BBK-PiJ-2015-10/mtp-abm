@@ -44,11 +44,13 @@ public class FileValidatorImplBpaMap implements FileValidator {
 				} 	
 			} 
 			catch ( IOException | NoSuchElementException ex){
+				System.out.println("Error on reading the provided file");
 				return false;
 			}
 			return true;
 		}
 		else {
+			System.out.println("File provided doesn't exist");
 			return false;
 		}
 	}

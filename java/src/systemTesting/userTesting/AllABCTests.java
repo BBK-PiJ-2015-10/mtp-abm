@@ -10,12 +10,13 @@ TestUserSpace.class, TestUserSpaceMakerImpl.class,
 TestConfigurationMakerImplCSV.class,TestConfigurationMakerImplSQL.class,
 TestConfigurationManagerCSV.class,TestConfigurationMapperImplCSV.class,TestMapCreatorImplCSV.class,
 TestConfigurationManagerSQL.class,TestConfigurationMapperImplSQL.class,TestMapCreatorImplSQL.class,
-TestMapCreatorFactoryCSV.class,
+TestMapCreatorFactoryCSV.class,TestMapCreatorFactorySQL.class,
 TestPeriodMakerImplCSV.class,TestPeriodMakerImplSQL.class,
 TestBpaCostsMakerImplCSV.class,TestBpaCostsMakerImplSQL.class,
 TestBpaCostCalculatorImpl.class,TestBpaClientWeightsCalculatorImpl.class,
 TestClientCostsImpl.class,
-TestReportSummaryImpl.class,TestReportDetailedImpl.class,TestReportGeneratorImpl.class
+TestReportSummaryImpl.class,TestReportDetailedImpl.class,TestReportGeneratorImpl.class,
+TestFileValidatorImplBpaMap.class
 })
 public class AllABCTests {
 	
