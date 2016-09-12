@@ -71,7 +71,7 @@ public class ABCSystemImpl implements ABCSystem {
 			keyboard = sc.nextLine();
 		} while (!validSelection(keyboard));
 		switch (keyboard){
-			case "yes":  runMakeNewConfiguration();
+			case "yes":  return runMakeNewConfiguration();
 			case "no":break;
 			case "exit": return true;
 		}
@@ -118,8 +118,7 @@ public class ABCSystemImpl implements ABCSystem {
 			keyboard = sc.nextLine();
 		} while (!validSelection(keyboard));
 		switch (keyboard){
-			case "yes":  runMakeNewPeriod();
-			break;
+			case "yes":  return runMakeNewPeriod();
 			case "no":break;
 			case "exit": return true;
 		}
@@ -201,8 +200,7 @@ public class ABCSystemImpl implements ABCSystem {
 			keyboard = sc.nextLine();
 		} while (!validSelection(keyboard));
 		switch (keyboard){
-			case "yes":  runGenerateReport();
-					     break;
+			case "yes":  return runGenerateReport();
 			case "no":   break;
 			case "exit": return true;
 		}
