@@ -44,13 +44,16 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 				System.out.println("Please enter the url that you wish to connect to");
 				selection=sc.nextLine();
 				glConnectionSettings.add(selection);
+				System.out.println("Please enter the name of the database");
+				selection=sc.nextLine();
+				glConnectionSettings.add(selection);
 				System.out.println("Please enter the Username");
 				selection=sc.nextLine();
 				glConnectionSettings.add(selection);
 				System.out.println("Please enter the Password");
 				selection=sc.nextLine();
 				glConnectionSettings.add(selection);
-				System.out.println("Please enter the Database name");
+				System.out.println("Please enter the table name");
 				selection=sc.nextLine();
 				glConnectionSettings.add(selection);
 				validEntry = testConnection() && testTable(selection);
@@ -69,8 +72,8 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	
 	public boolean testConnection(){
 		try {
-			DriverManager.getConnection(glConnectionSettings.get(0),
-			                            glConnectionSettings.get(1),glConnectionSettings.get(2));
+			DriverManager.getConnection(glConnectionSettings.get(0)+"/"+glConnectionSettings.get(1),
+			                            glConnectionSettings.get(2),glConnectionSettings.get(3));
 			
 		} catch (SQLException | IndexOutOfBoundsException ex) {
 			return false;
@@ -95,9 +98,8 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	public Connection getGLConnection(){
 		Connection glConnection;
 		try {
-			glConnection = DriverManager.getConnection(glConnectionSettings.get(0),
-					       glConnectionSettings.get(1),glConnectionSettings.get(2));
-			
+			glConnection = DriverManager.getConnection(glConnectionSettings.get(0)+"/"+
+			glConnectionSettings.get(1),glConnectionSettings.get(2),glConnectionSettings.get(3));
 		} catch (SQLException |IndexOutOfBoundsException ex) {
 			return null;
 		}

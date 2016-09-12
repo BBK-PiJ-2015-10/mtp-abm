@@ -1,0 +1,24 @@
+user
+user13sql
+yes
+SQL
+config13
+done
+jdbc:mysql://LocalHost:3306
+abc
+root
+tonto
+smallgl
+Department Account
+Amount
+iclient
+ihours
+pclient
+pcalls
+2
+done
+yes
+config13
+period13
+exit
+exit

@@ -212,11 +212,12 @@ public class TestConfigurationManagerSQL {
 		autoFeedSetUpFile("testconfigurationManagerSQL1.txt");
 	    validConfigMgr=new ConfigurationManagerSQL(validFile);
 	    assertEquals(true,validConfigMgr.captureGLConnectionSettings(sc));
-	    assertEquals(4,validConfigMgr.getGLConnectionSettings().size());
-	    assertEquals("jdbc:mysql://LocalHost:3306/abc",validConfigMgr.getGLConnectionSettings().get(0));
-	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(1));
-	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(2));
-	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals(5,validConfigMgr.getGLConnectionSettings().size());
+	    assertEquals("jdbc:mysql://LocalHost:3306",validConfigMgr.getGLConnectionSettings().get(0));
+	    assertEquals("abc",validConfigMgr.getGLConnectionSettings().get(1));
+	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(2));
+	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(4));
 	    assertEquals("smallgl",validConfigMgr.getGLFileName());
 	}
 	
@@ -247,11 +248,12 @@ public class TestConfigurationManagerSQL {
 		autoFeedSetUpFile("testconfigurationManagerSQL3.txt");
 	    validConfigMgr=new ConfigurationManagerSQL(validFile);
 	    assertEquals(true,validConfigMgr.captureGLConnectionSettings(sc));
-	    assertEquals(4,validConfigMgr.getGLConnectionSettings().size());
-	    assertEquals("jdbc:mysql://LocalHost:3306/abc",validConfigMgr.getGLConnectionSettings().get(0));
-	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(1));
-	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(2));
-	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals(5,validConfigMgr.getGLConnectionSettings().size());
+	    assertEquals("jdbc:mysql://LocalHost:3306",validConfigMgr.getGLConnectionSettings().get(0));
+	    assertEquals("abc",validConfigMgr.getGLConnectionSettings().get(1));
+	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(2));
+	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(4));
 	    assertEquals("smallgl",validConfigMgr.getGLFileName());
 	    
 	}
@@ -267,11 +269,12 @@ public class TestConfigurationManagerSQL {
 		autoFeedSetUpFile("testconfigurationManagerSQL4.txt");
 	    validConfigMgr=new ConfigurationManagerSQL(validFile);
 	    assertEquals(true,validConfigMgr.captureGLConnectionSettings(sc));
-	    assertEquals(4,validConfigMgr.getGLConnectionSettings().size());
-	    assertEquals("jdbc:mysql://LocalHost:3306/abc",validConfigMgr.getGLConnectionSettings().get(0));
-	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(1));
-	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(2));
-	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals(5,validConfigMgr.getGLConnectionSettings().size());
+	    assertEquals("jdbc:mysql://LocalHost:3306",validConfigMgr.getGLConnectionSettings().get(0));
+	    assertEquals("abc",validConfigMgr.getGLConnectionSettings().get(1));
+	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(2));
+	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(4));
 	    assertEquals("smallgl",validConfigMgr.getGLFileName());
 	}
 	
@@ -286,11 +289,12 @@ public class TestConfigurationManagerSQL {
 		autoFeedSetUpFile("testconfigurationManagerSQL5.txt");
 	    validConfigMgr=new ConfigurationManagerSQL(validFile);
 	    assertEquals(true,validConfigMgr.captureGLConnectionSettings(sc));
-	    assertEquals(4,validConfigMgr.getGLConnectionSettings().size());
-	    assertEquals("jdbc:mysql://LocalHost:3306/abc",validConfigMgr.getGLConnectionSettings().get(0));
-	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(1));
-	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(2));
-	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals(5,validConfigMgr.getGLConnectionSettings().size());
+	    assertEquals("jdbc:mysql://LocalHost:3306",validConfigMgr.getGLConnectionSettings().get(0));
+	    assertEquals("abc",validConfigMgr.getGLConnectionSettings().get(1));
+	    assertEquals("root",validConfigMgr.getGLConnectionSettings().get(2));
+	    assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(3));
+	    assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(4));
 	    assertEquals("smallgl",validConfigMgr.getGLFileName());
 	}
 	
@@ -941,7 +945,7 @@ public class TestConfigurationManagerSQL {
 	public void testcaptureValidGLConnectionSettings () {	
 		validConfigMgr=new ConfigurationManagerSQL(validFile);
 		validConfigMgr.capture("config10");
-		assertEquals(4,validConfigMgr.getGLConnectionSettings().size());
+		assertEquals(5,validConfigMgr.getGLConnectionSettings().size());
 	}
 	
 	/*
@@ -952,11 +956,12 @@ public class TestConfigurationManagerSQL {
 	public void testcaptureValidGLConnectionSettingsContent () {	
 		validConfigMgr=new ConfigurationManagerSQL(validFile);
 		validConfigMgr.capture("config10");
-		assertEquals(4,validConfigMgr.getGLConnectionSettings().size());
-		assertEquals("jdbc:mysql://LocalHost:3306/abc",validConfigMgr.getGLConnectionSettings().get(0));
-		assertEquals("root",validConfigMgr.getGLConnectionSettings().get(1));
-		assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(2));
-		assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(3));
+		assertEquals(5,validConfigMgr.getGLConnectionSettings().size());
+		assertEquals("jdbc:mysql://LocalHost:3306",validConfigMgr.getGLConnectionSettings().get(0));
+		assertEquals("abc",validConfigMgr.getGLConnectionSettings().get(1));
+		assertEquals("root",validConfigMgr.getGLConnectionSettings().get(2));
+		assertEquals("tonto",validConfigMgr.getGLConnectionSettings().get(3));
+		assertEquals("smallgl",validConfigMgr.getGLConnectionSettings().get(4));
 		
 	}
 	

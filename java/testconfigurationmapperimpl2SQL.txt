@@ -1,4 +1,5 @@
-jdbc:mysql://LocalHost:3306/wrong
+jdbc:mysql://LocalHost:3306
+wrong
 root
 tonto
 smallgl

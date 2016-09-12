@@ -31,13 +31,12 @@ public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 		userSpace.addConfiguration(dirname,config,configType);
 		userSpace.save();
 		if (configType.equalsIgnoreCase("CSV")){
-			System.out.println("Please go to the below location and drop your general ledger and operation data files");
+			System.out.println("Please go to the below location and drop your general ledger and BPA operational data files");
 		}
 		else 
 			{
-			System.out.println("Please go to the below location and drop your operation data files");
+			System.out.println("Please go to the below location and drop your BPA operational data files");
 		}
-		System.out.println("Please go to the below location and drop your general ledger and operation data files");
 		System.out.println(address+dirname);
 		System.out.println("When done, please enter the word done");
 			

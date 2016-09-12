@@ -1,8 +1,10 @@
-jdbc:mysql://LocalHost:3306/abc
+jdbc:mysql://LocalHost:3306
+abc
 root
 tonto
 faketable
-jdbc:mysql://LocalHost:3306/abc
+jdbc:mysql://LocalHost:3306
+abc
 root
 tonto
 smallgl

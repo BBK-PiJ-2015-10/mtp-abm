@@ -1,0 +1,6 @@
+BPA,Department,Account,cost
+implementation,Marketing,100000,22500.0
+implementation,Marketing,101000,11250.0
+implementation,R&D,100000,22500.0
+implementation,Sales,100000,45000.0
+implementation,Sales,101000,67500.0
