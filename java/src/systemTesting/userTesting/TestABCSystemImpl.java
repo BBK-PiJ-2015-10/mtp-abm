@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Ignore;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
@@ -32,10 +34,16 @@ public class TestABCSystemImpl {
 	
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 	
-	@Before
+	
 	public void setUpStreams() {
 	    System.setOut(new PrintStream(outContent));
 	    System.setErr(new PrintStream(errContent));
+	}
+	
+	@Before
+	public void initialize(){
+		//system1 = new ABCSystemImpl(sc);
+		setUpStreams();
 	}
 
 	@After
@@ -58,20 +66,34 @@ public class TestABCSystemImpl {
 	}
 	
 	
+	public void autoFeedSetUpFile(String filename){
+		try {
+			sc = new Scanner(new FileReader(filename));
+		} catch (FileNotFoundException ex){
+			System.out.println("File " + filename + " does not exist");
+		} catch (IOException ex){
+			ex.printStackTrace();
+		}	
+	}
+	
+	
 	/* 
-	* Testing creating a validUserSpace
+	* Testing MakeNewUserSpace with valid arguments
 	*/
 	//@Ignore
 	@Test
-	public void testrunMakeNewUserSpaceAuto() {	
-		autoFeedSetUp("user10");
-		system1.runMakeNewUserSpace();
-		String name = "user10";
+	public void testrunMakeNewUserSpaceValid1() {	
+		autoFeedSetUpFile("testABCSystemImpl1.txt");
+		system1 = new ABCSystemImpl(sc);
+		assertEquals(true,system1.runMakeNewUserSpace());
+		String name = "user100";
 		File temp = new File(address+name);
 		assertEquals(true,temp.isDirectory());
 		new File(address+name+"\\"+name+".dat").delete();
 		temp.delete();
 	}
+	
+	
 	
 	
 
