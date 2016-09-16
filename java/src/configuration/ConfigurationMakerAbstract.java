@@ -6,8 +6,6 @@ import user.UserSpace;
 
 import java.io.File;
 
-import sqlimpl.*;
-
 
 public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 		

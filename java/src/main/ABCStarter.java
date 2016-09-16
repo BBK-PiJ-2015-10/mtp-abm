@@ -41,17 +41,8 @@ public class ABCStarter {
 		manualFeedSetUp();
 		//autoFeedSetUpFile("validscriptUser10SQL.txt");
 		application = new ABCSystemImpl(sc);
-		application.run();
-		
-		
-		/*
-		* Files to adjust:
-		* - PeriodMaker, 3 locations.
-		* - ABCSystemsImpl, 1 location.
-		* - ConfigurationMakerImpl, 1 location.
-		*
-		*/
-				
+		application.runABC();
+			
 				
 		
 		

@@ -7,8 +7,7 @@ import java.util.Scanner;
 import configuration.ConfigurationManagerAbstract;
 
 /**
- * @author YasserAlejandro
- * A class implementing the PeriodMaker interface need to:
+ * A class implementing the PeriodMaker interface needs to:
  * - Capture a desired period name from the user.
  * - Create a period space on a particular location.
  * - Associate the period created to a particular configuration

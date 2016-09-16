@@ -1,7 +1,6 @@
 package main;
 
 /**
- * @author YasserAlejandro
  * A class implementing ABCSystem needs to:
  * - Provide access to the creation/retrieval of a UserSpace.
  * Configuration, Period, and ABC Reports.
@@ -16,6 +15,6 @@ public interface ABCSystem {
 	 * - Creation/retrieval of a period.
 	 * - Execution of ABC Reports.
 	 */ 
-	void run();
+	void runABC();
 	
 }

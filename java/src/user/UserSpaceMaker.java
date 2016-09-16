@@ -3,8 +3,7 @@ package user;
 import java.util.Scanner;
 
 /**
- * @author YasserAlejandro
- * Classes implementing UserSpaceMaker will create a UserSpace on a particular location.
+ * A class implementing UserSpaceMaker will create a UserSpace on a particular location.
  */
 public interface UserSpaceMaker {
 	

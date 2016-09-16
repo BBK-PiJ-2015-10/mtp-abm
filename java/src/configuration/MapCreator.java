@@ -3,8 +3,7 @@ package configuration;
 import java.util.Scanner;
 
 /**
- * @author YasserAlejandro
- * Classes implementing MapCreator need to:
+ * A class implementing MapCreator needs to:
  * - Create a map destination to host the mapping of general ledger dimensions of
  * interest to BPA driver sources.
  * - Extract from a general ledger source the unique value sets of dimensions

@@ -3,7 +3,6 @@ package report;
 import java.util.Scanner;
 
 /**
- * @author YasserAlejandro
  * A class implementing ReportGenerator needs to:
  * - Generate a report for a user based on a specified set of choices.
  */

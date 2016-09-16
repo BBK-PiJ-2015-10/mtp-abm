@@ -3,8 +3,7 @@ package client;
 import java.io.File;
 
 /**
- * @author YasserAlejandro
- * A class implementing ClientCosts need to:
+ * A class implementing ClientCosts needs to:
  * - Calculate the client costs associated with a particular ABC period run.
  * - Provide access to the file that holds the clients costs for an ABC period.
  */

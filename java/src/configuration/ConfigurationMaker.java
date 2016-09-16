@@ -4,9 +4,8 @@ import user.UserSpace;
 import java.util.Scanner;
 
 /**
- * @author YasserAlejandro
- * Classes implementing ConfigurationMaker will create a Configuration space on a
- * particular location and start a ConfigurationMapper object.
+ * A class implementing ConfigurationMaker will create a Configuration space 
+ * on a particular location and start a ConfigurationMapper object.
  */
 public interface ConfigurationMaker {
 	

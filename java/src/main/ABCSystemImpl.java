@@ -283,7 +283,7 @@ public class ABCSystemImpl implements ABCSystem {
 	
 	
 	@Override
-	public void run() {
+	public void runABC() {
 		
 		System.out.println("Welcome to the Activity Based Costing Application");
 		String choice;

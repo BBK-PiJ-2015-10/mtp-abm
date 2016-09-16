@@ -5,7 +5,6 @@ import java.util.Map;
 import bpa.BpaCostsMaker;
 
 /**
- * @author YasserAlejandro
  * A class implementing BpaClientWeightsCalculator needs to:
  * - Provide the client weights of all BPA sources associated
  * with a particular ABC period run.
