@@ -28,7 +28,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-
+/*
+ * SQL extension of BpaCostsMakerAbstract.
+ */
 public class BpaCostsMakerImplSQL extends BpaCostsMakerAbstract {
 		
 	public BpaCostsMakerImplSQL(PeriodMaker periodMaker){

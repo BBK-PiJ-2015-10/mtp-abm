@@ -13,20 +13,34 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/*
+ *  A class that holds information (configurations, types of configurations,
+ *  periods) about a User.
+ */
 public class UserSpace implements Serializable {
 	
+	/*
+	 * This is the file associated with this UserSpace.
+	 */
 	private File file;
 	
+	/*
+	 * This structure keeps a reference to all the configurations files
+	 * associated with a UserSpace.
+	 */
 	private Map<String,File> configurations = new HashMap<>();
 	
+	//This is a map of configuration type names to configuration names.
 	private Map<String,Set<String>> configTypesMap = new HashMap<>();
 	
+	//This is a map of configuration names to period names.
 	private Map<String,Set<String>> configPeriodMap = new HashMap<>();
 	
-	//Need to create JUnit Testing for this field
+	/*
+	 * This map provides a reference to all the period Files associated
+	 * with this configuration.
+	 */	
 	private Map<String,File> periods = new HashMap<>();
-	
-	//private Map<String,String>
 	
 	public UserSpace() {
 	}
@@ -39,7 +53,8 @@ public class UserSpace implements Serializable {
 		return this.file;
 	}
 	
-	
+
+	// Adds a configuration to a UserSpace object.  
 	public void addConfiguration(String configname, File file,String type){
 		configurations.put(configname, file);
 		if (configTypesMap.containsKey(type)){
@@ -52,6 +67,7 @@ public class UserSpace implements Serializable {
 		}
 	}
 	
+	//Removes a configuration from a UserSpace object.
 	public void removeConfiguration(String configName, String type){
 		configurations.remove(configName);
 		configTypesMap.get(type).remove(configName);
@@ -66,12 +82,15 @@ public class UserSpace implements Serializable {
 		return configurations.keySet();
 	}
 	
-	//Need to add JUnit test for this method
+	/*
+	 * Returns a Boolean true if a configuration name exists
+	 * within this UserSpace, and false if it doesn't.
+	 */
 	public boolean validConfiguration(String configName){
 		return configurations.containsKey(configName);
 	}
 	
-	//Need to create JT
+	// Adds a period to a UserSpace object. 
 	public void addPeriod(String periodName, File file,String configType){
 		periods.put(periodName, file);
 		if (configPeriodMap.containsKey(configType)){
@@ -84,12 +103,15 @@ public class UserSpace implements Serializable {
 		}
 	}
 	
-	//Need to create JT
+	/*
+	 * Returns a particular period file reference that exists in this
+	 * UserSpace.
+	 */
 	public File getPeriod(String periodName){
 		return periods.get(periodName);
 	}
 		
-	//Need to create JT
+	//Returns a set with the names of all the periods part of this UserSpace.
 	public Set<String> getPeriodNames(){
 		return periods.keySet();
 	}
@@ -98,7 +120,6 @@ public class UserSpace implements Serializable {
 	public boolean validPeriod(String periodName){
 		return periods.containsKey(periodName);
 	}
-	
 	
 	public Map<String,Set<String>> getConfigTypesMap(){
 		return this.configTypesMap;
@@ -124,7 +145,7 @@ public class UserSpace implements Serializable {
 	}
 	
 	
-	
+	//Persistent storage of all data structures associated with this UserSpace.
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
 		{
@@ -138,7 +159,8 @@ public class UserSpace implements Serializable {
 			ex.printStackTrace();
 		}
 	}
-		
+	
+	//Retrieval of all data structures associated with this UserSpace.
 	public boolean capture(String directoryname){
 		boolean isPresent;
 		String address = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\";
@@ -155,7 +177,6 @@ public class UserSpace implements Serializable {
 		} catch (IOException ex2){
 			isPresent = false;;
 		} 
-		
 		return isPresent;
 	}
 		

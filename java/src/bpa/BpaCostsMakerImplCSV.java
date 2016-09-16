@@ -19,7 +19,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.NoSuchElementException;
 
-
+/*
+ * CSV extension of BpaCostsMakerAbstract.
+ */
 public class BpaCostsMakerImplCSV extends BpaCostsMakerAbstract {
 			
 	public BpaCostsMakerImplCSV(PeriodMaker periodMaker){

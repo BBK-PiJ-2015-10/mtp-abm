@@ -19,8 +19,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.NoSuchElementException;
 
-
-
+/*
+ * Abstract implementation of BpaCostsMaker.
+ */
 public abstract class BpaCostsMakerAbstract implements BpaCostsMaker {
 	
     //This is a reference to the Period related to this BpaCost
@@ -165,11 +166,13 @@ public abstract class BpaCostsMakerAbstract implements BpaCostsMaker {
 	}
 	
 	
-	//Validate that all expected files are in place, if not, then returns false. If yes
-	//it returns true.
+	/*
+	 * Validate that all expected files are in place, if not, then returns false. If yes
+	 * it returns true.
+	 */
 	public abstract boolean validateInput(Map<String,File> periodFiles);
 	
-	
+
 	public abstract boolean processGL(Map<String,File> periodFiles,Map<String,String> driversMap );
 	
 

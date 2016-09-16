@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.util.NoSuchElementException;
 import configuration.ConfigurationManagerAbstract;
 
+/*
+ * An implementation of FileValidator.
+ */
+
 public class FileValidatorImplBpaMap implements FileValidator {
 
 	@Override

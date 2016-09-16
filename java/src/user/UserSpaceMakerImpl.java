@@ -3,6 +3,9 @@ package user;
 import java.util.Scanner;
 import java.io.File;
 
+/*
+ * An implementation of UserSpaceMaker in a disk directory of the User.
+ */
 public class UserSpaceMakerImpl implements UserSpaceMaker {
 	
 	@Override

@@ -11,6 +11,9 @@ import java.util.NoSuchElementException;
 
 import bpa.BpaCostsMaker;
 
+/*
+ * A implementation of BpaClientWeightsCalculator
+ */
 public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculator {
 	
     private BpaCostsMaker bpaCostsMaker;

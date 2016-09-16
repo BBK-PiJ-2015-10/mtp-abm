@@ -9,7 +9,10 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/*
+ * An implementation of BpaCostCalculator using a bpaCosts file
+ * an internal bpaCostsMap data structure. 
+ */
 public class BpaCostCalculatorImpl implements BpaCostCalculator {
 	
 	private File bpaCosts;

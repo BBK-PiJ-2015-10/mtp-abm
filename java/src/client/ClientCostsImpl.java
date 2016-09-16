@@ -11,7 +11,10 @@ import java.util.NoSuchElementException;
 
 import bpa.BpaCostCalculator;
 
-
+/*
+ * An implementation of ClientCosts leveraging a BpaCostCalculator, a
+ * clientCosts file, and a BpaClientWeightsCalculator.
+ */
 public class ClientCostsImpl implements ClientCosts {
 	
 	private BpaCostCalculator bpaCostCalculator;
@@ -40,9 +43,7 @@ public class ClientCostsImpl implements ClientCosts {
 			return true;
 	}
 	
-	/**
-	 * 
-	 */	
+		
 	@Override
 	public boolean calculateClientCosts() {
 		if ((bpaCostCalculator!=null) && (bpaClientWeightsCalculator!=null)){
