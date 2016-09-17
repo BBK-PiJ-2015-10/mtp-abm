@@ -1,5 +1,2 @@
 user100
-yes
-CSV
-config100
-done
+exit
