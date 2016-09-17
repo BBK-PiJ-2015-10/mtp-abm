@@ -3,9 +3,8 @@ package configuration;
 import java.util.Scanner;
 
 /**
- * A class implementing a ConfigurationMapper needs to:
- * - Direct the process of mapping a general ledger to a BPAs leveraging
- * a ConfigurationManager and a MapCreator.
+ * A class implementing a ConfigurationMapper needs to to direct the 
+ * process of mapping a general ledger to a BPAs.
  */
 public interface ConfigurationMapper {
 	

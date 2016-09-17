@@ -1,14 +1,10 @@
 package configuration;
 
-import java.util.Scanner;
-
-import user.UserSpace;
-
 import java.io.File;
 
-import sqlimpl.*;
-
-
+/*
+ * An SQL extension of ConfigurationMaker.
+ */
 public class ConfigurationMakerImplSQL extends ConfigurationMakerAbstract {
 
 	public ConfigurationMapper initConfigMapper(File config){

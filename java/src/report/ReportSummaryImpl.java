@@ -13,7 +13,10 @@ import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.HashMap;
 
-
+/*
+ * An extension of the ReportAbstract class. It fully defines
+ * abstract methods to provide a Summary type of an ABC report.
+ */
 public class ReportSummaryImpl extends ReportAbstract {
 	
 	private Map<String,Double> costsMap = new HashMap<>();

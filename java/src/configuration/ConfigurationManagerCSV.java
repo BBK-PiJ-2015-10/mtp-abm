@@ -1,28 +1,22 @@
 package configuration;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Set;
-import java.util.HashSet;
 import java.util.List;
-import java.util.LinkedList;
 
 import java.io.Serializable;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 
-import java.io.BufferedReader;
 
-import java.util.Scanner;
-
-
+/*
+* A CSV extension of the ConfigurationManagerAbstract. It adds a File object to reference
+* a general ledger file source. Accordingly fully defines save and capture methods.
+*/
 public class ConfigurationManagerCSV extends ConfigurationManagerAbstract implements Serializable {
 	
 	private File glFile;
@@ -31,7 +25,6 @@ public class ConfigurationManagerCSV extends ConfigurationManagerAbstract implem
 		super(file);
 	}
 		
-	
 	public void setGLFile(String filename){
 		glFile = bpaFilesMap.remove(filename);
 	}
@@ -44,12 +37,11 @@ public class ConfigurationManagerCSV extends ConfigurationManagerAbstract implem
 		return glFile.getName();
 	}
 	
-	
 	public boolean grabGL(){
 		return grabFileAttributes(glFile,glFilesAttributesMap);
 	}
 
-	
+
 	public void save(){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+file.getName()+".dat"));)
 		{
@@ -67,6 +59,7 @@ public class ConfigurationManagerCSV extends ConfigurationManagerAbstract implem
 		}
 	}
 	
+	
 	public void save(String newname){
 		try (ObjectOutputStream encode = new ObjectOutputStream(new FileOutputStream(file.getAbsolutePath()+"\\"+newname+".dat"));)
 		{
@@ -83,6 +76,7 @@ public class ConfigurationManagerCSV extends ConfigurationManagerAbstract implem
 			ex.printStackTrace();
 		}
 	}
+	
 	
 	public boolean capture(String configurationname){
 		boolean isPresent;

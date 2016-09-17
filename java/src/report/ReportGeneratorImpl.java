@@ -1,6 +1,5 @@
 package report;
 
-
 import java.util.Scanner;
 
 import java.util.List;
@@ -13,8 +12,14 @@ import period.PeriodMaker;
 
 import java.lang.IllegalArgumentException;
 
-
-
+/*
+ * An implementation of ReportGenerator. It presents and provides 
+ * the following reports:
+ * - Summary Client ABC report.
+ * - Detailed Client ABC report.
+ * - Summary BPA ABC report.
+ * - Detailed BPA ABC report.
+ */
 public class ReportGeneratorImpl implements ReportGenerator {
 	
 	private List<String> optionsList;

@@ -1,14 +1,10 @@
 package configuration;
 
-import java.util.Scanner;
-
-import user.UserSpace;
-
 import java.io.File;
 
-import sqlimpl.*;
-
-
+/*
+ * A CSV extension of ConfigurationMaker.
+ */
 public class ConfigurationMakerImplCSV extends ConfigurationMakerAbstract {
 		
 	public ConfigurationMapper initConfigMapper(File config){

@@ -23,10 +23,11 @@ import user.UserSpaceMakerImpl;
 import report.ReportGenerator;
 import report.ReportGeneratorImpl;
 
-
-
 import java.io.File;
 
+/*
+ * An implementation of ABCSystem. 
+ */
 public class ABCSystemImpl implements ABCSystem {
 
 	

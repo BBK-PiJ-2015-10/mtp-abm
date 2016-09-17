@@ -1,11 +1,12 @@
 package configuration;
 
-import java.io.File;
 import java.util.Scanner;
 import java.util.Arrays;
-
 import java.util.NoSuchElementException;
 
+/*
+ * An extension of ConfigurationMapperAbstract to support a CSV ABC configuration.
+ */
 public class ConfigurationMapperImplCSV extends ConfigurationMapperAbstract implements ConfigurationMapper {
 		
 	

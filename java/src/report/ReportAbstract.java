@@ -4,7 +4,12 @@ import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
 
-
+/*
+ * An abstract class that provides the following services:
+ * - Creates an external file on disk.
+ * - Orchestrates the different methods needed to create a
+ * report. 
+ */
 public abstract class ReportAbstract  {
 	
 	protected File reportFile;

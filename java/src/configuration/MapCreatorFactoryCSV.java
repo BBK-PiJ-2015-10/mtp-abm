@@ -1,8 +1,8 @@
 package configuration;
 
-import java.util.Map;
-import java.util.HashMap;
-
+/*
+ * A CSV extension of the MapCreatorFactoryAbstract class.
+ */
 public class MapCreatorFactoryCSV extends MapCreatorFactoryAbstract {
 	
 	public MapCreator getMapCreator(int choice){

@@ -6,7 +6,10 @@ import user.UserSpace;
 
 import java.io.File;
 
-
+/*
+ * An implementation of ConfigurationMaker create a directory space on an 
+ * User Space.
+ */
 public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 		
 	public String captureInput(String message, Scanner sc){

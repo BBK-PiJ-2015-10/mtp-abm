@@ -6,7 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-
+/*
+ * A class whose purpose is to start the ABC application. It provides the
+ * ability to run the application via interactive user input or by reading
+ * an external data source.
+ */
 public class ABCStarter {
 	
 	private Scanner sc;

@@ -1,8 +1,8 @@
 package configuration;
 
-import java.util.Map;
-import java.util.HashMap;
-
+/*
+ * An SQL extension of the MapCreatorFactoryAbstract class.
+ */
 public class MapCreatorFactorySQL extends MapCreatorFactoryAbstract {
 	
 	public MapCreator getMapCreator(int choice){

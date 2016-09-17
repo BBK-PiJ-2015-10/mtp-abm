@@ -1,13 +1,11 @@
 package configuration;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.io.BufferedReader;
 
 import java.util.List;
@@ -15,10 +13,11 @@ import java.util.NoSuchElementException;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Scanner;
 
-import validator.FileValidator;
-import validator.FileValidatorImplBpaMap;
-
+/*
+ * A CSV extension of a MapCreatorAbstract. 
+ */
 public class MapCreatorImplCSV extends MapCreatorAbstract {
 			
 	public MapCreatorImplCSV(boolean manualFlag){

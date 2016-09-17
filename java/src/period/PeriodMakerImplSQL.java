@@ -7,13 +7,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
 import java.util.Map;
 
 import configuration.ConfigurationManagerSQL;
-import configuration.ConfigurationManagerAbstract;
-import configuration.ConfigurationManagerCSV;
 import user.UserSpace;
 
+/*
+ * An SQL extension of PeriodMakerAbstract.
+ */
 public class PeriodMakerImplSQL extends PeriodMakerAbstract implements Serializable {
 		
 	public PeriodMakerImplSQL(UserSpace userSpace){

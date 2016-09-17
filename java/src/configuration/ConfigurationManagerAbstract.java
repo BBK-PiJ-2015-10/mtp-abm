@@ -2,27 +2,23 @@ package configuration;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import java.io.Serializable;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-
 import java.io.BufferedReader;
 
-import java.util.Scanner;
-
-
+/*
+ * A class that permanently hosts needed data structures to create and 
+ * manage an ABC configuration.
+ */
 public abstract class ConfigurationManagerAbstract implements Serializable {
 
 	protected File file;
@@ -33,10 +29,12 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 	
 	protected Map<String,Set<String>> bpaFilesAttributesMap = new HashMap<>();
 	
+	//Data structure with the BPA sources attributes of interests.
 	protected Map<String,List<String>> bpaFilesMainAttributesMap = new HashMap<>();
 	
 	protected Map<String,Set<String>> glFilesAttributesMap = new HashMap<>();
 	
+	//Data structure with the general ledger source attributes of interests.
 	protected Map<String,List<String>> glFilesMainAttributesMap = new HashMap<>();
 	
 	protected BufferedReader in = null;
@@ -53,17 +51,14 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 		return this.file;
 	}
 	
-	//Need to create JUnit for this
 	public void setglbpamapFile(File glbpamapFile){
 		this.glbpamapFile=glbpamapFile;
 	}
 	
-	//Need to create JUnit for this
 	public File getglbpamapFile(){
 		return this.glbpamapFile;
 	}
 	
-
 	public void loadFilesMap(){
 		if(file.exists() && file.isDirectory()){
 			File [] filenames = file.listFiles();
@@ -153,6 +148,16 @@ public abstract class ConfigurationManagerAbstract implements Serializable {
 	}
 	
 	
+	/*
+	 * An auxiliary method to facilitate the capturing of attributes of interest input
+	 * @param input is the name of the source file being validated.
+	 * @param message is the output being provided to the user. 
+	 * @param accumulator is the data structure to accumulate the input received by the user.
+	 * @param inputMap is the data structure being leveraged with the metadata from the configuration.
+	 * @param maxEntry is the maximum number of inputs being captured from the user.
+	 * @param sc is a scanner to capture user input.
+	 * @return Boolean true if successful, or false if an error occurs.
+	 */
 	public boolean readEntry(String input, String message,List<String> accumulator, Map<String,Set<String>> inputMap,int maxEntry,Scanner sc){
 		int counter =0;
 		boolean result = false;

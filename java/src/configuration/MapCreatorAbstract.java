@@ -5,6 +5,12 @@ import java.util.Scanner;
 import validator.FileValidator;
 import validator.FileValidatorImplBpaMap;
 
+/*
+ * An abstract implementation of MapCreator. It leverages a Boolean
+ * manual flag field to capture a manual/automatic MapCreation process.
+ * A FileValidator field is also leveraged to assist in the validation
+ * of the input provided by the user.
+ */
 public abstract class MapCreatorAbstract implements MapCreator {
 	
 	protected boolean manualFlag;

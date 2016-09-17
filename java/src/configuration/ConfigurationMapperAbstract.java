@@ -1,12 +1,12 @@
 package configuration;
 
-import java.io.File;
 import java.util.Scanner;
 
-import java.util.Arrays;
-
-import java.util.NoSuchElementException;
-
+/*
+ * An implementation of ConfigurationMapper. It leverages a ConfigurationManagerAbstract
+ * and a MapCreatorFactoryAbstract fields to support the direction of the 
+ * process of mapping a general ledger to a BPAs.
+ */
 public abstract class ConfigurationMapperAbstract implements ConfigurationMapper {
 	
 	protected ConfigurationManagerAbstract configurationManager;

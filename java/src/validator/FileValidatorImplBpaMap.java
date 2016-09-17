@@ -11,7 +11,6 @@ import configuration.ConfigurationManagerAbstract;
 /*
  * An implementation of FileValidator.
  */
-
 public class FileValidatorImplBpaMap implements FileValidator {
 
 	@Override

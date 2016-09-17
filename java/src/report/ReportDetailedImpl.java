@@ -15,7 +15,10 @@ import java.util.LinkedList;
 import java.util.regex.Pattern;
 import java.util.HashMap;
 
-
+/*
+ * An extension of the ReportAbstract class. It fully defines
+ * abstract methods to provide a Detailed type of an ABC report.
+ */
 public class ReportDetailedImpl extends ReportAbstract {
 	
 	private List<String> attributesOtherLabels = new LinkedList<>();

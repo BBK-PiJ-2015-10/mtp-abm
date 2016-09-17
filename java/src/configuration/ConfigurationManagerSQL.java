@@ -1,25 +1,20 @@
 package configuration;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import java.io.Serializable;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.BufferedReader;
-
-import java.util.Scanner;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,7 +22,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-
+/*
+* An SQL extension of the ConfigurationManagerAbstract. It adds a List<String> object to reference
+* a general ledger file SQL source. Accordingly fully defines save and capture methods.
+*/
 public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implements Serializable {
 
 	private List<String> glConnectionSettings = new LinkedList<>();
@@ -82,6 +80,9 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	}
 	
 	
+	/*
+	 * Tests of if an SQL table name provided is valid.
+	 */
 	public boolean testTable(String SQLTableName){
 		try {
 			Statement st = getGLConnection().createStatement();
@@ -92,7 +93,6 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 		}
 		
 	}
-	
 	
 	
 	public Connection getGLConnection(){
@@ -107,7 +107,6 @@ public class ConfigurationManagerSQL extends ConfigurationManagerAbstract implem
 	}
 	
 	
-	//This is a new one
 	public List<String> getGLConnectionSettings(){
 		return this.glConnectionSettings;
 	}
