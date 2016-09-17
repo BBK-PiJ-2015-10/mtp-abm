@@ -83,7 +83,7 @@ public class TestABCSystemImpl {
 	//Below are the tests for runMakeNewUserSpace
 	
 	/* 
-	* Testing MakeNewUserSpace with valid arguments
+	* Testing runMakeNewUserSpace with valid arguments
 	*/
 	//@Ignore
 	@Test
@@ -104,12 +104,12 @@ public class TestABCSystemImpl {
 //Below are the tests for runAccessExistingUserSpace
 
 	/* 
-	* Testing MakeNewUserSpace with a valid UserName
+	* Testing runMakeNewUserSpace with a valid UserName
 	*/
 	//@Ignore
 	@Test
 	public void testrunAccessExistingUserSpaceValid() {	
-		autoFeedSetUp("user18");
+		autoFeedSetUp("user17");
 		String test1 = "Please enter the name of the userspace you wish to access";
 		system1 = new ABCSystemImpl(sc);
 		system1.runAccessExistingUserSpace();
@@ -118,7 +118,7 @@ public class TestABCSystemImpl {
 	
 	
 	/* 
-	* Testing MakeNewUserSpace with an invalid UserName
+	* Testing runMakeNewUserSpace with an invalid UserName
 	*/
 	//@Ignore
 	@Test
@@ -139,7 +139,7 @@ public class TestABCSystemImpl {
 	//Below are the tests for runAccessExistingPeriod
 	
 	/* 
-	* Testing MakeNewConfiguration with a valid PeriodName
+	* Testing runMakeNewConfiguration with a valid PeriodName
 	*/
 	//@Ignore
 	@Test
@@ -156,7 +156,7 @@ public class TestABCSystemImpl {
 	}	
 	
 	/* 
-	* Testing MakeNewConfiguration with an invalid PeriodName
+	* Testing runMakeNewConfiguration with an invalid PeriodName
 	*/
 	//@Ignore
 	@Test
@@ -175,8 +175,52 @@ public class TestABCSystemImpl {
 				outContent.toString().trim().length()));
 	}
 	
+//////////////////////////////////////////////////////////////////////////////
 	
 	
+	//Below are the tests for runMakeNewPeriod
+
+	/* 
+	* Testing runMakeNewPeriod with a valid Arguments 
+	*/
+	//@Ignore
+	@Test
+	public void testrunGenerateReportValid() {	
+		//manualFeedSetUp();
+		autoFeedSetUpFile("testABCSystemImpl6.txt");
+		String test1 = "Please enter the name of the userspace you wish to access";
+		String test2 = "Please enter the name of the period you wish to access";
+		int beg3 = test1.length()+test2.length()+4;
+		String test3 = "For: SummaryClientReport, type: 1";
+		int beg4 = beg3+test3.length()+2;
+		String test4 = "For: DetailedClientReport, type: 2";
+		int beg5 = beg4+test4.length()+2;
+		String test5 = "For: SummaryBPAReport, type: 3";
+		int beg6 = beg5+test5.length()+2;
+		String test6 = "For: DetailedBPAReport, type: 4";
+		int beg7 = beg6+test6.length()+2;
+		String test7 = "Enter yes if you wish to run another report(s)";
+		int beg8 = beg7+test7.length()+2;
+		String test8 = "Enter no if you wish to return to the main menu";
+		int beg9 = beg8+test8.length()+2;
+		String test9 = "Enter exit if you wish to exit the application";	
+		int end = outContent.toString().length();
+		system1 = new ABCSystemImpl(sc);
+		system1.runAccessExistingUserSpace();
+		system1.accessExistingPeriod();
+		system1.runGenerateReport();
+		assertEquals(test3,outContent.toString().trim().substring(beg3,beg3+test3.length()));
+		assertEquals(test4,outContent.toString().trim().substring(beg4,beg4+test4.length()));
+		assertEquals(test5,outContent.toString().trim().substring(beg5,beg5+test5.length()));
+		assertEquals(test6,outContent.toString().trim().substring(beg6,beg6+test6.length()));
+		assertEquals(test7,outContent.toString().trim().substring(beg7,beg7+test7.length()));
+		assertEquals(test8,outContent.toString().trim().substring(beg8,beg8+test8.length()));
+		assertEquals(test9,outContent.toString().trim().substring(beg9,beg9+test9.length()));
+	}		
 	
+	//run report with 2 reports.
+	//delete created reports.
+	//run abc
+	//validSelection methods 4 tests in total.
 
 }
