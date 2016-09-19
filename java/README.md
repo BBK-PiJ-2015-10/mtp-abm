@@ -1,10 +1,6 @@
-CHANGE OF LOCATION OF USERSPACE DIRECTORY INSTRUCTIONS.
+Description of folder contents:
 
-Currently all UserSpaces are being created in a directory within the developer's machine.
-
-To change this default directory please go to:
-
-- User package, UserSpaceMakerImpl class, and replace the address on row 16 with 
-the directory address of your choice.
-- User package, UserSpace class, and replace the address on row 166 with 
-the directory address of your choice.
+- The src folder contains source code and Unit tests code.
+- The doc folder contains the JavaDocs.
+- Each txt file within this folder contains the textscript
+to automatically run Unit tests.
