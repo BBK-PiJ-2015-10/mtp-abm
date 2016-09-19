@@ -43,7 +43,6 @@ public class TestABCSystemImpl {
 	
 	@Before
 	public void initialize(){
-		//system1 = new ABCSystemImpl(sc);
 		setUpStreams();
 	}
 
@@ -80,10 +79,10 @@ public class TestABCSystemImpl {
 ////////////////////////////////////////////////////////////////////////////////
 	
 	
-	//Below are the tests for runMakeNewUserSpace
+	//Below are the tests for runMakeNewUserSpace.
 	
 	/* 
-	* Testing runMakeNewUserSpace with valid arguments
+	* Testing runMakeNewUserSpace with valid arguments.
 	*/
 	//@Ignore
 	@Test
@@ -101,10 +100,10 @@ public class TestABCSystemImpl {
 ///////////////////////////////////////////////////////////////////////////////
 	
 	
-//Below are the tests for runAccessExistingUserSpace
+//Below are the tests for runAccessExistingUserSpace.
 
 	/* 
-	* Testing runMakeNewUserSpace with a valid UserName
+	* Testing runMakeNewUserSpace with a valid UserName.
 	*/
 	//@Ignore
 	@Test
@@ -118,7 +117,7 @@ public class TestABCSystemImpl {
 	
 	
 	/* 
-	* Testing runMakeNewUserSpace with an invalid UserName
+	* Testing runMakeNewUserSpace with an invalid UserName.
 	*/
 	//@Ignore
 	@Test
@@ -136,10 +135,10 @@ public class TestABCSystemImpl {
 ///////////////////////////////////////////////////////////////////////////////
 	
 	
-	//Below are the tests for runAccessExistingPeriod
+	//Below are the tests for runAccessExistingPeriod.
 	
 	/* 
-	* Testing runMakeNewConfiguration with a valid PeriodName
+	* Testing runMakeNewConfiguration with a valid PeriodName.
 	*/
 	//@Ignore
 	@Test
@@ -156,7 +155,7 @@ public class TestABCSystemImpl {
 	}	
 	
 	/* 
-	* Testing runMakeNewConfiguration with an invalid PeriodName
+	* Testing runMakeNewConfiguration with an invalid PeriodName.
 	*/
 	//@Ignore
 	@Test
@@ -178,16 +177,16 @@ public class TestABCSystemImpl {
 //////////////////////////////////////////////////////////////////////////////
 	
 	
-	//Below are the tests for runMakeNewPeriod
+	//Below are the tests for runGenerateReport
 
+	
 	/* 
-	* Testing runMakeNewPeriod with a valid Arguments 
+	* Testing runGenerateReport with a valid Arguments. 
 	*/
 	//@Ignore
 	@Test
-	public void testrunGenerateReportValid() {	
-		//manualFeedSetUp();
-		autoFeedSetUpFile("testABCSystemImpl6.txt");
+	public void testrunGenerateReportValidOneReportI() {	
+		autoFeedSetUpFile("testABCSystemImpl7.txt");
 		String test1 = "Please enter the name of the userspace you wish to access";
 		String test2 = "Please enter the name of the period you wish to access";
 		int beg3 = test1.length()+test2.length()+4;
@@ -216,11 +215,140 @@ public class TestABCSystemImpl {
 		assertEquals(test7,outContent.toString().trim().substring(beg7,beg7+test7.length()));
 		assertEquals(test8,outContent.toString().trim().substring(beg8,beg8+test8.length()));
 		assertEquals(test9,outContent.toString().trim().substring(beg9,beg9+test9.length()));
+		String tempAddress = "C:\\Users\\YasserAlejandro\\mp\\mtp-abm\\user17\\period17\\";
+		String tempName1 = "reportSummaryClient.csv";
+		String tempName2 = "reportDetailedClient.csv";
+		String tempName3 = "reportSummaryBPA.csv";
+		String tempName4 = "reportDetailedBPA.csv";		
+		File tempFile1 = new File(tempAddress+tempName1);
+		File tempFile2 = new File(tempAddress+tempName2);
+		File tempFile3 = new File(tempAddress+tempName3);
+		File tempFile4 = new File(tempAddress+tempName4);
+		assertEquals(true,tempFile1.exists());
+		assertEquals(true,tempFile2.exists());
+		assertEquals(true,tempFile3.exists());
+		assertEquals(true,tempFile4.exists());
+		tempFile1.delete();
+		tempFile2.delete();
+		tempFile3.delete();
+		tempFile4.delete();
+	}	
+	
+	
+/////////////////////////////////////////////////////////////////////////////
+	
+	
+	//Below are the tests for runABC
+	
+	/* 
+	* Testing runABC with a valid Arguments. 
+	*/
+	//@Ignore
+	@Test
+	public void testrunABC() {	
+		String test1 = "Welcome to the Activity Based Costing Application";
+		String test2 = "To create a new user type: user";
+		String test3 = "To create a new configuration type: configuration";
+		String test4 = "To create a new period type: period";
+		String test5 = "To run a report type: report";
+		String test6 = "To exit the application type: exit";
+		String test7 = "Good bye user. Thank you for choosing Activity Based Costing Application";
+		int beg2 = test1.length()+4;
+		int beg3 = beg2+test2.length()+2;
+		int beg4 = beg3+test3.length()+2;
+		int beg5 = beg4+test4.length()+2;
+		int beg6 = beg5+test5.length()+2;
+		int beg7 = beg6+test6.length()+2;
+		autoFeedSetUp("exit");
+		system1 = new ABCSystemImpl(sc);
+		system1.runABC();
+		assertEquals(test1,outContent.toString().trim().substring(0,test1.length()));
+		assertEquals(test2,outContent.toString().trim().substring(beg2,beg2+test2.length()));
+		assertEquals(test3,outContent.toString().trim().substring(beg3,beg3+test3.length()));
+		assertEquals(test4,outContent.toString().trim().substring(beg4,beg4+test4.length()));
+		assertEquals(test5,outContent.toString().trim().substring(beg5,beg5+test5.length()));
+		assertEquals(test6,outContent.toString().trim().substring(beg6,beg6+test6.length()));
+		int end = outContent.toString().trim().length();
+		assertEquals(test7,outContent.toString().trim().substring(beg7,end));
+	}
+	
+	
+///////////////////////////////////////////////////////////////////////////////////////////
+	
+	//Below are the tests for validSelection
+	
+	/* 
+	* Testing validSelection with valid and invalid arguments. 
+	*/
+	//@Ignore
+	@Test
+	public void testValidSelectionValidInvalid() {	
+		system1 = new ABCSystemImpl(sc);
+		assertEquals(true,system1.validSelection("yes"));
+		assertEquals(true,system1.validSelection("no"));
+		assertEquals(true,system1.validSelection("exit"));
+		assertEquals(false,system1.validSelection("other"));
+		assertEquals(false,system1.validSelection(""));
+	}
+	
+
+///////////////////////////////////////////////////////////////////////////////////////////
+	
+	//Below are the tests for validMainSelection
+	
+	/* 
+	* Testing validMainSelection with valid and invalid arguments. 
+	*/
+	//@Ignore
+	@Test
+	public void testValidMainSelectionValidInvalid() {	
+		system1 = new ABCSystemImpl(sc);
+		assertEquals(true,system1.validMainSelection("user"));
+		assertEquals(true,system1.validMainSelection("configuration"));
+		assertEquals(true,system1.validMainSelection("report"));
+		assertEquals(true,system1.validMainSelection("period"));
+		assertEquals(true,system1.validMainSelection("exit"));
+		assertEquals(false,system1.validSelection("anything"));
+		assertEquals(false,system1.validSelection(""));
+	}	
+	
+
+///////////////////////////////////////////////////////////////////////////////////////////
+	
+	//Below are the tests for ABCServiceRequest
+
+	/* 
+	* Testing launchABCServiceRequest with valid and invalid arguments. 
+	*/
+	//@Ignore
+	@Test
+	public void testLaunchABCServiceRequestValidInvalid() {	
+		system1 = new ABCSystemImpl(sc);
+		assertEquals(true,system1.launchABCServiceRequest("exit"));
+		try {
+			system1.launchABCServiceRequest("user");
+		} catch (NullPointerException ex){
+			assertEquals("java.lang.NullPointerException",ex.getClass().getName());
+		}
+		try {
+			system1.launchABCServiceRequest("configuration");
+		} catch (NullPointerException ex){
+			assertEquals("java.lang.NullPointerException",ex.getClass().getName());
+		}
+		try {
+			system1.launchABCServiceRequest("period");
+		} catch (NullPointerException ex){
+			assertEquals("java.lang.NullPointerException",ex.getClass().getName());
+		}
+		try {
+			system1.launchABCServiceRequest("report");
+		} catch (NullPointerException ex){
+			assertEquals("java.lang.NullPointerException",ex.getClass().getName());
+		}
+		assertEquals(false,system1.launchABCServiceRequest("somethinginvalid"));
+		assertEquals(false,system1.launchABCServiceRequest(""));
 	}		
 	
-	//run report with 2 reports.
-	//delete created reports.
-	//run abc
-	//validSelection methods 4 tests in total.
+
 
 }
