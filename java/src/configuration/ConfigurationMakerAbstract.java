@@ -42,7 +42,7 @@ public abstract class ConfigurationMakerAbstract implements ConfigurationMaker {
 		System.out.println("When done, please enter the word done");
 			
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(1);
 		} catch (InterruptedException ex)
 		{
 			System.out.println("Time is up");

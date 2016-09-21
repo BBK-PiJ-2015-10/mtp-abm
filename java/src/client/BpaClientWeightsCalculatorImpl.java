@@ -57,7 +57,7 @@ public class BpaClientWeightsCalculatorImpl implements BpaClientWeightsCalculato
 						Integer pos2=null;
 						for (int i=0;i<sentence.length;i++){
 							  if (bpaCostsMaker.getPeriodMaker().getConfiguration().getBpaMainFilesAttributesMap().get(input).contains(sentence[i])){
-								if (pos1==null){
+								if (bpaCostsMaker.getPeriodMaker().getConfiguration().getBpaMainFilesAttributesMap().get(input).get(0).equals(sentence[i])){
 									pos1=i;
 								}
 								else {
